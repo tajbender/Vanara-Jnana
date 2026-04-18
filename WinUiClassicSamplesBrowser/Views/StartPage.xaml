@@ -8,11 +8,11 @@
 
     <Grid >
         <Grid.RowDefinitions>
-            <RowDefinition Height="256"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Grid x:Name="DirectXHeaderGrid" Grid.Row="0"  MaxHeight="256">
+        <Grid x:Name="DirectXHeaderGrid" Grid.Row="0" MaxHeight="136">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition>Auto</ColumnDefinition>
                 <ColumnDefinition>Auto</ColumnDefinition>
@@ -50,7 +50,7 @@
             </StackPanel>
             <Image x:Name="WinUiSailBoatHeader"
                    Grid.Column="2" 
-                   Grid.Row="0"
+                   Grid.Row="0" Grid.RowSpan="2" 
                    VerticalAlignment="Stretch"
                    Source="/Assets/WinUi-SailBoat-Header-32bit.png"
                    Opacity="0.92"

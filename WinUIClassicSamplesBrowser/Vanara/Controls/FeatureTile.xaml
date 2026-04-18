@@ -8,7 +8,7 @@
 
     <!--  Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
           BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" -->
-    <Grid x:Name="Root" BorderThickness="1" CornerRadius="12" Padding="16" >
+    <Grid x:Name="Root" BorderThickness="1" BorderBrush="Beige" CornerRadius="12" Padding="16" Margin="7">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
