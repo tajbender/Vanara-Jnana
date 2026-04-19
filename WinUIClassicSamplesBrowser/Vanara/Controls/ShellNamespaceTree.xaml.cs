@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.UI.Xaml.Controls;
 
 namespace ClassicSamplesBrowser.Vanara.Controls;
 
-internal class ShellNamespaceTree
+public sealed partial class ShellNamespaceTree : UserControl
 {
 }

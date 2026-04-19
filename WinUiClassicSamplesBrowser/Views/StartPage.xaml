@@ -12,7 +12,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Grid x:Name="DirectXHeaderGrid" Grid.Row="0" MaxHeight="136">
+        <Grid x:Name="DirectXHeaderGrid" Grid.Row="0" Background="#3A2F5F" MaxHeight="192" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition>Auto</ColumnDefinition>
                 <ColumnDefinition>*</ColumnDefinition>
@@ -24,78 +24,54 @@
             </Grid.RowDefinitions>
 
             <!-- DirectX Background Layer -->
-            <muxc:SwapChainPanel x:Name="DxHeaderSwapChainPanel" 
-                                 Grid.Column="0" Grid.ColumnSpan="3"  
-                                 Grid.Row="0" Grid.RowSpan="2"
-                                 HorizontalAlignment="Stretch" 
-                                 VerticalAlignment="Stretch"/>
-            <!-- Overlay-Text -->
-            <StackPanel Grid.Column ="0" Grid.Row="0" Grid.RowSpan="2" Orientation="Vertical" VerticalAlignment="Center" Margin="7">
-                <Image x:Name="VanaraLogo" HorizontalAlignment="Left" MaxHeight="64" Source="/Assets/Vanara/Vanara-64px.png" VerticalAlignment="Center"/>
+            <muxc:SwapChainPanel x:Name="DxHeaderSwapChainPanel" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Grid.RowSpan="2"
+                                 HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+
+            <!-- AppBar Overlay -->
+            <StackPanel Grid.Column ="0" Grid.Row="0" Grid.RowSpan="2" Margin="7" Orientation="Vertical" VerticalAlignment="Center" >
+                <Image x:Name="LeftOverlayLogo" HorizontalAlignment="Left" MaxHeight="64" Source="/Assets/Vanara/Vanara-64px.png" 
+                       VerticalAlignment="Center"/>
                 <TextBlock FontSize="32" FontWeight="SemiBold" Text="Vanara Jñāna"/>
-                <TextBlock FontSize="13" Opacity="0.7" Text="APIs • Samples • Versions • Wrappers"/>
+                <TextBlock FontSize="13" Opacity="0.7" Text="v5+ - Development Build"/>
             </StackPanel>
             <StackPanel Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Orientation="Horizontal">
-                <controls:FeatureTile Icon="&#xE71E;" Subtitle="Explore releases" Title="NuGet Versions" />
-                <controls:FeatureTile Icon="&#xE8A5;" Subtitle="Browse types &amp; members" Title="GitHub"/>
-                <controls:FeatureTile Icon="&#xE8A5;" Subtitle="Browse types &amp; members" Title="APIs"/>
-                <controls:FeatureTile Icon="&#xE8EF;" Subtitle="View sample code" Title="Samples"/>
-                <controls:FeatureTile Icon="&#xE8EF;" Subtitle="Find wrappers" Title="Wrappers"/>
+                <controls:FeatureTile Icon="&#xE71E;" Subtitle="Official Releases." Title="NuGet"/>
+                <controls:FeatureTile Icon="&#xE8A5;" Subtitle="Browse Source Code." Title="GitHub"/>
+                <controls:FeatureTile Icon="&#xE8A5;" Subtitle="Search Types, Members, Interfaces." Title="APIs"/>
+                <controls:FeatureTile Icon="&#xE8EF;" Subtitle="Find Wrappers." Title="Wrappers"/>
+                <controls:FeatureTile Icon="&#xE8EF;" Subtitle="View Examples." Title="Samples"/>
             </StackPanel>
-            <Image x:Name="WinUiSailBoatHeader"
-                   Grid.Column="2" 
-                   Grid.Row="0" Grid.RowSpan="2" 
-                   VerticalAlignment="Stretch"
-                   Source="/Assets/WinUi-SailBoat-Header-32bit.png"
-                   Opacity="0.92"
-                   Margin="32,0,0,16"
-                   IsHitTestVisible="False"
-                   HorizontalAlignment="Right"/>
+
+            <!-- WinUI SailBoat Header Image -->
+            <Image x:Name="SailBoatHeader" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" HorizontalAlignment="Right"
+                   IsHitTestVisible="False" Opacity="0.92" Source="/Assets/WinUi-SailBoat-Header-32bit.png" VerticalAlignment="Stretch" />
         </Grid>
 
-        <!--<Grid Grid.Row="1" ColumnSpacing="16" RowSpacing="16">
+        <Grid x:Name="MainContentGrid" Grid.Row="1" Background="#1E2A38" Opacity="0.76" Padding="32" >
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <controls:FeatureTile Grid.Column="0" Grid.Row="0" 
-                                  Icon="&#xE71E;"
-                                  Title="NuGet Versions"
-                                  Subtitle="Explore releases"/>
-            <controls:FeatureTile Grid.Column="1" Grid.Row="0" 
-                                  Icon="&#xE8A5;"
-                                  Title="GitHub Repository"
-                                  Subtitle="Browse types &amp; members"/>
-            <controls:FeatureTile Grid.Row="0" Grid.Column="2"
-                                  Icon="&#xE8A5;"
-                                  Title="API Explorer"
-                                  Subtitle="Browse types &amp; members"/>
-            <controls:FeatureTile Grid.Row="0" Grid.Column="3"
-                                  Icon="&#xE8EF;"
-                                  Title="Samples Browser"
-                                  Subtitle="View sample code"/>
-        </Grid>-->
-
-        <!--  TODO: Add
-              Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
-              BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" -->
-
-        <Grid x:Name="MainContentGrid" Grid.Row="1" Padding="32">
-            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="320"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="320"/>
             </Grid.ColumnDefinitions>
 
-            <Border Grid.Column="0" BorderThickness="3" BorderBrush="Beige" Margin="7">
+            <!-- Shell Namespace Tree -->
+            <controls:ShellNamespaceTree x:Name="ShellNamespaceTree" Grid.Column="0" BorderThickness="3" BorderBrush="Beige" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+
+            <Border Grid.Column="1" BorderThickness="3" BorderBrush="Beige" Margin="7">
+                <StackPanel Spacing="4">
+                    <TextBlock FontSize="20" FontWeight="SemiBold" Text="What this tool does."/>
+                    <TextBlock Opacity="0.8" Text="This Explorer lets you browse Vanara APIs, inspect types, view samples, explore NuGet versions, and understand wrapper relationships. It is powered by reflection, NuGet metadata, and the Vanara test suite." TextWrapping="Wrap"/>
+                    <TextBlock FontWeight="SemiBold" Margin="0,12,0,0" Text="Core Features"/>
+                    <TextBlock Text="• API Tree (Namespaces → Types → Members)" TextWrapping="Wrap"/>
+                    <TextBlock Text="• NuGet Version Selector" TextWrapping="Wrap"/>
+                    <TextBlock Text="• Sample Mapping (Unit Tests → API)" TextWrapping="Wrap"/>
+                    <TextBlock Text="• Wrapper Detection (IShellItem → ShellItem)" TextWrapping="Wrap"/>
+                    <TextBlock Text="• Reflection‑based Metadata" TextWrapping="Wrap"/>
+                    <TextBlock Text="• TaskScheduler Integration" TextWrapping="Wrap"/>
+                </StackPanel>
             </Border>
 
-            <StackPanel Grid.Column="1" Padding="32" Spacing="12" HorizontalAlignment="Left" BorderThickness="3" BorderBrush="Beige" Margin="7">
+            <StackPanel Grid.Column="2" Padding="32" Spacing="12" HorizontalAlignment="Left" BorderThickness="3" BorderBrush="Beige" Margin="7">
                 <TextBlock FontSize="20" FontWeight="SemiBold" Text="What this tool does."/>
                 <TextBlock Opacity="0.8" Text="This Explorer lets you browse Vanara APIs, inspect types, view samples, explore NuGet versions, and understand wrapper relationships. It is powered by reflection, NuGet metadata, and the Vanara test suite." TextWrapping="Wrap"/>
                 <TextBlock FontWeight="SemiBold" Margin="0,12,0,0" Text="Core Features"/>
@@ -108,6 +84,7 @@
                     <TextBlock Text="• TaskScheduler Integration" TextWrapping="Wrap"/>
                 </StackPanel>
             </StackPanel>
+
         </Grid>
     </Grid>
 </Page>

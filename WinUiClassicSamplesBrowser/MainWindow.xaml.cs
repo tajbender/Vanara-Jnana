@@ -3,6 +3,8 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Composition.SystemBackdrops;
 using ClassicSamplesBrowser.Views;
 using ClassicSamplesBrowser.Helpers;
+using System.Drawing;
+using Windows.Storage;
 
 namespace ClassicSamplesBrowser;
 
@@ -12,10 +14,16 @@ public sealed partial class MainWindow : Window
     private MicaController _micaController;
     private SystemBackdropConfiguration _backdropConfig;
 
+    //private Size _initialWindowSize = new Size() { Width = 800, Height = 600 };
+
     public MainWindow()
     {
         InitializeComponent();
         TrySetMicaBackdrop();
+
+        //var initialSize = ApplicationData.Current.LocalSettings.Values["InitialWindowSize"] as string;
+        //this.AppWindow.Size = _initialWindowSize;
+        // AppWindow.Size = new Size() { Width = 800, Height = 600 };
 
         RootFrame.Navigate(typeof(StartPage));
     }
