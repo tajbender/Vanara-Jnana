@@ -14,7 +14,6 @@
 	  <Page Remove="DOCS\WinForms Sampler\**" />
 	</ItemGroup>
 	<ItemGroup>
-		<None Remove="Assets\Vanara\Insert-AMIGA-Disk.png" />
 		<None Remove="Assets\Vanara\WinUi-Sailing.png" />
 		<None Remove="Vanara\Controls\FeatureTile.xaml" />
 		<None Remove="Vanara\Controls\FloatingStatusBar.xaml" />
@@ -39,7 +38,7 @@
 		<Folder Include="Templates\RyderShell\Project\" />
 	</ItemGroup>
 	<ItemGroup>
-	  <Content Update="Assets\Vanara\Insert-AMIGA-Disk.png">
+	  <Content Update="Assets\Vanara\Insert_Amiga-Disk.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </Content>
 	  <Content Update="Assets\Vanara\WinUi-Sailing.png">
