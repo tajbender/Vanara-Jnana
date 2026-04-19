@@ -15,8 +15,8 @@
         <Grid x:Name="DirectXHeaderGrid" Grid.Row="0" MaxHeight="136">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition>Auto</ColumnDefinition>
-                <ColumnDefinition>Auto</ColumnDefinition>
                 <ColumnDefinition>*</ColumnDefinition>
+                <ColumnDefinition>Auto</ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
@@ -29,24 +29,18 @@
                                  Grid.Row="0" Grid.RowSpan="2"
                                  HorizontalAlignment="Stretch" 
                                  VerticalAlignment="Stretch"/>
-            <!-- Overlay: WinUi on the sea. -->
-            <Image x:Name="VanaraLogo" Grid.Column="0" Grid.Row="0"  MaxHeight="64" Source="/Assets/Vanara/Vanara-64px.png" VerticalAlignment="Center"/>
             <!-- Overlay-Text -->
-            <StackPanel Grid.Column ="1" Grid.Row="0" Orientation="Vertical" VerticalAlignment="Center">
-                <TextBlock FontSize="32" FontWeight="SemiBold" Text="Vanara API Explorer"/>
-                <TextBlock FontSize="16" Opacity="0.7" Text="Browse APIs, Samples, Wrappers, NuGet Versions"/>
+            <StackPanel Grid.Column ="0" Grid.Row="0" Grid.RowSpan="2" Orientation="Vertical" VerticalAlignment="Center" Margin="7">
+                <Image x:Name="VanaraLogo" HorizontalAlignment="Left" MaxHeight="64" Source="/Assets/Vanara/Vanara-64px.png" VerticalAlignment="Center"/>
+                <TextBlock FontSize="32" FontWeight="SemiBold" Text="Vanara Jñāna"/>
+                <TextBlock FontSize="13" Opacity="0.7" Text="APIs • Samples • Versions • Wrappers"/>
             </StackPanel>
-            <StackPanel Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" Orientation="Horizontal">
-                <controls:FeatureTile Grid.Column="0" Grid.Row="0" 
-                                      Icon="&#xE71E;"
-                                      Title="NuGet Versions"
-                                      Subtitle="Explore releases"/>
-                <controls:FeatureTile Grid.Column="1" Grid.Row="0" 
-                                      Icon="&#xE8A5;" Subtitle="Browse types &amp; members" Title="GitHub Repository"/>
-                <controls:FeatureTile Grid.Column="2" Grid.Row="0" 
-                                      Icon="&#xE8A5;" Subtitle="Browse types &amp; members" Title="API Explorer"/>
-                <controls:FeatureTile Grid.Column="3" Grid.Row="0"
-                                      Icon="&#xE8EF;" Subtitle="View sample code" Title="Samples Browser"/>
+            <StackPanel Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Orientation="Horizontal">
+                <controls:FeatureTile Icon="&#xE71E;" Subtitle="Explore releases" Title="NuGet Versions" />
+                <controls:FeatureTile Icon="&#xE8A5;" Subtitle="Browse types &amp; members" Title="GitHub"/>
+                <controls:FeatureTile Icon="&#xE8A5;" Subtitle="Browse types &amp; members" Title="APIs"/>
+                <controls:FeatureTile Icon="&#xE8EF;" Subtitle="View sample code" Title="Samples"/>
+                <controls:FeatureTile Icon="&#xE8EF;" Subtitle="Find wrappers" Title="Wrappers"/>
             </StackPanel>
             <Image x:Name="WinUiSailBoatHeader"
                    Grid.Column="2" 
@@ -92,54 +86,26 @@
               Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
               BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" -->
 
-        <!-- MAIN CONTENT -->
-        <Grid Grid.Row="1" Padding="32">
+        <Grid x:Name="MainContentGrid" Grid.Row="1" Padding="32">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="320"/>
             </Grid.ColumnDefinitions>
 
-            <!-- LEFT: ACTIONS -->
-            <StackPanel Spacing="20">
-                <!-- Version Selector -->
-                <StackPanel>
-                    <TextBlock Text="Vanara Version"
-                               FontWeight="SemiBold"
-                               Margin="0,0,0,4"/>
-                    <ComboBox x:Name="VersionSelector"
-                              PlaceholderText="Loading versions..."
-                              Width="260"/>
-                </StackPanel>
+            <Border Grid.Column="0" BorderThickness="3" BorderBrush="Beige" Margin="7">
+            </Border>
 
-                <Button Content="Load Assemblies"
-                        Click="LoadAssemblies_Click"
-                        Width="260"/>
-
-                <Button Content="Open API Explorer"
-                        Click="OpenExplorer_Click"
-                        Width="260"/>
-
-                <Button Content="Open Samples Browser"
-                        Click="OpenSamples_Click"
-                        Width="260"/>
-
-                <Button Content="Project Builder (coming soon)"
-                        Width="260"
-                        IsEnabled="False"/>
-            </StackPanel>
-
-            <!-- RIGHT: INFO PANEL -->
-            <StackPanel Grid.Column="1" Padding="32" Spacing="12">
+            <StackPanel Grid.Column="1" Padding="32" Spacing="12" HorizontalAlignment="Left" BorderThickness="3" BorderBrush="Beige" Margin="7">
                 <TextBlock FontSize="20" FontWeight="SemiBold" Text="What this tool does."/>
                 <TextBlock Opacity="0.8" Text="This Explorer lets you browse Vanara APIs, inspect types, view samples, explore NuGet versions, and understand wrapper relationships. It is powered by reflection, NuGet metadata, and the Vanara test suite." TextWrapping="Wrap"/>
                 <TextBlock FontWeight="SemiBold" Margin="0,12,0,0" Text="Core Features"/>
                 <StackPanel Spacing="4">
-                    <TextBlock Text="• API Tree (Namespaces → Types → Members)"/>
-                    <TextBlock Text="• NuGet Version Selector"/>
-                    <TextBlock Text="• Sample Mapping (Unit Tests → API)"/>
-                    <TextBlock Text="• Wrapper Detection (IShellItem → ShellItem)"/>
-                    <TextBlock Text="• Reflection‑based Metadata"/>
-                    <TextBlock Text="• TaskScheduler Integration"/>
+                    <TextBlock Text="• API Tree (Namespaces → Types → Members)" TextWrapping="Wrap"/>
+                    <TextBlock Text="• NuGet Version Selector" TextWrapping="Wrap"/>
+                    <TextBlock Text="• Sample Mapping (Unit Tests → API)" TextWrapping="Wrap"/>
+                    <TextBlock Text="• Wrapper Detection (IShellItem → ShellItem)" TextWrapping="Wrap"/>
+                    <TextBlock Text="• Reflection‑based Metadata" TextWrapping="Wrap"/>
+                    <TextBlock Text="• TaskScheduler Integration" TextWrapping="Wrap"/>
                 </StackPanel>
             </StackPanel>
         </Grid>

@@ -1,7 +1,5 @@
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-using System.Collections.Generic;
-using Microsoft.UI.Xaml.Controls;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -11,8 +9,6 @@ namespace ClassicSamplesBrowser.Views;
 /// StartPage is the main page that is shown when the app is launched
 /// and serves as a navigation hub for the various samples in the app.
 /// </summary>
-
-
 public sealed partial class StartPage : Page
 {
     public StartPage()
@@ -26,14 +22,13 @@ public sealed partial class StartPage : Page
         // TODO: Replace with David's NuGet API helper
         var versions = new List<string>
             {
-                "3.5.0",
-                "3.4.2",
-                "3.4.1",
-                "3.4.0"
+                "Latest Version: 5.0.4",
+                "5.0.4",
+                "5.0.3",
+                "5.0.2",
+                "5.0.1",
+                "5.0.0",
             };
-
-        VersionSelector.ItemsSource = versions;
-        VersionSelector.SelectedIndex = 0;
     }
 
     private void OpenExplorer_Click(object sender, RoutedEventArgs e)
