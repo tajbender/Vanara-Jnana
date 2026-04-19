@@ -7,14 +7,13 @@ using System.Threading.Tasks;
 namespace ClassicSamplesBrowser.Vanara.Jnana;
 
 /// <summary>
-/// <see cref="Reflection"/> class for the Jnana project. This class contains types and interfaces related to reflection
+/// <see cref="SelfReflection"/> class for the Jnana project. This class contains types and interfaces related to reflection
 /// and async refresh functionality for elements in the Jnana application. The types defined here are used to represent
 /// various elements such as assemblies, classes, delegates, enums, fields, interfaces, methods, namespaces, properties,
 /// and structs, along with their associated information and refresh capabilities.
 /// </summary>
-class Reflection
+internal class SelfReflection
 {
-    // https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-14.0/async-streams#async-refresh
     internal enum ElementType
     {
         Assembly = 1,
@@ -28,7 +27,16 @@ class Reflection
         Property,
         Struct,
     }
-    internal interface IAsyncRefresh { Task RefreshAsync(CancellationToken cancellationToken, IProgress<int>? progress); }
+
+    /// <summary>
+    /// Interface for asynchronous refresh functionality. See also:
+    /// <seealso href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-14.0/async-streams#async-refresh">
+    /// Async Refresh Proposal</seealso>
+    /// </summary>
+    internal interface IAsyncRefresh
+    {
+        Task RefreshAsync(CancellationToken cancellationToken, IProgress<int>? progress);
+    }
 
     internal interface IElementInfo : IAsyncRefresh
     {
