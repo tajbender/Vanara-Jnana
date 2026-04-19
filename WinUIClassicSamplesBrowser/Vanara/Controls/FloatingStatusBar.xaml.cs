@@ -1,11 +1,17 @@
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using CommunityToolkit.Mvvm.ComponentModel;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 
 namespace ClassicSamplesBrowser.Vanara.Controls;
 
-public sealed partial class FloatingStatusBar : UserControl
+public sealed partial class FloatingStatusBar : UserControl, INotifyPropertyChanged
 {
     private readonly DispatcherTimer _hideTimer = new() { Interval = TimeSpan.FromSeconds(3) };
+
+//    [ObservableProperty]
+//    private string _statusText = "READY.";
 
     public FloatingStatusBar()
     {
@@ -29,5 +35,21 @@ public sealed partial class FloatingStatusBar : UserControl
     {
         ControlRoot.Opacity = 0;
         ControlRoot.Translation = new System.Numerics.Vector3(0, 20, 0);
+    }
+
+    // INotifyPropertyChanged implementation
+    public event PropertyChangedEventHandler? PropertyChanged;
+
+    private void OnPropertyChanged([CallerMemberName] string? propertyName = null)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
+
+    private bool SetField<T>(ref T field, T value, [CallerMemberName] string? propertyName = null)
+    {
+        if (EqualityComparer<T>.Default.Equals(field, value)) return false;
+        field = value;
+        OnPropertyChanged(propertyName);
+        return true;
     }
 }

@@ -10,6 +10,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <Grid x:Name="DirectXHeaderGrid" Grid.Row="0" Background="#3A2F5F" MaxHeight="192" Opacity="0.76">
@@ -58,7 +59,8 @@
             </Grid.ColumnDefinitions>
 
             <!-- Shell Namespace Tree -->
-            <controls:ShellNamespaceTree x:Name="ShellNamespaceTree" Grid.Column="0" BorderThickness="3" BorderBrush="Beige" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+            <controls:ShellNamespaceTree x:Name="ShellNamespaceTree" Grid.Column="0" BorderThickness="3" BorderBrush="Beige" 
+                                         HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
 
             <Border Grid.Column="1" BorderThickness="3" BorderBrush="Beige" Margin="7">
                 <StackPanel Spacing="4">
@@ -87,7 +89,9 @@
                     <TextBlock Text="• TaskScheduler Integration" TextWrapping="Wrap"/>
                 </StackPanel>
             </StackPanel>
-
         </Grid>
+
+        <controls:FloatingStatusBar x:Name="StatusBar" Grid.Row="2" HorizontalAlignment="Center" 
+                                    VerticalAlignment="Bottom" Margin="0,0,0,24"/>
     </Grid>
 </Page>
