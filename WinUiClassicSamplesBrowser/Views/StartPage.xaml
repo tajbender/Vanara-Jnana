@@ -12,7 +12,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Grid x:Name="DirectXHeaderGrid" Grid.Row="0" Background="#3A2F5F" MaxHeight="192" >
+        <Grid x:Name="DirectXHeaderGrid" Grid.Row="0" Background="#3A2F5F" MaxHeight="192" Opacity="0.76">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition>Auto</ColumnDefinition>
                 <ColumnDefinition>*</ColumnDefinition>
@@ -34,12 +34,15 @@
                 <TextBlock FontSize="32" FontWeight="SemiBold" Text="Vanara Jñāna"/>
                 <TextBlock FontSize="13" Opacity="0.7" Text="v5+ - Development Build"/>
             </StackPanel>
-            <StackPanel Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Orientation="Horizontal">
+            <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal">
                 <controls:FeatureTile Icon="&#xE71E;" Subtitle="Official Releases." Title="NuGet"/>
                 <controls:FeatureTile Icon="&#xE8A5;" Subtitle="Browse Source Code." Title="GitHub"/>
-                <controls:FeatureTile Icon="&#xE8A5;" Subtitle="Search Types, Members, Interfaces." Title="APIs"/>
-                <controls:FeatureTile Icon="&#xE8EF;" Subtitle="Find Wrappers." Title="Wrappers"/>
+                <controls:FeatureTile Icon="&#xE8A5;" Subtitle="Search Types, Members and Interfaces." Title="APIs"/>
+                <controls:FeatureTile Icon="&#xE8EF;" Subtitle="IlSpy Packages or Binaries." Title="Wrappers"/>
                 <controls:FeatureTile Icon="&#xE8EF;" Subtitle="View Examples." Title="Samples"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
+
             </StackPanel>
 
             <!-- WinUI SailBoat Header Image -->

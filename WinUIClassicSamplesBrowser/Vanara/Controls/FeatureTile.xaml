@@ -9,16 +9,19 @@
     <!--  Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
           BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" -->
     <Grid x:Name="Root" BorderThickness="3" BorderBrush="Beige" CornerRadius="12" Padding="16" Margin="7">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.RenderTransform>
             <ScaleTransform x:Name="ScaleTransform" ScaleX="1" ScaleY="1"/>
         </Grid.RenderTransform>
-        <FontIcon x:Name="IconElement" Grid.Row="0" FontSize="32" Glyph="&#xE8A5;"/>
-        <TextBlock x:Name="TitleElement" Grid.Row="0" FontSize="18" FontWeight="SemiBold" Text="Title" VerticalAlignment="Bottom"/>
-        <TextBlock x:Name="SubtitleElement" Grid.Row="1" FontSize="12" Opacity="0.6" Text="Subtitle" VerticalAlignment="Bottom"/>
+        <FontIcon x:Name="IconElement" Grid.Row="0" Grid.Column="0" Glyph="&#xE8A5;" HorizontalAlignment="Right"/>
+        <TextBlock x:Name="TitleElement" Grid.Row="0" Grid.Column="1" FontSize="18" FontWeight="SemiBold" Text="Title" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+        <TextBlock x:Name="SubtitleElement" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" FontSize="12" Opacity="0.6" HorizontalAlignment="Left" VerticalAlignment="Bottom" Text="Subtitle" />
     </Grid>
 </UserControl>
