@@ -1,4 +1,5 @@
 # Vanara Jñāna  
+
 *A Knowledge Explorer for the Vanara Windows API Library*
 
 Vanara Jñāna is an interactive, WinUI 3–based explorer for the **Vanara** library.  
@@ -38,9 +39,7 @@ The goal of Jñāna is to make the Vanara ecosystem more accessible — for cont
 ---
 
 ## 📁 Project Structure
-
 ### Root: ̀ Vanara Jñāna 
-
 - App.xaml
 - 📁 /Controls
 - 📁 /Models
@@ -52,8 +51,62 @@ The goal of Jñāna is to make the Vanara ecosystem more accessible — for cont
 - 📁 /Services
 - 📁 /ViewModels
 
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Windows 11  
+- Visual Studio 2022 (17.10+)  
+- Windows App SDK 1.6  
+- .NET 8 SDK  
+
+### Build & Run
+
+```powershell
+git clone https://github.com/<your-repo>/Vanara.Jnana.git
+cd Vanara.Jnana
+dotnet build
+dotnet run
+```
+
+# Roadmap
+
+[ ] Full Shell namespace visualization
+
+[ ] Integrated COM inspector
+
+[ ] Live API search with fuzzy matching
+
+[ ] Sample runner with output capture
+
+[ ] Plugin system for community extensions
+
+[ ] Themed UI (Light/Dark/Mica/Custom)
+
+# 🤝 Contributing
+
+Contributions are welcome!
+
+Please open issues for bugs or feature requests, and submit pull requests for improvements.
+
+If you want to add features, fix bugs, or improve documentation:
+
+Fork the repository
+
+Create a feature branch
+
+Submit a Pull Request
+
+Please follow the existing code style and include clear commit messages.
+
+📜 License
+
+This project is licensed under the MIT License.
+See LICENSE for details.
 
 ----
+old version:
 ----
 
 ## Introduction
