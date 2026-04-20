@@ -1,4 +1,4 @@
-﻿namespace Sampler;
+﻿namespace ClassicSamplesBrowser.Vanara.Jnana;
 
 public enum ElementType
 {
