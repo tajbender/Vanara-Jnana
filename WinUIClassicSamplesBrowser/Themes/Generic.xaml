@@ -4,7 +4,7 @@
     xmlns:local="using:ClassicSamplesBrowser" 
     xmlns:controls="using:ClassicSamplesBrowser.Vanara.Controls">
 
-    <Style TargetType="controls:CustomizableAppBar" >
+    <!--<Style TargetType="controls:CustomizableAppBar" >
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:CustomizableAppBar">
@@ -16,5 +16,5 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>
+    </Style>-->
 </ResourceDictionary>

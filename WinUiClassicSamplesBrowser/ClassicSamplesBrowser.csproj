@@ -17,6 +17,7 @@
 		<None Remove="Assets\Vanara\WinUi-Sailing.png" />
 		<None Remove="Vanara\Controls\FeatureTile.xaml" />
 		<None Remove="Vanara\Controls\FloatingStatusBar.xaml" />
+		<None Remove="Vanara\Controls\Shell32AppBar.xaml" />
 		<None Remove="Views\AboutPage.xaml" />
 		<None Remove="Views\MainPage.xaml" />
 		<None Remove="Views\SamplesPage.xaml" />
@@ -94,6 +95,15 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <PRIResource Remove="DOCS\WinForms Sampler\**" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Content Remove="Assets\Default.cur" />
+	  <Content Remove="Assets\VanaraMonkey.png" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Page Update="Vanara\Controls\Shell32AppBar.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
 	</ItemGroup>
 	<ItemGroup>
 	  <Page Update="Vanara\Controls\FloatingStatusBar.xaml">
