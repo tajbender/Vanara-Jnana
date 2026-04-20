@@ -39,10 +39,24 @@ The goal of Jñāna is to make the Vanara ecosystem more accessible — for cont
 
 ## 📁 Project Structure
 
+### Root: ̀ Vanara Jñāna 
 
------
+- App.xaml
+- 📁 /Controls
+- 📁 /Models
+- 📁 /Pages
+	- ApiExplorerPage.xaml
+	- ShellExplorerPage.xaml
+	- SamplesPage.xaml
+	- SettingsPage.xaml
+- 📁 /Services
+- 📁 /ViewModels
 
-#### Introduction
+
+----
+----
+
+## Introduction
 This Repository is an example of [WinClassicSamples](https://github.com/dahall/WinClassicSamplesCS/) using the Vanara 
 libraries in a modern `WinUi 3` on `WinAppSDK` environment.
 
