@@ -1,8 +1,48 @@
-@ -1,30 +0,0 @@
-# Win Classic Samples Browser
-### a fork of `WinClassicSamples` using Vanara in WinUI3 Apps.
+# Vanara Jñāna  
+*A Knowledge Explorer for the Vanara Windows API Library*
 
-# Introduction
+Vanara Jñāna is an interactive, WinUI 3–based explorer for the **Vanara** library.  
+It provides a unified interface to browse APIs, inspect Shell objects, explore samples, and understand how the Vanara toolkit maps to the Windows platform.
+
+The goal of Jñāna is to make the Vanara ecosystem more accessible — for contributors, maintainers, and developers who want to understand the structure and capabilities of the library.
+
+---
+
+## ✨ Features
+
+- **API Explorer**  
+  Navigate Vanara namespaces, types, functions, constants, and structures.
+
+- **Shell & File Explorer Integration**  
+  Visualize Shell items, folders, PIDLs, and related COM structures using Vanara’s Shell32 bindings.
+
+- **Samples Browser**  
+  Browse runnable code samples demonstrating how to use Vanara APIs in real scenarios.
+
+- **WinUI 3 Interface**  
+  Modern, fluent UI with navigation, search, and responsive layout.
+
+- **Extensible Architecture**  
+  Designed to grow with the Vanara library — new modules can be added without restructuring the core.
+
+---
+
+## 🧱 Technology Stack
+
+- **WinUI 3 / Windows App SDK 1.6**
+- **.NET 8**
+- **Vanara 4.x**
+- **C#**
+- **MVU/MVVM‑friendly architecture**
+
+---
+
+## 📁 Project Structure
+
+
+-----
+
+#### Introduction
 This Repository is an example of [WinClassicSamples](https://github.com/dahall/WinClassicSamplesCS/) using the Vanara 
 libraries in a modern `WinUi 3` on `WinAppSDK` environment.
 
@@ -13,11 +53,11 @@ The goal is to demonstrate the use of the Vanara libraries in a side-by-side mod
 This repository is intended to be a reference for developers who want to use the Vanara libraries in their own projects, and 
 to provide a starting point for those who want to learn how to use the Vanara libraries in a WinUI3 App.
 
-# Project Intent
+#### Project Intent
 Test and validate that the structures, methods and interfaces in Vanara using known code and outcomes.
 Demonstrate the use of the Vanara libraries in a side-by-side model with the native Win32 API.
 
-# Getting Started
+#### Getting Started
 First, take a look at [Template Studio for WinUI (C#)](https://marketplace.visualstudio.com/items?itemName=TemplateStudio.TemplateStudioForWinUICs),
 available through Visual Studio Marketplace:
 
