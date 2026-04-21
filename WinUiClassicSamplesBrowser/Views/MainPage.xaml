@@ -14,7 +14,9 @@
                         OpenPaneLength="240"
                         SelectionChanged="NavView_SelectionChanged">
 
-            --><!-- HeaderBar --><!--
+            -->
+        <!-- HeaderBar -->
+        <!--
             <NavigationView.Header>
                 <Grid Height="48">
                     <TextBlock x:Name="HeaderTitle"
@@ -24,14 +26,18 @@
                 </Grid>
             </NavigationView.Header>
 
-            --><!-- Navigation Items --><!--
+            -->
+        <!-- Navigation Items -->
+        <!--
             <NavigationView.MenuItems>
                 <NavigationViewItem Icon="Home" Content="Home" Tag="HomePage" />
                 <NavigationViewItem Icon="Library" Content="Samples" Tag="SamplesPage" />
                 <NavigationViewItem Icon="Help" Content="About" Tag="AboutPage" />
             </NavigationView.MenuItems>
 
-            --><!-- Content --><!--
+            -->
+        <!-- Content -->
+        <!--
             <Frame x:Name="ContentFrame" />
 
         </NavigationView>-->
