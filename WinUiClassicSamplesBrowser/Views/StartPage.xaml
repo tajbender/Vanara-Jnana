@@ -40,10 +40,10 @@
                 <TextBlock FontSize="13" Opacity="0.7" Text="v5+ - Development Build"/>
             </StackPanel>
             <StackPanel Grid.Column="2" Grid.Row="0" Orientation="Horizontal">
-                <controls:FeatureTile Icon="&#xE71E;" Subtitle="Official Releases." Title="NuGet"/>
-                <controls:FeatureTile Icon="&#xE8A5;" Subtitle="Browse Source Code." Title="GitHub"/>
+                <controls:FeatureTile Icon="&#xE71E;" Subtitle="Official Package Releases." Title="NuGet"/>
+                <controls:FeatureTile Icon="&#xE8A5;" Subtitle="View on GitHub." Title="GitHub"/>
                 <controls:FeatureTile Icon="&#xE8A5;" Subtitle="Search Types, Members and Interfaces." Title="APIs"/>
-                <controls:FeatureTile Icon="&#xE8EF;" Subtitle="IlSpy Packages or Binaries." Title="Wrappers"/>
+                <controls:FeatureTile Icon="&#xE8EF;" Subtitle="Inspect Packages with ILSpy." Title="Decompile"/>
                 <controls:FeatureTile Icon="&#xE8EF;" Subtitle="View Examples." Title="Samples"/>
             </StackPanel>
             <StackPanel Grid.Column="3" Grid.Row="1" Orientation="Horizontal">

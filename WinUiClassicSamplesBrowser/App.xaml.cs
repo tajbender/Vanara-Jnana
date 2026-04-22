@@ -1,3 +1,4 @@
+using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
 //using LaunchActivatedEventArgs = Windows.ApplicationModel.Activation.LaunchActivatedEventArgs;
 
@@ -5,14 +6,29 @@ namespace ClassicSamplesBrowser;
 
 public partial class App : Application
 {
+    private MainWindow? _mainWindow;
+
     public App()
     {
         this.InitializeComponent();
+        //AppWindowTitleBar.SetIcon("Assets/VanaraMonkey.png");
+    }
+
+    private MainWindow? GetOrCreateMainWindow(bool allowInitialCreation = false)
+    {
+        if (_mainWindow == null && allowInitialCreation)
+        {
+            _mainWindow = new MainWindow
+            {
+                ExtendsContentIntoTitleBar = true
+            };
+        }
+
+        return _mainWindow;
     }
 
     protected override void OnLaunched(LaunchActivatedEventArgs args)
     {
-        var window = new MainWindow();
-        window.Activate();
+        GetOrCreateMainWindow(true)?.Activate();
     }
 }
