@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ClassicSamplesBrowser.Vanara.NuGet;
 
-namespace ClassicSamplesBrowser.Services;
+namespace ClassicSamplesBrowser.Vanara.Services;
 
 internal class AssemblyLoaderService
 {
