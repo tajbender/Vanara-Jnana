@@ -5,7 +5,9 @@
     xmlns:ui="using:Microsoft.UI.Xaml"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Application.Resources>
-        <ResourceDictionary>
+        <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls"/>
+    </Application.Resources>
+    <!--<ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <XamlControlsResources/>
                 <ResourceDictionary Source="Styles/NavigationView/NavigationView.xaml"/>
@@ -23,8 +25,8 @@
             <SolidColorBrush x:Key="TabViewScrollButtonForeground" Color="{ThemeResource SystemBaseMediumColor}" />
             <system:Double x:Key="TabViewItemAddButtonFontSize">14</system:Double>
             <system:Double x:Key="TabViewItemScrollButtonFontSize">14</system:Double>
-        </ResourceDictionary>
-    </Application.Resources>
+        </ResourceDictionary>-->
+
 </Application>
 
 
