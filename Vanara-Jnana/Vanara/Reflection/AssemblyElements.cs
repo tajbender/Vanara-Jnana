@@ -1,4 +1,4 @@
-﻿namespace ClassicSamplesBrowser.Vanara.Jnana;
+﻿namespace ClassicSamplesBrowser.Vanara.Reflection;
 
 public enum ElementType
 {
