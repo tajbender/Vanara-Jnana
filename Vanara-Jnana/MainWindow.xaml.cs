@@ -3,8 +3,6 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Composition.SystemBackdrops;
 using ClassicSamplesBrowser.Views;
 using ClassicSamplesBrowser.Helpers;
-using System.Drawing;
-using Windows.Storage;
 
 namespace ClassicSamplesBrowser;
 
