@@ -19,6 +19,7 @@
 		<None Remove="Vanara\Controls\FeatureTile.xaml" />
 		<None Remove="Vanara\Controls\FloatingStatusBar.xaml" />
 		<None Remove="Vanara\Controls\Shell32AppBar.xaml" />
+		<None Remove="Vanara\Styles\SidebarStyles.xaml" />
 		<None Remove="Views\AboutPage.xaml" />
 		<None Remove="Views\MainPage.xaml" />
 		<None Remove="Views\SamplesPage.xaml" />
@@ -101,6 +102,11 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <Content Remove="Assets\Default.cur" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Page Update="Vanara\Styles\SidebarStyles.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
 	</ItemGroup>
 	<ItemGroup>
 	  <Page Update="Vanara\Controls\Shell32AppBar.xaml">
