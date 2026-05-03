@@ -11,6 +11,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <Grid x:Name="DirectXHeaderGrid" Grid.Row="0" MaxHeight="192" Opacity="0.76">
@@ -101,6 +102,6 @@
             </StackPanel>
         </Grid>
 
-        <!--<controls:FloatingStatusBar x:Name="StatusBar" Grid.Row="2" Margin="0,0,0,24" />-->
+        <controls:FloatingStatusBar x:Name="StatusBar" Grid.Row="2" Margin="0,0,0,24" />
     </Grid>
 </Page>
