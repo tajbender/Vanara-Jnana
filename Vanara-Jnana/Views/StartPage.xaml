@@ -19,24 +19,44 @@
                 <ColumnDefinition>Auto</ColumnDefinition>
                 <ColumnDefinition>Auto</ColumnDefinition>
                 <ColumnDefinition>*</ColumnDefinition>
-                <ColumnDefinition>Auto</ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
             <!-- DirectX Background Layer -->
             <muxc:SwapChainPanel x:Name="DxHeaderSwapChainPanel" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Grid.RowSpan="2"
                                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
 
-            <!-- AppBar Overlay -->
-            <StackPanel Grid.Column ="1" Grid.Row="0" Grid.RowSpan="2" Margin="7" Orientation="Vertical" VerticalAlignment="Center" >
-                <Image x:Name="LeftOverlayLogo" HorizontalAlignment="Left" MaxHeight="64" Source="/Assets/Vanara/Vanara-64px.png" 
-                       VerticalAlignment="Center"/>
-                <TextBlock FontSize="32" FontWeight="SemiBold" Text="Vanara Jñāna"/>
-                <TextBlock FontSize="13" Opacity="0.7" Text="v5+ - Development Build"/>
-            </StackPanel>
+            <Image Grid.Column ="0" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="/Assets/Vanara/Vanara-64px.png"/>
+
+            <Grid Column="0" Row="0" RowSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Vanara -->
+                <TextBlock Text="Vanara"
+                           FontSize="32"
+                           FontWeight="SemiBold"
+                           VerticalAlignment="Bottom"
+                           Grid.Column="0"/>
+
+                <!-- Jñāna vertically -->
+                <TextBlock Text="Jñāna"
+                           FontSize="32"
+                           FontWeight="SemiBold"
+                           VerticalAlignment="Bottom"
+                           Margin="8,0,0,0"
+                           Grid.Column="1">
+                    <TextBlock.RenderTransform>
+                        <RotateTransform Angle="-90"/>
+                    </TextBlock.RenderTransform>
+                </TextBlock>
+            </Grid>
+
             <StackPanel Grid.Column="2" Grid.Row="0" Orientation="Horizontal">
                 <controls:FeatureTile Icon="&#xE71E;" Subtitle="Official Package Releases." Title="NuGet"/>
                 <controls:FeatureTile Icon="&#xE8A5;" Subtitle="View on GitHub." Title="GitHub"/>
@@ -44,10 +64,9 @@
                 <controls:FeatureTile Icon="&#xE8EF;" Subtitle="Inspect Packages with ILSpy." Title="Decompile"/>
                 <controls:FeatureTile Icon="&#xE8EF;" Subtitle="View Examples." Title="Samples"/>
             </StackPanel>
-            <StackPanel Grid.Column="3" Grid.Row="1" Orientation="Horizontal">
-
+            <StackPanel  Grid.Column="2" Grid.Row="1" >
+                <TextBox ></TextBox>
             </StackPanel>
-
             <!-- WinUI SailBoat Header Image -->
             <Image x:Name="SailBoatHeader" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" HorizontalAlignment="Right"
                    IsHitTestVisible="False" Opacity="0.92" Source="/Assets/WinUi-SailBoat-Header-32bit.png" VerticalAlignment="Stretch" />
