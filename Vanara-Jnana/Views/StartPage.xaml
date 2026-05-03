@@ -11,10 +11,9 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Grid x:Name="DirectXHeaderGrid" Grid.Row="0" Background="#3A2F5F" MaxHeight="192" Opacity="0.76">
+        <Grid x:Name="DirectXHeaderGrid" Grid.Row="0" MaxHeight="192" Opacity="0.76">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition>Auto</ColumnDefinition>
                 <ColumnDefinition>Auto</ColumnDefinition>
@@ -29,9 +28,6 @@
             <!-- DirectX Background Layer -->
             <muxc:SwapChainPanel x:Name="DxHeaderSwapChainPanel" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Grid.RowSpan="2"
                                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-
-            <Image Grid.Row="0" Grid.Column="0" Height="28" Margin="12,0,8,0"
-                   Source="/Assets/Vanara/Vanara-64px.png" Stretch="Uniform" Width="28" VerticalAlignment="Center" />
 
             <!-- AppBar Overlay -->
             <StackPanel Grid.Column ="1" Grid.Row="0" Grid.RowSpan="2" Margin="7" Orientation="Vertical" VerticalAlignment="Center" >
@@ -56,14 +52,17 @@
                    IsHitTestVisible="False" Opacity="0.92" Source="/Assets/WinUi-SailBoat-Header-32bit.png" VerticalAlignment="Stretch" />
         </Grid>
 
-        <Grid x:Name="MainContentGrid" Grid.Row="1" Background="#1E2A38" Opacity="0.76" Padding="32" >
+        <Grid x:Name="MainContentGrid" Grid.Row="1" Opacity="0.76" Padding="32" >
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="320"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="320"/>
-                <ColumnDefinition Width="56"/>
             </Grid.ColumnDefinitions>
-            <Border Grid.Column="0" BorderThickness="3" BorderBrush="Beige" Margin="7">
+
+            <controls:SidebarControl Grid.Column="0"/>
+
+            <Border Grid.Column="1" BorderThickness="3" BorderBrush="Beige" Margin="7">
                 <TreeView x:Name="ApiTree" ItemsSource="{x:Bind RootItems, Mode=OneWay}" >
                     <TreeView.ItemTemplate>
                         <DataTemplate x:DataType="reflection:IElementInfo">
@@ -73,7 +72,7 @@
                 </TreeView>
             </Border>
 
-            <Border Grid.Column="1" BorderThickness="3" BorderBrush="Beige" Margin="7">
+            <Border Grid.Column="2" BorderThickness="3" BorderBrush="Beige" Margin="7">
                 <StackPanel Spacing="4">
                     <TextBlock FontSize="20" FontWeight="SemiBold" Text="What this tool does."/>
                     <TextBlock Opacity="0.8" Text="This Explorer lets you browse Vanara APIs, inspect types, view samples, explore NuGet versions, and understand wrapper relationships. It is powered by reflection, NuGet metadata, and the Vanara test suite." TextWrapping="Wrap"/>
@@ -87,7 +86,7 @@
                 </StackPanel>
             </Border>
 
-            <StackPanel Grid.Column="2" Padding="32" Spacing="12" HorizontalAlignment="Left" BorderThickness="3" BorderBrush="Beige" Margin="7">
+            <StackPanel Grid.Column="3" Padding="32" Spacing="12" HorizontalAlignment="Left" BorderThickness="3" BorderBrush="Beige" Margin="7">
                 <TextBlock FontSize="20" FontWeight="SemiBold" Text="What this tool does."/>
                 <TextBlock Opacity="0.8" Text="This Explorer lets you browse Vanara APIs, inspect types, view samples, explore NuGet versions, and understand wrapper relationships. It is powered by reflection, NuGet metadata, and the Vanara test suite." TextWrapping="Wrap"/>
                 <TextBlock FontWeight="SemiBold" Margin="0,12,0,0" Text="Core Features"/>
@@ -100,11 +99,8 @@
                     <TextBlock Text="• TaskScheduler Integration" TextWrapping="Wrap"/>
                 </StackPanel>
             </StackPanel>
-
-            <controls:SidebarControl Grid.Column="3"></controls:SidebarControl>
         </Grid>
 
-        <controls:FloatingStatusBar x:Name="StatusBar" Grid.Row="2" HorizontalAlignment="Center" 
-                                    VerticalAlignment="Bottom" Margin="0,0,0,24"/>
+        <!--<controls:FloatingStatusBar x:Name="StatusBar" Grid.Row="2" Margin="0,0,0,24" />-->
     </Grid>
 </Page>

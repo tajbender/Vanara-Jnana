@@ -9,9 +9,9 @@
     mc:Ignorable="d">
 
     <!-- TODO: Background="{ThemeResource MicaBaseAlt}" -->
+    <FrameworkElement.Width>56</FrameworkElement.Width>
     <Grid >
         <StackPanel Spacing="4" VerticalAlignment="Top">
-
             <!-- TODO: NavButtonStyle -->
             <ToggleButton 
                 Tag="Home">Home</ToggleButton>
