@@ -2,9 +2,11 @@
 using Microsoft.UI.Xaml.Controls;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Vanara.PInvoke;
 
 namespace ClassicSamplesBrowser.Services;
 
@@ -12,23 +14,42 @@ public static class NavigationService
 {
     private static Frame _frame;
 
-    public static void Init(Frame frame)
+    public static void Initialize(Frame frame)
     {
         _frame = frame;
     }
-
-    public static void Navigate(string tag)
+    public static void Navigate(Shell32.IShellFolder shellFolder)
     {
-        Type page = tag switch
-        {
-            "Start" => typeof(StartPage),
-            "API" => typeof(ApiExplorerPage),
-            "Samples" => typeof(SamplesPage),
-            _ => null
-        };
-
-        // TODO: Fix this. It should be possible to navigate to a page that is not in the switch statement, but it should be in the same assembly as the other pages.
-        if (page != null)
-            _frame.Navigate(page);
+        TryNavigate(shellFolder);
     }
+    public static void NavigateToStart()
+    {
+        TryNavigate("Start");
+    }
+    public static void NavigateHome()
+    {
+        TryNavigate("Home");
+    }
+    public static void TryNavigate(object target)
+    {
+        try
+        {
+            var pageType = target switch
+            {
+                "Start" => typeof(StartPage),
+                "API" => typeof(ApiExplorerPage),
+                "Samples" => typeof(SamplesPage),
+                _ => null
+            };
+
+            _frame.Navigate(pageType ?? null);
+        }
+        catch (Exception ex)
+        {
+            Debug.Fail(ex.ToString());
+            throw;
+        }
+    }
+    public static void NavigateBack() { }
+    public static void Forward() { }
 }

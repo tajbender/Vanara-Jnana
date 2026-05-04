@@ -3,13 +3,27 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
 
-// To learn more about WinUI, the WinUI project structure,
-// and more about our project templates, see: http://aka.ms/winui-project-info.
-
 namespace ClassicSamplesBrowser.Vanara.Controls;
 
 public sealed partial class SidebarControl : UserControl
 {
+    public enum SidebarDockMode
+    {
+        Default, // Use the default docking behavior (Stick to Edge. Outer: Navigation. Inner: Content)
+        Left,
+        Right
+    }
+
+    public enum FloatMode
+    {
+        Default, // Use the default floating behavior, Use threshold to determine when to float (e.g., when the window is too narrow)
+        Always,
+        Never,
+    }
+
+    public SidebarDockMode ChildDockMode { get; set; } = SidebarDockMode.Default;
+    public FloatMode ChildFloatMode { get; set; } = FloatMode.Default;
+
     public SidebarControl()
     {
         InitializeComponent();
@@ -21,7 +35,7 @@ public sealed partial class SidebarControl : UserControl
         foreach (var child in SidebarPanel.Children)
         {
             if (child is ToggleButton btn)
-                btn.Click += (s, e2) => NavigationService.Navigate(btn.Tag.ToString());
+                btn.Click += (s, e2) => NavigationService.TryNavigate(btn);
         }
     }
 }

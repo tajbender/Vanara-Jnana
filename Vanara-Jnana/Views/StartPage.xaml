@@ -4,9 +4,10 @@
     xmlns:local="using:ClassicSamplesBrowser.Views"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    CanDrag="True">
 
-    <Grid >
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -59,24 +60,23 @@
             </StackPanel>
 
             <!-- Navigation Area 51 -->
-            <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" Padding="12,0">
-                <TextBox Text="Ready."/>
+            <StackPanel Grid.Column="1" Grid.Row="1" MaxHeight="42" Orientation="Horizontal" Padding="12,0">
+                <AppBarButton Content="Previous." />
+                <AppBarButton Content="Next." />
+                <AppBarSeparator/>
+                <AutoSuggestBox>
+                    <!--<TextBox Text="Ready."/>-->
+                </AutoSuggestBox>
             </StackPanel>
         </Grid>
 
-        <Grid x:Name="MainContentGrid" Grid.Row="1" Opacity="0.76" Padding="32" >
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-
+        <Grid x:Name="MainContentGrid" ColumnDefinitions="Auto, *, Auto" Grid.Row="1" Opacity="0.76" Padding="32" >
             <controls:SidebarControl Grid.Column="0" BorderBrush="Beige" BorderThickness="3" Margin="7"/>
-
             <Border Grid.Column="1" BorderBrush="Beige" BorderThickness="3" Margin="7">
                 <ListView></ListView>
             </Border>
+            <controls:SidebarControl Grid.Column="2" BorderBrush="Beige" BorderThickness="3" Margin="7" Padding="7"/>
         </Grid>
-
         <controls:FloatingStatusBar x:Name="StatusBar" Grid.Row="2" BorderBrush="Beige" BorderThickness="3"/>
     </Grid>
 </Page>
