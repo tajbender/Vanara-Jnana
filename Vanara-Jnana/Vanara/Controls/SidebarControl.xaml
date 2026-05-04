@@ -11,22 +11,25 @@
     <!-- TODO: Background="{ThemeResource MicaBaseAlt}" -->
     <FrameworkElement.Width>56</FrameworkElement.Width>
     <Grid >
-        <StackPanel x:Name="SidebarPanel"  Spacing="4" VerticalAlignment="Top">
+        <StackPanel x:Name="SidebarPanel" Spacing="4" VerticalAlignment="Stretch">
             <!-- TODO: NavButtonStyle -->
-            <ToggleButton 
-                Tag="Home">Home</ToggleButton>
-
+            <ToggleButton Tag="Home">NuGet</ToggleButton>
             <!-- TODO: NavButtonStyle -->
-            <ToggleButton 
-                Tag="Explorer">Hubs</ToggleButton>
-
+            <ToggleButton Tag="Explorer">GitHub</ToggleButton>
             <!-- TODO: NavButtonStyle -->
-            <ToggleButton 
-                Tag="API">Library</ToggleButton>
-
+            <ToggleButton Tag="API">API</ToggleButton>
+            <AppBarSeparator />
             <!-- TODO: NavButtonStyle -->
-            <ToggleButton 
-                Tag="Samples">Code</ToggleButton>
+            <ToggleButton Tag="Samples">Samples</ToggleButton>
         </StackPanel>
     </Grid>
 </UserControl>
+
+    <!-- 
+                <controls:FeatureTile Icon="&#xE71E;" Subtitle="Official Package Releases." Title="NuGet"/>
+                <controls:FeatureTile Icon="&#xE8A5;" Subtitle="View on GitHub." Title="GitHub"/>
+                <controls:FeatureTile Icon="&#xE8A5;" Subtitle="Search Types, Members and Interfaces." Title="APIs"/>
+                <controls:FeatureTile Icon="&#xE8EF;" Subtitle="Inspect Packages with ILSpy." Title="Decompile"/>
+                <controls:FeatureTile Icon="&#xE8EF;" Subtitle="View Examples." Title="Samples"/>
+    -->
+    

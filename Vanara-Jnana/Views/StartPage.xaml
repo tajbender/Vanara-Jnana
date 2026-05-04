@@ -14,62 +14,57 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Grid x:Name="DirectXHeaderGrid" Grid.Row="0" MaxHeight="192" Opacity="0.76">
+        <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition>Auto</ColumnDefinition>
-                <ColumnDefinition>Auto</ColumnDefinition>
-                <ColumnDefinition>*</ColumnDefinition>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-
-            <!-- DirectX Background Layer -->
-            <muxc:SwapChainPanel x:Name="DxHeaderSwapChainPanel" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Grid.RowSpan="2"
-                                 HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-
-            <Image Grid.Column ="0" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="/Assets/Vanara/Vanara-64px.png"/>
-
-            <Grid Column="0" Row="0" RowSpan="2">
+            <Grid Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
 
-                <!-- Vanara -->
-                <TextBlock Text="Vanara"
-                           FontSize="32"
-                           FontWeight="SemiBold"
-                           VerticalAlignment="Bottom"
-                           Grid.Column="0"/>
-
-                <!-- Jñāna vertically -->
-                <TextBlock Text="Jñāna"
-                           FontSize="32"
-                           FontWeight="SemiBold"
-                           VerticalAlignment="Bottom"
-                           Margin="8,0,0,0"
-                           Grid.Column="1">
+                <Image Grid.Column="0" Grid.Row="0" Height="126" HorizontalAlignment="Left" VerticalAlignment="Stretch"
+                   Source="/Assets/Vanara/Vanara-64px.png"/>
+                <TextBlock Grid.Column="0" Grid.Row="1" 
+                           HorizontalAlignment="Right" 
+                           FontSize="28" 
+                           FontWeight="SemiBold" 
+                           Margin="0,0,0,2" 
+                           Text="Vanar" 
+                           VerticalAlignment="Bottom"/>
+                <TextBlock Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" FontSize="28" Opacity="0.5" VerticalAlignment="Stretch" Text="Jñān">
                     <TextBlock.RenderTransform>
-                        <RotateTransform Angle="-90"/>
+                        <RotateTransform Angle="90"/>
+                    </TextBlock.RenderTransform>
+                </TextBlock>
+                <TextBlock Grid.Column="1" Grid.Row="1" FontSize="28" FontWeight="SemiBold" Opacity="0.5" Text="a">
+                    <TextBlock.RenderTransform>
+                        <RotateTransform Angle="315"/>
                     </TextBlock.RenderTransform>
                 </TextBlock>
             </Grid>
 
-            <StackPanel Grid.Column="2" Grid.Row="0" Orientation="Horizontal">
-                <controls:FeatureTile Icon="&#xE71E;" Subtitle="Official Package Releases." Title="NuGet"/>
+            <!-- Feature Tiles -->
+            <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" Padding="12,0">
+                <controls:FeatureTile Icon="&#xE71E;" Subtitle="NuGet Package Releases." Title="NuGet"/>
                 <controls:FeatureTile Icon="&#xE8A5;" Subtitle="View on GitHub." Title="GitHub"/>
-                <controls:FeatureTile Icon="&#xE8A5;" Subtitle="Search Types, Members and Interfaces." Title="APIs"/>
-                <controls:FeatureTile Icon="&#xE8EF;" Subtitle="Inspect Packages with ILSpy." Title="Decompile"/>
+                <controls:FeatureTile Icon="&#xE8A5;" Subtitle="Explore Types, Members and Interfaces." Title="APIs"/>
                 <controls:FeatureTile Icon="&#xE8EF;" Subtitle="View Examples." Title="Samples"/>
             </StackPanel>
-            <StackPanel  Grid.Column="2" Grid.Row="1" >
-                <TextBox ></TextBox>
-            </StackPanel>
-            <!-- WinUI SailBoat Header Image -->
-            <Image x:Name="SailBoatHeader" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" HorizontalAlignment="Right"
-                   IsHitTestVisible="False" Opacity="0.92" Source="/Assets/WinUi-SailBoat-Header-32bit.png" VerticalAlignment="Stretch" />
+
+            <!-- Navigation Area -->
+            <TextBox Grid.Column="1" Grid.Row="1" Text="Ready."/>
         </Grid>
 
         <Grid x:Name="MainContentGrid" Grid.Row="1" Opacity="0.76" Padding="32" >
@@ -121,6 +116,6 @@
             </StackPanel>
         </Grid>
 
-        <controls:FloatingStatusBar x:Name="StatusBar" Grid.Row="2" Margin="0,0,0,24" />
+        <controls:FloatingStatusBar x:Name="StatusBar" Grid.Row="2" />
     </Grid>
 </Page>
