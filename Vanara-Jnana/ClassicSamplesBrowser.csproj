@@ -22,7 +22,6 @@
 		<None Remove="Vanara\Styles\NavButtonStyle.xaml" />
 		<None Remove="Vanara\Styles\SidebarStyles.xaml" />
 		<None Remove="Views\AboutPage.xaml" />
-		<None Remove="Views\MainPage.xaml" />
 		<None Remove="Views\SamplesPage.xaml" />
 		<None Remove="Views\SettingsPage.xaml" />
 	</ItemGroup>
@@ -93,7 +92,7 @@
 		</Page>
 	</ItemGroup>
 	<ItemGroup>
-		<Page Update="Views\MainPage.xaml">
+		<Page Update="Views\ShellPage.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</Page>
 	</ItemGroup>
