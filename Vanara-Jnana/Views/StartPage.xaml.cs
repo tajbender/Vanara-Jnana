@@ -11,35 +11,31 @@ using NuGet.Packaging;
 // and more about our project templates, see: http://aka.ms/winui-project-info.
 namespace ClassicSamplesBrowser.Views;
 
-/// <summary><completionlist cref="=StartPage"></completionlist>
+/// <summary><completionlist cref="StartPage"></completionlist>
 /// StartPage is the main page that is shown when the app is launched
-/// and serves as a navigation hub for the various samples in the app.
+/// and serves as a navigation hub for the various Views in the app.
 /// </summary>
 public sealed partial class StartPage : Page
 {
-    const string framework = "net8.0";
+    const string Framework = "net8.0";
     private const string Prefix = "Vanara";
-    readonly List<IPackageSearchMetadata> packages = [];
-    static readonly ILogger logger = NullLogger.Instance; // TODO: Replace with actual logger if needed
-    static readonly CancellationToken cancellationToken = CancellationToken.None;
+    readonly List<IPackageSearchMetadata> _packages = [];
+    static readonly ILogger Nuget = NullLogger.Instance; // TODO: Replace with actual nuget if needed
+    static readonly CancellationToken CancellationToken = CancellationToken.None;
 
     //internal ObservableCollection<IElementInfo> RootItems { get; } = [];
-    public ObservableCollection<IPackageSearchMetadata> RootItems { get; } = [];
-
-
+    //public ObservableCollection<IPackageSearchMetadata> RootItems { get; } = [];
 
     public StartPage()
     {
         InitializeComponent();
-        this.DataContext = this;
+        DataContext = this;
 
-        this.Loading += StartPage_Loading;
+        Loading += StartPage_Loading;
     }
 
     private void StartPage_Loading(FrameworkElement sender, object args)
     {
-
-
     }
 
     private void OpenExplorer_Click(object sender, RoutedEventArgs e)
@@ -56,11 +52,9 @@ public sealed partial class StartPage : Page
     {
         Task.Factory.StartNew(async () =>
         {
-            await foreach (var package in NuGetUtils.LoadNuGetPackageListAsync(Prefix, logger, cancellationToken))
+            await foreach (var package in NuGetUtils.LoadNuGetPackageListAsync(Prefix, Nuget, CancellationToken))
                 if (package.Identity.Id.StartsWith(Prefix + '.', StringComparison.OrdinalIgnoreCase))
-                    packages.Add(package);
-        }, cancellationToken);
-
-        
+                    _packages.Add(package);
+        }, CancellationToken);
     }
 }

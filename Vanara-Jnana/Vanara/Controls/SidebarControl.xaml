@@ -20,8 +20,10 @@
             <local:FeatureTile Icon="&#xE8EF;" Subtitle="Search the Framework." Title="Search"/>
             <local:FeatureTile Icon="&#xE8EF;" Subtitle="Explore Samples." Title="Samples"/>
             <MenuFlyoutSeparator/>
+            <local:FeatureTile Icon="&#xE8EF;" Subtitle="Inspect Packages with ILSpy." Title="Inspect"/>
             <AppBarSeparator />
-            <local:FeatureTile Icon="&#xE8EF;" Subtitle="Inspect Packages with ILSpy." Title="Decompile"/>
+            <local:FeatureTile Icon="&#xE8EF;" Subtitle="View and edit Files, Pictures, Resources or other content." Title="Editors"/>
+            <MenuFlyoutSeparator/>
         </StackPanel>
         <Border x:Name="DockPanel" Grid.Column="1" >
             <StackPanel>

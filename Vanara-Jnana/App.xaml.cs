@@ -9,7 +9,7 @@ public partial class App : Application
 
     public App()
     {
-        this.InitializeComponent();
+        InitializeComponent();
         //AppWindowTitleBar.SetIcon("Assets/VanaraMonkey.png");
     }
 
