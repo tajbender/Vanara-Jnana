@@ -58,38 +58,25 @@
                 <controls:FeatureTile Icon="&#xE8EF;" Subtitle="View Examples." Title="Samples"/>
             </StackPanel>
 
-            <!-- Navigation Area -->
-            <TextBox Grid.Column="1" Grid.Row="1" Text="Ready."/>
+            <!-- Navigation Area 51 -->
+            <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" Padding="12,0">
+                <TextBox Text="Ready."/>
+            </StackPanel>
         </Grid>
 
         <Grid x:Name="MainContentGrid" Grid.Row="1" Opacity="0.76" Padding="32" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="320"/>
             </Grid.ColumnDefinitions>
 
             <controls:SidebarControl Grid.Column="0" BorderBrush="Beige" BorderThickness="3" Margin="7"/>
 
-            <Border Grid.Column="1" BorderBrush="Beige" BorderThickness="3"  Margin="7">
+            <Border Grid.Column="1" BorderBrush="Beige" BorderThickness="3" Margin="7">
                 <ListView></ListView>
             </Border>
-
-            <StackPanel Grid.Column="2" Padding="32" Spacing="12" HorizontalAlignment="Left" BorderThickness="3" BorderBrush="Beige" Margin="7">
-                <TextBlock FontSize="20" FontWeight="SemiBold" Text="What this tool does."/>
-                <TextBlock Opacity="0.8" Text="This Explorer lets you browse Vanara APIs, inspect types, view samples, explore NuGet versions, and understand wrapper relationships. It is powered by reflection, NuGet metadata, and the Vanara test suite." TextWrapping="Wrap"/>
-                <TextBlock FontWeight="SemiBold" Margin="0,12,0,0" Text="Core Features"/>
-                <StackPanel Spacing="4">
-                    <TextBlock Text="• API Tree (Namespaces → Types → Members)" TextWrapping="Wrap"/>
-                    <TextBlock Text="• NuGet Version Selector" TextWrapping="Wrap"/>
-                    <TextBlock Text="• Sample Mapping (Unit Tests → API)" TextWrapping="Wrap"/>
-                    <TextBlock Text="• Wrapper Detection (IShellItem → ShellItem)" TextWrapping="Wrap"/>
-                    <TextBlock Text="• Reflection‑based Metadata" TextWrapping="Wrap"/>
-                    <TextBlock Text="• TaskScheduler Integration" TextWrapping="Wrap"/>
-                </StackPanel>
-            </StackPanel>
         </Grid>
 
-        <controls:FloatingStatusBar x:Name="StatusBar" Grid.Row="2" />
+        <controls:FloatingStatusBar x:Name="StatusBar" Grid.Row="2" BorderBrush="Beige" BorderThickness="3"/>
     </Grid>
 </Page>
