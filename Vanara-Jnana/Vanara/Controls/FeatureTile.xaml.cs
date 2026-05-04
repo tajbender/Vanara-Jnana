@@ -12,6 +12,8 @@ public sealed partial class FeatureTile : UserControl
     {
         InitializeComponent();
         SetupInteractions();
+
+        //this.Click += (_, __) =>  DebugSettings.;
     }
 
     // Dependency Properties
@@ -35,6 +37,8 @@ public sealed partial class FeatureTile : UserControl
             {
                 ((FeatureTile)d).IconElement.Glyph = (string)e.NewValue;
             }));
+
+    public event EventHandler Click;
 
     public string Title
     {
@@ -83,6 +87,4 @@ public sealed partial class FeatureTile : UserControl
             Click?.Invoke(this, EventArgs.Empty);
         };
     }
-
-    public event EventHandler Click;
 }

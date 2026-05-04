@@ -1,35 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <UserControl
     x:Class="ClassicSamplesBrowser.Vanara.Controls.SidebarControl"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:ClassicSamplesBrowser.Vanara.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:ClassicSamplesBrowser.Vanara.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     mc:Ignorable="d">
 
     <!-- TODO: Background="{ThemeResource MicaBaseAlt}" -->
-    <FrameworkElement.Width>56</FrameworkElement.Width>
-    <Grid >
-        <StackPanel x:Name="SidebarPanel" Spacing="4" VerticalAlignment="Stretch">
-            <!-- TODO: NavButtonStyle -->
-            <ToggleButton Tag="Home">NuGet</ToggleButton>
-            <!-- TODO: NavButtonStyle -->
-            <ToggleButton Tag="Explorer">GitHub</ToggleButton>
-            <!-- TODO: NavButtonStyle -->
-            <ToggleButton Tag="API">API</ToggleButton>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <StackPanel x:Name="SidebarPanel" Grid.Column="0" Spacing="4" VerticalAlignment="Stretch">
+            <local:FeatureTile Icon="&#xE8EF;" Subtitle="Get NuGets." Title="NuGet"/>
+            <local:FeatureTile Icon="&#xE8EF;" Subtitle="View Gits." Title="GitHub"/>
+            <local:FeatureTile Icon="&#xE8EF;" Subtitle="Search the Framework." Title="Search"/>
+            <local:FeatureTile Icon="&#xE8EF;" Subtitle="Explore Samples." Title="Samples"/>
+            <MenuFlyoutSeparator/>
             <AppBarSeparator />
-            <!-- TODO: NavButtonStyle -->
-            <ToggleButton Tag="Samples">Samples</ToggleButton>
+            <local:FeatureTile Icon="&#xE8EF;" Subtitle="Inspect Packages with ILSpy." Title="Decompile"/>
         </StackPanel>
+        <Border x:Name="DockPanel" Grid.Column="1" >
+            <StackPanel>
+                <TextBlock x:Name="DockPanelTextBlock"
+                           Text="Navigation"
+                           VerticalAlignment="Top"
+                           Margin="12,0,0,0"/>
+                <local:ShellNamespaceTree x:Name="ShellNamespaceTree"/>
+            </StackPanel>
+        </Border>
     </Grid>
 </UserControl>
-
-    <!-- 
-                <controls:FeatureTile Icon="&#xE71E;" Subtitle="Official Package Releases." Title="NuGet"/>
-                <controls:FeatureTile Icon="&#xE8A5;" Subtitle="View on GitHub." Title="GitHub"/>
-                <controls:FeatureTile Icon="&#xE8A5;" Subtitle="Search Types, Members and Interfaces." Title="APIs"/>
-                <controls:FeatureTile Icon="&#xE8EF;" Subtitle="Inspect Packages with ILSpy." Title="Decompile"/>
-                <controls:FeatureTile Icon="&#xE8EF;" Subtitle="View Examples." Title="Samples"/>
-    -->
-    

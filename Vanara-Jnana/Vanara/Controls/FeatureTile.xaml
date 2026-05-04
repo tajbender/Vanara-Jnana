@@ -7,11 +7,12 @@
     mc:Ignorable="d">
 
     <Grid x:Name="Root" 
-          Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
-          BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-          BorderThickness="3" 
-          CornerRadius="12" 
+          MinWidth="54"
           Margin="7"
+          CornerRadius="13" 
+          BorderThickness="3" 
+          BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+          Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
           Padding="16">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>

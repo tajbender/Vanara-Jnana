@@ -70,7 +70,6 @@
         <Grid x:Name="MainContentGrid" Grid.Row="1" Opacity="0.76" Padding="32" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="320"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="320"/>
             </Grid.ColumnDefinitions>
@@ -78,16 +77,6 @@
             <controls:SidebarControl Grid.Column="0"/>
 
             <Border Grid.Column="1" BorderThickness="3" BorderBrush="Beige" Margin="7">
-                <TreeView x:Name="ApiTree" ItemsSource="{x:Bind RootItems, Mode=OneWay}" >
-                    <TreeView.ItemTemplate>
-                        <DataTemplate x:DataType="reflection:IElementInfo">
-                            <TreeViewItem Content="{x:Bind Name}" ItemsSource="{x:Bind Children}" />
-                        </DataTemplate>
-                    </TreeView.ItemTemplate>
-                </TreeView>
-            </Border>
-
-            <Border Grid.Column="2" BorderThickness="3" BorderBrush="Beige" Margin="7">
                 <StackPanel Spacing="4">
                     <TextBlock FontSize="20" FontWeight="SemiBold" Text="What this tool does."/>
                     <TextBlock Opacity="0.8" Text="This Explorer lets you browse Vanara APIs, inspect types, view samples, explore NuGet versions, and understand wrapper relationships. It is powered by reflection, NuGet metadata, and the Vanara test suite." TextWrapping="Wrap"/>
@@ -101,7 +90,7 @@
                 </StackPanel>
             </Border>
 
-            <StackPanel Grid.Column="3" Padding="32" Spacing="12" HorizontalAlignment="Left" BorderThickness="3" BorderBrush="Beige" Margin="7">
+            <StackPanel Grid.Column="2" Padding="32" Spacing="12" HorizontalAlignment="Left" BorderThickness="3" BorderBrush="Beige" Margin="7">
                 <TextBlock FontSize="20" FontWeight="SemiBold" Text="What this tool does."/>
                 <TextBlock Opacity="0.8" Text="This Explorer lets you browse Vanara APIs, inspect types, view samples, explore NuGet versions, and understand wrapper relationships. It is powered by reflection, NuGet metadata, and the Vanara test suite." TextWrapping="Wrap"/>
                 <TextBlock FontWeight="SemiBold" Margin="0,12,0,0" Text="Core Features"/>
