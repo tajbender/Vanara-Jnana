@@ -8,14 +8,15 @@
 		<UseWinUI>true</UseWinUI>
 	</PropertyGroup>
 	<ItemGroup>
-	  <Compile Remove="DOCS\WinForms Sampler\**" />
-	  <EmbeddedResource Remove="DOCS\WinForms Sampler\**" />
-	  <None Remove="DOCS\WinForms Sampler\**" />
-	  <Page Remove="DOCS\WinForms Sampler\**" />
+		<Compile Remove="DOCS\WinForms Sampler\**" />
+		<EmbeddedResource Remove="DOCS\WinForms Sampler\**" />
+		<None Remove="DOCS\WinForms Sampler\**" />
+		<Page Remove="DOCS\WinForms Sampler\**" />
 	</ItemGroup>
 	<ItemGroup>
-		<None Remove="Assets\VanaraMonkey.png" />
+		<None Remove="Assets\Vanara\VanaraMonkey.png" />
 		<None Remove="Assets\Vanara\WinUi-Sailing.png" />
+		<None Remove="DOCS\docs.assets\WinUi-Sailing.png" />
 		<None Remove="Vanara\Controls\FeatureTile.xaml" />
 		<None Remove="Vanara\Controls\FloatingStatusBar.xaml" />
 		<None Remove="Vanara\Controls\Shell32AppBar.xaml" />
@@ -26,24 +27,22 @@
 		<None Remove="Views\SettingsPage.xaml" />
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="AssetRipper.ICSharpCode.Decompiler" Version="9.1.0.8018" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
+		<PackageReference Include="ICSharpCode.Decompiler" Version="10.0.1.8346" />
 		<PackageReference Include="Microsoft.Web.WebView2" Version="1.0.3912.50" />
-		<PackageReference Include="Microsoft.Win32.SystemEvents" Version="10.0.6" />
+		<PackageReference Include="Microsoft.Win32.SystemEvents" Version="10.0.7" />
 		<PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.4654" />
 		<PackageReference Include="Microsoft.Windows.SDK.BuildTools.MSIX" Version="1.7.20250829.1">
-		  <PrivateAssets>all</PrivateAssets>
-		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 		<PackageReference Include="Microsoft.WindowsAppSDK" Version="1.8.260317003" />
-		<PackageReference Include="ICSharpCode.Decompiler" Version="10.0.0.8330" />
 		<PackageReference Include="NuGet.Common" Version="7.3.1" />
 		<PackageReference Include="NuGet.Packaging" Version="7.3.1" />
 		<PackageReference Include="NuGet.Protocol" Version="7.3.1" />
 		<PackageReference Include="SharpZipLib" Version="1.4.2" />
 		<PackageReference Include="Vanara.Core" Version="5.0.4" />
 		<PackageReference Include="Vanara.PInvoke.SearchApi" Version="5.0.4" />
-		<PackageReference Include="Vanara.PInvoke.Shared" Version="5.0.0" />
 		<PackageReference Include="Vanara.PInvoke.Shell32" Version="5.0.4" />
 		<PackageReference Include="Vanara.PInvoke.User32" Version="5.0.4" />
 		<PackageReference Include="Vanara.Windows.Shell" Version="5.0.4" />
@@ -54,17 +53,17 @@
 		<Folder Include="Templates\RyderShell\Project\" />
 	</ItemGroup>
 	<ItemGroup>
-	  <Content Update="Assets\Vanara\Insert_Amiga-Disk.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </Content>
-	  <Content Update="Assets\Vanara\WinUi-Sailing.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </Content>
+		<Content Update="Assets\Vanara\Insert_Amiga-Disk.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Update="Assets\Vanara\WinUi-Sailing.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
 	</ItemGroup>
 	<ItemGroup>
-	  <Page Update="Vanara\Controls\FeatureTile.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </Page>
+		<Page Update="Vanara\Controls\FeatureTile.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</Page>
 	</ItemGroup>
 	<ItemGroup>
 		<Page Update="Templates\RyderShell\Styles\MainPage.xaml">
@@ -101,29 +100,34 @@
 		</Page>
 	</ItemGroup>
 	<ItemGroup>
-	  <PRIResource Remove="DOCS\WinForms Sampler\**" />
+		<PRIResource Remove="DOCS\WinForms Sampler\**" />
 	</ItemGroup>
 	<ItemGroup>
-	  <Content Remove="Assets\Default.cur" />
+		<Content Remove="Assets\Default.cur" />
 	</ItemGroup>
 	<ItemGroup>
-	  <Page Update="Vanara\Styles\NavButtonStyle.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </Page>
+		<EmbeddedResource Include="DOCS\docs.assets\WinUi-Sailing.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</EmbeddedResource>
 	</ItemGroup>
 	<ItemGroup>
-	  <Page Update="Vanara\Styles\SidebarStyles.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </Page>
+		<Page Update="Vanara\Styles\NavButtonStyle.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</Page>
 	</ItemGroup>
 	<ItemGroup>
-	  <Page Update="Vanara\Controls\Shell32AppBar.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </Page>
+		<Page Update="Vanara\Styles\SidebarStyles.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</Page>
 	</ItemGroup>
 	<ItemGroup>
-	  <Page Update="Vanara\Controls\FloatingStatusBar.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </Page>
+		<Page Update="Vanara\Controls\Shell32AppBar.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</Page>
+	</ItemGroup>
+	<ItemGroup>
+		<Page Update="Vanara\Controls\FloatingStatusBar.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</Page>
 	</ItemGroup>
 </Project>
