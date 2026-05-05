@@ -4,9 +4,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:ClassicSamplesBrowser.Views">
 
-    <Grid>
-        <!-- Ryder-Style Sidebar -->
-        <!--<NavigationView x:Name="NavView"
+    <Grid BorderBrush="Black" BorderThickness="3">
+        <TextBox BorderBrush="Black" BorderThickness="3"/>
+    </Grid>
+</Page>
+
+<!-- Ryder-Style Sidebar -->
+
+<!--<NavigationView x:Name="NavView"
                         PaneDisplayMode="LeftCompact"
                         IsBackButtonVisible="Collapsed"
                         IsSettingsVisible="True"
@@ -15,8 +20,8 @@
                         SelectionChanged="NavView_SelectionChanged">
 
             -->
-        <!-- HeaderBar -->
-        <!--
+<!-- HeaderBar -->
+<!--
             <NavigationView.Header>
                 <Grid Height="48">
                     <TextBlock x:Name="HeaderTitle"
@@ -27,8 +32,8 @@
             </NavigationView.Header>
 
             -->
-        <!-- Navigation Items -->
-        <!--
+<!-- Navigation Items -->
+<!--
             <NavigationView.MenuItems>
                 <NavigationViewItem Icon="Home" Content="Home" Tag="HomePage" />
                 <NavigationViewItem Icon="Library" Content="Samples" Tag="SamplesPage" />
@@ -36,16 +41,14 @@
             </NavigationView.MenuItems>
 
             -->
-        <!-- Content -->
-        <!--
+<!-- Content -->
+<!--
             <Frame x:Name="ContentFrame" />
 
         </NavigationView>-->
 
-        <!--<Frame x:Name="ContentFrame" />
+<!--<Frame x:Name="ContentFrame" />
 
         <Border Height="28" VerticalAlignment="Bottom">
             <TextBlock x:Name="StatusText" Margin="12,0,0,0" Opacity="0.7" Text="Ready." VerticalAlignment="Center" />
         </Border>-->
-    </Grid>
-</Page>
