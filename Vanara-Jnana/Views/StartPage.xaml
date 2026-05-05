@@ -60,20 +60,18 @@
             </StackPanel>
 
             <!-- Navigation Area 51 -->
-            <StackPanel Grid.Column="1" Grid.Row="1" MaxHeight="42" Orientation="Horizontal" Padding="12,0">
+            <StackPanel Grid.Column="1" Grid.Row="1" MaxHeight="42" Orientation="Horizontal" Padding="12,0" VerticalAlignment="Stretch">
                 <AppBarButton Content="Previous." />
                 <AppBarButton Content="Next." />
                 <AppBarSeparator/>
-                <AutoSuggestBox>
-                    <!--<TextBox Text="Ready."/>-->
-                </AutoSuggestBox>
+                <AutoSuggestBox MinWidth="126" VerticalAlignment="Stretch"/>
             </StackPanel>
         </Grid>
 
         <Grid x:Name="MainContentGrid" ColumnDefinitions="Auto, *, Auto" Grid.Row="1" Opacity="0.76" Padding="32" >
             <controls:SidebarControl Grid.Column="0" BorderBrush="Beige" BorderThickness="3" Margin="7"/>
             <Border Grid.Column="1" BorderBrush="Beige" BorderThickness="3" Margin="7">
-                <ListView></ListView>
+                <TabView Background="BlanchedAlmond"/>
             </Border>
             <controls:SidebarControl Grid.Column="2" BorderBrush="Beige" BorderThickness="3" Margin="7" Padding="7"/>
         </Grid>

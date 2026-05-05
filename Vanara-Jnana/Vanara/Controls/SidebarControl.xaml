@@ -8,13 +8,13 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     mc:Ignorable="d">
 
-    <!-- TODO: Background="{ThemeResource MicaBaseAlt}" -->
-    <Grid>
+    <!-- TODO Use RelativePanel to allow for better resizing and rearrangement of the sidebar and content areas. -->
+    <Grid Background="Azure">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <StackPanel x:Name="SidebarPanel" Grid.Column="0" Spacing="4" VerticalAlignment="Stretch">
+        <StackPanel x:Name="MainContent" Grid.Column="0" Spacing="4" VerticalAlignment="Stretch">
             <local:FeatureTile Icon="&#xE8EF;" Subtitle="Get NuGets." Title="NuGet"/>
             <local:FeatureTile Icon="&#xE8EF;" Subtitle="View Gits." Title="GitHub"/>
             <local:FeatureTile Icon="&#xE8EF;" Subtitle="Search the Framework." Title="Search"/>
@@ -22,10 +22,10 @@
             <MenuFlyoutSeparator/>
             <local:FeatureTile Icon="&#xE8EF;" Subtitle="Inspect Packages with ILSpy." Title="Inspect"/>
             <AppBarSeparator />
-            <local:FeatureTile Icon="&#xE8EF;" Subtitle="View and edit Files, Pictures, Resources or other content." Title="Editors"/>
+            <local:FeatureTile Icon="&#xE8EF;" Subtitle="Edit Files, Pictures, Resources and other content." Title="Detail Views"/>
             <MenuFlyoutSeparator/>
         </StackPanel>
-        <Border x:Name="DockPanel" Grid.Column="1" >
+        <Border x:Name="DockPanel" Grid.Column="1" VerticalAlignment="Stretch">
             <StackPanel>
                 <TextBlock x:Name="DockPanelTextBlock"
                            Text="Navigation"
