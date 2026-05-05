@@ -9,51 +9,60 @@ using ClassicSamplesBrowser.Views;
 
 namespace ClassicSamplesBrowser.Vanara.Services;
 
-public class NavigationService(Frame frame)
+public class NavigationService(Frame defaultFrame)
 {
-    protected Frame _frame = frame;
+    // The Frame control used for navigation
+    protected Frame Frame = defaultFrame;
 
-    public Frame? CurrentFrame => _frame;
+    public List<Frame> NavigationHistory { get; } = [];
 
     // TODO: Events: Navigated, Navigating, NavigationFailed, NavigationStopped
 
-    public bool Navigate(Type pageType, object? parameter = null, bool writeHistory = true)
+    // object = null; => Home!
+    public bool Navigate(object navigationTarget, object? parameter = null, bool writeHistory = true)
     {
         try 
         {
-            if (pageType != null)
+            if (navigationTarget != null)
             {
-                return parameter != null ? 
-                    _frame.Navigate(pageType, parameter) 
-                    : _frame.Navigate(pageType);
+                return parameter != null ?
+                    Frame.Navigate(navigationTarget.GetType(), parameter) 
+                    : Frame.Navigate(navigationTarget.GetType());
             }
+
+            // TODO: search the web
         }
         catch (Exception ex)
         {
-            // Handle navigation exceptions as needed
+            // Handle navigation exceptions as needed.
             Debug.WriteLine($"Navigation error: {ex.Message}");
             return false;
         }
 
         if (writeHistory)
         {
+            // Navigate to the target page and add it to the navigation history
         }
 
         return true;
     }
 
-    public bool CanGoBack => _frame.CanGoBack;
-    public bool CanGoForward => _frame.CanGoForward;
+    public bool CanGoBack => Frame.CanGoBack;
+    public bool CanGoForward => Frame.CanGoForward;
 
     public void GoBack()
     {
-        if (_frame.CanGoBack)
-            _frame.GoBack();
+        if(CanGoBack)
+        {
+            Frame.GoBack();
+        }
     }
 
     public void GoForward()
     {
-        if (_frame.CanGoForward)
-            _frame.GoForward();
+        if(CanGoForward)
+        {
+            Frame.GoForward();
+        }
     }
 }

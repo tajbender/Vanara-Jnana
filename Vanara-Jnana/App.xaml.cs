@@ -23,6 +23,9 @@ public partial class App : Application
             };
         }
 
+        // = //new Windows.Graphics.SizeInt32(1200, 800);
+        //_Window.AppWindow.Size...
+
         return _mainWindow;
     }
 

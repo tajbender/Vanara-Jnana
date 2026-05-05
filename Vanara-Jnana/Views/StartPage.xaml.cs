@@ -1,3 +1,4 @@
+using ClassicSamplesBrowser.Models.Contracts;
 using ClassicSamplesBrowser.Vanara.NuGet;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
@@ -12,7 +13,8 @@ namespace ClassicSamplesBrowser.Views;
 /// StartPage is the main page that is shown when the app is launched
 /// and serves as a navigation hub for the various Views in the app.
 /// </summary>
-public sealed partial class StartPage : Page
+public sealed partial class StartPage : Page,
+    INavigationAware
 {
     const string Framework = "net8.0";
     private const string Prefix = "Vanara";
@@ -53,5 +55,10 @@ public sealed partial class StartPage : Page
                 if (package.Identity.Id.StartsWith(Prefix + '.', StringComparison.OrdinalIgnoreCase))
                     _packages.Add(package);
         }, CancellationToken);
+    }
+
+    private void FeatureTile_OnClick(object? sender, EventArgs e)
+    {
+            throw new NotImplementedException();
     }
 }

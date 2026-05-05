@@ -5,7 +5,8 @@ using Microsoft.UI.Xaml.Controls;
 
 namespace ClassicSamplesBrowser.Vanara.Controls;
 
-public sealed partial class FloatingStatusBar : UserControl, INotifyPropertyChanged
+public sealed partial class FloatingStatusBar : UserControl,
+    INotifyPropertyChanged
 {
     private readonly DispatcherTimer _hideTimer = new() { Interval = TimeSpan.FromSeconds(3) };
 

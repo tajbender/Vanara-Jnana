@@ -27,7 +27,8 @@ internal interface IElementInfo
     public string Name { get; }
 }
 
-internal class AssemblyInfo(System.Reflection.Assembly assembly) : IElementInfo, IAsyncRefresh
+internal class AssemblyInfo(System.Reflection.Assembly assembly) : IElementInfo,
+    IAsyncRefresh
 {
     private readonly System.Reflection.Assembly assembly = assembly;
     private readonly List<NamespaceInfo> namespaces = [];

@@ -54,10 +54,10 @@
 
             <!-- Feature Tiles -->
             <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" Padding="12,0">
-                <controls:FeatureTile Icon="&#xE71E;" Subtitle="NuGet Package Releases." Title="NuGet"/>
-                <controls:FeatureTile Icon="&#xE8A5;" Subtitle="View on GitHub." Title="GitHub"/>
-                <controls:FeatureTile Icon="&#xE8A5;" Subtitle="Explore Types, Members and Interfaces." Title="APIs"/>
-                <controls:FeatureTile Icon="&#xE8EF;" Subtitle="View Examples." Title="Samples"/>
+                <controls:FeatureTile Click="FeatureTile_OnClick" Icon="&#xE71E;" Subtitle="NuGet Package Releases." Title="NuGet" />
+                <controls:FeatureTile Click="FeatureTile_OnClick" Icon="&#xE8A5;" Subtitle="View on GitHub." Title="GitHub"/>
+                <controls:FeatureTile Click="FeatureTile_OnClick" Icon="&#xE8A5;" Subtitle="Explore Types, Members and Interfaces." Title="APIs"/>
+                <controls:FeatureTile Click="FeatureTile_OnClick" Icon="&#xE8EF;" Subtitle="View Examples." Title="Samples"/>
             </StackPanel>
 
             <!-- Navigation Area 51 -->
