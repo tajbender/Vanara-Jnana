@@ -36,10 +36,9 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
-                <Image Grid.Column="0" Grid.Row="0" HorizontalAlignment="Stretch" Source="/Assets/Vanara/Vanara-64px.png"/>
-                <TextBlock Grid.Column="0" Grid.Row="1" FontSize="28" FontWeight="SemiBold" Text="Vanar" />
-                <TextBlock Grid.Column="1" Grid.Row="0" FontSize="28" HorizontalTextAlignment="Right" 
-                           Opacity="0.5" Text="Jñān" VerticalAlignment="Bottom">
+                <Image Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right" Source="/Assets/Vanara/Vanara-64px.png" VerticalAlignment="Stretch"/>
+                <TextBlock Grid.Column="0" Grid.Row="1" FontSize="28" FontWeight="SemiBold" Text="Vanar"/>
+                <TextBlock Grid.Column="1" Grid.Row="0" FontSize="28" HorizontalTextAlignment="Right" Opacity="0.5" Text="Jñān" VerticalAlignment="Bottom">
                     <TextBlock.RenderTransform>
                         <RotateTransform Angle="90"/>
                         <!--<CompositeTransform Rotation="90"/>-->
