@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using ClassicSamplesBrowser.Services;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
@@ -35,5 +36,10 @@ public sealed partial class SidebarControl : UserControl
 //            if (child is ToggleButton btn)
 //                btn.Click += (s, e2) => NavigationService.TryNavigate(btn);
 //        }
+    }
+
+    private void FeatureTile_OnClick(object? sender, EventArgs e)
+    {
+        Debug.Print("FeatureTile clicked");
     }
 }

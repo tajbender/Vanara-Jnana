@@ -1,6 +1,7 @@
 ﻿using Microsoft.UI.Xaml.Controls;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,15 +15,31 @@ public class NavigationService(Frame frame)
 
     public Frame? CurrentFrame => _frame;
 
-    public void Navigate(Type pageType, object? parameter = null, bool writeHistory = true)
+    // TODO: Events: Navigated, Navigating, NavigationFailed, NavigationStopped
+
+    public bool Navigate(Type pageType, object? parameter = null, bool writeHistory = true)
     {
-        if (pageType != null)
+        try 
         {
-            _frame.Navigate(pageType, parameter);
-            //bool navigated = parameter ? 
-            //    _frame.Navigate(pageType, parameter)
-            //    : _frame.Navigate(pageType);        
+            if (pageType != null)
+            {
+                return parameter != null ? 
+                    _frame.Navigate(pageType, parameter) 
+                    : _frame.Navigate(pageType);
+            }
         }
+        catch (Exception ex)
+        {
+            // Handle navigation exceptions as needed
+            Debug.WriteLine($"Navigation error: {ex.Message}");
+            return false;
+        }
+
+        if (writeHistory)
+        {
+        }
+
+        return true;
     }
 
     public bool CanGoBack => _frame.CanGoBack;

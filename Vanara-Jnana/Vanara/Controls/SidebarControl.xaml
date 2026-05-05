@@ -11,10 +11,10 @@
     <!-- TODO Use RelativePanel to allow for better resizing and rearrangement of the sidebar and content areas. -->
     <Grid Background="Azure" >
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="56" />
+            <ColumnDefinition Width="84" />
         </Grid.ColumnDefinitions>
         <StackPanel x:Name="MainContent" Grid.Column="0" Spacing="4" VerticalAlignment="Stretch">
-            <local:FeatureTile Icon="&#xE8EF;" Subtitle="..."/>
+            <local:FeatureTile Click="FeatureTile_OnClick"  Icon="&#xE8EF;" Subtitle="..."/>
             <local:FeatureTile Icon="&#xE8EF;" Subtitle="..."/>
             <local:FeatureTile Icon="&#xE8EF;" Subtitle="..."/>
             <local:FeatureTile Icon="&#xE8EF;" Subtitle="..."/>
