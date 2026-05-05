@@ -2,6 +2,6 @@
 
 namespace ClassicSamplesBrowser.Vanara.Controls;
 
-public sealed partial class ShellNamespaceTree : UserControl
+public sealed partial class ShellNamespaceTreeView : UserControl
 {
 }
