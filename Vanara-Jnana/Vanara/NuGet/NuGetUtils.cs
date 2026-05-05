@@ -1,14 +1,10 @@
-﻿using Microsoft.Windows.ApplicationModel.DynamicDependency;
+﻿using System.Runtime.CompilerServices;
 using NuGet.Common;
 using NuGet.Frameworks;
 using NuGet.Packaging;
 using NuGet.Packaging.Core;
 using NuGet.Protocol;
 using NuGet.Protocol.Core.Types;
-using System.Data;
-using System.IO;
-using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
 using PackageDependency = NuGet.Packaging.Core.PackageDependency;
 
 namespace ClassicSamplesBrowser.Vanara.NuGet;

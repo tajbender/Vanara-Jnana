@@ -14,6 +14,7 @@
 		<PackageReference Include="Microsoft.Win32.SystemEvents" Version="10.0.7" />
 		<PackageReference Include="Microsoft.WindowsAppSDK" Version="1.8.260317003" />
 		<PackageReference Include="NuGet.Common" Version="7.3.1" />
+		<PackageReference Include="NuGet.Protocol" Version="7.3.1" />
 		<PackageReference Include="Vanara.Core" Version="5.0.4" />
 		<PackageReference Include="Vanara.PInvoke.SearchApi" Version="5.0.4" />
 		<PackageReference Include="Vanara.PInvoke.Shell32" Version="5.0.4" />
