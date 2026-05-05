@@ -75,6 +75,6 @@
             </Border>
             <controls:SidebarControl Grid.Column="2" BorderBrush="Beige" BorderThickness="3" Margin="7" Padding="7"/>
         </Grid>
-        <controls:FloatingStatusBar x:Name="StatusBar" Grid.Row="2" BorderBrush="Beige" BorderThickness="3"/>
+        <controls:FloatingStatusBar x:Name="StatusBar" Grid.Row="2" BorderBrush="Beige" BorderThickness="3" MinHeight="42"/>
     </Grid>
 </Page>
