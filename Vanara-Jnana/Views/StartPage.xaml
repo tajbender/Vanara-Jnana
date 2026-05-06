@@ -17,33 +17,55 @@
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
+                <!-- Logo -->
                 <ColumnDefinition Width="Auto"/>
+                <!-- Feature Tiles -->
                 <ColumnDefinition Width="*"/>
+                <!-- Füller / Stretch -->
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
+                <!-- Logo + Tiles -->
+                <RowDefinition Height="Auto"/>
+                <!-- Navigation -->
             </Grid.RowDefinitions>
 
-            <Grid Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" >
+            <!-- Logo-Bereich -->
+            <Grid Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="54"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
-                <Image Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right" Source="/Assets/Vanara/Vanara-64px.png" VerticalAlignment="Stretch"/>
-                <TextBlock Grid.Column="0" Grid.Row="1" FontSize="28" FontWeight="SemiBold" Text="Vanar"/>
-                <TextBlock Grid.Column="1" Grid.Row="0" FontSize="28" Opacity="0.5" Text="Jñān" >
+                <Image Grid.Column="0" Grid.Row="0"
+               HorizontalAlignment="Right"
+               VerticalAlignment="Stretch"
+               Source="/Assets/Vanara/Vanara-64px.png"/>
+
+                <TextBlock Grid.Column="0" Grid.Row="1"
+                   FontSize="28"
+                   FontWeight="SemiBold"
+                   Text="Vanar"/>
+
+                <TextBlock Grid.Column="1" Grid.Row="0"
+                   FontSize="28"
+                   Opacity="0.5"
+                   Text="Jñān">
                     <TextBlock.RenderTransform>
                         <CompositeTransform Rotation="90"/>
                     </TextBlock.RenderTransform>
                 </TextBlock>
-                <TextBlock Grid.Column="1" Grid.Row="1" FontSize="28" FontWeight="SemiBold" Opacity="0.5" Text="a" Width="Auto">
+
+                <TextBlock Grid.Column="1" Grid.Row="1"
+                   FontSize="28"
+                   FontWeight="SemiBold"
+                   Opacity="0.5"
+                   Text="a">
                     <TextBlock.RenderTransform>
                         <RotateTransform Angle="-23"/>
                     </TextBlock.RenderTransform>
@@ -51,21 +73,85 @@
             </Grid>
 
             <!-- Feature Tiles -->
-            <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" Padding="12,0">
-                <controls:FeatureTile Click="FeatureTile_OnClick" Icon="&#xE71E;" Subtitle="NuGet Package Releases." Title="NuGets" />
-                <controls:FeatureTile Click="FeatureTile_OnClick" Icon="&#xE8A5;" Subtitle="View on GitHub." Title="GitHub"/>
-                <controls:FeatureTile Click="FeatureTile_OnClick" Icon="&#xE8A5;" Subtitle="Explore Types, Members and Interfaces." Title="Inspect"/>
-                <controls:FeatureTile Click="FeatureTile_OnClick" Icon="&#xE8EF;" Subtitle="View Examples." Title="Samples"/>
+            <StackPanel Grid.Column="1"
+                Grid.Row="0"
+                Orientation="Horizontal"
+                Padding="12,0">
+                <controls:FeatureTile Click="FeatureTile_OnClick"
+                              Icon="&#xE71E;"
+                              Subtitle="NuGet Package Releases."
+                              Title="NuGets" />
+                <controls:FeatureTile Click="FeatureTile_OnClick"
+                              Icon="&#xE8A5;"
+                              Subtitle="View on GitHub."
+                              Title="GitHub"/>
+                <controls:FeatureTile Click="FeatureTile_OnClick"
+                              Icon="&#xE8A5;"
+                              Subtitle="Explore Types, Members and Interfaces."
+                              Title="Inspect"/>
+                <controls:FeatureTile Click="FeatureTile_OnClick"
+                              Icon="&#xE8EF;"
+                              Subtitle="View Examples."
+                              Title="Samples"/>
             </StackPanel>
 
             <!-- Navigation Area 51 -->
-            <StackPanel Grid.Column="1" Grid.Row="1" MaxHeight="42" Orientation="Horizontal" Padding="12,0" VerticalAlignment="Stretch">
-                <AppBarButton Content="Previous." />
-                <AppBarButton Content="Next." />
-                <AppBarSeparator/>
-                <AutoSuggestBox MinWidth="256" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <AutoSuggestBox MinWidth="256" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-            </StackPanel>
+            <Grid Grid.Row="1"
+          Grid.Column="1"
+          Grid.ColumnSpan="2"
+          Margin="12,8,12,4"
+          VerticalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="BtnPrevious"
+                Grid.Column="0"
+                Width="36"
+                Height="32"
+                Padding="0"
+                ToolTipService.ToolTip="Previous">
+                    <FontIcon Glyph="&#xE72B;"/>
+                </Button>
+
+                <SplitButton x:Name="BtnNext"
+                     Grid.Column="1"
+                     Width="48"
+                     Height="32"
+                     Margin="6,0"
+                     ToolTipService.ToolTip="Next">
+                    <SplitButton.Content>
+                        <FontIcon Glyph="&#xE72A;"/>
+                    </SplitButton.Content>
+                    <SplitButton.Flyout>
+                        <MenuFlyout>
+                            <MenuFlyoutItem Text="Forward 1"/>
+                            <MenuFlyoutItem Text="Forward 2"/>
+                            <MenuFlyoutItem Text="Forward 3"/>
+                        </MenuFlyout>
+                    </SplitButton.Flyout>
+                </SplitButton>
+
+                <BreadcrumbBar x:Name="NavBreadcrumb"
+                       Grid.Column="2"
+                       Margin="12,0"
+                       HorizontalAlignment="Stretch"
+                       MinWidth="256"
+                       VerticalAlignment="Center"
+                       ItemClicked="NavBreadcrumb_ItemClicked"/>
+
+                <AutoSuggestBox x:Name="SearchBox"
+                        Grid.Column="3"
+                        Width="260"
+                        Height="32"
+                        PlaceholderText="Search"
+                        QueryIcon="Find"
+                        TextChanged="SearchBox_TextChanged"
+                        QuerySubmitted="SearchBox_QuerySubmitted"/>
+            </Grid>
         </Grid>
 
         <Grid x:Name="MainContentGrid" Grid.Row="1" ColumnDefinitions="Auto, *, Auto" Opacity="0.76" Padding="32" >
@@ -78,15 +164,15 @@
                     <TabView.Resources>
                         <!-- `TabViewItem` Styles -->
                         <Style TargetType="TabViewItem">
-                            <Setter Property="FontSize" Value="14"/>
-                            <Setter Property="FontWeight" Value="SemiBold"/>
-                            <Setter Property="MinWidth" Value="140"/>
-                            <Setter Property="Padding" Value="16,8"/>
-                            <Setter Property="Foreground" Value="#333"/>
                             <Setter Property="Background" Value="Transparent"/>
                             <Setter Property="BorderThickness" Value="0"/>
                             <Setter Property="CornerRadius" Value="6"/>
+                            <Setter Property="FontSize" Value="14"/>
+                            <Setter Property="FontWeight" Value="SemiBold"/>
+                            <Setter Property="Foreground" Value="#333"/>
                             <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="MinWidth" Value="140"/>
+                            <Setter Property="Padding" Value="16,8"/>
                             <Setter Property="VerticalContentAlignment" Value="Center"/>
 
                             <Setter Property="Template">
@@ -125,13 +211,21 @@
                     </TabView.Resources>
 
                     <TabView.TabStripHeader>
-                        <StackPanel Orientation="Horizontal" Spacing="8" Margin="12,0">
-                            <TextBlock Text="Vanara Jñāna" FontSize="18" FontWeight="Bold" Foreground="#222"/>
-                            <TextBlock Text="API Knowledge Explorer" FontSize="12" Foreground="#666" VerticalAlignment="Bottom"/>
+                        <StackPanel Orientation="Vertical" Spacing="8" Margin="12,0">
+                            <TextBlock Text="Jñāna" FontSize="18" FontWeight="Bold" Foreground="#222"/>
+                            <TextBlock Text="v 5.5.5" FontSize="12" Foreground="#666" VerticalAlignment="Bottom"/>
                         </StackPanel>
                     </TabView.TabStripHeader>
 
-                    <TabViewItem Header="Jnana">
+                    <TabViewItem>
+                        <TabViewItem.Header>
+                            <StackPanel Orientation="Horizontal" Spacing="8">
+                                <FontIcon Glyph="&#xE8A5;" />
+                                <!-- Symbol: Page -->
+                                <TextBlock Text="Home"/>
+                            </StackPanel>
+                        </TabViewItem.Header>
+
                         <Frame x:Name="HomeFrame"/>
                     </TabViewItem>
 
@@ -139,6 +233,7 @@
             </Border>
             <controls:SidebarControl Grid.Column="2" BorderBrush="Beige" BorderThickness="3" Margin="7" Padding="7"/>
         </Grid>
+
         <controls:FloatingStatusBar x:Name="StatusBar" Grid.Row="2" BorderBrush="Beige" BorderThickness="3" MinHeight="42" VerticalAlignment="Bottom" />
     </Grid>
 </Page>

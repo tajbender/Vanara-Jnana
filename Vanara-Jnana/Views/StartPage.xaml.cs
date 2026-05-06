@@ -36,17 +36,22 @@ public sealed partial class StartPage : Page,
 
     private void StartPage_Loading(FrameworkElement sender, object args)
     {
-    }
+        try 
+        {
+            Task.Factory.StartNew(async () =>
+            {
+                await foreach (var package in NuGetUtils.LoadNuGetPackageListAsync(Prefix, Nuget, CancellationToken))
+                    if (package.Identity.Id.StartsWith(Prefix + '.', StringComparison.OrdinalIgnoreCase))
+                        _packages.Add(package);
+            }, CancellationToken);
 
-    //private void LoadAssemblies_Click(object sender, RoutedEventArgs e)
-    //{
-    //    Task.Factory.StartNew(async () =>
-    //    {
-    //        await foreach (var package in NuGetUtils.LoadNuGetPackageListAsync(Prefix, Nuget, CancellationToken))
-    //            if (package.Identity.Id.StartsWith(Prefix + '.', StringComparison.OrdinalIgnoreCase))
-    //                _packages.Add(package);
-    //    }, CancellationToken);
-    //}
+            NavBreadcrumb.ItemsSource = new List<string> { "Home", "APIs", "Shell", "IShellItem" };
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"Error loading packages: {ex.Message}");
+        }
+    }
 
     private void FeatureTile_OnClick(object? sender, EventArgs e)
     {
@@ -55,6 +60,7 @@ public sealed partial class StartPage : Page,
 
     private void MainTabs_AddTabButtonClick(TabView sender, object args)
     {
+        Debug.WriteLine("Add tab button clicked.");
         var tab = new TabViewItem
         {
             Header = "New Tab",
@@ -69,8 +75,30 @@ public sealed partial class StartPage : Page,
         if (MainTabView.SelectedItem is TabViewItem tab &&
             tab.Content is Frame frame)
         {
+            Debug.WriteLine("Tab selection changed.");
             HomeFrame.Content = frame.Content;
         }
     }
 
+    private void NavBreadcrumb_ItemClicked(object sender, BreadcrumbBarItemClickedEventArgs args)
+    {
+        var clicked = args.Item.ToString();
+        Debug.WriteLine($"Breadcrumb item clicked: {clicked} (TODO: Navigate to the clicked item)");
+    }
+
+    private void SearchBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
+    {
+        Debug.WriteLine($"Search box text changed: {sender.Text} {args.ToString} (TODO: Handle text change)");
+        if (args.Reason == AutoSuggestionBoxTextChangeReason.UserInput)
+        {
+            sender.ItemsSource = new List<string> { "ShellItem", "ShellFolder", "IShellItem", "ExplorerBrowser" };
+        }
+    }
+
+    private void SearchBox_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
+    {
+        var query = args.QueryText;
+        Debug.WriteLine($"Search query submitted: {query} (TODO: Handle search query submission)");
+        query = query.Trim();
+    }
 }
