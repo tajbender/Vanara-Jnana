@@ -76,15 +76,59 @@
                          AddTabButtonClick="MainTabs_AddTabButtonClick" SelectionChanged="MainTabs_SelectionChanged" >
 
                     <TabView.Resources>
+                        <!-- `TabViewItem` Styles -->
                         <Style TargetType="TabViewItem">
                             <Setter Property="FontSize" Value="14"/>
-                            <Setter Property="MinWidth" Value="120"/>
-                            <Setter Property="Padding" Value="12,6"/>
+                            <Setter Property="FontWeight" Value="SemiBold"/>
+                            <Setter Property="MinWidth" Value="140"/>
+                            <Setter Property="Padding" Value="16,8"/>
+                            <Setter Property="Foreground" Value="#333"/>
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="CornerRadius" Value="6"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="VerticalContentAlignment" Value="Center"/>
+
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="TabViewItem">
+                                        <Grid x:Name="RootGrid" Background="{TemplateBinding Background}">
+
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="3"/>
+                                            </Grid.RowDefinitions>
+
+                                            <!-- Header -->
+                                            <ContentPresenter Grid.Row="0" Content="{TemplateBinding Header}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                                            <!-- Selection Indicator -->
+                                            <Border x:Name="SelectionIndicator" Grid.Row="1" Background="#0078D4" Height="3" Opacity="0"/>
+                                        </Grid>
+
+                                        <!-- TODO: Add Visual States for Normal and Selected -->
+                                        <!--<VisualStateManager.VisualStateGroups>
+                                            <VisualStateGroup x:Name="CommonStates">
+                                                <VisualState x:Name="Normal"/>
+                                                <VisualState x:Name="Selected">
+                                                    <VisualState.Setters>
+                                                        <Setter Target="Indicator.Opacity" Value="1"/>
+                                                    </VisualState.Setters>
+                                                </VisualState>
+                                            </VisualStateGroup>
+                                        </VisualStateManager.VisualStateGroups>-->
+
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
                         </Style>
                     </TabView.Resources>
 
                     <TabView.TabStripHeader>
-                        <TextBlock Text="Workbench" Margin="8,0"/>
+                        <StackPanel Orientation="Horizontal" Spacing="8" Margin="12,0">
+                            <TextBlock Text="Vanara Jñāna" FontSize="18" FontWeight="Bold" Foreground="#222"/>
+                            <TextBlock Text="API Knowledge Explorer" FontSize="12" Foreground="#666" VerticalAlignment="Bottom"/>
+                        </StackPanel>
                     </TabView.TabStripHeader>
 
                     <TabViewItem Header="Jnana">
