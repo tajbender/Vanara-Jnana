@@ -20,7 +20,7 @@
                 <ColumnDefinition Width="Auto"/>
                 <!-- Feature Tiles -->
                 <ColumnDefinition Width="*"/>
-                <!-- Füller / Stretch -->
+                <!-- Filler, stretch -->
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -29,7 +29,7 @@
                 <!-- Navigation -->
             </Grid.RowDefinitions>
 
-            <!-- Logo-Bereich -->
+            <!-- Vanara Logo Area 51 -->
             <Grid Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -57,15 +57,15 @@
                 </TextBlock>
             </Grid>
 
-            <!-- Feature Tiles -->
+            <!-- Feature Tiles Area 51 -->
             <StackPanel Grid.Column="1"
                 Grid.Row="0"
                 Orientation="Horizontal"
                 Padding="12,0">
-                <controls:FeatureTile Click="FeatureTile_OnClick" Icon="&#xE71E;" Subtitle="NuGet Package Releases." Title="NuGets" />
-                <controls:FeatureTile Click="FeatureTile_OnClick" Icon="&#xE8A5;" Subtitle="View on GitHub." Title="GitHub"/>
-                <controls:FeatureTile Click="FeatureTile_OnClick" Icon="&#xE8A5;" Subtitle="Explore Types, Members and Interfaces." Title="Inspect"/>
-                <controls:FeatureTile Click="FeatureTile_OnClick" Icon="&#xE8EF;" Subtitle="View Examples." Title="Samples"/>
+                <controls:FeatureTile Click="FeatureTile_OnClick" Icon="&#xE7B8;" Subtitle="Package Releases." Title="NuGets" />
+                <controls:FeatureTile Click="FeatureTile_OnClick" Icon="&#xE9D5;" Subtitle="View on GitHub." Title="GitHub"/>
+                <controls:FeatureTile Click="FeatureTile_OnClick" Icon="&#xE721;" Subtitle="Explore Types, Members and Interfaces." Title="Inspect"/>
+                <controls:FeatureTile Click="FeatureTile_OnClick" Icon="&#xE8F1;" Subtitle="Visit Showcase." Title="Samples"/>
             </StackPanel>
 
             <!-- Navigation Area 51 -->
@@ -94,12 +94,10 @@
                     </SplitButton.Flyout>
                 </SplitButton>
 
-                <Border Grid.Column="2"
-        Margin="12,0" Height="32" CornerRadius="4" Background="#F3F3F3" BorderBrush="#D0D0D0" BorderThickness="1" VerticalAlignment="Center" Padding="8,0">
-
+                <Border Grid.Column="2" Background="#F3F3F3" BorderBrush="#D0D0D0" BorderThickness="1" 
+                        CornerRadius="4" Height="32" Margin="12,0" Padding="8,0" VerticalAlignment="Center" >
                     <BreadcrumbBar x:Name="NavBreadcrumb" HorizontalAlignment="Stretch" VerticalAlignment="Center" ItemClicked="NavBreadcrumb_ItemClicked"/>
                 </Border>
-
 
                 <AutoSuggestBox x:Name="SearchBox" Grid.Column="3" Height="32" PlaceholderText="Search"
                         QueryIcon="Find" QuerySubmitted="SearchBox_QuerySubmitted" TextChanged="SearchBox_TextChanged" Width="260" />
@@ -107,14 +105,14 @@
         </Grid>
 
         <Grid x:Name="MainContentGrid" Grid.Row="1" ColumnDefinitions="Auto, *, Auto" Opacity="0.76" Padding="32" >
-            <controls:SidebarControl Grid.Column="0" BorderBrush="Beige" BorderThickness="3" Margin="7" Padding="7"/>
-            <Border Grid.Column="1" BorderBrush="Beige" BorderThickness="3" Margin="7" Padding="7">
 
-                <TabView x:Name="MainTabView" Grid.Row="1" CanDragTabs="False" CanReorderTabs="False" Margin="8,0,8,8" TabWidthMode="Equal"
-                         AddTabButtonClick="MainTabs_AddTabButtonClick" SelectionChanged="MainTabs_SelectionChanged" >
+            <controls:SidebarControl x:Name="Sidebar" Margin="7" Padding="7"/>
 
+            <Border x:Name="TabViewBorder" Grid.Column="1" Margin="7" Padding="7">
+                <TabView x:Name="MainTabView" Grid.Row="1" CanDragTabs="False" Margin="8,0,8,8"
+                         AddTabButtonClick="MainTabs_AddTabButtonClick" 
+                         SelectionChanged="MainTabs_SelectionChanged" >
                     <TabView.Resources>
-                        <!-- `TabViewItem` Styles -->
                         <Style TargetType="TabViewItem">
                             <Setter Property="Background" Value="Transparent"/>
                             <Setter Property="BorderThickness" Value="0"/>
@@ -123,15 +121,15 @@
                             <Setter Property="FontWeight" Value="SemiBold"/>
                             <Setter Property="Foreground" Value="#333"/>
                             <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="VerticalContentAlignment" Value="Center"/>
                             <Setter Property="MinWidth" Value="140"/>
                             <Setter Property="Padding" Value="16,8"/>
-                            <Setter Property="VerticalContentAlignment" Value="Center"/>
 
                             <Setter Property="Template">
                                 <Setter.Value>
                                     <ControlTemplate TargetType="TabViewItem">
-                                        <Grid x:Name="RootGrid" Background="{TemplateBinding Background}">
 
+                                        <Grid x:Name="RootGrid" Background="{TemplateBinding Background}">
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="*"/>
                                                 <RowDefinition Height="3"/>
@@ -141,16 +139,22 @@
                                             <ContentPresenter Grid.Row="0" Content="{TemplateBinding Header}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
                                             <!-- Selection Indicator -->
-                                            <Border x:Name="SelectionIndicator" Grid.Row="1" Background="#0078D4" Height="3" Opacity="0"/>
+                                            <Border x:Name="Indicator" Grid.Row="1" Background="#0078D4" Height="3" Opacity="0"/>
                                         </Grid>
 
-                                        <!-- TODO: Add Visual States for Normal and Selected -->
                                         <!--<VisualStateManager.VisualStateGroups>
                                             <VisualStateGroup x:Name="CommonStates">
                                                 <VisualState x:Name="Normal"/>
+                                                <VisualState x:Name="PointerOver">
+                                                    <VisualState.Setters>
+                                                        <Setter Target="RootGrid.Background" Value="#F2F2F2"/>
+                                                    </VisualState.Setters>
+                                                </VisualState>
                                                 <VisualState x:Name="Selected">
                                                     <VisualState.Setters>
                                                         <Setter Target="Indicator.Opacity" Value="1"/>
+                                                        <Setter Target="RootGrid.Background" Value="#FFFFFF"/>
+                                                        <Setter Property="Foreground" Value="#000"/>
                                                     </VisualState.Setters>
                                                 </VisualState>
                                             </VisualStateGroup>
@@ -183,7 +187,7 @@
 
                 </TabView>
             </Border>
-            <controls:SidebarControl Grid.Column="2" BorderBrush="Beige" BorderThickness="3" Margin="7" Padding="7"/>
+            <controls:SidebarControl Grid.Column="2" BorderBrush="Beige" BorderThickness="3" Margin="7" Padding="7" Visibility="Collapsed"/>
         </Grid>
 
         <controls:FloatingStatusBar x:Name="StatusBar" Grid.Row="2" BorderBrush="Beige" BorderThickness="3" MinHeight="42" VerticalAlignment="Bottom" />
