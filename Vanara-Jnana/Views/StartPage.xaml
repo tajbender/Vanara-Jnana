@@ -4,8 +4,7 @@
     xmlns:local="using:ClassicSamplesBrowser.Views"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    CanDrag="True">
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -42,30 +41,16 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
-                <Image Grid.Column="0" Grid.Row="0"
-               HorizontalAlignment="Right"
-               VerticalAlignment="Stretch"
-               Source="/Assets/Vanara/Vanara-64px.png"/>
+                <Image Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Stretch" Source="/Assets/Vanara/Vanara-64px.png"/>
 
-                <TextBlock Grid.Column="0" Grid.Row="1"
-                   FontSize="28"
-                   FontWeight="SemiBold"
-                   Text="Vanar"/>
-
-                <TextBlock Grid.Column="1" Grid.Row="0"
-                   FontSize="28"
-                   Opacity="0.5"
-                   Text="Jñān">
+                <TextBlock Grid.Column="0" Grid.Row="1" FontSize="28" FontWeight="SemiBold" Text="Vanar"/>
+                <TextBlock Grid.Column="1" Grid.Row="0" FontSize="28" Opacity="0.5" Text="Jñān">
                     <TextBlock.RenderTransform>
                         <CompositeTransform Rotation="90"/>
                     </TextBlock.RenderTransform>
                 </TextBlock>
 
-                <TextBlock Grid.Column="1" Grid.Row="1"
-                   FontSize="28"
-                   FontWeight="SemiBold"
-                   Opacity="0.5"
-                   Text="a">
+                <TextBlock Grid.Column="1" Grid.Row="1" FontSize="28" FontWeight="SemiBold" Opacity="0.5" Text="a">
                     <TextBlock.RenderTransform>
                         <RotateTransform Angle="-23"/>
                     </TextBlock.RenderTransform>
@@ -77,30 +62,14 @@
                 Grid.Row="0"
                 Orientation="Horizontal"
                 Padding="12,0">
-                <controls:FeatureTile Click="FeatureTile_OnClick"
-                              Icon="&#xE71E;"
-                              Subtitle="NuGet Package Releases."
-                              Title="NuGets" />
-                <controls:FeatureTile Click="FeatureTile_OnClick"
-                              Icon="&#xE8A5;"
-                              Subtitle="View on GitHub."
-                              Title="GitHub"/>
-                <controls:FeatureTile Click="FeatureTile_OnClick"
-                              Icon="&#xE8A5;"
-                              Subtitle="Explore Types, Members and Interfaces."
-                              Title="Inspect"/>
-                <controls:FeatureTile Click="FeatureTile_OnClick"
-                              Icon="&#xE8EF;"
-                              Subtitle="View Examples."
-                              Title="Samples"/>
+                <controls:FeatureTile Click="FeatureTile_OnClick" Icon="&#xE71E;" Subtitle="NuGet Package Releases." Title="NuGets" />
+                <controls:FeatureTile Click="FeatureTile_OnClick" Icon="&#xE8A5;" Subtitle="View on GitHub." Title="GitHub"/>
+                <controls:FeatureTile Click="FeatureTile_OnClick" Icon="&#xE8A5;" Subtitle="Explore Types, Members and Interfaces." Title="Inspect"/>
+                <controls:FeatureTile Click="FeatureTile_OnClick" Icon="&#xE8EF;" Subtitle="View Examples." Title="Samples"/>
             </StackPanel>
 
             <!-- Navigation Area 51 -->
-            <Grid Grid.Row="1"
-          Grid.Column="1"
-          Grid.ColumnSpan="2"
-          Margin="12,8,12,4"
-          VerticalAlignment="Center">
+            <Grid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Margin="12,8,12,4" VerticalAlignment="Center">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
@@ -108,21 +77,11 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
-                <Button x:Name="BtnPrevious"
-                Grid.Column="0"
-                Width="36"
-                Height="32"
-                Padding="0"
-                ToolTipService.ToolTip="Previous">
+                <Button x:Name="BtnPrevious" Grid.Column="0" Height="32" Padding="0" ToolTipService.ToolTip="Previous" Width="36">
                     <FontIcon Glyph="&#xE72B;"/>
                 </Button>
 
-                <SplitButton x:Name="BtnNext"
-                     Grid.Column="1"
-                     Width="48"
-                     Height="32"
-                     Margin="6,0"
-                     ToolTipService.ToolTip="Next">
+                <SplitButton x:Name="BtnNext" Grid.Column="1" Height="32" Margin="6,0" ToolTipService.ToolTip="Next" Width="48">
                     <SplitButton.Content>
                         <FontIcon Glyph="&#xE72A;"/>
                     </SplitButton.Content>
@@ -135,22 +94,15 @@
                     </SplitButton.Flyout>
                 </SplitButton>
 
-                <BreadcrumbBar x:Name="NavBreadcrumb"
-                       Grid.Column="2"
-                       Margin="12,0"
-                       HorizontalAlignment="Stretch"
-                       MinWidth="256"
-                       VerticalAlignment="Center"
-                       ItemClicked="NavBreadcrumb_ItemClicked"/>
+                <Border Grid.Column="2"
+        Margin="12,0" Height="32" CornerRadius="4" Background="#F3F3F3" BorderBrush="#D0D0D0" BorderThickness="1" VerticalAlignment="Center" Padding="8,0">
 
-                <AutoSuggestBox x:Name="SearchBox"
-                        Grid.Column="3"
-                        Width="260"
-                        Height="32"
-                        PlaceholderText="Search"
-                        QueryIcon="Find"
-                        TextChanged="SearchBox_TextChanged"
-                        QuerySubmitted="SearchBox_QuerySubmitted"/>
+                    <BreadcrumbBar x:Name="NavBreadcrumb" HorizontalAlignment="Stretch" VerticalAlignment="Center" ItemClicked="NavBreadcrumb_ItemClicked"/>
+                </Border>
+
+
+                <AutoSuggestBox x:Name="SearchBox" Grid.Column="3" Height="32" PlaceholderText="Search"
+                        QueryIcon="Find" QuerySubmitted="SearchBox_QuerySubmitted" TextChanged="SearchBox_TextChanged" Width="260" />
             </Grid>
         </Grid>
 
