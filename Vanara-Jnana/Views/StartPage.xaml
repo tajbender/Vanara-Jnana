@@ -38,24 +38,23 @@
 
                 <Image Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right" Source="/Assets/Vanara/Vanara-64px.png" VerticalAlignment="Stretch"/>
                 <TextBlock Grid.Column="0" Grid.Row="1" FontSize="28" FontWeight="SemiBold" Text="Vanar"/>
-                <TextBlock Grid.Column="1" Grid.Row="0" FontSize="28" HorizontalTextAlignment="Right" Opacity="0.5" Text="Jñān" VerticalAlignment="Bottom">
+                <TextBlock Grid.Column="1" Grid.Row="0" FontSize="28" Opacity="0.5" Text="Jñān" >
                     <TextBlock.RenderTransform>
-                        <RotateTransform Angle="90"/>
-                        <!--<CompositeTransform Rotation="90"/>-->
+                        <CompositeTransform Rotation="90"/>
                     </TextBlock.RenderTransform>
                 </TextBlock>
                 <TextBlock Grid.Column="1" Grid.Row="1" FontSize="28" FontWeight="SemiBold" Opacity="0.5" Text="a" Width="Auto">
                     <TextBlock.RenderTransform>
-                        <RotateTransform Angle="0"/>
+                        <RotateTransform Angle="-23"/>
                     </TextBlock.RenderTransform>
                 </TextBlock>
             </Grid>
 
             <!-- Feature Tiles -->
             <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" Padding="12,0">
-                <controls:FeatureTile Click="FeatureTile_OnClick" Icon="&#xE71E;" Subtitle="NuGet Package Releases." Title="NuGet" />
+                <controls:FeatureTile Click="FeatureTile_OnClick" Icon="&#xE71E;" Subtitle="NuGet Package Releases." Title="NuGets" />
                 <controls:FeatureTile Click="FeatureTile_OnClick" Icon="&#xE8A5;" Subtitle="View on GitHub." Title="GitHub"/>
-                <controls:FeatureTile Click="FeatureTile_OnClick" Icon="&#xE8A5;" Subtitle="Explore Types, Members and Interfaces." Title="APIs"/>
+                <controls:FeatureTile Click="FeatureTile_OnClick" Icon="&#xE8A5;" Subtitle="Explore Types, Members and Interfaces." Title="Inspect"/>
                 <controls:FeatureTile Click="FeatureTile_OnClick" Icon="&#xE8EF;" Subtitle="View Examples." Title="Samples"/>
             </StackPanel>
 
@@ -64,17 +63,38 @@
                 <AppBarButton Content="Previous." />
                 <AppBarButton Content="Next." />
                 <AppBarSeparator/>
-                <AutoSuggestBox MinWidth="126" VerticalAlignment="Stretch"/>
+                <AutoSuggestBox MinWidth="256" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <AutoSuggestBox MinWidth="256" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
             </StackPanel>
         </Grid>
 
-        <Grid x:Name="MainContentGrid" ColumnDefinitions="Auto, *, Auto" Grid.Row="1" Opacity="0.76" Padding="32" >
-            <controls:SidebarControl Grid.Column="0" BorderBrush="Beige" BorderThickness="3" Margin="7"/>
-            <Border Grid.Column="1" BorderBrush="Beige" BorderThickness="3" Margin="7">
-                <TabView Background="BlanchedAlmond"/>
+        <Grid x:Name="MainContentGrid" Grid.Row="1" ColumnDefinitions="Auto, *, Auto" Opacity="0.76" Padding="32" >
+            <controls:SidebarControl Grid.Column="0" BorderBrush="Beige" BorderThickness="3" Margin="7" Padding="7"/>
+            <Border Grid.Column="1" BorderBrush="Beige" BorderThickness="3" Margin="7" Padding="7">
+
+                <TabView x:Name="MainTabView" Grid.Row="1" CanDragTabs="False" CanReorderTabs="False" Margin="8,0,8,8" TabWidthMode="Equal"
+                         AddTabButtonClick="MainTabs_AddTabButtonClick" SelectionChanged="MainTabs_SelectionChanged" >
+
+                    <TabView.Resources>
+                        <Style TargetType="TabViewItem">
+                            <Setter Property="FontSize" Value="14"/>
+                            <Setter Property="MinWidth" Value="120"/>
+                            <Setter Property="Padding" Value="12,6"/>
+                        </Style>
+                    </TabView.Resources>
+
+                    <TabView.TabStripHeader>
+                        <TextBlock Text="Workbench" Margin="8,0"/>
+                    </TabView.TabStripHeader>
+
+                    <TabViewItem Header="Jnana">
+                        <Frame x:Name="HomeFrame"/>
+                    </TabViewItem>
+
+                </TabView>
             </Border>
             <controls:SidebarControl Grid.Column="2" BorderBrush="Beige" BorderThickness="3" Margin="7" Padding="7"/>
         </Grid>
-        <controls:FloatingStatusBar x:Name="StatusBar" Grid.Row="2" BorderBrush="Beige" BorderThickness="3" MinHeight="42"/>
+        <controls:FloatingStatusBar x:Name="StatusBar" Grid.Row="2" BorderBrush="Beige" BorderThickness="3" MinHeight="42" VerticalAlignment="Bottom" />
     </Grid>
 </Page>

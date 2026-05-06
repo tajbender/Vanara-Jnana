@@ -4,6 +4,7 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using NuGet.Common;
 using NuGet.Protocol.Core.Types;
+using System.Diagnostics;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -37,28 +38,39 @@ public sealed partial class StartPage : Page,
     {
     }
 
-    private void OpenExplorer_Click(object sender, RoutedEventArgs e)
-    {
-        Frame.Navigate(typeof(ApiExplorerPage));
-    }
-
-    private void OpenSamples_Click(object sender, RoutedEventArgs e)
-    {
-        Frame.Navigate(typeof(SamplesPage));
-    }
-
-    private void LoadAssemblies_Click(object sender, RoutedEventArgs e)
-    {
-        Task.Factory.StartNew(async () =>
-        {
-            await foreach (var package in NuGetUtils.LoadNuGetPackageListAsync(Prefix, Nuget, CancellationToken))
-                if (package.Identity.Id.StartsWith(Prefix + '.', StringComparison.OrdinalIgnoreCase))
-                    _packages.Add(package);
-        }, CancellationToken);
-    }
+    //private void LoadAssemblies_Click(object sender, RoutedEventArgs e)
+    //{
+    //    Task.Factory.StartNew(async () =>
+    //    {
+    //        await foreach (var package in NuGetUtils.LoadNuGetPackageListAsync(Prefix, Nuget, CancellationToken))
+    //            if (package.Identity.Id.StartsWith(Prefix + '.', StringComparison.OrdinalIgnoreCase))
+    //                _packages.Add(package);
+    //    }, CancellationToken);
+    //}
 
     private void FeatureTile_OnClick(object? sender, EventArgs e)
     {
-            throw new NotImplementedException();
+        Debug.WriteLine("Feature tile clicked.");
     }
+
+    private void MainTabs_AddTabButtonClick(TabView sender, object args)
+    {
+        var tab = new TabViewItem
+        {
+            Header = "New Tab",
+            Content = new Frame()
+        };
+
+        sender.TabItems.Add(tab);
+        sender.SelectedItem = tab;
+    }
+    private void MainTabs_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        if (MainTabView.SelectedItem is TabViewItem tab &&
+            tab.Content is Frame frame)
+        {
+            HomeFrame.Content = frame.Content;
+        }
+    }
+
 }
