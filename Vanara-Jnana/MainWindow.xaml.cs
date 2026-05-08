@@ -1,7 +1,10 @@
 using ClassicSamplesBrowser.Helpers;
 using ClassicSamplesBrowser.Views;
+using Microsoft.UI;
 using Microsoft.UI.Composition.SystemBackdrops;
+using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
+using System.Drawing;
 using Vanara.PInvoke;
 using WinRT;
 
@@ -9,16 +12,16 @@ namespace ClassicSamplesBrowser;
 
 public sealed partial class MainWindow : Window
 {
-    private WindowsSystemDispatcherQueueHelper _wsdqHelper;
-    private MicaController _micaController;
+    private Rectangle _defaultBounds = new(640, 480, 1280, 800);
     private SystemBackdropConfiguration _backdropConfig;
-
-    //private Size _initialWindowSize = new Size() { Width = 800, Height = 600 };
+    private MicaController _micaController;
+    private WindowsSystemDispatcherQueueHelper _wsdqHelper;
 
     public MainWindow()
     {
         InitializeComponent();
         TrySetMicaBackdrop();
+        SetWindowBounds(_defaultBounds);
 
         //var initialSize = ApplicationData.Current.LocalSettings.Values["InitialWindowSize"] as string;
         //this.AppWindow.Size = _initialWindowSize;
@@ -57,6 +60,19 @@ public sealed partial class MainWindow : Window
         _backdropConfig.IsInputActive = args.WindowActivationState != WindowActivationState.Deactivated;
     }
 
+    /// <summary>Sets the window bounds to the specified rectangle.</summary>
+    /// <param name="bounds">The desired bounds for the window.</param>
+    public void SetWindowBounds(Rectangle bounds)
+    {
+        var hwnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
+        var windowId = Win32Interop.GetWindowIdFromWindow(hwnd);
+        var appWindow = AppWindow.GetFromWindowId(windowId);
+        appWindow.Resize(new Windows.Graphics.SizeInt32(bounds.Width, bounds.Height));
+    }
+
+    /// <summary>Tries to set the Mica backdrop for the window. This method checks if Mica is supported on the current system, 
+    /// and if so, it initializes the necessary components to apply the Mica effect to the window's background.</summary>
+    /// <returns>True if the Mica backdrop was successfully set. False otherwise.</returns>
     private bool TrySetMicaBackdrop()
     {
         if (!MicaController.IsSupported())
