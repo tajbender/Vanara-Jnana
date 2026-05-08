@@ -6,6 +6,93 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 
+    <Page.Resources>
+
+        <Style TargetType="controls:FeatureTile">
+            <Setter Property="Width" Value="140"/>
+            <Setter Property="Height" Value="126"/>
+            <Setter Property="Margin" Value="6,0"/>
+            <Setter Property="Padding" Value="12,8"/>
+            <Setter Property="CornerRadius" Value="6"/>
+            <Setter Property="Background" Value="#F3F3F3"/>
+            <Setter Property="BorderBrush" Value="#D0D0D0"/>
+            <Setter Property="BorderThickness" Value="1"/>
+
+            <!-- TODO: Add those properties to the control and set them here as defaults, allowing overrides on individual tiles.
+            <Setter Property="IconSize" Value="24"/>
+            <Setter Property="TitleFontSize" Value="16"/>
+            <Setter Property="SubtitleFontSize" Value="11"/>
+            <Setter Property="SubtitleOpacity" Value="0.65"/> -->
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="controls:FeatureTile">
+
+                        <Grid x:Name="Root"
+                          Background="{TemplateBinding Background}"
+                          BorderBrush="{TemplateBinding BorderBrush}"
+                          BorderThickness="{TemplateBinding BorderThickness}"
+                          CornerRadius="{TemplateBinding CornerRadius}"
+                          Padding="{TemplateBinding Padding}">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!-- ICON -->
+                            <FontIcon Glyph="{TemplateBinding Icon}"
+                                  FontSize="{TemplateBinding IconSize}"
+                                  VerticalAlignment="Center"
+                                  Margin="0,0,12,0"/>
+
+                            <!-- TEXT -->
+                            <StackPanel Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Spacing="2">
+                                <TextBlock Text="{TemplateBinding Title}"
+                                       FontSize="{TemplateBinding TitleFontSize}"
+                                       FontWeight="SemiBold"/>
+
+                                <TextBlock Text="{TemplateBinding Subtitle}"
+                                       FontSize="{TemplateBinding SubtitleFontSize}"
+                                       Opacity="{TemplateBinding SubtitleOpacity}"/>
+                            </StackPanel>
+
+                        </Grid>
+
+                        <!--<VisualStateManager.VisualStateGroups>
+
+                            <VisualStateGroup x:Name="CommonStates">
+
+                                <VisualState x:Name="Normal"/>
+
+                                <VisualState x:Name="PointerOver">
+                                    <VisualState.Setters>
+                                        <Setter Target="Root.Background" Value="#FFFFFF"/>
+                                        <Setter Target="Root.BorderBrush" Value="#A0A0A0"/>
+                                    </VisualState.Setters>
+                                </VisualState>
+
+                                <VisualState x:Name="Pressed">
+                                    <VisualState.Setters>
+                                        <Setter Target="Root.Background" Value="#E0E0E0"/>
+                                        <Setter Target="Root.BorderBrush" Value="#808080"/>
+                                    </VisualState.Setters>
+                                </VisualState>
+
+                            </VisualStateGroup>
+
+                        </VisualStateManager.VisualStateGroups>-->
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Page.Resources>
+
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -58,14 +145,11 @@
             </Grid>
 
             <!-- Feature Tiles Area 51 -->
-            <StackPanel Grid.Column="1"
-                Grid.Row="0"
-                Orientation="Horizontal"
-                Padding="12,0">
-                <controls:FeatureTile Click="FeatureTile_OnClick" Icon="&#xE7B8;" Subtitle="Package Releases." Title="NuGets" />
-                <controls:FeatureTile Click="FeatureTile_OnClick" Icon="&#xE9D5;" Subtitle="View on GitHub." Title="GitHub"/>
-                <controls:FeatureTile Click="FeatureTile_OnClick" Icon="&#xE721;" Subtitle="Explore Types, Members and Interfaces." Title="Inspect"/>
-                <controls:FeatureTile Click="FeatureTile_OnClick" Icon="&#xE8F1;" Subtitle="Visit Showcase." Title="Samples"/>
+            <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" Padding="12,0">
+                <controls:FeatureTile Title="NuGets" Icon="&#xE7B8;" Subtitle="NuGet Package Releases" Click="FeatureTile_OnClick"/>
+                <controls:FeatureTile Title="GitHub" Icon="&#xE9D5;" Subtitle="View on GitHub" Click="FeatureTile_OnClick"/>
+                <controls:FeatureTile Title="Inspect" Icon="&#xE721;" Subtitle="Explore Types, Members and Interfaces" Click="FeatureTile_OnClick"/>
+                <controls:FeatureTile Title="Samples" Icon="&#xE8F1;" Subtitle="View Examples" Click="FeatureTile_OnClick"/>
             </StackPanel>
 
             <!-- Navigation Area 51 -->
@@ -81,7 +165,7 @@
                     <FontIcon Glyph="&#xE72B;"/>
                 </Button>
 
-                <SplitButton x:Name="BtnNext" Grid.Column="1" Height="32" Margin="6,0" ToolTipService.ToolTip="Next" Width="48">
+                <SplitButton x:Name="BtnNext" Grid.Column="1" Height="32" Margin="6,0" ToolTipService.ToolTip="Next" >
                     <SplitButton.Content>
                         <FontIcon Glyph="&#xE72A;"/>
                     </SplitButton.Content>
