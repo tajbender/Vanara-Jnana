@@ -1,5 +1,5 @@
 ﻿namespace ClassicSamplesBrowser.ViewModels;
 
-internal class ExplorerViewModel
+internal class GitHubViewModel
 {
 }

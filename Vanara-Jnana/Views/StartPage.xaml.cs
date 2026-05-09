@@ -1,13 +1,12 @@
 using ClassicSamplesBrowser.Models.Contracts;
 using ClassicSamplesBrowser.Vanara.NuGet;
+using ClassicSamplesBrowser.ViewModels;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using NuGet.Common;
 using NuGet.Protocol.Core.Types;
 using System.Diagnostics;
 
-// To learn more about WinUI, the WinUI project structure,
-// and more about our project templates, see: http://aka.ms/winui-project-info.
 namespace ClassicSamplesBrowser.Views;
 
 /// <summary><completionlist cref="StartPage"></completionlist>
@@ -17,11 +16,15 @@ namespace ClassicSamplesBrowser.Views;
 public sealed partial class StartPage : Page,
     INavigationAware
 {
-    const string Framework = "net8.0";
-    private const string Prefix = "Vanara";
+    const string Framework = "net8.0";      // Imported from dahall's code, but not currently used. Consider removing if not needed.
+    private const string Prefix = "Vanara"; // The prefix to filter NuGet packages by. This is a simple string match and can be adjusted as needed.
     readonly List<IPackageSearchMetadata> _packages = [];
     static readonly ILogger Nuget = NullLogger.Instance; // TODO: Replace with actual nuget if needed
     static readonly CancellationToken CancellationToken = CancellationToken.None;
+
+    private NuGetViewModel NuGetVM { get; }
+    private GitHubViewModel GitHubVM { get; }
+    private SamplesViewModel SamplesVM { get; }
 
     //internal ObservableCollection<IElementInfo> RootItems { get; } = [];
     //public ObservableCollection<IPackageSearchMetadata> RootItems { get; } = [];
@@ -32,11 +35,15 @@ public sealed partial class StartPage : Page,
         DataContext = this;
 
         Loading += StartPage_Loading;
+
+        NuGetVM = new NuGetViewModel();
+        GitHubVM = new GitHubViewModel();
+        SamplesVM = new SamplesViewModel();
     }
 
     private void StartPage_Loading(FrameworkElement sender, object args)
     {
-        try 
+        try
         {
             Task.Factory.StartNew(async () =>
             {
