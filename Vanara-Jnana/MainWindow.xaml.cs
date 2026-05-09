@@ -28,16 +28,17 @@ public sealed partial class MainWindow : Window
         // AppWindow.Size = new Size() { Width = 800, Height = 600 };
 
         RootFrame.Navigate(typeof(StartPage));
+// TODO:  this.SetTitleBar(StartPage.DragRegion);
     }
 
-//    private void OnIconPressed(object sender, PointerRoutedEventArgs e)
-//    {
-//        // Show the system menu when the icon is pressed
-//        var ptrPointer = e.Pointer;
-//
-//        ShowSystemMenu();
-//    }
-//
+    //    private void OnIconPressed(object sender, PointerRoutedEventArgs e)
+    //    {
+    //        // Show the system menu when the icon is pressed
+    //        var ptrPointer = e.Pointer;
+    //
+    //        ShowSystemMenu();
+    //    }
+    //
     public void ShowSystemMenu() => ShowSystemMenu(targetObject: this, uFlags: 0x0000, bRevert: false);
 
     public static void ShowSystemMenu(object targetObject, uint uFlags = 0x0000, bool bRevert = false)

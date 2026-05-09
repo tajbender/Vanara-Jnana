@@ -100,7 +100,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0">
+        <Grid x:Name="DragArea" Grid.Row="0"> <!-- mark this as drag area -->
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <!-- Logo -->
@@ -147,9 +147,9 @@
 
             <!-- Feature Tiles -->
             <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" Padding="12, 0">
-                <controls:FeatureTile Title="NuGets" Icon="&#xE7B8;" Subtitle="NuGet Package Releases" Click="FeatureTile_OnClick"/>
-                <controls:FeatureTile Title="GitHub" Icon="&#xE9D5;" Subtitle="View on GitHub" Click="FeatureTile_OnClick"/>
-                <controls:FeatureTile Title="Samples" Icon="&#xE8F1;" Subtitle="View Examples" Click="FeatureTile_OnClick"/>
+                <controls:FeatureTile Title="NuGets" Icon="&#xE7B8;" Subtitle="Package Releases" Click="FeatureTile_OnClick"/>
+                <controls:FeatureTile Title="GitHub" Icon="&#xE9D5;" Subtitle="Vanara on GitHub" Click="FeatureTile_OnClick"/>
+                <controls:FeatureTile Title="Samples" Icon="&#xE8F1;" Subtitle="Examples and Unit Tests" Click="FeatureTile_OnClick"/>
                 <Border BorderThickness="5" Margin="20" Opacity="0.42"/>
                 <controls:FeatureTile Title="Inspect" Icon="&#xE721;" Subtitle="Explore Types, Members and Interfaces" Click="FeatureTile_OnClick"/>
             </StackPanel>
@@ -187,7 +187,7 @@
                     <BreadcrumbBar x:Name="NavBreadcrumb" HorizontalAlignment="Stretch" VerticalAlignment="Center" ItemClicked="NavBreadcrumb_ItemClicked"/>
                 </Border>
 
-                <AutoSuggestBox x:Name="SearchBox" Grid.Column="3" Height="32" PlaceholderText="Thoughts..." QueryIcon="Find" QuerySubmitted="SearchBox_QuerySubmitted" TextChanged="SearchBox_TextChanged" />
+                <AutoSuggestBox x:Name="SearchBox" Grid.Column="3" Height="32" PlaceholderText="Share your Thoughts..." QueryIcon="Find" QuerySubmitted="SearchBox_QuerySubmitted" TextChanged="SearchBox_TextChanged" />
             </Grid>
         </Grid>
 

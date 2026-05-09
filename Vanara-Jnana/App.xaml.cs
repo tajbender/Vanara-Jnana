@@ -10,7 +10,14 @@ public partial class App : Application
     public App()
     {
         InitializeComponent();
-        //AppWindowTitleBar.SetIcon("Assets/VanaraMonkey.png");
+
+        // TODO: AppWindowTitleBar.SetIcon("Assets/VanaraMonkey.png");
+        // TODO: AppWindowTitleBar.SetDragRegion(new Rect(0, 0, 100, 32));
+
+        /*  _mainWindow.SetTitleBar(MyDragRegion);
+            Window.SetTitleBar(MyDragRegion); 
+         */
+
     }
 
     private MainWindow? GetOrCreateMainWindow(bool allowInitialCreation = false)
@@ -19,8 +26,14 @@ public partial class App : Application
         {
             _mainWindow = new MainWindow
             {
-                ExtendsContentIntoTitleBar = true
+//                ExtendsContentIntoTitleBar = true
             };
+
+            // var titleBar = _mainWindow.AppWindow.TitleBar;
+
+            //            _mainWindow.SetTitleBar(MyDragRegion);
+
+            // TODO: titleBar.SetIcon("Assets/VanaraMonkey.png");
         }
 
         // = //new Windows.Graphics.SizeInt32(1200, 800);
