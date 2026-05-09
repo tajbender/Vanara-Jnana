@@ -45,7 +45,7 @@ public sealed partial class StartPage : Page,
                         _packages.Add(package);
             }, CancellationToken);
 
-            NavBreadcrumb.ItemsSource = new List<string> { "Home", "APIs", "Shell", "IShellItem" };
+            NavBreadcrumb.ItemsSource = new List<string> { "Vanara", "NuGets" };
         }
         catch (Exception ex)
         {
