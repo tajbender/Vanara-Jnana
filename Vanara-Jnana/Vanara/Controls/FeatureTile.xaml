@@ -6,28 +6,25 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     mc:Ignorable="d">
 
-    <Grid x:Name="Root" 
-          BorderThickness="3" 
+    <Grid x:Name="Root" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
           BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-          Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
-          CornerRadius="13"
-          MinHeight="76"
-          MinWidth="76"
-          Margin="7"
-          Padding="16">
+          BorderThickness="7" CornerRadius="7" >
+
+        <!--MinHeight="128" MinWidth="320" Margin="7" Padding="16"-->
+          
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.RenderTransform>
             <ScaleTransform x:Name="ScaleTransform" ScaleX="1" ScaleY="1"/>
         </Grid.RenderTransform>
-        <FontIcon x:Name="IconElement" Grid.Row="0" Grid.Column="0" Glyph="&#xE8A5;"/>
-        <TextBlock x:Name="TitleElement" Grid.Row="0" Grid.Column="1" FontSize="18" FontWeight="SemiBold" Text="Title" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
-        <TextBlock x:Name="SubtitleElement" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" FontSize="12" Opacity="0.6" HorizontalAlignment="Left" VerticalAlignment="Bottom" Text="Subtitle" />
+        <FontIcon x:Name="IconElement" Grid.Row="0" Grid.Column="0" Glyph="&#xE8A5;" />
+        <TextBlock x:Name="TitleElement" Grid.Row="0" Grid.Column="1" FontSize="18" FontWeight="SemiBold" Text="Title" Padding="7" VerticalAlignment="Bottom"/>
+        <TextBlock x:Name="SubtitleElement" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" FontSize="12" Opacity="0.6" Text="Subtitle" TextWrapping="WrapWholeWords" VerticalAlignment="Top"/>
     </Grid>
 </UserControl>

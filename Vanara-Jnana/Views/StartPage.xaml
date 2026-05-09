@@ -111,12 +111,12 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
-                <!-- Logo + Tiles -->
+                <!-- Logo, Tiles -->
                 <RowDefinition Height="Auto"/>
                 <!-- Navigation -->
             </Grid.RowDefinitions>
 
-            <!-- Vanara Logo Area 51 -->
+            <!-- Vanara Logo Area -->
             <Grid Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -128,12 +128,13 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
-                <Image Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Stretch" Source="/Assets/Vanara/Vanara-64px.png"/>
-
+                <Image Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right" Source="/Assets/Vanara/Vanara-64px.png" VerticalAlignment="Stretch"/>
+                
                 <TextBlock Grid.Column="0" Grid.Row="1" FontSize="28" FontWeight="SemiBold" Text="Vanar"/>
+
                 <TextBlock Grid.Column="1" Grid.Row="0" FontSize="28" Opacity="0.5" Text="Jñān">
                     <TextBlock.RenderTransform>
-                        <CompositeTransform Rotation="90"/>
+                        <CompositeTransform Rotation="90" TranslateX="42" TranslateY="7"/>
                     </TextBlock.RenderTransform>
                 </TextBlock>
 
@@ -144,8 +145,8 @@
                 </TextBlock>
             </Grid>
 
-            <!-- Feature Tiles Area 51 -->
-            <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" Padding="12,0">
+            <!-- Feature Tiles -->
+            <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" Padding="12, 0">
                 <controls:FeatureTile Title="NuGets" Icon="&#xE7B8;" Subtitle="NuGet Package Releases" Click="FeatureTile_OnClick"/>
                 <controls:FeatureTile Title="GitHub" Icon="&#xE9D5;" Subtitle="View on GitHub" Click="FeatureTile_OnClick"/>
                 <controls:FeatureTile Title="Samples" Icon="&#xE8F1;" Subtitle="View Examples" Click="FeatureTile_OnClick"/>
@@ -154,7 +155,7 @@
             </StackPanel>
 
             <!-- Navigation Area 51 -->
-            <Grid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Margin="12,8,12,4" VerticalAlignment="Center">
+            <Grid Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Margin="12,8,12,4" VerticalAlignment="Center">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
@@ -201,15 +202,15 @@
                     <TabView.Resources>
                         <Style TargetType="TabViewItem">
                             <Setter Property="Background" Value="Transparent"/>
-                            <Setter Property="BorderThickness" Value="0"/>
-                            <Setter Property="CornerRadius" Value="6"/>
-                            <Setter Property="FontSize" Value="14"/>
+                            <Setter Property="BorderThickness" Value="3"/>
+                            <Setter Property="CornerRadius" Value="7"/>
+                            <Setter Property="FontSize" Value="12"/>
                             <Setter Property="FontWeight" Value="SemiBold"/>
                             <Setter Property="Foreground" Value="#333"/>
                             <Setter Property="HorizontalContentAlignment" Value="Center"/>
                             <Setter Property="VerticalContentAlignment" Value="Center"/>
                             <Setter Property="MinWidth" Value="140"/>
-                            <Setter Property="Padding" Value="16,8"/>
+                            <Setter Property="Padding" Value="16, 8"/>
 
                             <Setter Property="Template">
                                 <Setter.Value>
@@ -273,6 +274,7 @@
 
                 </TabView>
             </Border>
+
             <controls:SidebarControl Grid.Column="2" BorderBrush="Beige" BorderThickness="3" Margin="7" Padding="7" Visibility="Collapsed"/>
         </Grid>
 
