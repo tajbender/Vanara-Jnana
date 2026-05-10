@@ -55,7 +55,7 @@
 		</Page>
 	</ItemGroup>
 	<ItemGroup>
-		<Page Update="Views\AboutPage.xaml">
+		<Page Update="Views\NuGetsPage.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</Page>
 	</ItemGroup>

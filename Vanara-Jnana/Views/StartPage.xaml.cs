@@ -26,9 +26,6 @@ public sealed partial class StartPage : Page,
     private GitHubViewModel GitHubVM { get; }
     private SamplesViewModel SamplesVM { get; }
 
-    //internal ObservableCollection<IElementInfo> RootItems { get; } = [];
-    //public ObservableCollection<IPackageSearchMetadata> RootItems { get; } = [];
-
     public StartPage()
     {
         InitializeComponent();
@@ -52,7 +49,7 @@ public sealed partial class StartPage : Page,
                         _packages.Add(package);
             }, CancellationToken);
 
-            NavBreadcrumb.ItemsSource = new List<string> { "Vanara", "NuGets" };
+            NavBreadcrumb.ItemsSource = new List<string> { "{ void }" };
         }
         catch (Exception ex)
         {
