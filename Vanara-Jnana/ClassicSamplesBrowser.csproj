@@ -25,6 +25,7 @@
 	<ItemGroup>
 		<Folder Include="Resources\i18n\" />
 		<Folder Include="Templates\RyderShell\Project\" />
+		<Folder Include="Vanara\Controls\Shell32\" />
 	</ItemGroup>
 	<ItemGroup>
 		<Content Update="Assets\Vanara\Insert_Amiga-Disk.png">
