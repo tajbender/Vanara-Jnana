@@ -7,7 +7,6 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 
     <Page.Resources>
-
         <Style TargetType="controls:FeatureTile">
             <Setter Property="Width" Value="140"/>
             <Setter Property="Height" Value="126"/>
@@ -89,9 +88,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
-
     </Page.Resources>
-
 
     <Grid>
         <Grid.RowDefinitions>
@@ -101,7 +98,7 @@
         </Grid.RowDefinitions>
 
         <Grid x:Name="DragArea" Grid.Row="0">
-            <!-- mark this as drag area -->
+            <!-- TODO: mark this as drag area -->
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <!-- Logo -->
@@ -160,14 +157,14 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-
                 <Button x:Name="BtnPrevious" Grid.Column="0" Height="32" Padding="0" ToolTipService.ToolTip="Previous" Width="36">
                     <FontIcon Glyph="&#xE72B;"/>
                 </Button>
-
                 <SplitButton x:Name="BtnNext" Grid.Column="1" Height="32" Margin="6,0" ToolTipService.ToolTip="Next" >
                     <SplitButton.Content>
                         <FontIcon Glyph="&#xE72A;"/>
@@ -182,16 +179,18 @@
                         </MenuFlyout>
                     </SplitButton.Flyout>
                 </SplitButton>
-
-                <Border Grid.Column="2" Background="#F3F3F3" BorderBrush="#D0D0D0" BorderThickness="1" 
-                        CornerRadius="4" Height="32" Margin="12,0" Padding="8,0" VerticalAlignment="Center" >
-                    <BreadcrumbBar x:Name="NavBreadcrumb" HorizontalAlignment="Stretch" VerticalAlignment="Center" ItemClicked="NavBreadcrumb_ItemClicked"/>
+                <Button x:Name="BtnParent" Grid.Column="2" Height="32" Padding="0" ToolTipService.ToolTip="Parent Folder" Width="36">
+                    <SymbolIcon Symbol="Up" />
+                </Button>
+                <Border Grid.Column="3" Background="#F3F3F3" BorderBrush="#D0D0D0" BorderThickness="1" CornerRadius="4" Height="32" VerticalAlignment="Stretch" >
+                    <BreadcrumbBar x:Name="NavBreadcrumb" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ItemClicked="NavBreadcrumb_ItemClicked"/>
                 </Border>
-
-                <AutoSuggestBox x:Name="SearchBox" Grid.Column="3" Height="32" PlaceholderText="Share your Thoughts..." QueryIcon="Find" QuerySubmitted="SearchBox_QuerySubmitted" TextChanged="SearchBox_TextChanged" />
+                <Button x:Name="BtnReload" Grid.Column="4" ToolTipService.ToolTip="Reload View..." >
+                    <FontIcon Glyph="&#xE72C;"/>
+                </Button>
+                <AutoSuggestBox x:Name="SearchBox" Grid.Column="5" Height="32" PlaceholderText="Share your Thoughts..." QueryIcon="Find" QuerySubmitted="SearchBox_QuerySubmitted" TextChanged="SearchBox_TextChanged" />
             </Grid>
         </Grid>
-
         <Grid x:Name="MainContentGrid" Grid.Row="1" ColumnDefinitions="Auto, *, Auto" Opacity="0.76" Padding="32" >
 
             <controls:SidebarControl x:Name="Sidebar" Margin="7" Padding="7"/>

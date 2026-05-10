@@ -14,18 +14,12 @@
             <ColumnDefinition MinWidth="54" />
         </Grid.ColumnDefinitions>
         <StackPanel x:Name="MainContent" Grid.Column="0" Spacing="4" VerticalAlignment="Stretch">
-            <AppBarButton Content="NuGets" />
-            <AppBarButton Content="GutHub" />
+            <AppBarButton Content="NuGets" Icon="Library"/>
+            <AppBarButton Content="GitHub" Icon="Library"/>
             <AppBarSeparator />
-            <AppBarButton Content="Samples" />
-            <!--<local:FeatureTile Click="FeatureTile_OnClick"  Icon="&#xE7B8;" Subtitle="..." Title="NuGets"/>
-            --><!--<local:FeatureTile Icon="&#xE8EF;" Subtitle="..."/>
-            <local:FeatureTile Icon="&#xE8EF;" Subtitle="..."/>
-            <local:FeatureTile Icon="&#xE8EF;" Subtitle="..."/>--><!--
-            <MenuFlyoutSeparator/>
-            <local:FeatureTile Icon="&#xE8EF;" Subtitle="..."/>
+            <AppBarButton Content="Samples" Icon="Library"/>
             <AppBarSeparator />
-            <local:FeatureTile Icon="&#xE8EF;" Subtitle="..."/>-->
+            <AppBarButton Content="Settings" Icon="Setting"/>
         </StackPanel>
     </Grid>
 </UserControl>
