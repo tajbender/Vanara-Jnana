@@ -32,7 +32,8 @@ public sealed partial class StartPage : Page,
         DataContext = this;
 
         Loading += StartPage_Loading;
-
+        NavBreadcrumb.ItemsSource = new List<string> { "{void}" };
+        
         NuGetVM = new NuGetViewModel();
         GitHubVM = new GitHubViewModel();
         SamplesVM = new SamplesViewModel();
@@ -48,8 +49,6 @@ public sealed partial class StartPage : Page,
                     if (package.Identity.Id.StartsWith(Prefix + '.', StringComparison.OrdinalIgnoreCase))
                         _packages.Add(package);
             }, CancellationToken);
-
-            NavBreadcrumb.ItemsSource = new List<string> { "{ void }" };
         }
         catch (Exception ex)
         {
@@ -67,20 +66,21 @@ public sealed partial class StartPage : Page,
         Debug.WriteLine("Add tab button clicked.");
         var tab = new TabViewItem
         {
-            Header = "New Tab",
-            Content = new Frame()
+            Header = "NuGet",
+            Content = new NuGetsPage { DataContext = NuGetVM }
         };
 
         sender.TabItems.Add(tab);
         sender.SelectedItem = tab;
     }
+
     private void MainTabs_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         if (MainTabView.SelectedItem is TabViewItem tab &&
             tab.Content is Frame frame)
         {
             Debug.WriteLine("Tab selection changed.");
-            HomeFrame.Content = frame.Content;
+            TabViewContent.Content = frame.Content;
         }
     }
 

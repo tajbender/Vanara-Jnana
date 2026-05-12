@@ -149,7 +149,9 @@
                 <controls:FeatureTile Title="GitHub" Icon="&#xE9D5;" Subtitle="Vanara on GitHub" Click="FeatureTile_OnClick"/>
                 <controls:FeatureTile Title="Samples" Icon="&#xE8F1;" Subtitle="Examples and Unit Tests" Click="FeatureTile_OnClick"/>
                 <Border BorderThickness="5" Margin="20" Opacity="0.42"/>
-                <controls:FeatureTile Title="Inspect" Icon="&#xE721;" Subtitle="Explore Types, Members and Interfaces" Click="FeatureTile_OnClick"/>
+                <controls:FeatureTile Title="Assemblies" Icon="&#xEA86;" Subtitle="Explore Types, Members and Interfaces" Click="FeatureTile_OnClick"/>
+                <Border BorderThickness="5" Margin="20" Opacity="0.42"/>
+                <controls:FeatureTile Title="Utilities" Icon="&#xE90F;" Subtitle="Tools, Helpers, Generators" Click="FeatureTile_OnClick"/>
             </StackPanel>
 
             <!-- Navigation Area 51 -->
@@ -255,9 +257,9 @@
                             </Style>
                         </TabView.Resources>
                         <TabView.TabStripHeader>
-                            <StackPanel Orientation="Vertical" Spacing="8" Margin="12,0">
+                            <StackPanel Orientation="Vertical" Margin="12,0">
                                 <TextBlock Text="Jñāna" FontSize="18" FontWeight="Bold" Foreground="#222"/>
-                                <TextBlock Text="v 5.0.5 ß" FontSize="12" Foreground="#666" VerticalAlignment="Bottom"/>
+                                <TextBlock Text="v5.0.5" FontSize="12" Foreground="#777" />
                             </StackPanel>
                         </TabView.TabStripHeader>
                         <TabViewItem>
@@ -268,14 +270,14 @@
                                     <TextBlock Text="Home"/>
                                 </StackPanel>
                             </TabViewItem.Header>
-
-                            <Frame x:Name="HomeFrame"/>
+                            <Grid>
+                                <ContentPresenter x:Name="TabViewContent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                            </Grid>
                         </TabViewItem>
                     </TabView>
-
                     <!-- Empty State: Vanara Watermark -->
                     <Grid x:Name="EmptyStateBackground" >
-                        <Image Height="96" HorizontalAlignment="Right" Margin="24" Opacity="0.3" Source="/Assets/VanaraMonkey.png" Stretch="Uniform" VerticalAlignment="Bottom" Width="96" />
+                        <Image HorizontalAlignment="Right" Opacity="0.3" Source="/Assets/VanaraMonkey.png" Stretch="Uniform" VerticalAlignment="Bottom" Width="96" />
                     </Grid>
                 </Grid>
             </Border>
