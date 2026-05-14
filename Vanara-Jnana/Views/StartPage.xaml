@@ -155,13 +155,13 @@
             </StackPanel>
 
             <!-- Navigation Area 51 -->
-            <Grid Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Margin="12,8,12,4" VerticalAlignment="Center">
+            <Grid Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Margin="12,8,12,4" VerticalAlignment="Stretch" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <Button x:Name="BtnPrevious" Grid.Column="0" Height="32" Padding="0" ToolTipService.ToolTip="Previous" Width="36">
@@ -184,12 +184,12 @@
                 <Button x:Name="BtnParent" Grid.Column="2" Height="32" Padding="0" ToolTipService.ToolTip="Parent Folder" Width="36">
                     <SymbolIcon Symbol="Up" />
                 </Button>
-                <Border Grid.Column="3" Background="#F3F3F3" BorderBrush="#D0D0D0" BorderThickness="1" CornerRadius="4" Height="32" VerticalAlignment="Stretch" >
-                    <BreadcrumbBar x:Name="NavBreadcrumb" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ItemClicked="NavBreadcrumb_ItemClicked"/>
-                </Border>
-                <Button x:Name="BtnReload" Grid.Column="4" ToolTipService.ToolTip="Reload View..." >
+                <Button x:Name="BtnReload" Grid.Column="3" Height="32" ToolTipService.ToolTip="Reload View..." >
                     <FontIcon Glyph="&#xE72C;"/>
                 </Button>
+                <Border Grid.Column="4" Background="#F3F3F3" BorderBrush="#D0D0D0" BorderThickness="1" CornerRadius="4" Height="32" VerticalAlignment="Stretch" >
+                    <BreadcrumbBar x:Name="NavBreadcrumb" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ItemClicked="NavBreadcrumb_ItemClicked"/>
+                </Border>
                 <AutoSuggestBox x:Name="SearchBox" Grid.Column="5" Height="32" PlaceholderText="Share your Thoughts..." QueryIcon="Find" QuerySubmitted="SearchBox_QuerySubmitted" TextChanged="SearchBox_TextChanged" />
             </Grid>
         </Grid>

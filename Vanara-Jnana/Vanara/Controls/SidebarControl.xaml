@@ -13,13 +13,32 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition MinWidth="54" />
         </Grid.ColumnDefinitions>
-        <StackPanel x:Name="MainContent" Grid.Column="0" Spacing="4" VerticalAlignment="Stretch">
-            <AppBarButton Content="NuGets" Icon="Library"/>
-            <AppBarButton Content="GitHub" Icon="Library"/>
-            <AppBarSeparator />
-            <AppBarButton Content="Samples" Icon="Library"/>
-            <AppBarSeparator />
-            <AppBarButton Content="Settings" Icon="Setting"/>
-        </StackPanel>
+        <ListBox x:Name="VerticalSelector" Background="Transparent" BorderThickness="0" ItemsSource="{x:Bind Items}" SelectionMode="Single">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    <Setter Property="Padding" Value="0"/>
+                    <Setter Property="MinHeight" Value="44"/>
+                </Style>
+            </ListBox.ItemContainerStyle>
+            <ListBox.ItemTemplate>
+                <DataTemplate x:DataType="local:SelectorItem">
+                    <Grid BorderThickness="3" BorderBrush="AliceBlue">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="4"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Indicator -->
+                        <Border x:Name="Indicator" Grid.Column="0" Background="{ThemeResource AccentFillColorDefaultBrush}" Opacity="0"/>
+
+                        <!-- Content -->
+                        <TextBlock Grid.Column="1" Margin="12,0" Text="{x:Bind Label}" VerticalAlignment="Center"/>
+                        
+                    </Grid>
+                    <!--<DataTemplate.Triggers> <DataTrigger Binding="{x:Bind IsSelected}" Value="True"> <Setter Target="Indicator.Opacity" Value="1"/> </DataTrigger> </DataTemplate.Triggers>-->
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </UserControl>
