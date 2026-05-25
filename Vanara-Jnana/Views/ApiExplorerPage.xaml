@@ -9,6 +9,6 @@
     mc:Ignorable="d">
 
     <Grid>
-
+        <TextBlock Text="{x:Bind TargetType.FullName}" FontSize="20"/>
     </Grid>
 </Page>

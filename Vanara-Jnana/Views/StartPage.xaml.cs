@@ -1,4 +1,5 @@
 using ClassicSamplesBrowser.Models.Contracts;
+using ClassicSamplesBrowser.Services;
 using ClassicSamplesBrowser.Vanara.NuGet;
 using ClassicSamplesBrowser.ViewModels;
 using Microsoft.UI.Xaml;
@@ -31,12 +32,14 @@ public sealed partial class StartPage : Page,
         InitializeComponent();
         DataContext = this;
 
+        TabNavigationService.Initialize(MainTabView);
         Loading += StartPage_Loading;
-        NavBreadcrumb.ItemsSource = new List<string> { "{void}" };
         
         NuGetVM = new NuGetViewModel();
         GitHubVM = new GitHubViewModel();
         SamplesVM = new SamplesViewModel();
+
+        TabNavigationService.AddApiExplorerPageTab(typeof(StartPage));
     }
 
     private void StartPage_Loading(FrameworkElement sender, object args)

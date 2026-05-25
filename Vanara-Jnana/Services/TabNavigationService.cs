@@ -1,4 +1,5 @@
-﻿using Microsoft.UI.Xaml.Controls;
+﻿using ClassicSamplesBrowser.Views;
+using Microsoft.UI.Xaml.Controls;
 using System;
 using System.Collections.ObjectModel;
 
@@ -19,6 +20,18 @@ public static class TabNavigationService
         {
             Header = header,
             Content = Activator.CreateInstance(pageType, parameter)
+        };
+
+        _tabView.TabItems.Add(tab);
+        _tabView.SelectedItem = tab;
+    }
+
+    public static void AddApiExplorerPageTab(Type type)
+    {
+        var tab = new TabViewItem
+        {
+            Header = $"Explore {type.Name}",
+            Content = new ApiExplorerPage(type)
         };
 
         _tabView.TabItems.Add(tab);
