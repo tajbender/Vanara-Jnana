@@ -80,7 +80,7 @@ public sealed partial class StartPage : Page,
             tab.Content is Frame frame)
         {
             Debug.WriteLine("Tab selection changed.");
-            TabViewContent.Content = frame.Content;
+            TabViewContentPresenter.Content = frame.Content;
         }
     }
 

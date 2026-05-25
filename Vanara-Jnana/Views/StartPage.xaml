@@ -6,90 +6,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 
-    <Page.Resources>
-        <Style TargetType="controls:FeatureTile">
-            <Setter Property="Width" Value="140"/>
-            <Setter Property="Height" Value="126"/>
-            <Setter Property="Margin" Value="6,0"/>
-            <Setter Property="Padding" Value="12,8"/>
-            <Setter Property="CornerRadius" Value="6"/>
-            <Setter Property="Background" Value="#F3F3F3"/>
-            <Setter Property="BorderBrush" Value="#D0D0D0"/>
-            <Setter Property="BorderThickness" Value="1"/>
-
-            <!-- TODO: Add those properties to the control and set them here as defaults, allowing overrides on individual tiles.
-            <Setter Property="IconSize" Value="24"/>
-            <Setter Property="TitleFontSize" Value="16"/>
-            <Setter Property="SubtitleFontSize" Value="11"/>
-            <Setter Property="SubtitleOpacity" Value="0.65"/> -->
-
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="controls:FeatureTile">
-
-                        <Grid x:Name="Root"
-                          Background="{TemplateBinding Background}"
-                          BorderBrush="{TemplateBinding BorderBrush}"
-                          BorderThickness="{TemplateBinding BorderThickness}"
-                          CornerRadius="{TemplateBinding CornerRadius}"
-                          Padding="{TemplateBinding Padding}">
-
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-
-                            <!-- ICON -->
-                            <FontIcon Glyph="{TemplateBinding Icon}"
-                                  FontSize="{TemplateBinding IconSize}"
-                                  VerticalAlignment="Center"
-                                  Margin="0,0,12,0"/>
-
-                            <!-- TEXT -->
-                            <StackPanel Grid.Column="1"
-                                    VerticalAlignment="Center"
-                                    Spacing="2">
-                                <TextBlock Text="{TemplateBinding Title}"
-                                       FontSize="{TemplateBinding TitleFontSize}"
-                                       FontWeight="SemiBold"/>
-
-                                <TextBlock Text="{TemplateBinding Subtitle}"
-                                       FontSize="{TemplateBinding SubtitleFontSize}"
-                                       Opacity="{TemplateBinding SubtitleOpacity}"/>
-                            </StackPanel>
-
-                        </Grid>
-
-                        <!--<VisualStateManager.VisualStateGroups>
-
-                            <VisualStateGroup x:Name="CommonStates">
-
-                                <VisualState x:Name="Normal"/>
-
-                                <VisualState x:Name="PointerOver">
-                                    <VisualState.Setters>
-                                        <Setter Target="Root.Background" Value="#FFFFFF"/>
-                                        <Setter Target="Root.BorderBrush" Value="#A0A0A0"/>
-                                    </VisualState.Setters>
-                                </VisualState>
-
-                                <VisualState x:Name="Pressed">
-                                    <VisualState.Setters>
-                                        <Setter Target="Root.Background" Value="#E0E0E0"/>
-                                        <Setter Target="Root.BorderBrush" Value="#808080"/>
-                                    </VisualState.Setters>
-                                </VisualState>
-
-                            </VisualStateGroup>
-
-                        </VisualStateManager.VisualStateGroups>-->
-
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </Page.Resources>
-
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -122,20 +38,17 @@
                     <ColumnDefinition Width="54"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="128"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
                 <Image Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right" Source="/Assets/Vanara/Vanara-64px.png" VerticalAlignment="Stretch"/>
-
-                <TextBlock Grid.Column="0" Grid.Row="1" FontSize="28" FontWeight="SemiBold" Text="Vanar"/>
-
-                <TextBlock Grid.Column="1" Grid.Row="0" FontSize="28" Opacity="0.5" Text="Jñān">
+                <TextBlock Grid.Column="1" Grid.Row="0" FontSize="28" Opacity="0.5" Text="Jñān" VerticalAlignment="Bottom">
                     <TextBlock.RenderTransform>
-                        <CompositeTransform Rotation="90" TranslateX="42" TranslateY="7"/>
+                        <CompositeTransform Rotation="90" TranslateX="42" TranslateY="-7"/>
                     </TextBlock.RenderTransform>
                 </TextBlock>
-
+                <TextBlock Grid.Column="0" Grid.Row="1" FontSize="28" FontWeight="SemiBold" HorizontalAlignment="Right" Text="Vanar"/>
                 <TextBlock Grid.Column="1" Grid.Row="1" FontSize="28" FontWeight="SemiBold" Opacity="0.5" Text="a">
                     <TextBlock.RenderTransform>
                         <RotateTransform Angle="-23"/>
@@ -194,9 +107,7 @@
             </Grid>
         </Grid>
         <Grid x:Name="MainContentGrid" Grid.Row="1" ColumnDefinitions="Auto, *, Auto" Opacity="0.76" Padding="32" >
-
-            <controls:SidebarControl x:Name="Sidebar" Margin="7" Padding="7"/>
-
+            <controls:SidebarControl x:Name="Sidebar" Grid.Column="0" Margin="7" Padding="7"/>
             <Border x:Name="TabViewBorder" Grid.Column="1" Margin="7" Padding="7">
                 <!-- Tab View and its empty State -->
                 <Grid x:Name="TabViewGrid" Grid.Row="1" IsHitTestVisible="False" Margin="24" Opacity="0.3" >
@@ -219,7 +130,6 @@
                                 <Setter Property="Template">
                                     <Setter.Value>
                                         <ControlTemplate TargetType="TabViewItem">
-
                                             <Grid x:Name="RootGrid" Background="{TemplateBinding Background}">
                                                 <Grid.RowDefinitions>
                                                     <RowDefinition Height="*"/>
@@ -232,25 +142,6 @@
                                                 <!-- Selection Indicator -->
                                                 <Border x:Name="Indicator" Grid.Row="1" Background="#0078D4" Height="3" Opacity="0"/>
                                             </Grid>
-
-                                            <!--<VisualStateManager.VisualStateGroups>
-                                            <VisualStateGroup x:Name="CommonStates">
-                                                <VisualState x:Name="Normal"/>
-                                                <VisualState x:Name="PointerOver">
-                                                    <VisualState.Setters>
-                                                        <Setter Target="RootGrid.Background" Value="#F2F2F2"/>
-                                                    </VisualState.Setters>
-                                                </VisualState>
-                                                <VisualState x:Name="Selected">
-                                                    <VisualState.Setters>
-                                                        <Setter Target="Indicator.Opacity" Value="1"/>
-                                                        <Setter Target="RootGrid.Background" Value="#FFFFFF"/>
-                                                        <Setter Property="Foreground" Value="#000"/>
-                                                    </VisualState.Setters>
-                                                </VisualState>
-                                            </VisualStateGroup>
-                                        </VisualStateManager.VisualStateGroups>-->
-
                                         </ControlTemplate>
                                     </Setter.Value>
                                 </Setter>
@@ -271,18 +162,18 @@
                                 </StackPanel>
                             </TabViewItem.Header>
                             <Grid>
-                                <ContentPresenter x:Name="TabViewContent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                <ContentPresenter x:Name="TabViewContentPresenter" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
                             </Grid>
                         </TabViewItem>
                     </TabView>
                     <!-- Empty State: Vanara Watermark -->
                     <Grid x:Name="EmptyStateBackground" >
-                        <Image HorizontalAlignment="Right" Opacity="0.3" Source="/Assets/VanaraMonkey.png" Stretch="Uniform" VerticalAlignment="Bottom" Width="96" />
+                        <Image HorizontalAlignment="Right" Opacity="0.3" Source="/Assets/VanaraMonkey.png" Stretch="Uniform" VerticalAlignment="Bottom" Width="96"/>
                     </Grid>
                 </Grid>
             </Border>
             <controls:SidebarControl Grid.Column="2" BorderBrush="Beige" BorderThickness="3" Margin="7" Padding="7" Visibility="Collapsed"/>
         </Grid>
-        <controls:FloatingStatusBar x:Name="StatusBar" Grid.Row="2" BorderBrush="Beige" BorderThickness="3" MinHeight="42" VerticalAlignment="Bottom" />
+        <controls:FloatingStatusBar x:Name="StatusBar" Grid.Row="2" BorderBrush="Beige" BorderThickness="3" MinHeight="42" VerticalAlignment="Bottom" Visibility="Collapsed"/>
     </Grid>
 </Page>
