@@ -9,60 +9,89 @@ using ClassicSamplesBrowser.Views;
 
 namespace ClassicSamplesBrowser.Vanara.Services;
 
-public class NavigationService(Frame defaultFrame)
+
+public static class NavigationService
 {
     // The Frame control used for navigation
-    protected Frame Frame = defaultFrame;
+    private static Frame _frame;
 
-    public List<Frame> NavigationHistory { get; } = [];
+    public static void Initialize(Frame frame)
+    {
+        _frame = frame;
+    }
+
+    public static List<Frame> NavigationHistory { get; } = [];
 
     // TODO: Events: Navigated, Navigating, NavigationFailed, NavigationStopped
 
-    // object = null; => Home!
-    public bool Navigate(object navigationTarget, object? parameter = null, bool writeHistory = true)
-    {
-        try 
-        {
-            if (navigationTarget != null)
-            {
-                return parameter != null ?
-                    Frame.Navigate(navigationTarget.GetType(), parameter) 
-                    : Frame.Navigate(navigationTarget.GetType());
-            }
+    public static bool CanGoBack => _frame.CanGoBack;
+    public static bool CanGoForward => _frame.CanGoForward;
 
-            // TODO: search the web
+
+    public static void NavigateToStart()
+        => Navigate(typeof(StartPage));
+
+    public static void NavigateToApiExplorer()
+        => Navigate(typeof(ApiExplorerPage));
+
+    public static void NavigateToSamples()
+        => Navigate(typeof(SamplesPage));
+
+    public static void Navigate(Type pageType, object parameter = null)
+    {
+        try
+        {
+            _frame.Navigate(pageType, parameter);
         }
         catch (Exception ex)
         {
-            // Handle navigation exceptions as needed.
-            Debug.WriteLine($"Navigation error: {ex.Message}");
-            return false;
+            Debug.Fail(ex.ToString());
+            throw;
         }
-
-        if (writeHistory)
-        {
-            // Navigate to the target page and add it to the navigation history
-        }
-
-        return true;
     }
 
-    public bool CanGoBack => Frame.CanGoBack;
-    public bool CanGoForward => Frame.CanGoForward;
-
-    public void GoBack()
+    public static void GoBack()
     {
         if(CanGoBack)
         {
-            Frame.GoBack();
+            _frame.GoBack();
         }
     }
 
-    public void GoForward()
+    public static void GoForward()
     {
         if(CanGoForward)
         {
-            Frame.GoForward();
+            _frame.GoForward();
         }
     }
+
+    //// object = null; => Home!
+    //public bool Navigate(object navigationTarget, object? parameter = null, bool writeHistory = true)
+    //{
+    //    try 
+    //    {
+    //        if (navigationTarget != null)
+    //        {
+    //            return parameter != null ?
+    //                Frame.Navigate(navigationTarget.GetType(), parameter) 
+    //                : Frame.Navigate(navigationTarget.GetType());
+    //        }
+
+    //        // TODO: search the web
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //        // Handle navigation exceptions as needed.
+    //        Debug.WriteLine($"Navigation error: {ex.Message}");
+    //        return false;
+    //    }
+
+    //    if (writeHistory)
+    //    {
+    //        // Navigate to the target page and add it to the navigation history
+    //    }
+
+    //    return true;
+    //}
 }
