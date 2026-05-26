@@ -6,9 +6,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    mc:Ignorable="d">
+    DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
-    <Grid BorderBrush="Black" BorderThickness="3">
-        <TextBox BorderBrush="Black" BorderThickness="3"/>
+    <Grid BorderThickness="3">
+        <TextBlock Text="SettingsPage" FontSize="20"/>
     </Grid>
 </Page>

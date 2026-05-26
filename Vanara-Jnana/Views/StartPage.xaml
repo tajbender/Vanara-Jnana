@@ -106,14 +106,19 @@
                 <AutoSuggestBox x:Name="SearchBox" Grid.Column="5" Height="32" PlaceholderText="Share your Thoughts..." QueryIcon="Find" QuerySubmitted="SearchBox_QuerySubmitted" TextChanged="SearchBox_TextChanged" />
             </Grid>
         </Grid>
-        <Grid x:Name="MainContentGrid" Grid.Row="1" ColumnDefinitions="Auto, *, Auto" Opacity="0.76" Padding="32" >
-            <controls:SidebarControl x:Name="Sidebar" Grid.Column="0" Margin="7" Padding="7"/>
+        <Grid x:Name="MainContentGrid" Grid.Row="1" BorderBrush="Black" BorderThickness="3" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <controls:SidebarControl x:Name="Sidebar" Grid.Column="0" Visibility="Collapsed"/>
             <Border x:Name="TabViewBorder" Grid.Column="1" Margin="7" Padding="7">
                 <!-- Tab View and its empty State -->
-                <Grid x:Name="TabViewGrid" Grid.Row="1" IsHitTestVisible="False" Margin="24" Opacity="0.3" >
-                    <TabView x:Name="MainTabView" CanDragTabs="False" Margin="8,0,8,8"
-                         AddTabButtonClick="MainTabs_AddTabButtonClick" 
-                         SelectionChanged="MainTabs_SelectionChanged" >
+                <Grid x:Name="TabViewGrid" Grid.Row="1" IsHitTestVisible="False" Opacity="0.3" >
+                    <TabView x:Name="MainTabView" 
+                             AddTabButtonClick="MainTabs_AddTabButtonClick" 
+                             SelectionChanged="MainTabs_SelectionChanged" >
                         <TabView.Resources>
                             <Style TargetType="TabViewItem">
                                 <Setter Property="Background" Value="Transparent"/>
@@ -126,7 +131,6 @@
                                 <Setter Property="VerticalContentAlignment" Value="Center"/>
                                 <Setter Property="MinWidth" Value="140"/>
                                 <Setter Property="Padding" Value="16, 8"/>
-
                                 <Setter Property="Template">
                                     <Setter.Value>
                                         <ControlTemplate TargetType="TabViewItem">
