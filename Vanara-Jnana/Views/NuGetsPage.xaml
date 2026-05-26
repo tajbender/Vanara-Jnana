@@ -10,5 +10,6 @@
 
     <Grid BorderThickness="3">
         <TextBlock Text="NuGetsPage" FontSize="20"/>
+        <ListView HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
     </Grid>
 </Page>

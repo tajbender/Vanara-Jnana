@@ -12,28 +12,19 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-
         <Grid x:Name="DragArea" Grid.Row="0">
-            <!-- TODO: mark this as drag area -->
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
-                <!-- Logo -->
                 <ColumnDefinition Width="Auto"/>
-                <!-- Feature Tiles -->
                 <ColumnDefinition Width="*"/>
-                <!-- Filler, stretch -->
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
-                <!-- Logo, Tiles -->
                 <RowDefinition Height="Auto"/>
-                <!-- Navigation -->
             </Grid.RowDefinitions>
-
             <!-- Vanara Logo Area -->
             <Grid Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="54"/>
                 </Grid.ColumnDefinitions>
@@ -41,14 +32,13 @@
                     <RowDefinition Height="128"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-
                 <Image Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right" Source="/Assets/Vanara/Vanara-64px.png" VerticalAlignment="Stretch"/>
+                <TextBlock Grid.Column="0" Grid.Row="1" FontSize="28" FontWeight="SemiBold" HorizontalAlignment="Right" Text="Vanar"/>
                 <TextBlock Grid.Column="1" Grid.Row="0" FontSize="28" Opacity="0.5" Text="Jñān" VerticalAlignment="Bottom">
                     <TextBlock.RenderTransform>
                         <CompositeTransform Rotation="90" TranslateX="42" TranslateY="-7"/>
                     </TextBlock.RenderTransform>
                 </TextBlock>
-                <TextBlock Grid.Column="0" Grid.Row="1" FontSize="28" FontWeight="SemiBold" HorizontalAlignment="Right" Text="Vanar"/>
                 <TextBlock Grid.Column="1" Grid.Row="1" FontSize="28" FontWeight="SemiBold" Opacity="0.5" Text="a">
                     <TextBlock.RenderTransform>
                         <RotateTransform Angle="-23"/>
@@ -57,18 +47,16 @@
             </Grid>
 
             <!-- Feature Tiles -->
-            <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" Padding="12, 0">
-                <controls:FeatureTile Title="NuGets" Icon="&#xE7B8;" Subtitle="Package Releases" Click="FeatureTile_OnClick"/>
-                <controls:FeatureTile Title="GitHub" Icon="&#xE9D5;" Subtitle="Vanara on GitHub" Click="FeatureTile_OnClick"/>
-                <controls:FeatureTile Title="Samples" Icon="&#xE8F1;" Subtitle="Examples and Unit Tests" Click="FeatureTile_OnClick"/>
-                <Border BorderThickness="5" Margin="20" Opacity="0.42"/>
-                <controls:FeatureTile Title="Assemblies" Icon="&#xEA86;" Subtitle="Explore Types, Members and Interfaces" Click="FeatureTile_OnClick"/>
-                <Border BorderThickness="5" Margin="20" Opacity="0.42"/>
-                <controls:FeatureTile Title="Utilities" Icon="&#xE90F;" Subtitle="Tools, Helpers, Generators" Click="FeatureTile_OnClick"/>
+            <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" Padding="7,0">
+                <controls:FeatureTile Click="FeatureTile_OnClick" Icon="&#xE7B8;" Title="NuGets" Subtitle="Package Releases"/>
+                <controls:FeatureTile Click="FeatureTile_OnClick" Icon="&#xE9D5;" Title="GitHub" Subtitle="Vanara on GitHub"/>
+                <controls:FeatureTile Click="FeatureTile_OnClick" Icon="&#xE8F1;" Title="Samples" Subtitle="Examples and Unit Tests"/>
+                <controls:FeatureTile Click="FeatureTile_OnClick" Icon="&#xEA86;" Title="Assemblies" Subtitle="Explore Types, Members and Interfaces"/>
+                <controls:FeatureTile Click="FeatureTile_OnClick" Icon="&#xE90F;" Title="Utilities" Subtitle="Tools, Helpers, Generators"/>
             </StackPanel>
 
             <!-- Navigation Area 51 -->
-            <Grid Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Margin="12,8,12,4" VerticalAlignment="Stretch" >
+            <Grid Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Margin="12,8,12,4" Padding="7" VerticalAlignment="Stretch" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
@@ -77,20 +65,20 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-                <Button x:Name="BtnPrevious" Grid.Column="0" Height="32" Padding="0" ToolTipService.ToolTip="Previous" Width="36">
+                <Button x:Name="BtnPrevious" Grid.Column="0" ToolTipService.ToolTip="Previous" >
                     <FontIcon Glyph="&#xE72B;"/>
                 </Button>
-                <SplitButton x:Name="BtnNext" Grid.Column="1" Height="32" Margin="6,0" ToolTipService.ToolTip="Next" >
+                <SplitButton x:Name="BtnNext" Grid.Column="1" ToolTipService.ToolTip="Next" >
                     <SplitButton.Content>
                         <FontIcon Glyph="&#xE72A;"/>
                     </SplitButton.Content>
                     <SplitButton.Flyout>
                         <MenuFlyout>
-                            <MenuFlyoutItem Text="TOS"/>
-                            <MenuFlyoutItem Text="TNG"/>
-                            <MenuFlyoutItem Text="DS9"/>
-                            <MenuFlyoutItem Text="VOY"/>
-                            <MenuFlyoutItem Text="ENT"/>
+                            <MenuFlyoutItem Text="NuGets"/>
+                            <MenuFlyoutItem Text="GitHub"/>
+                            <MenuFlyoutItem Text="Samples"/>
+                            <MenuFlyoutItem Text="Assemlbies"/>
+                            <MenuFlyoutItem Text="Utilities"/>
                         </MenuFlyout>
                     </SplitButton.Flyout>
                 </SplitButton>
@@ -106,19 +94,11 @@
                 <AutoSuggestBox x:Name="SearchBox" Grid.Column="5" Height="32" PlaceholderText="Share your Thoughts..." QueryIcon="Find" QuerySubmitted="SearchBox_QuerySubmitted" TextChanged="SearchBox_TextChanged" />
             </Grid>
         </Grid>
-        <Grid x:Name="MainContentGrid" Grid.Row="1" BorderBrush="Black" BorderThickness="3" >
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-            <controls:SidebarControl x:Name="Sidebar" Grid.Column="0" Visibility="Collapsed"/>
-            <Border x:Name="TabViewBorder" Grid.Column="1" Margin="7" Padding="7">
+        <Grid x:Name="MainContentGrid" Grid.Row="1" BorderBrush="Transparent" BorderThickness="3">
+            <Border x:Name="TabViewBorder">
                 <!-- Tab View and its empty State -->
-                <Grid x:Name="TabViewGrid" Grid.Row="1" IsHitTestVisible="False" Opacity="0.3" >
-                    <TabView x:Name="MainTabView" 
-                             AddTabButtonClick="MainTabs_AddTabButtonClick" 
-                             SelectionChanged="MainTabs_SelectionChanged" >
+                <Grid x:Name="TabViewGrid" Grid.Row="1">
+                    <TabView x:Name="MainTabView" AddTabButtonClick="MainTabs_AddTabButtonClick" SelectionChanged="MainTabs_SelectionChanged">
                         <TabView.Resources>
                             <Style TargetType="TabViewItem">
                                 <Setter Property="Background" Value="Transparent"/>
@@ -134,7 +114,7 @@
                                 <Setter Property="Template">
                                     <Setter.Value>
                                         <ControlTemplate TargetType="TabViewItem">
-                                            <Grid x:Name="RootGrid" Background="{TemplateBinding Background}">
+                                            <Grid x:Name="TabViewItemGrid" Background="{TemplateBinding Background}">
                                                 <Grid.RowDefinitions>
                                                     <RowDefinition Height="*"/>
                                                     <RowDefinition Height="3"/>
@@ -144,7 +124,7 @@
                                                 <ContentPresenter Grid.Row="0" Content="{TemplateBinding Header}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
                                                 <!-- Selection Indicator -->
-                                                <Border x:Name="Indicator" Grid.Row="1" Background="#0078D4" Height="3" Opacity="0"/>
+                                                <Border x:Name="Indicator" Grid.Row="1" Background="#0078D4" Height="3" Opacity="0.5"/>
                                             </Grid>
                                         </ControlTemplate>
                                     </Setter.Value>
@@ -152,31 +132,24 @@
                             </Style>
                         </TabView.Resources>
                         <TabView.TabStripHeader>
-                            <StackPanel Orientation="Vertical" Margin="12,0">
-                                <TextBlock Text="Jñāna" FontSize="18" FontWeight="Bold" Foreground="#222"/>
-                                <TextBlock Text="v5.0.5" FontSize="12" Foreground="#777" />
+                            <StackPanel Orientation="Vertical" Margin="7,0">
+                                <TextBlock Text="Jñāna" FontSize="18" FontWeight="Bold" Opacity="0.8"/>
+                                <TextBlock Text="v5.0.5" FontSize="12" Opacity="0.8"/>
                             </StackPanel>
                         </TabView.TabStripHeader>
                         <TabViewItem>
                             <TabViewItem.Header>
                                 <StackPanel Orientation="Horizontal" Spacing="8">
                                     <FontIcon Glyph="&#xE8A5;" />
-                                    <!-- Symbol: Page -->
                                     <TextBlock Text="Home"/>
                                 </StackPanel>
                             </TabViewItem.Header>
-                            <Grid>
-                                <ContentPresenter x:Name="TabViewContentPresenter" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
-                            </Grid>
+                            <ContentPresenter x:Name="TabViewContentPresenter" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
                         </TabViewItem>
                     </TabView>
-                    <!-- Empty State: Vanara Watermark -->
-                    <Grid x:Name="EmptyStateBackground" >
-                        <Image HorizontalAlignment="Right" Opacity="0.3" Source="/Assets/VanaraMonkey.png" Stretch="Uniform" VerticalAlignment="Bottom" Width="96"/>
-                    </Grid>
+                    <Image HorizontalAlignment="Right" Opacity="0.3" Source="/Assets/VanaraMonkey.png" Stretch="Uniform" VerticalAlignment="Bottom" Width="96"/>
                 </Grid>
             </Border>
-            <controls:SidebarControl Grid.Column="2" BorderBrush="Beige" BorderThickness="3" Margin="7" Padding="7" Visibility="Collapsed"/>
         </Grid>
         <controls:FloatingStatusBar x:Name="StatusBar" Grid.Row="2" BorderBrush="Beige" BorderThickness="3" MinHeight="42" VerticalAlignment="Bottom" Visibility="Collapsed"/>
     </Grid>

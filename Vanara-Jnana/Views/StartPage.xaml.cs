@@ -17,10 +17,6 @@ namespace ClassicSamplesBrowser.Views;
 public sealed partial class StartPage : Page,
     INavigationAware
 {
-    const string Framework = "net8.0";      // Imported from dahall's code, but not currently used. Consider removing if not needed.
-    private const string Prefix = "Vanara"; // The prefix to filter NuGet packages by. This is a simple string match and can be adjusted as needed.
-    readonly List<IPackageSearchMetadata> _packages = [];
-    static readonly ILogger Nuget = NullLogger.Instance; // TODO: Replace with actual nuget if needed
     static readonly CancellationToken CancellationToken = CancellationToken.None;
 
     private NuGetViewModel NuGetVM { get; }
@@ -31,58 +27,55 @@ public sealed partial class StartPage : Page,
     {
         InitializeComponent();
         DataContext = this;
-
-        TabNavigationService.Initialize(MainTabView);
-        Loading += StartPage_Loading;
-        
         NuGetVM = new NuGetViewModel();
         GitHubVM = new GitHubViewModel();
         SamplesVM = new SamplesViewModel();
-
-        TabNavigationService.AddApiExplorerPageTab(typeof(StartPage));
+        TabNavigationService.Initialize(MainTabView);
+        Loading += StartPage_Loading;
     }
 
     private void StartPage_Loading(FrameworkElement sender, object args)
     {
         try
         {
-            Task.Factory.StartNew(async () =>
-            {
-                await foreach (var package in NuGetUtils.LoadNuGetPackageListAsync(Prefix, Nuget, CancellationToken))
-                    if (package.Identity.Id.StartsWith(Prefix + '.', StringComparison.OrdinalIgnoreCase))
-                        _packages.Add(package);
-            }, CancellationToken);
+            TabNavigationService.AddNuGetsPageTab();
+            TabNavigationService.AddShellPageTab();
+            TabNavigationService.AddSamplesPageTab();
+            TabNavigationService.AddApiExplorerPageTab(typeof(ApiExplorerPage));
         }
         catch (Exception ex)
         {
-            Debug.WriteLine($"Error loading packages: {ex.Message}");
+            Debug.WriteLine($"StartPage_Loading() {ex.Message}");
         }
     }
 
     private void FeatureTile_OnClick(object? sender, EventArgs e)
     {
-        Debug.WriteLine("Feature tile clicked.");
+        Debug.WriteLine($"FeatureTile_OnClick({sender}, {e})");
     }
 
     private void MainTabs_AddTabButtonClick(TabView sender, object args)
     {
-        Debug.WriteLine("Add tab button clicked.");
-        var tab = new TabViewItem
-        {
-            Header = "NuGet",
-            Content = new NuGetsPage { DataContext = NuGetVM }
-        };
-
-        sender.TabItems.Add(tab);
-        sender.SelectedItem = tab;
+        Debug.WriteLine($"MainTabs_AddTabButtonClick({sender}, {args})");
+        TabNavigationService.AddApiExplorerPageTab(typeof(ApiExplorerPage));
+        //        var tab = new TabViewItem
+        //        {
+        //            Header = "NuGet",
+        //            Content = new NuGetsPage { DataContext = NuGetVM }
+        //        };
+        //
+        //        sender.TabItems.Add(tab);
+        //        sender.SelectedItem = tab;
     }
 
-    private void MainTabs_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    private void MainTabs_SelectionChanged(object sender, SelectionChangedEventArgs args)
     {
+        Debug.WriteLine($"MainTabs_SelectionChanged({sender}, {args})");
+
         if (MainTabView.SelectedItem is TabViewItem tab &&
             tab.Content is Frame frame)
         {
-            Debug.WriteLine("Tab selection changed.");
+            Debug.WriteLine($".Content: {frame}");
             TabViewContentPresenter.Content = frame.Content;
         }
     }
