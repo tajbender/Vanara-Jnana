@@ -1,7 +1,8 @@
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using Microsoft.UI.Xaml;
-using Microsoft.UI.Xaml.Controls;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace ClassicSamplesBrowser.Vanara.Controls;
 
@@ -10,13 +11,12 @@ public sealed partial class FloatingStatusBar : UserControl,
 {
     private readonly DispatcherTimer _hideTimer = new() { Interval = TimeSpan.FromSeconds(3) };
 
-//    [ObservableProperty]
-//    private string _statusText = "READY.";
+    private string StatusText = "READY.";
 
     public FloatingStatusBar()
     {
-        //InitializeComponent();
-        _hideTimer.Tick += (_, __) => Hide();
+        InitializeComponent();
+        //_hideTimer.Tick += (_, __) => Hide();
     }
 
     public void Show(string message, string icon = "\uE946")

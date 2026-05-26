@@ -14,7 +14,8 @@
           Padding="12,6"
           Background="{ThemeResource AcrylicBackgroundFillColorDefaultBrush}"
           BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-          BorderThickness="1"
+          BorderThickness="3"
+          MinHeight="42"
           Translation="0,20,0">
 
         <StackPanel Orientation="Horizontal" Spacing="8">
