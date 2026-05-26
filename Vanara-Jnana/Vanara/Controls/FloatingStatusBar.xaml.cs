@@ -9,14 +9,14 @@ namespace ClassicSamplesBrowser.Vanara.Controls;
 public sealed partial class FloatingStatusBar : UserControl,
     INotifyPropertyChanged
 {
-    private readonly DispatcherTimer _hideTimer = new() { Interval = TimeSpan.FromSeconds(3) };
-
-    private string StatusText = "READY.";
+    private bool AutoHide = false;
+    /// <summary>The timer used to hide the status bar automatically.</summary>
+    private readonly DispatcherTimer _hideTimer = new() { Interval = TimeSpan.FromSeconds(7) };
 
     public FloatingStatusBar()
     {
         InitializeComponent();
-        //_hideTimer.Tick += (_, __) => Hide();
+        Show("READY.");
     }
 
     public void Show(string message, string icon = "\uE946")

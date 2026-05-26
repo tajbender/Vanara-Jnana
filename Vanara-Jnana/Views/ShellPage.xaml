@@ -9,6 +9,10 @@
     DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
     <Grid BorderThickness="3">
-        <TextBlock Text="ShellPage" FontSize="20"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Column="0" Text="ShellPage" FontSize="20"/>
     </Grid>
 </Page>

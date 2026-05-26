@@ -38,7 +38,7 @@
                 <TextBlock Grid.Column="1" Grid.Row="1" FontSize="28" FontWeight="SemiBold" Text="a" Opacity="0.5">
                     <TextBlock.RenderTransform>
                         <CompositeTransform Rotation="42" TranslateX="2" TranslateY="7"/>
-                    </TextBlock.RenderTransform>                    
+                    </TextBlock.RenderTransform>
                 </TextBlock>
             </Grid>
 
@@ -136,17 +136,20 @@
                         <TabViewItem>
                             <TabViewItem.Header>
                                 <StackPanel Orientation="Horizontal" Spacing="8">
-                                    <FontIcon Glyph="&#xE8A5;" />
+                                    <FontIcon Glyph="&#xE8A5;" FontFamily="Segoe MDL2 Assets"/>
                                     <TextBlock Text="Home"/>
                                 </StackPanel>
                             </TabViewItem.Header>
-                            <ContentPresenter x:Name="TabViewContentPresenter" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                            <StackPanel Grid.Row="0" Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <FontIcon Glyph="&#xE8A5;" FontFamily="Segoe MDL2 Assets" />
+                                <ContentPresenter x:Name="TabViewContentPresenter" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                            </StackPanel>
                         </TabViewItem>
                     </TabView>
                     <Image HorizontalAlignment="Right" Opacity="0.3" Source="/Assets/VanaraMonkey.png" Stretch="Uniform" VerticalAlignment="Bottom" Width="96"/>
                 </Grid>
             </Border>
         </Grid>
-        <controls:FloatingStatusBar x:Name="StatusBar" Grid.Row="2" Height="64"/>
+        <controls:FloatingStatusBar x:Name="StatusBar" Grid.Row="2" Height="42"/>
     </Grid>
 </Page>
