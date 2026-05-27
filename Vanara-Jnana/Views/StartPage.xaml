@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <Page
     x:Class="ClassicSamplesBrowser.Views.StartPage"
     xmlns:controls="using:ClassicSamplesBrowser.Vanara.Controls"
@@ -24,33 +25,21 @@
             </Grid.RowDefinitions>
             <!-- Vanara Logo Area -->
             <Grid Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="54"/>
-                </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="128"/>
                     <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-
-                <Image Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Source="/Assets/Vanara/Vanara-64px.png"/>
-                <TextBlock Grid.Column="0" Grid.Row="1" FontSize="28" FontWeight="SemiBold" Text="Vanar" Padding="3,7"/>
-                <TextBlock Grid.Column="1" Grid.Row="1" FontSize="28" FontWeight="SemiBold" Text="a" Opacity="0.5">
-                    <TextBlock.RenderTransform>
-                        <CompositeTransform Rotation="42" TranslateX="2" TranslateY="7"/>
-                    </TextBlock.RenderTransform>
-                </TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="0" FontSize="23" FontWeight="SemiBold" Text="Vanara" Padding="3,7"/>
+                <Image Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch" Source="/Assets/Vanara/Vanara-64px.png"/>
             </Grid>
-
             <!-- Feature Tiles -->
             <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" Padding="7,0">
-                <controls:FeatureTile Click="FeatureTile_OnClick" Icon="&#xE7B8;" Title="NuGets" Subtitle="Package Releases"/>
-                <controls:FeatureTile Click="FeatureTile_OnClick" Icon="&#xE9D5;" Title="GitHub" Subtitle="Vanara on GitHub"/>
-                <controls:FeatureTile Click="FeatureTile_OnClick" Icon="&#xE8F1;" Title="Samples" Subtitle="Examples and Unit Tests"/>
-                <controls:FeatureTile Click="FeatureTile_OnClick" Icon="&#xEA86;" Title="Assemblies" Subtitle="Explore Types, Members and Interfaces"/>
-                <controls:FeatureTile Click="FeatureTile_OnClick" Icon="&#xE90F;" Title="Utilities" Subtitle="Tools, Helpers, Generators"/>
+                <controls:FeatureTile Click="NuGetsFeatureTile_OnClick" Icon="&#xE7B8;" Title="NuGets" Subtitle="Package Releases"/>
+                <controls:FeatureTile Click="GitHubFeatureTile_OnClick" Icon="&#xE9D5;" Title="GitHub" Subtitle="Vanara on GitHub"/>
+                <controls:FeatureTile Click="SamplesFeatureTile_OnClick" Icon="&#xE8F1;" Title="Samples" Subtitle="Examples and Unit Tests"/>
+                <controls:FeatureTile Click="AssembliesFeatureTile_OnClick" Icon="&#xEA86;" Title="Assemblies" Subtitle="Explore Types, Members and Interfaces"/>
+                <controls:FeatureTile Click="UtilitiesFeatureTile_OnClick" Icon="&#xE90F;" Title="Utilities" Subtitle="Tools, Helpers, Generators"/>
             </StackPanel>
-
             <!-- Navigation Area 51 -->
             <Grid Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Margin="12,8,12,4" Padding="7" VerticalAlignment="Stretch" >
                 <Grid.ColumnDefinitions>
@@ -94,7 +83,7 @@
             <Border x:Name="TabViewBorder">
                 <!-- Tab View and its empty State -->
                 <Grid x:Name="TabViewGrid" Grid.Row="1">
-                    <TabView x:Name="MainTabView" AddTabButtonClick="MainTabs_AddTabButtonClick" SelectionChanged="MainTabs_SelectionChanged">
+                    <TabView x:Name="TabView" AddTabButtonClick="MainTabs_AddTabButtonClick" SelectionChanged="MainTabs_SelectionChanged">
                         <TabView.Resources>
                             <Style TargetType="TabViewItem">
                                 <Setter Property="Background" Value="Transparent"/>
@@ -115,12 +104,8 @@
                                                     <RowDefinition Height="*"/>
                                                     <RowDefinition Height="3"/>
                                                 </Grid.RowDefinitions>
-
-                                                <!-- Header -->
-                                                <ContentPresenter Grid.Row="0" Content="{TemplateBinding Header}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
-                                                <!-- Selection Indicator -->
-                                                <Border x:Name="Indicator" Grid.Row="1" Background="#0078D4" Height="3" Opacity="0.5"/>
+                                                <ContentPresenter x:Name="TabViewHeaderPresenter" Grid.Row="0" Content="{TemplateBinding Header}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                <Border x:Name="SelectedIndicatorBorder" Grid.Row="1" Background="#0078D4" Height="3" Opacity="0.5"/>
                                             </Grid>
                                         </ControlTemplate>
                                     </Setter.Value>

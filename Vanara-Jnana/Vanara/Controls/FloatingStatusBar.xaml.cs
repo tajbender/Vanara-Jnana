@@ -17,6 +17,12 @@ public sealed partial class FloatingStatusBar : UserControl,
     {
         InitializeComponent();
         Show("READY.");
+
+        /* TODO Sizer Glyphs:
+            Klassischer Resize‑Grip	E7BF	„GripperResize“ – diagonale Linien, wirkt wie der alte Win32‑Grip
+            Alternative minimal	    E7C0	„GripperBarHorizontal“ – drei Punkte, subtiler Look
+            Symbolisch	            E7C1	„GripperBarVertical“ – vertikale Punkte, wenn du rechts unten eine Spalte andeutest
+         */
     }
 
     public void Show(string message, string icon = "\uE946")

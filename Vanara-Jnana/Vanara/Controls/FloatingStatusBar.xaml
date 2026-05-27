@@ -19,14 +19,9 @@
           Translation="0,20,0">
 
         <StackPanel Orientation="Horizontal" Spacing="8">
-            <FontIcon x:Name="IconElement"
-                      Glyph="&#xE946;"
-                      FontSize="14"
-                      Opacity="0.8"/>
-            <TextBlock x:Name="MessageElement"
-                       Text="Ready."
-                       FontSize="14"
-                       VerticalAlignment="Center"/>
+            <FontIcon x:Name="IconElement" Glyph="&#xE946;" Opacity="0.8"/>
+            <TextBlock x:Name="MessageElement" FontSize="14" Text="Ready." VerticalAlignment="Center"/>
+            <FontIcon x:Name="Resizer" Glyph="&#xE7C1;" HorizontalAlignment="Right" Opacity="0.66" VerticalAlignment="Bottom" />
         </StackPanel>
     </Grid>
 </UserControl>
