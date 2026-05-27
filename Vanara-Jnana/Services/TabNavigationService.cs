@@ -74,4 +74,15 @@ public static class TabNavigationService
         _tabView.TabItems.Add(tab);
         _tabView.SelectedItem = tab;
     }
+    public static void AddSettingsPageTab()
+    {
+        var tab = new TabViewItem
+        {
+            Header = "Settings",
+            Content = new SettingsPage()
+        };
+
+        _tabView.TabItems.Add(tab);
+        _tabView.SelectedItem = tab;
+    }
 }

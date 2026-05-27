@@ -9,6 +9,11 @@
     DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
     <Grid BorderThickness="3">
-        <TextBlock Text="SettingsPage" FontSize="20"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Image Grid.Column="0" Height="64" HorizontalAlignment="Right" Opacity="0.16" Source="/Assets/Vanara/Amiga-Disk.png" Stretch="Uniform" VerticalAlignment="Top"/>
+        <TextBlock Grid.Column="0" Text="Settings and Preferences" FontSize="20"/>
     </Grid>
 </Page>
