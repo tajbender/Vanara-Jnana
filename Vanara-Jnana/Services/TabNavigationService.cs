@@ -17,7 +17,7 @@ public static class TabNavigationService
         _tabView = tabView;
     }
 
-    public static void AddTypedTab(string header, Type pageType, object parameter = null)
+    public static void AddTypedTab(string header, Type pageType, object? parameter = null, bool selectTab = true)
     {
         var tab = new TabViewItem
         {
@@ -26,10 +26,10 @@ public static class TabNavigationService
         };
 
         _tabView.TabItems.Add(tab);
-        _tabView.SelectedItem = tab;
+        if (selectTab)
+            _tabView.SelectedItem = tab;
     }
-
-    public static void AddApiExplorerPageTab(Type type)
+    public static void AddApiExplorerPageTab(Type type, bool selectTab = true)
     {
         var tab = new TabViewItem
         {
@@ -38,10 +38,10 @@ public static class TabNavigationService
         };
 
         _tabView.TabItems.Add(tab);
-        _tabView.SelectedItem = tab;
+        if (selectTab)
+            _tabView.SelectedItem = tab;
     }
-
-    public static void AddNuGetsPageTab()
+    public static void AddNuGetsPageTab(bool selectTab = true)
     {
         var tab = new TabViewItem
         {
@@ -50,9 +50,10 @@ public static class TabNavigationService
         };
 
         _tabView.TabItems.Add(tab);
-        _tabView.SelectedItem = tab;
+        if (selectTab)
+            _tabView.SelectedItem = tab;
     }
-    public static void AddSamplesPageTab()
+    public static void AddSamplesPageTab(bool selectTab = true)
     {
         var tab = new TabViewItem
         {
@@ -61,9 +62,10 @@ public static class TabNavigationService
         };
 
         _tabView.TabItems.Add(tab);
-        _tabView.SelectedItem = tab;
+        if (selectTab)
+            _tabView.SelectedItem = tab;
     }
-    public static void AddShellPageTab()
+    public static void AddShellPageTab(bool selectTab = true)
     {
         var tab = new TabViewItem
         {
@@ -72,9 +74,10 @@ public static class TabNavigationService
         };
 
         _tabView.TabItems.Add(tab);
-        _tabView.SelectedItem = tab;
+        if (selectTab)
+            _tabView.SelectedItem = tab;
     }
-    public static void AddSettingsPageTab()
+    public static void AddSettingsPageTab(bool selectTab = true)
     {
         var tab = new TabViewItem
         {
@@ -83,6 +86,7 @@ public static class TabNavigationService
         };
 
         _tabView.TabItems.Add(tab);
-        _tabView.SelectedItem = tab;
+        if (selectTab)
+            _tabView.SelectedItem = tab;
     }
 }
