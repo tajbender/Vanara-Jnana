@@ -80,61 +80,25 @@
             </Grid>
         </Grid>
         <Grid x:Name="MainContentGrid" Grid.Row="1" BorderBrush="Transparent" BorderThickness="3">
-            <Border x:Name="TabViewBorder">
-                <!-- Tab View and its empty State -->
-                <Grid x:Name="TabViewGrid" Grid.Row="1">
-                    <TabView x:Name="TabView" AddTabButtonClick="MainTabs_AddTabButtonClick" SelectionChanged="MainTabs_SelectionChanged">
-                        <TabView.Resources>
-                            <Style TargetType="TabViewItem">
-                                <Setter Property="Background" Value="Transparent"/>
-                                <Setter Property="BorderThickness" Value="3"/>
-                                <Setter Property="CornerRadius" Value="7"/>
-                                <Setter Property="FontSize" Value="12"/>
-                                <Setter Property="FontWeight" Value="SemiBold"/>
-                                <Setter Property="Foreground" Value="#333"/>
-                                <Setter Property="HorizontalContentAlignment" Value="Center"/>
-                                <Setter Property="VerticalContentAlignment" Value="Center"/>
-                                <Setter Property="MinWidth" Value="140"/>
-                                <Setter Property="Padding" Value="16, 8"/>
-                                <Setter Property="Template">
-                                    <Setter.Value>
-                                        <ControlTemplate TargetType="TabViewItem">
-                                            <Grid x:Name="TabViewItemGrid" Background="{TemplateBinding Background}">
-                                                <Grid.RowDefinitions>
-                                                    <RowDefinition Height="*"/>
-                                                    <RowDefinition Height="3"/>
-                                                </Grid.RowDefinitions>
-                                                <ContentPresenter x:Name="TabViewHeaderPresenter" Grid.Row="0" Content="{TemplateBinding Header}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                                <Border x:Name="SelectedIndicatorBorder" Grid.Row="1" Background="#0078D4" Height="3" Opacity="0.5"/>
-                                            </Grid>
-                                        </ControlTemplate>
-                                    </Setter.Value>
-                                </Setter>
-                            </Style>
-                        </TabView.Resources>
-                        <TabView.TabStripHeader>
-                            <StackPanel Orientation="Vertical" Margin="7,0">
-                                <TextBlock Text="Jñāna" FontSize="18" FontWeight="Bold" Opacity="0.8"/>
-                                <TextBlock Text="v5.0.5" FontSize="12" Opacity="0.8"/>
-                            </StackPanel>
-                        </TabView.TabStripHeader>
-                        <TabViewItem>
-                            <TabViewItem.Header>
-                                <StackPanel Orientation="Horizontal" Spacing="8">
-                                    <FontIcon Glyph="&#xE8A5;" FontFamily="Segoe MDL2 Assets"/>
-                                    <TextBlock Text="Home"/>
-                                </StackPanel>
-                            </TabViewItem.Header>
-                            <StackPanel Grid.Row="0" Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <FontIcon Glyph="&#xE8A5;" FontFamily="Segoe MDL2 Assets" />
-                                <ContentPresenter x:Name="TabViewContentPresenter" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
-                            </StackPanel>
-                        </TabViewItem>
-                    </TabView>
-                    <Image HorizontalAlignment="Right" Opacity="0.3" Source="/Assets/VanaraMonkey.png" Stretch="Uniform" VerticalAlignment="Bottom" Width="96"/>
-                </Grid>
-            </Border>
+            <TabView x:Name="MainTabs"
+                AddTabButtonClick="MainTabs_AddTabButtonClick"
+                CanDragTabs="False"
+                CanReorderTabs="False"
+                SelectionChanged="MainTabs_SelectionChanged"
+                TabWidthMode="SizeToContent"
+                Margin="8,0,8,8">
+                <!-- TODO: TabStripPlacement="Left" -->
+                <!-- Optional: Header über der Tab-Leiste -->
+                <TabView.TabStripHeader>
+                    <TextBlock Text="Workspace" Margin="8,8,8,16" FontSize="14" Opacity="0.7"/>
+                </TabView.TabStripHeader>
+                <!-- Beispiel-Tab -->
+                <TabViewItem Header="Home">
+                    <Frame x:Name="HomeFrame"/>
+                </TabViewItem>
+            </TabView>
         </Grid>
+        <!-- <Image HorizontalAlignment="Right" Opacity="0.3" Source="/Assets/VanaraMonkey.png" Stretch="Uniform" VerticalAlignment="Bottom" Width="96"/> -->
         <controls:FloatingStatusBar x:Name="StatusBar" Grid.Row="2" Height="42"/>
     </Grid>
 </Page>

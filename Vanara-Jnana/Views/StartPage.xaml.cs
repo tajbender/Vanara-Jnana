@@ -30,7 +30,7 @@ public sealed partial class StartPage : Page,
         NuGetVM = new NuGetViewModel();
         GitHubVM = new GitHubViewModel();
         SamplesVM = new SamplesViewModel();
-        TabNavigationService.Initialize(TabView);
+        TabNavigationService.Initialize(MainTabs);
         Loading += StartPage_Loading;
 
         //global::System.Uri resourceLocator = new global::System.Uri("ms-appx:///Views/StartPage.xaml");
@@ -78,11 +78,11 @@ public sealed partial class StartPage : Page,
     {
         Debug.WriteLine($"MainTabs_SelectionChanged({sender}, {args})");
 
-        if (TabView.SelectedItem is TabViewItem tab &&
+        if (MainTabs.SelectedItem is TabViewItem tab &&
             tab.Content is Frame frame)
         {
             Debug.WriteLine($".Content: {frame}");
-            TabViewContentPresenter.Content = frame.Content;
+            // TODO: TabViewContentPresenter.Content = frame.Content;
         }
     }
     private void NavBreadcrumb_ItemClicked(object sender, BreadcrumbBarItemClickedEventArgs args)
