@@ -67,10 +67,10 @@
                         </MenuFlyout>
                     </SplitButton.Flyout>
                 </SplitButton>
-                <Button x:Name="BtnParent" Grid.Column="2" Height="32" Padding="0" ToolTipService.ToolTip="Parent Folder" Width="36">
+                <Button x:Name="UpToParentButton" Grid.Column="2" Height="32" Padding="0" ToolTipService.ToolTip="Navigate Up to Parent Folder" Width="36">
                     <SymbolIcon Symbol="Up" />
                 </Button>
-                <Button x:Name="BtnReload" Grid.Column="3" Height="32" ToolTipService.ToolTip="Reload View..." >
+                <Button x:Name="ReloadButton" Grid.Column="3" Height="32" ToolTipService.ToolTip="Reload View..." >
                     <FontIcon Glyph="&#xE72C;"/>
                 </Button>
                 <Border Grid.Column="4" Background="#F3F3F3" BorderBrush="#D0D0D0" BorderThickness="1" CornerRadius="4" Height="32" VerticalAlignment="Stretch" >
@@ -90,7 +90,7 @@
                 <!-- TODO: TabStripPlacement="Left" -->
                 <!-- Optional: Header über der Tab-Leiste -->
                 <TabView.TabStripHeader>
-                    <TextBlock Text="Jñāna" Margin="8,8,8,16" FontSize="14" Opacity="0.7"/>
+                    <TextBlock Text="Jñāna" Margin="8,8,8,16" FontSize="14" HorizontalAlignment="Left" Opacity="0.7"/>
                 </TabView.TabStripHeader>
                 <!-- Beispiel-Tab -->
                 <TabViewItem Header="Home">

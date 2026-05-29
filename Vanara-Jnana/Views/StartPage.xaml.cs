@@ -18,7 +18,6 @@ public sealed partial class StartPage : Page,
     INavigationAware
 {
     static readonly CancellationToken CancellationToken = CancellationToken.None;
-
     private NuGetViewModel NuGetVM { get; }
     private GitHubViewModel GitHubVM { get; }
     private SamplesViewModel SamplesVM { get; }
@@ -43,10 +42,10 @@ public sealed partial class StartPage : Page,
     {
         try
         {
-            TabNavigationService.AddNuGetsPageTab();
-            TabNavigationService.AddShellPageTab();
-            TabNavigationService.AddSamplesPageTab();
-            TabNavigationService.AddSettingsPageTab();
+            TabNavigationService.AddNuGetsPageTab(selectTab: false);
+            TabNavigationService.AddShellPageTab(selectTab: false);
+            TabNavigationService.AddSamplesPageTab(selectTab: false);
+            TabNavigationService.AddSettingsPageTab(selectTab: false);
         }
         catch (Exception ex)
         {
