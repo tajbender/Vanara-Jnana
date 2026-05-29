@@ -9,6 +9,11 @@
     DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
     <Grid BorderThickness="3">
-        <TextBlock Text="ApiExplorerPage" FontSize="20"/>
-    </Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Column="0" Text="Api Explorer" FontSize="20"/>
+        <Image Grid.Column="1" Height="64" HorizontalAlignment="Right" Opacity="0.42" Source="/Assets/Vanara/Amiga-Disk.png" Stretch="Uniform"/>
+    </Grid>    
 </Page>

@@ -81,16 +81,16 @@
         </Grid>
         <Grid x:Name="MainContentGrid" Grid.Row="1" BorderBrush="Transparent" BorderThickness="3">
             <TabView x:Name="MainTabs"
-                AddTabButtonClick="MainTabs_AddTabButtonClick"
-                CanDragTabs="False"
-                CanReorderTabs="False"
-                SelectionChanged="MainTabs_SelectionChanged"
-                TabWidthMode="SizeToContent"
-                Margin="8,0,8,8">
+                     AddTabButtonClick="MainTabs_AddTabButtonClick"
+                     CanDragTabs="False"
+                     CanReorderTabs="False"
+                     Margin="8,0,8,8"
+                     SelectionChanged="MainTabs_SelectionChanged"
+                     TabWidthMode="SizeToContent">
                 <!-- TODO: TabStripPlacement="Left" -->
                 <!-- Optional: Header über der Tab-Leiste -->
                 <TabView.TabStripHeader>
-                    <TextBlock Text="Workspace" Margin="8,8,8,16" FontSize="14" Opacity="0.7"/>
+                    <TextBlock Text="Jñāna" Margin="8,8,8,16" FontSize="14" Opacity="0.7"/>
                 </TabView.TabStripHeader>
                 <!-- Beispiel-Tab -->
                 <TabViewItem Header="Home">
@@ -98,7 +98,7 @@
                 </TabViewItem>
             </TabView>
         </Grid>
-        <!-- <Image HorizontalAlignment="Right" Opacity="0.3" Source="/Assets/VanaraMonkey.png" Stretch="Uniform" VerticalAlignment="Bottom" Width="96"/> -->
+        <Image Grid.Row="1" HorizontalAlignment="Right" Opacity="0.3" Source="/Assets/VanaraMonkey.png" Stretch="Uniform" VerticalAlignment="Bottom" Width="96"/>
         <controls:FloatingStatusBar x:Name="StatusBar" Grid.Row="2" Height="42"/>
     </Grid>
 </Page>
