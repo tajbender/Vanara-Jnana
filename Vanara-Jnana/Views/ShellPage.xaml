@@ -90,17 +90,17 @@
         <Border Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="12,0,12,4" BorderThickness="1" BorderBrush="#D0D0D0" CornerRadius="4">
             <TabView x:Name="MainTabView" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
         </Border>
-        <!-- <StackPanel Grid.Column="0">
-            <TextBlock Text="Workbench" FontSize="20"/>
-            <Image Height="64" HorizontalAlignment="Right" Opacity="0.42" Source="/Assets/Vanara/Amiga-Disk.png" Stretch="Uniform" VerticalAlignment="Top"/>
+        <StackPanel Grid.Column="1" Grid.Row="0">
+            <TextBlock Text="Workbench" FontSize="20" HorizontalAlignment="Right" />
+            <Image Height="64" HorizontalAlignment="Right" Opacity="0.42" Source="/Assets/Vanara/Amiga-Disk.png" Stretch="Uniform" VerticalAlignment="Bottom"/>
         </StackPanel>
-        <Border Grid.Column="1" BorderThickness="1" BorderBrush="Gray" Margin="4">
+        <!--<Border Grid.Column="1" Grid.Row="3" BorderThickness="1" BorderBrush="Gray" Margin="4">
             <StackPanel>
                 <Button Content="Assembly Explorer" Margin="4"/>
                 <Button Content="NuGets" Margin="4"/>
                 <Button Content="Utilities" Margin="4"/>
                 <Button Content="Settings and Preferences" Margin="4"/>
             </StackPanel>
-        </Border> -->
+        </Border>-->
     </Grid>
 </Page>
