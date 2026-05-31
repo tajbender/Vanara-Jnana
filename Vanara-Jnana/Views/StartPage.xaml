@@ -10,13 +10,15 @@
     <Grid Padding="32" RowSpacing="32" >
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Spacing="8">
+        <StackPanel Grid.Row="0" BorderThickness="3" Spacing="8">
             <TextBlock Style="{StaticResource TitleLargeTextBlockStyle}" Text="Vanara Jñāna"/>
             <TextBlock Opacity="0.8" Style="{StaticResource BodyStrongTextBlockStyle}" Text="Explore APIs, Samples, Assemblies, Tools"/>
         </StackPanel>
-        <Grid Grid.Row="1" ColumnSpacing="24" RowSpacing="24">
+        <Grid x:Name="featureTiles" Grid.Row="1" BorderThickness="3" ColumnSpacing="24" RowSpacing="24">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -26,26 +28,14 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <controls:FeatureTile Grid.Row="0" Grid.Column="0"
-                                  Title="NuGet Packages"
-                                  Subtitle="Browse Vanara versions"
-                                  Icon="Box"/>
-            <controls:FeatureTile Grid.Row="0" Grid.Column="1"
-                                  Title="GitHub"
-                                  Subtitle="Source, Issues, PRs"
-                                  Icon="OpenFolder"/>
-            <controls:FeatureTile Grid.Row="0" Grid.Column="2"
-                                  Title="Samples"
-                                  Subtitle="Run and inspect examples"
-                                  Icon="Play"/>
-            <controls:FeatureTile Grid.Row="1" Grid.Column="0"
-                                  Title="Assemblies"
-                                  Subtitle="Inspect APIs and metadata"
-                                  Icon="Library"/>
-            <controls:FeatureTile Grid.Row="1" Grid.Column="1"
-                                  Title="Utilities"
-                                  Subtitle="Tools and diagnostics"
-                                  Icon="Settings"/>
+            <controls:FeatureTile Grid.Row="0" Grid.Column="0" Subtitle="Browse Vanara versions" Title="NuGets"/>
+            <controls:FeatureTile Grid.Row="0" Grid.Column="1" Subtitle="Source, Issues, PRs" Title="GitHub"/>
+            <controls:FeatureTile Grid.Row="0" Grid.Column="2" Subtitle="Examples and tests" Title="Samples"/>
+            <controls:FeatureTile Grid.Row="1" Grid.Column="0" Subtitle="APIs, resources and metadata" Title="Assemblies"/>
+            <controls:FeatureTile Grid.Row="1" Grid.Column="1" Subtitle="Tools and diagnostics" Title="Utilities"/>
+            <controls:FeatureTile Grid.Row="1" Grid.Column="2" Subtitle="Settings and preferences" Title="Settings"/>
         </Grid>
+        <TabView Grid.Row="2" x:Name="tabView" BorderThickness="3" BorderBrush="Black"/>
+        <controls:FloatingStatusBar Grid.Row="3" x:Name="statusBar"/>
     </Grid>
 </Page>
