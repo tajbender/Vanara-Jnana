@@ -22,7 +22,7 @@ public sealed partial class StartPage : Page,
         InitializeComponent();
         DataContext = this;
         Loading += StartPage_Loading;
-        TabNavigationService.Initialize(MainTabs);
+        //TabNavigationService.Initialize(MainTabs);
 
         //global::System.Uri resourceLocator = new global::System.Uri("ms-appx:///Views/StartPage.xaml");
         //var resourceInfo = Windows.ApplicationModel.Package.Current.InstalledLocation.GetFileAsync("Views/StartPage.xaml").AsTask().Result;
@@ -47,12 +47,12 @@ public sealed partial class StartPage : Page,
     {
         Debug.WriteLine($"MainTabs_SelectionChanged({sender}, {args})");
 
-        if (MainTabs.SelectedItem is TabViewItem tab &&
-            tab.Content is Frame frame)
-        {
-            Debug.WriteLine($".Content: {frame}");
-            // TODO: TabViewContentPresenter.Content = frame.Content;
-        }
+        //if (MainTabs.SelectedItem is TabViewItem tab &&
+        //    tab.Content is Frame frame)
+        //{
+        //    Debug.WriteLine($".Content: {frame}");
+        //    // TODO: TabViewContentPresenter.Content = frame.Content;
+        //}
     }
     private void StartPage_Loading(FrameworkElement sender, object args)
     {

@@ -1,32 +1,51 @@
-<?xml version="1.0" encoding="utf-8"?>
 <Page
     x:Class="ClassicSamplesBrowser.Views.StartPage"
     xmlns:controls="using:ClassicSamplesBrowser.Vanara.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:ClassicSamplesBrowser.Views"
-    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-
-    <Grid>
-        <Grid x:Name="MainContentGrid" Grid.Row="1" BorderBrush="Transparent" BorderThickness="3">
-            <!-- INFO: https://learn.microsoft.com/en-us/windows/apps/develop/ui/controls/tab-view -->
-            <TabView x:Name="MainTabs"
-                     AddTabButtonClick="MainTabs_AddTabButtonClick"
-                     Margin="7"
-                     SelectionChanged="MainTabs_SelectionChanged"
-                     TabWidthMode="SizeToContent">
-                <!-- TODO: TabStripPlacement="Left" -->
-                <!-- Optional: Header über der Tab-Leiste -->
-                <TabView.TabStripHeader>
-                    <TextBlock Text="Jñāna" Margin="8,8,8,16" FontSize="14" HorizontalAlignment="Left" Opacity="0.7"/>
-                </TabView.TabStripHeader>
-                <!-- Beispiel-Tab -->
-                <TabViewItem Header="Home">
-                    <Frame x:Name="HomeFrame" Content="ShellPage"/>
-                </TabViewItem>
-            </TabView>
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    mc:Ignorable="d">
+    <Grid Padding="32" RowSpacing="32" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Spacing="8">
+            <TextBlock Style="{StaticResource TitleLargeTextBlockStyle}" Text="Vanara Jñāna"/>
+            <TextBlock Opacity="0.8" Style="{StaticResource BodyStrongTextBlockStyle}" Text="Explore APIs, Samples, Assemblies, Tools"/>
+        </StackPanel>
+        <Grid Grid.Row="1" ColumnSpacing="24" RowSpacing="24">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <controls:FeatureTile Grid.Row="0" Grid.Column="0"
+                                  Title="NuGet Packages"
+                                  Subtitle="Browse Vanara versions"
+                                  Icon="Box"/>
+            <controls:FeatureTile Grid.Row="0" Grid.Column="1"
+                                  Title="GitHub"
+                                  Subtitle="Source, Issues, PRs"
+                                  Icon="OpenFolder"/>
+            <controls:FeatureTile Grid.Row="0" Grid.Column="2"
+                                  Title="Samples"
+                                  Subtitle="Run and inspect examples"
+                                  Icon="Play"/>
+            <controls:FeatureTile Grid.Row="1" Grid.Column="0"
+                                  Title="Assemblies"
+                                  Subtitle="Inspect APIs and metadata"
+                                  Icon="Library"/>
+            <controls:FeatureTile Grid.Row="1" Grid.Column="1"
+                                  Title="Utilities"
+                                  Subtitle="Tools and diagnostics"
+                                  Icon="Settings"/>
         </Grid>
-        <Image Grid.Row="1" HorizontalAlignment="Right" Opacity="0.3" Source="/Assets/VanaraMonkey.png" Stretch="Uniform" VerticalAlignment="Bottom" Width="96"/>
-        <controls:FloatingStatusBar x:Name="StatusBar" Grid.Row="2" Height="42"/>
     </Grid>
 </Page>
