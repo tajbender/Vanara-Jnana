@@ -35,8 +35,9 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <TextBlock Grid.Column="0" Grid.Row="0" FontSize="23" FontWeight="SemiBold" Text="Vanara" Padding="3,7"/>
+                <!-- TODO: Add navigate back button -->
                 <Image Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch" Source="/Assets/Vanara/Vanara-64px.png"/>
+                <TextBlock Grid.Column="0" Grid.Row="0" FontSize="23" FontWeight="SemiBold" Text="Vanara" Padding="3,7"/>
             </Grid>
             <!-- Feature Tiles -->
             <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" Padding="7,0">
@@ -85,8 +86,11 @@
                 <AutoSuggestBox x:Name="SearchBox" Grid.Column="5" Height="32" PlaceholderText="Share your Thoughts..." QueryIcon="Find" QuerySubmitted="SearchBox_QuerySubmitted" TextChanged="SearchBox_TextChanged" />
             </Grid>
         </Grid>
-<!--
-        <StackPanel Grid.Column="0">
+
+        <Border Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="12,0,12,4" BorderThickness="1" BorderBrush="#D0D0D0" CornerRadius="4">
+            <TabView x:Name="MainTabView" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        </Border>
+        <!-- <StackPanel Grid.Column="0">
             <TextBlock Text="Workbench" FontSize="20"/>
             <Image Height="64" HorizontalAlignment="Right" Opacity="0.42" Source="/Assets/Vanara/Amiga-Disk.png" Stretch="Uniform" VerticalAlignment="Top"/>
         </StackPanel>

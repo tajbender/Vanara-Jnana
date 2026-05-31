@@ -28,7 +28,7 @@ public sealed partial class MainWindow : Window
         //this.AppWindow.Size = _initialWindowSize;
         // AppWindow.Size = new Size() { Width = 800, Height = 600 };
 
-        RootFrame.Navigate(typeof(StartPage));
+        RootFrame.Navigate(typeof(ShellPage));
 // TODO:  this.SetTitleBar(StartPage.DragRegion);
     }
 
