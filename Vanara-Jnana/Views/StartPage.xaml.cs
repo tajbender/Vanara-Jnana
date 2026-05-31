@@ -28,11 +28,6 @@ public sealed partial class StartPage : Page,
         //var resourceInfo = Windows.ApplicationModel.Package.Current.InstalledLocation.GetFileAsync("Views/StartPage.xaml").AsTask().Result;
         //Debug.WriteLine($"Resource locator: {resourceLocator}");
     }
-    private void NuGetsFeatureTile_OnClick(object? sender, EventArgs e) { Debug.WriteLine($"FeatureTile_OnClick({sender}, {e})"); }
-    private void GitHubFeatureTile_OnClick(object? sender, EventArgs e) { Debug.WriteLine($"FeatureTile_OnClick({sender}, {e})"); }
-    private void AssembliesFeatureTile_OnClick(object? sender, EventArgs e) { Debug.WriteLine($"FeatureTile_OnClick({sender}, {e})"); }
-    private void SamplesFeatureTile_OnClick(object? sender, EventArgs e) { Debug.WriteLine($"FeatureTile_OnClick({sender}, {e})"); }
-    private void UtilitiesFeatureTile_OnClick(object? sender, EventArgs e) { Debug.WriteLine($"FeatureTile_OnClick({sender}, {e})"); }
     private void MainTabs_AddTabButtonClick(TabView sender, object args)
     {
         Debug.WriteLine($"MainTabs_AddTabButtonClick({sender}, {args})");
@@ -57,25 +52,6 @@ public sealed partial class StartPage : Page,
         {
             Debug.WriteLine($".Content: {frame}");
             // TODO: TabViewContentPresenter.Content = frame.Content;
-        }
-    }
-    private void NavBreadcrumb_ItemClicked(object sender, BreadcrumbBarItemClickedEventArgs args)
-    {
-        var clicked = args.Item.ToString();
-        Debug.WriteLine($"Breadcrumb item clicked: {clicked} (TODO: Navigate to the clicked item)");
-    }
-    private void SearchBox_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
-    {
-        var query = args.QueryText;
-        Debug.WriteLine($"Search query submitted: {query} (TODO: Handle search query submission)");
-        query = query.Trim();
-    }
-    private void SearchBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
-    {
-        Debug.WriteLine($"Search box text changed: {sender.Text} {args.ToString} (TODO: Handle text change)");
-        if (args.Reason == AutoSuggestionBoxTextChangeReason.UserInput)
-        {
-            sender.ItemsSource = new List<string> { "ShellItem", "ShellFolder", "IShellItem", "ExplorerBrowser" };
         }
     }
     private void StartPage_Loading(FrameworkElement sender, object args)

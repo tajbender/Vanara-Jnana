@@ -29,7 +29,7 @@
 		<PackageReference Include="Vanara.WinUI.Extensions" Version="5.0.4" />
 	</ItemGroup>
 	<ItemGroup>
-		<Folder Include="Templates\RyderShell\Project\" />
+		<Folder Include="Templates\" />
 		<Folder Include="Vanara\Controls\Shell32\" />
 	</ItemGroup>
 	<ItemGroup>
@@ -46,12 +46,6 @@
 		</Page>
 	</ItemGroup>
 	<ItemGroup>
-		<Page Update="Templates\RyderShell\Styles\MainPage.xaml">
-			<SubType>Designer</SubType>
-		</Page>
-		<Page Update="Templates\RyderShell\Views\MainPage.xaml">
-			<SubType>Designer</SubType>
-		</Page>
 		<Page Update="Views\SettingsPage.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</Page>
