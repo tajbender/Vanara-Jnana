@@ -7,11 +7,22 @@
 		<TargetFramework>net8.0-windows10.0.19041.0</TargetFramework>
 		<UseWinUI>true</UseWinUI>
 	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)'=='Release'">
+		<DebugSymbols>false</DebugSymbols>
+		<DebugType>portable</DebugType>
+		<DefineConstants>TRACE</DefineConstants>
+		<Deterministic>true</Deterministic>
+		<Optimize>true</Optimize>
+		<PublishReadyToRun>true</PublishReadyToRun>
+		<PublishTrimmed>false</PublishTrimmed>
+		<UseWindowsForms>false</UseWindowsForms>
+		<UseWPF>false</UseWPF>
+	</PropertyGroup>
 	<ItemGroup>
-	  <Compile Remove="Resources\**" />
-	  <EmbeddedResource Remove="Resources\**" />
-	  <None Remove="Resources\**" />
-	  <Page Remove="Resources\**" />
+		<Compile Remove="Resources\**" />
+		<EmbeddedResource Remove="Resources\**" />
+		<None Remove="Resources\**" />
+		<Page Remove="Resources\**" />
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
@@ -95,26 +106,26 @@
 		</Page>
 	</ItemGroup>
 	<ItemGroup>
-	  <PRIResource Remove="Resources\**" />
+		<PRIResource Remove="Resources\**" />
 	</ItemGroup>
 	<ItemGroup>
-	  <None Remove="Views\AssembliesPage.xaml" />
-	  <None Remove="Views\ShellPage.xaml" />
-	  <None Remove="Views\UtilitiesPage.xaml" />
+		<None Remove="Views\AssembliesPage.xaml" />
+		<None Remove="Views\ShellPage.xaml" />
+		<None Remove="Views\UtilitiesPage.xaml" />
 	</ItemGroup>
 	<ItemGroup>
-	  <Page Update="Views\ShellPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </Page>
+		<Page Update="Views\ShellPage.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</Page>
 	</ItemGroup>
 	<ItemGroup>
-	  <Page Update="Views\AssembliesPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </Page>
+		<Page Update="Views\AssembliesPage.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</Page>
 	</ItemGroup>
 	<ItemGroup>
-	  <Page Update="Views\UtilitiesPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </Page>
+		<Page Update="Views\UtilitiesPage.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</Page>
 	</ItemGroup>
 </Project>
