@@ -4,8 +4,7 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-
-  <Project Path="ClassicSamplesBrowser.csproj">
+  <Project Path="Jnana.csproj">
     <Deploy />
   </Project>
 </Solution>
