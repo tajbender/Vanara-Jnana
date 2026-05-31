@@ -83,9 +83,7 @@
             <!-- INFO: https://learn.microsoft.com/en-us/windows/apps/develop/ui/controls/tab-view -->
             <TabView x:Name="MainTabs"
                      AddTabButtonClick="MainTabs_AddTabButtonClick"
-                     CanDragTabs="False"
-                     CanReorderTabs="False"
-                     Margin="8,0,8,8"
+                     Margin="7"
                      SelectionChanged="MainTabs_SelectionChanged"
                      TabWidthMode="SizeToContent">
                 <!-- TODO: TabStripPlacement="Left" -->
@@ -95,7 +93,7 @@
                 </TabView.TabStripHeader>
                 <!-- Beispiel-Tab -->
                 <TabViewItem Header="Home">
-                    <Frame x:Name="HomeFrame"/>
+                    <Frame x:Name="HomeFrame" Content="ShellPage"/>
                 </TabViewItem>
             </TabView>
         </Grid>

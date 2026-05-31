@@ -17,43 +17,17 @@ namespace ClassicSamplesBrowser.Views;
 public sealed partial class StartPage : Page,
     INavigationAware
 {
-    static readonly CancellationToken CancellationToken = CancellationToken.None;
-    private NuGetViewModel NuGetVM { get; }
-    private GitHubViewModel GitHubVM { get; }
-    private SamplesViewModel SamplesVM { get; }
-
     public StartPage()
     {
         InitializeComponent();
         DataContext = this;
-        NuGetVM = new NuGetViewModel();
-        GitHubVM = new GitHubViewModel();
-        SamplesVM = new SamplesViewModel();
-        TabNavigationService.Initialize(MainTabs);
         Loading += StartPage_Loading;
+        TabNavigationService.Initialize(MainTabs);
 
         //global::System.Uri resourceLocator = new global::System.Uri("ms-appx:///Views/StartPage.xaml");
         //var resourceInfo = Windows.ApplicationModel.Package.Current.InstalledLocation.GetFileAsync("Views/StartPage.xaml").AsTask().Result;
         //Debug.WriteLine($"Resource locator: {resourceLocator}");
-
     }
-
-    private void StartPage_Loading(FrameworkElement sender, object args)
-    {
-        try
-        {
-            TabNavigationService.AddNuGetsPageTab(selectTab: false);
-            TabNavigationService.AddGitHubPageTab(selectTab: false);
-            TabNavigationService.AddPageTab<SamplesPage>("Samples", typeof(SamplesPage), parameter: SamplesVM, selectTab: false);
-//            TabNavigationService.AddSamplesPageTab(selectTab: false);
-            TabNavigationService.AddSettingsPageTab(selectTab: false);
-        }
-        catch (Exception ex)
-        {
-            Debug.WriteLine($"StartPage_Loading() {ex.Message}");
-        }
-    }
-
     private void NuGetsFeatureTile_OnClick(object? sender, EventArgs e) { Debug.WriteLine($"FeatureTile_OnClick({sender}, {e})"); }
     private void GitHubFeatureTile_OnClick(object? sender, EventArgs e) { Debug.WriteLine($"FeatureTile_OnClick({sender}, {e})"); }
     private void AssembliesFeatureTile_OnClick(object? sender, EventArgs e) { Debug.WriteLine($"FeatureTile_OnClick({sender}, {e})"); }
@@ -102,6 +76,21 @@ public sealed partial class StartPage : Page,
         if (args.Reason == AutoSuggestionBoxTextChangeReason.UserInput)
         {
             sender.ItemsSource = new List<string> { "ShellItem", "ShellFolder", "IShellItem", "ExplorerBrowser" };
+        }
+    }
+    private void StartPage_Loading(FrameworkElement sender, object args)
+    {
+        try
+        {
+            //TabNavigationService.AddNuGetsPageTab(selectTab: false);
+            //TabNavigationService.AddGitHubPageTab(selectTab: false);
+            //TabNavigationService.AddPageTab<SamplesPage>("Samples", typeof(SamplesPage), parameter: SamplesVM, selectTab: false);
+            //TabNavigationService.AddSamplesPageTab(selectTab: false);
+            //TabNavigationService.AddSettingsPageTab(selectTab: false);
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"StartPage_Loading() {ex.Message}");
         }
     }
 }

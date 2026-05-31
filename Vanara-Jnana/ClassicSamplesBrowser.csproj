@@ -106,7 +106,13 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <None Remove="Views\AssembliesPage.xaml" />
+	  <None Remove="Views\ShellPage.xaml" />
 	  <None Remove="Views\UtilitiesPage.xaml" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Page Update="Views\ShellPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
 	</ItemGroup>
 	<ItemGroup>
 	  <Page Update="Views\AssembliesPage.xaml">
