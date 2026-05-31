@@ -35,7 +35,7 @@ public sealed partial class StartPage : Page,
         //global::System.Uri resourceLocator = new global::System.Uri("ms-appx:///Views/StartPage.xaml");
         //var resourceInfo = Windows.ApplicationModel.Package.Current.InstalledLocation.GetFileAsync("Views/StartPage.xaml").AsTask().Result;
         //Debug.WriteLine($"Resource locator: {resourceLocator}");
-        
+
     }
 
     private void StartPage_Loading(FrameworkElement sender, object args)
@@ -43,7 +43,7 @@ public sealed partial class StartPage : Page,
         try
         {
             TabNavigationService.AddNuGetsPageTab(selectTab: false);
-            TabNavigationService.AddShellPageTab(selectTab: false);
+            TabNavigationService.AddGitHubPageTab(selectTab: false);
             TabNavigationService.AddSamplesPageTab(selectTab: false);
             TabNavigationService.AddSettingsPageTab(selectTab: false);
         }
@@ -66,7 +66,7 @@ public sealed partial class StartPage : Page,
             // var tab = new TabViewItem { Header = "NuGet", Content = new NuGetsPage { DataContext = NuGetVM } };
             // sender.TabItems.Add(tab);
             // sender.SelectedItem = tab;
-            TabNavigationService.AddShellPageTab();  // TODO: .NavigateTo()
+            TabNavigationService.AddGitHubPageTab();  // TODO: .NavigateTo()
         }
         catch (Exception ex)
         {

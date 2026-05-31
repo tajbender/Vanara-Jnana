@@ -70,7 +70,7 @@
 		</Page>
 	</ItemGroup>
 	<ItemGroup>
-		<Page Update="Views\ShellPage.xaml">
+		<Page Update="Views\GitHubPage.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</Page>
 	</ItemGroup>

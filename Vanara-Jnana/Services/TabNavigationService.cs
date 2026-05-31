@@ -41,6 +41,18 @@ public static class TabNavigationService
         if (selectTab)
             _tabView.SelectedItem = tab;
     }
+    public static void AddGitHubPageTab(bool selectTab = true)
+    {
+        var tab = new TabViewItem
+        {
+            Header = "GitHub",
+            Content = new GitHubPage()
+        };
+
+        _tabView.TabItems.Add(tab);
+        if (selectTab)
+            _tabView.SelectedItem = tab;
+    }
     public static void AddNuGetsPageTab(bool selectTab = true)
     {
         var tab = new TabViewItem
@@ -59,18 +71,6 @@ public static class TabNavigationService
         {
             Header = "Samples",
             Content = new SamplesPage()
-        };
-
-        _tabView.TabItems.Add(tab);
-        if (selectTab)
-            _tabView.SelectedItem = tab;
-    }
-    public static void AddShellPageTab(bool selectTab = true)
-    {
-        var tab = new TabViewItem
-        {
-            Header = "Shell",
-            Content = new ShellPage()
         };
 
         _tabView.TabItems.Add(tab);

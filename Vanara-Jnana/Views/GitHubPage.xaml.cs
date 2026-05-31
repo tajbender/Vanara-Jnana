@@ -2,9 +2,9 @@ using Microsoft.UI.Xaml.Controls;
 
 namespace ClassicSamplesBrowser.Views;
 
-public sealed partial class ShellPage : Page
+public sealed partial class GitHubPage : Page
 {
-    public ShellPage()
+    public GitHubPage()
     {
         InitializeComponent();
 

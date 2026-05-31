@@ -80,6 +80,7 @@
             </Grid>
         </Grid>
         <Grid x:Name="MainContentGrid" Grid.Row="1" BorderBrush="Transparent" BorderThickness="3">
+            <!-- INFO: https://learn.microsoft.com/en-us/windows/apps/develop/ui/controls/tab-view -->
             <TabView x:Name="MainTabs"
                      AddTabButtonClick="MainTabs_AddTabButtonClick"
                      CanDragTabs="False"
