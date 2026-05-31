@@ -8,6 +8,12 @@
 		<UseWinUI>true</UseWinUI>
 	</PropertyGroup>
 	<ItemGroup>
+	  <Compile Remove="Resources\**" />
+	  <EmbeddedResource Remove="Resources\**" />
+	  <None Remove="Resources\**" />
+	  <Page Remove="Resources\**" />
+	</ItemGroup>
+	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
 		<PackageReference Include="ICSharpCode.Decompiler" Version="10.0.1.8346" />
 		<PackageReference Include="Microsoft.Web.WebView2" Version="1.0.3912.50" />
@@ -23,7 +29,6 @@
 		<PackageReference Include="Vanara.WinUI.Extensions" Version="5.0.4" />
 	</ItemGroup>
 	<ItemGroup>
-		<Folder Include="Resources\i18n\" />
 		<Folder Include="Templates\RyderShell\Project\" />
 		<Folder Include="Vanara\Controls\Shell32\" />
 	</ItemGroup>
@@ -98,5 +103,8 @@
 		<Page Update="Vanara\Controls\FloatingStatusBar.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</Page>
+	</ItemGroup>
+	<ItemGroup>
+	  <PRIResource Remove="Resources\**" />
 	</ItemGroup>
 </Project>
