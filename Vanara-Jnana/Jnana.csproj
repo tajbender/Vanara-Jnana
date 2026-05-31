@@ -15,7 +15,6 @@
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
-		<PackageReference Include="ICSharpCode.Decompiler" Version="10.0.1.8346" />
 		<PackageReference Include="Microsoft.Web.WebView2" Version="1.0.3912.50" />
 		<PackageReference Include="Microsoft.Win32.SystemEvents" Version="10.0.7" />
 		<PackageReference Include="Microsoft.WindowsAppSDK" Version="1.8.260317003" />
