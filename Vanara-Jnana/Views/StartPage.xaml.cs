@@ -44,7 +44,8 @@ public sealed partial class StartPage : Page,
         {
             TabNavigationService.AddNuGetsPageTab(selectTab: false);
             TabNavigationService.AddGitHubPageTab(selectTab: false);
-            TabNavigationService.AddSamplesPageTab(selectTab: false);
+            TabNavigationService.AddPageTab<SamplesPage>("Samples", typeof(SamplesPage), parameter: SamplesVM, selectTab: false);
+//            TabNavigationService.AddSamplesPageTab(selectTab: false);
             TabNavigationService.AddSettingsPageTab(selectTab: false);
         }
         catch (Exception ex)

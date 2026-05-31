@@ -13,30 +13,36 @@ public static class NavigationService
     {
         _frame = frame;
     }
-    public static void Navigate(Shell32.IShellFolder shellFolder)
-    {
-        TryNavigate(shellFolder);
-    }
-    public static void NavigateToStart()
-    {
-        TryNavigate("Start");
-    }
-    public static void NavigateHome()
-    {
-        TryNavigate("Home");
-    }
-    public static void TryNavigate(object target)
+// TODO:
+//    public static void Navigate(Shell32.IShellFolder shellFolder)
+//    {
+//        TryNavigate(shellFolder);
+//    }
+    public static bool TryNavigate(object target, bool allowPageCreation = true)
     {
         try
         {
             var pageType = target switch
             {
-                "Start" => typeof(StartPage),
+                "Assemblies" => typeof(AssembliesPage),
+                "GitHub" => typeof(GitHubPage),
+                "NuGets" => typeof(NuGetsPage),
                 "Samples" => typeof(SamplesPage),
+                "Settings" => typeof(SettingsPage),
+                "Start" => typeof(StartPage),
+                "Utilities" => typeof(UtilitiesPage),
                 _ => null
             };
 
-            _frame.Navigate(pageType ?? null);
+            // Check if the page type is null and if page creation is allowed
+            if (pageType == null && !allowPageCreation)
+            {
+                //LogWriter.PrintLine("Page type is null and page creation is not allowed.");
+                return false;
+            }
+
+            // TODO: _frame.Navigate(pageType ?? new UtilitiesPage());
+            return _frame.Navigate(pageType);
         }
         catch (Exception ex)
         {
