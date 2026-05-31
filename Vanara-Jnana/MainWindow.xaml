@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:ClassicSamplesBrowser"
     xmlns:controls="using:ClassicSamplesBrowser.Vanara.Controls"
-    Title="Classic Samples Browser"
+    Title="Vanara Jñāna"
     Activated="Window_Activated">
 
     <Grid x:Name="RootGrid">

@@ -1,18 +1,19 @@
 using ClassicSamplesBrowser.Helpers;
 using ClassicSamplesBrowser.Views;
-using Microsoft.UI;
 using Microsoft.UI.Composition.SystemBackdrops;
 using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
+using Microsoft.UI;
 using System.Drawing;
 using Vanara.PInvoke;
+using Windows.Graphics;
 using WinRT;
 
 namespace ClassicSamplesBrowser;
 
 public sealed partial class MainWindow : Window
 {
-    private Rectangle _defaultBounds = new(640, 480, 1120, 760);
+    private Rectangle _defaultBounds = new(1024, 768, 1120, 760);
     private SystemBackdropConfiguration _backdropConfig;
     private MicaController _micaController;
     private WindowsSystemDispatcherQueueHelper _wsdqHelper;
@@ -46,13 +47,9 @@ public sealed partial class MainWindow : Window
         // TODO: Add support for right-clicking the title bar to show the system menu, and for showing the system menu at the cursor position instead of the top-left corner of the window
         // TODO: Handle exceptions that may occur when calling the Win32 API functions, such as if the window handle is invalid or if the system menu cannot be retrieved or displayed
         var hwnd = WinRT.Interop.WindowNative.GetWindowHandle(targetObject);
-
         var menu = User32.GetSystemMenu(hwnd, bRevert);
-
         var point = new Windows.Graphics.PointInt32(0, 0);
-
         User32.TrackPopupMenuFlags tpopMenuFlags = User32.TrackPopupMenuFlags.TPM_LEFTBUTTON;
-
         User32.TrackPopupMenu(menu, tpopMenuFlags, point.X, point.Y, 0, hwnd);
     }
 
@@ -63,6 +60,7 @@ public sealed partial class MainWindow : Window
 
     /// <summary>Sets the window bounds to the specified rectangle.</summary>
     /// <param name="bounds">The desired bounds for the window.</param>
+    [Obsolete("TODO: Has to be implemented. Use AppWindow.Resize instead.")]
     public void SetWindowBounds(Rectangle bounds)
     {
         var hwnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
