@@ -31,9 +31,6 @@ public static class NavigationService
     public static void NavigateToStart()
         => Navigate(typeof(StartPage));
 
-    public static void NavigateToApiExplorer()
-        => Navigate(typeof(ApiExplorerPage));
-
     public static void NavigateToSamples()
         => Navigate(typeof(SamplesPage));
 

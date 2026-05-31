@@ -52,9 +52,6 @@
 		<Page Update="Templates\RyderShell\Views\MainPage.xaml">
 			<SubType>Designer</SubType>
 		</Page>
-		<Page Update="Views\ApiExplorerPage.xaml">
-			<SubType>Designer</SubType>
-		</Page>
 		<Page Update="Views\SettingsPage.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</Page>
@@ -106,5 +103,13 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <PRIResource Remove="Resources\**" />
+	</ItemGroup>
+	<ItemGroup>
+	  <None Remove="Views\UtilitiesPage.xaml" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Page Update="Views\UtilitiesPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
 	</ItemGroup>
 </Project>

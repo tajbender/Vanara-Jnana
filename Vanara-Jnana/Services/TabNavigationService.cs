@@ -16,25 +16,13 @@ public static class TabNavigationService
     {
         _tabView = tabView;
     }
-
-    public static void AddTypedTab(string header, Type pageType, object? parameter = null, bool selectTab = true)
+    public static void AddPageTab<T>(string header, Type pageType, object? parameter = null, bool selectTab = true) 
+        where T : Control
     {
         var tab = new TabViewItem
         {
             Header = header,
             Content = Activator.CreateInstance(pageType, parameter)
-        };
-
-        _tabView.TabItems.Add(tab);
-        if (selectTab)
-            _tabView.SelectedItem = tab;
-    }
-    public static void AddApiExplorerPageTab(Type type, bool selectTab = true)
-    {
-        var tab = new TabViewItem
-        {
-            Header = "Api Explorer",
-            Content = new ApiExplorerPage(typeof(ApiExplorerPage))
         };
 
         _tabView.TabItems.Add(tab);

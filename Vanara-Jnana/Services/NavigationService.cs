@@ -32,7 +32,6 @@ public static class NavigationService
             var pageType = target switch
             {
                 "Start" => typeof(StartPage),
-                "API" => typeof(ApiExplorerPage),
                 "Samples" => typeof(SamplesPage),
                 _ => null
             };
