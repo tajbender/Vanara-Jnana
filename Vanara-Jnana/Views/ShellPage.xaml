@@ -19,7 +19,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Grid x:Name="DragArea" Grid.Row="0">
+        <Grid x:Name="DragableHeaderGrid" Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -29,25 +29,26 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <!-- Vanara Logo Area -->
-            <Grid Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
+            <!-- Vanara Logo Area 51 -->
+            <Grid Grid.Column="0" Grid.Row="0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <!-- TODO: Add navigate back button -->
-                <Image Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch" Source="/Assets/Vanara/Vanara-64px.png"/>
-                <TextBlock Grid.Column="0" Grid.Row="0" FontSize="23" FontWeight="SemiBold" Text="Vanara" Padding="3,7"/>
+                <Image Grid.Column="0" Grid.Row="0" HorizontalAlignment="Stretch" Source="/Assets/Vanara/Vanara-64px.png"/>
+                <TextBlock Grid.Column="0" Grid.Row="1" FontSize="13" HorizontalAlignment="Center" Padding="3,7" Text="Vanara"/>
             </Grid>
-            <!-- Feature Tiles -->
-            <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" Padding="7,0">
+            <!-- Feature Tiles Area -->
+            <StackPanel Grid.Column="1" Grid.Row="0"  HorizontalAlignment="Stretch" Orientation="Horizontal" Padding="7,0">
                 <controls:FeatureTile Icon="&#xE7B8;" Title="NuGets" Subtitle="Package Releases"/>
                 <controls:FeatureTile Icon="&#xE9D5;" Title="GitHub" Subtitle="Vanara on GitHub"/>
                 <controls:FeatureTile Icon="&#xE8F1;" Title="Samples" Subtitle="Examples and Unit Tests"/>
                 <controls:FeatureTile Icon="&#xEA86;" Title="Assemblies" Subtitle="Explore Types, Members and Interfaces"/>
                 <controls:FeatureTile Icon="&#xE90F;" Title="Utilities" Subtitle="Tools, Helpers, Generators"/>
+                <controls:FeatureTile Icon="&#xE90F;" Title="Settings" Subtitle="Settings, Version Info, Help"/>
             </StackPanel>
-            <!-- Navigation Area 51 -->
+            <!-- Navigation Area -->
             <Grid Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Margin="12,8,12,4" Padding="7" VerticalAlignment="Stretch" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -57,10 +58,10 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-                <Button x:Name="BtnPrevious" Grid.Column="0" ToolTipService.ToolTip="Previous" >
+                <Button x:Name="BtnPrevious" Grid.Column="0" ToolTipService.ToolTip="Previous">
                     <FontIcon Glyph="&#xE72B;"/>
                 </Button>
-                <SplitButton x:Name="BtnNext" Grid.Column="1" ToolTipService.ToolTip="Next" >
+                <SplitButton x:Name="BtnNext" Grid.Column="1" ToolTipService.ToolTip="Next">
                     <SplitButton.Content>
                         <FontIcon Glyph="&#xE72A;"/>
                     </SplitButton.Content>
@@ -86,21 +87,8 @@
                 <AutoSuggestBox x:Name="SearchBox" Grid.Column="5" Height="32" PlaceholderText="Share your Thoughts..." QueryIcon="Find" QuerySubmitted="SearchBox_QuerySubmitted" TextChanged="SearchBox_TextChanged" />
             </Grid>
         </Grid>
-
         <Border Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="12,0,12,4" BorderThickness="1" BorderBrush="#D0D0D0" CornerRadius="4">
             <TabView x:Name="MainTabView" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
         </Border>
-        <StackPanel Grid.Column="1" Grid.Row="0">
-            <TextBlock Text="Workbench" FontSize="20" HorizontalAlignment="Right" />
-            <Image Height="64" HorizontalAlignment="Right" Opacity="0.42" Source="/Assets/Vanara/Amiga-Disk.png" Stretch="Uniform" VerticalAlignment="Bottom"/>
-        </StackPanel>
-        <!--<Border Grid.Column="1" Grid.Row="3" BorderThickness="1" BorderBrush="Gray" Margin="4">
-            <StackPanel>
-                <Button Content="Assembly Explorer" Margin="4"/>
-                <Button Content="NuGets" Margin="4"/>
-                <Button Content="Utilities" Margin="4"/>
-                <Button Content="Settings and Preferences" Margin="4"/>
-            </StackPanel>
-        </Border>-->
     </Grid>
 </Page>
