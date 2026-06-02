@@ -13,7 +13,7 @@ namespace ClassicSamplesBrowser;
 
 public sealed partial class MainWindow : Window
 {
-    private Rectangle _defaultBounds = new(1024, 768, 1120, 760);
+    private Rectangle _defaultBounds = new(1024, 768, 1280, 760);
     private SystemBackdropConfiguration _backdropConfig;
     private MicaController _micaController;
     private WindowsSystemDispatcherQueueHelper _wsdqHelper;

@@ -1,4 +1,6 @@
 ﻿using ClassicSamplesBrowser.Views;
+using CommunityToolkit.Mvvm.ComponentModel;
+using Jnana.Views;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.Win32;
 using System.Diagnostics;
@@ -17,8 +19,9 @@ public interface INavigationService
     void NavigateTo(Area area);
 }
 
-public class NavigationService : INavigationService
+public partial class NavigationService : ObservableObject, INavigationService
 {
+    private Area _currentArea = Area.Void;
     private readonly Frame _frame;
     private readonly Dictionary<Area, Type> _registry;
 
@@ -28,10 +31,11 @@ public class NavigationService : INavigationService
 
         _registry = new()
         {
-            //{ Area.Void, typeof(VoidPage) },
+            { Area.Void, typeof(VoidPage) },
             { Area.Settings, typeof(SettingsPage) }
         };
     }
+
     // TODO:
     //    public static void Navigate(Shell32.IShellFolder shellFolder)
     //    {
@@ -70,13 +74,39 @@ public class NavigationService : INavigationService
             throw;
         }
     }
+
     public static void NavigateBack() { }
+
     public static void Forward() { }
+
     public void NavigateTo(Area area)
     {
         if (_registry.TryGetValue(area, out var pageType))
         {
             _frame.Navigate(pageType);
         }
+    }
+
+    public Area CurrentArea
+    {
+        get => _currentArea;
+        set
+        {
+            if (SetProperty(ref _currentArea, value))
+            {
+                OnPropertyChanged(nameof(CurrentPage));
+            }
+        }
+    }
+
+    public Page CurrentPage => CurrentArea switch
+    {
+        Area.Settings => new SettingsPage(),
+        _ => new VoidPage()
+    };
+
+    public void Navigate(Area area)
+    {
+        CurrentArea = area;
     }
 }
