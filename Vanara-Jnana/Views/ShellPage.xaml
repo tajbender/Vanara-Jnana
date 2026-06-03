@@ -19,7 +19,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Grid x:Name="DragableHeaderGrid" Grid.Row="0">
+        <Grid x:Name="DragableHeaderGrid" Grid.ColumnSpan="2" Grid.Row ="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -88,7 +88,13 @@
             </Grid>
         </Grid>
         <Border Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="12,0,12,4" BorderThickness="1" BorderBrush="#D0D0D0" CornerRadius="4">
-            <TabView x:Name="MainTabView" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            <Grid>
+                <TabView x:Name="MainTabView">
+                    <TabViewItem Header="Home">
+                        <Frame x:Name="MainFrame"/>
+                    </TabViewItem>
+                </TabView>
+            </Grid>
         </Border>
     </Grid>
 </Page>
