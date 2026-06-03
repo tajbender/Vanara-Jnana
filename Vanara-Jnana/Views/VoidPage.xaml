@@ -6,14 +6,44 @@
     xmlns:local="using:Jnana.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="using:Jnana.ViewModels"
+    d:DataContext="{d:DesignInstance vm:ViewModel}"
     mc:Ignorable="d">
 
-    <Grid BorderThickness="3">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="200"/>
-        </Grid.ColumnDefinitions>
-        <TextBlock Grid.Column="0" Text="Home - the Void" FontSize="20"/>
-        <Image Grid.Column="1" Height="64" HorizontalAlignment="Right" Opacity="0.42" Source="/Assets/VanaraMonkey.png" Stretch="Uniform" VerticalAlignment="Top"/>
-    </Grid>
-</Page>
+        <Grid Padding="24">
+            <ScrollViewer>
+                <ItemsRepeater ItemsSource="{x:Bind ViewModel.Items}">
+                    <ItemsRepeater.Layout>
+                        <UniformGridLayout
+                        ItemsJustification="Center"
+                        MinItemWidth="280"
+                        MinItemHeight="160"
+                        Orientation="Horizontal" />
+                    </ItemsRepeater.Layout>
+
+                    <!--<ItemsRepeater.ItemTemplate>
+                        <DataTemplate x:DataType="vm:FeatureItemViewModel">
+                            <Border
+                            Margin="12"
+                            CornerRadius="12"
+                            Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                            BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                            BorderThickness="1"
+                            Padding="16">
+                                <StackPanel>
+                                    <TextBlock
+                                    Text="{x:Bind Title}"
+                                    Style="{StaticResource TitleTextBlockStyle}" />
+                                    <TextBlock
+                                    Text="{x:Bind Description}"
+                                    Style="{StaticResource BodyTextBlockStyle}"
+                                    Opacity="0.8" />
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsRepeater.ItemTemplate>-->
+                </ItemsRepeater>
+            </ScrollViewer>
+        </Grid>
+    </Page>
+

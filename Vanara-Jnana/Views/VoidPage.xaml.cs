@@ -1,3 +1,4 @@
+using Jnana.ViewModels;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -17,8 +18,10 @@ namespace Jnana.Views;
 
 public sealed partial class VoidPage : Page
 {
+    private VoidPageViewModel ViewModel { get; }
     public VoidPage()
     {
         InitializeComponent();
+        ViewModel = new VoidPageViewModel();
     }
 }
