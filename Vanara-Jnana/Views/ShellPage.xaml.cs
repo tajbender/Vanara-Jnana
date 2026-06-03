@@ -1,4 +1,6 @@
+using ClassicSamplesBrowser.Services;
 using ClassicSamplesBrowser.ViewModels;
+using CommunityToolkit.Mvvm.Input;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -12,6 +14,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Windows.Input;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 
@@ -23,13 +26,27 @@ public sealed partial class ShellPage : Page
     private NuGetViewModel NuGetVM { get; }
     private GitHubViewModel GitHubVM { get; }
     private SamplesViewModel SamplesVM { get; }
+    private NavigationService _navigationService { get; }
     public ShellPage()
     {
         InitializeComponent();
         NuGetVM = new NuGetViewModel();
         GitHubVM = new GitHubViewModel();
         SamplesVM = new SamplesViewModel();
+
+        _navigationService = new NavigationService(MainFrame); // TODO: Use dependency injection to provide the NavigationService instance, and consider making it a singleton if it doesn't need to maintain any state
+
+        // OnLoading: Navigate to the default area (Void) to ensure the main content area is populated with a page, and to establish a consistent starting point for navigation
+        //_navigationService.NavigateTo(INavigationService.Area.Void);
+        //_navigationService.NavigateTo(INavigationService.Area.Settings);
     }
+
+    public ICommand NavigateCommand => new RelayCommand<string>(areaName =>
+    {
+        if (Enum.TryParse(areaName, out INavigationService.Area area))
+            _navigationService.NavigateTo(area);
+    });
+
     private void NavBreadcrumb_ItemClicked(object sender, BreadcrumbBarItemClickedEventArgs args)
     {
         var clicked = args.Item.ToString();

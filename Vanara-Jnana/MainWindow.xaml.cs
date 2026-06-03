@@ -8,12 +8,14 @@ using System.Drawing;
 using Vanara.PInvoke;
 using Windows.Graphics;
 using WinRT;
+using ClassicSamplesBrowser.Services;
+using System.Diagnostics;
 
 namespace ClassicSamplesBrowser;
 
 public sealed partial class MainWindow : Window
 {
-    private Rectangle _defaultBounds = new(1024, 768, 1280, 760);
+    private RectInt32 _defaultBounds = new(430, 256, 1280, 760);
     private SystemBackdropConfiguration _backdropConfig;
     private MicaController _micaController;
     private WindowsSystemDispatcherQueueHelper _wsdqHelper;
@@ -24,12 +26,14 @@ public sealed partial class MainWindow : Window
         TrySetMicaBackdrop();
         SetWindowBounds(_defaultBounds);
 
+        //        _navigationService = new NavigationService(RootFrame);
+
         //var initialSize = ApplicationData.Current.LocalSettings.Values["InitialWindowSize"] as string;
         //this.AppWindow.Size = _initialWindowSize;
         // AppWindow.Size = new Size() { Width = 800, Height = 600 };
 
-        RootFrame.Navigate(typeof(ShellPage));
-// TODO:  this.SetTitleBar(StartPage.DragRegion);
+        _ = RootFrame.Navigate(typeof(ShellPage));
+        // TODO:  this.SetTitleBar(StartPage.DragRegion);
     }
 
     //    private void OnIconPressed(object sender, PointerRoutedEventArgs e)
@@ -60,13 +64,20 @@ public sealed partial class MainWindow : Window
 
     /// <summary>Sets the window bounds to the specified rectangle.</summary>
     /// <param name="bounds">The desired bounds for the window.</param>
-    [Obsolete("TODO: Has to be implemented. Use AppWindow.Resize instead.")]
-    public void SetWindowBounds(Rectangle bounds)
+    public void SetWindowBounds(RectInt32 bounds)
     {
-        var hwnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
-        var windowId = Win32Interop.GetWindowIdFromWindow(hwnd);
-        var appWindow = AppWindow.GetFromWindowId(windowId);
-        appWindow.Resize(new Windows.Graphics.SizeInt32(bounds.Width, bounds.Height));
+        try
+        {
+            var hwnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
+            var windowId = Win32Interop.GetWindowIdFromWindow(hwnd);
+            var appWindow = AppWindow.GetFromWindowId(windowId);
+            appWindow.MoveAndResize(bounds);
+        }
+        catch
+        {
+            Debug.WriteLine("Failed to set window bounds.");
+            throw;
+        }
     }
 
     /// <summary>Tries to set the Mica backdrop for the window. This method checks if Mica is supported on the current system, 

@@ -8,7 +8,12 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid>
-
+    <Grid BorderThickness="3">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Column="0" Text="Home - the Void" FontSize="20"/>
+        <Image Grid.Column="1" Height="64" HorizontalAlignment="Right" Opacity="0.42" Source="/Assets/VanaraMonkey.png" Stretch="Uniform" VerticalAlignment="Top"/>
     </Grid>
 </Page>
