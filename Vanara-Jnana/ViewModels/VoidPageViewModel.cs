@@ -8,11 +8,17 @@ namespace Jnana.ViewModels;
 
 internal class VoidPageViewModel
 {
-    public List<String> Items { get; set; }
+    public List<String> NugetItems { get; set; }
+    public List<String> GitHubItems { get; set; }
+    public List<String> SamplesItems { get; set; }
     public VoidPageViewModel()
     {
-        Items = new List<String>();
+        NugetItems = new List<String>();
+        GitHubItems = new List<String>();
+        SamplesItems = new List<String>();
 
-        Items.AddRange(new String[] { "Item 1", "Item 2", "Item 3" });
+        NugetItems.AddRange(new String[] { "Vanara.Core", "Vanara.PInvoke", "Vanara.Windows", "etc." });
+        GitHubItems.AddRange(new String[] { "Home", "Releases", "Issues", "Pull Requests" });
+        SamplesItems.AddRange(new String[] { "Item 1", "Item 2", "Item 3", "etc." });
     }
 }

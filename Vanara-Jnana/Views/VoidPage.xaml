@@ -9,60 +9,49 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     mc:Ignorable="d">
 
-    <Grid Background="#0FFFFFFF" Padding="24" ColumnSpacing="7">
+    <Grid Background="#0FFFFFFF" Padding="24" ColumnSpacing="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
 
-
-        <ScrollViewer Grid.Column="0" Grid.Row="0" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8,8,0,0">
+        <ScrollViewer Grid.Column="0" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8">
             <StackPanel Margin="12" Spacing="8">
                 <TextBlock FontSize="32" Style="{StaticResource CaptionTextBlockStyle}" Text="NuGets"/>
                 <TextBlock FontSize="13" Opacity="0.8" Style="{ThemeResource CaptionTextBlockStyle}" Text="Packages Releases."/>
                 <AppBarSeparator Margin="0,8"/>
-                <ItemsRepeater ItemsSource="{x:Bind ViewModel.Items}">
+                <ItemsRepeater ItemsSource="{x:Bind ViewModel.NugetItems}">
                     <ItemsRepeater.Layout>
                         <UniformGridLayout MinItemHeight="42" MinItemWidth="280" Orientation="Vertical"/>
                     </ItemsRepeater.Layout>
                 </ItemsRepeater>
+                <Button Content="Explore Assemblies..."/>
             </StackPanel>
         </ScrollViewer>
-        <ScrollViewer Grid.Column="1" Grid.Row="0" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8,8,0,0">
+        <ScrollViewer Grid.Column="1" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8">
             <StackPanel Margin="12" Spacing="8">
                 <TextBlock FontSize="32" Style="{StaticResource CaptionTextBlockStyle}" Text="GitHub"/>
-                <TextBlock FontSize="13" Opacity="0.8" Style="{ThemeResource CaptionTextBlockStyle}" Text="GitHub Repository."/>
+                <TextBlock FontSize="13" Opacity="0.8" Style="{ThemeResource CaptionTextBlockStyle}" Text="Vanara on GitHub."/>
                 <AppBarSeparator Margin="0,8"/>
-                <ItemsRepeater ItemsSource="{x:Bind ViewModel.Items}">
+                <ItemsRepeater ItemsSource="{x:Bind ViewModel.GitHubItems}">
                     <ItemsRepeater.Layout>
                         <UniformGridLayout MinItemHeight="42" MinItemWidth="280" Orientation="Vertical"/>
                     </ItemsRepeater.Layout>
                 </ItemsRepeater>
             </StackPanel>
         </ScrollViewer>
-        <ScrollViewer Grid.Column="2" Grid.Row="0" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8,8,0,0">
+        <ScrollViewer Grid.Column="2" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8">
             <StackPanel Margin="12" Spacing="8">
                 <TextBlock FontSize="32" Style="{StaticResource CaptionTextBlockStyle}" Text="Samples"/>
                 <TextBlock FontSize="13" Opacity="0.8" Style="{ThemeResource CaptionTextBlockStyle}" Text="Test and Sample Projects."/>
                 <AppBarSeparator Margin="0,8"/>
-                <ItemsRepeater ItemsSource="{x:Bind ViewModel.Items}">
+                <ItemsRepeater ItemsSource="{x:Bind ViewModel.SamplesItems}">
                     <ItemsRepeater.Layout>
                         <UniformGridLayout MinItemHeight="42" MinItemWidth="280" Orientation="Vertical"/>
                     </ItemsRepeater.Layout>
                 </ItemsRepeater>
             </StackPanel>
         </ScrollViewer>
-        <StackPanel Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" HorizontalAlignment="Stretch"
-                    Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" 
-                    BorderBrush="DarkGray" BorderThickness="3" CornerRadius="0,0,8,8" Orientation="Horizontal">
-            <Button Content="Assemblies"/>
-            <Button Content="Utilities"/>
-            <Button Content="Settings"/>
-        </StackPanel>
     </Grid>
 </Page>
