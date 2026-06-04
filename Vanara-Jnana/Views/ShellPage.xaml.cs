@@ -16,6 +16,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Windows.Input;
 using System;
+using Vanara.Jnana.ViewModels;
 using Windows.Foundation.Collections;
 using Windows.Foundation;
 

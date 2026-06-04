@@ -1,36 +1,121 @@
-﻿using ClassicSamplesBrowser.Vanara.NuGet;
-using NuGet.Common;
-using NuGet.Protocol.Core.Types;
-using System.ComponentModel;
-using System.Diagnostics;
-using Windows.ApplicationModel;
+﻿using ClassicSamplesBrowser.Vanara.Reflection;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using Jnana.Vanara.NuGet;
+using System.Collections.ObjectModel;
 
-namespace Jnana.ViewModels;
+namespace Vanara.Jnana.ViewModels;
 
-internal partial class NuGetViewModel : INotifyPropertyChanged
+public partial class NuGetViewModel : ObservableObject
 {
-    const string Framework = "net8.0";      // Imported from dahall's code, but not currently used. Consider removing if not needed.
-    private const string Prefix = "Vanara"; // The prefix to filter NuGet packages by. This is a simple string match and can be adjusted as needed.
-    readonly List<IPackageSearchMetadata> _packages = [];
-    static readonly ILogger Nuget = NullLogger.Instance; // TODO: Replace with actual nuget if needed
-    static readonly CancellationToken CancellationToken = CancellationToken.None;
-
-    public event PropertyChangedEventHandler? PropertyChanged;
-
-    public NuGetViewModel()
-    {
-        LoadNuGetPackagesAsync();
-    }
-
-    public void LoadNuGetPackagesAsync()
-    {
-        Task<Task> loadNuGetPackagesTask = Task.Factory.StartNew(async () =>
-        {
-            await foreach (var package in NuGetUtils.LoadNuGetPackageListAsync(Prefix, Nuget, CancellationToken))
-                if (package.Identity.Id.StartsWith(Prefix + '.', StringComparison.OrdinalIgnoreCase))
-                    _packages.Add(package);
-        }, CancellationToken);
-
-        Debug.Print("Started to load NuGet packages... CancellationToken: {0}", CancellationToken);
-    }
+//    private readonly AssemblyLoaderService _loader;
+//
+//    public NuGetViewModel(AssemblyLoaderService loader)
+//    {
+//        _loader = loader;
+//
+//        Packages = new ObservableCollection<NuGetPackageInfo>();
+//        Versions = new ObservableCollection<string>();
+//    }
+//
+//    // -----------------------------
+//    // Collections
+//    // -----------------------------
+//    public ObservableCollection<NuGetPackageInfo> Packages { get; }
+//    public ObservableCollection<string> Versions { get; }
+//
+//    // -----------------------------
+//    // Selected Items
+//    // -----------------------------
+//    [ObservableProperty]
+//    private NuGetPackageInfo? selectedPackage;
+//
+//    partial void OnSelectedPackageChanged(NuGetPackageInfo? value)
+//    {
+//        if (value != null)
+//            LoadVersionsCommand.Execute(value);
+//    }
+//
+//    [ObservableProperty]
+//    private string? selectedVersion;
+//
+//    partial void OnSelectedVersionChanged(string? value)
+//    {
+//        if (value != null)
+//            LoadAssemblyTreeCommand.Execute(value);
+//    }
+//
+//    // -----------------------------
+//    // Reflection Root
+//    // -----------------------------
+//    [ObservableProperty]
+//    private IElementInfo? rootElement;
+//
+//    // -----------------------------
+//    // Loading Flags
+//    // -----------------------------
+//    [ObservableProperty] private bool isLoadingPackages;
+//    [ObservableProperty] private bool isLoadingVersions;
+//    [ObservableProperty] private bool isLoadingAssemblies;
+//
+//    // -----------------------------
+//    // Commands
+//    // -----------------------------
+//    [RelayCommand]
+//    private async Task LoadPackagesAsync()
+//    {
+//        try
+//        {
+//            IsLoadingPackages = true;
+//            Packages.Clear();
+//
+//            var pkgs = await _nuget.GetVanaraPackagesAsync();
+//
+//            foreach (var pkg in pkgs)
+//                Packages.Add(pkg);
+//        }
+//        finally
+//        {
+//            IsLoadingPackages = false;
+//        }
+//    }
+//
+//    [RelayCommand]
+//    private async Task LoadVersionsAsync(NuGetPackageInfo package)
+//    {
+//        try
+//        {
+//            IsLoadingVersions = true;
+//            Versions.Clear();
+//
+//            var versions = await _nuget.GetPackageVersionsAsync(package.Id);
+//
+//            foreach (var v in versions)
+//                Versions.Add(v);
+//        }
+//        finally
+//        {
+//            IsLoadingVersions = false;
+//        }
+//    }
+//
+//    [RelayCommand]
+//    private async Task LoadAssemblyTreeAsync(string version)
+//    {
+//        try
+//        {
+//            IsLoadingAssemblies = true;
+//
+//            var assemblies = await _nuget.DownloadAndExtractAssembliesAsync(
+//                SelectedPackage!.Id,
+//                version
+//            );
+//
+//            RootElement = await _loader.LoadFromAssembliesAsync(assemblies);
+//        }
+//        finally
+//        {
+//            IsLoadingAssemblies = false;
+//        }
+//    }
 }
