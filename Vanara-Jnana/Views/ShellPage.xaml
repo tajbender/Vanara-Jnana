@@ -28,6 +28,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <!-- Vanara Logo Area 51 -->
             <Grid Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
@@ -99,5 +100,6 @@
                 </TabView>
             </Grid>
         </Border>
+        <controls:FloatingStatusBar Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Stretch"/>
     </Grid>
 </Page>
