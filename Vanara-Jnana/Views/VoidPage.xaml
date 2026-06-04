@@ -7,7 +7,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodels="using:Jnana.ViewModels"
-    d:DataContext="{d:DesignInstance vm:ViewModel}"
     mc:Ignorable="d">
 
     <Grid Padding="24">
@@ -16,32 +15,21 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <ScrollViewer Grid.Column="0" BorderBrush="AliceBlue" BorderThickness="3">
+        <ScrollViewer Grid.Column="0" BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8">
             <ItemsRepeater Background="{ThemeResource SystemControlAcrylicWindowBrush}" ItemsSource="{x:Bind ViewModel.Items}">
                 <ItemsRepeater.Layout>
                     <UniformGridLayout MinItemHeight="42" MinItemWidth="280" Orientation="Vertical"/>
                 </ItemsRepeater.Layout>
-                <!--<ItemsRepeater.ItemTemplate>
-                        <DataTemplate x:DataType="vm:FeatureItemViewModel">
-                            <Border Margin="12" CornerRadius="12" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
-                            BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1" Padding="16">
-                                <StackPanel>
-                                    <TextBlock Text="{x:Bind Title}" Style="{StaticResource TitleTextBlockStyle}" />
-                                    <TextBlock Text="{x:Bind Description}" Style="{StaticResource BodyTextBlockStyle}" Opacity="0.8" />
-                                </StackPanel>
-                            </Border>
-                        </DataTemplate>
-                    </ItemsRepeater.ItemTemplate>-->
             </ItemsRepeater>
         </ScrollViewer>
-        <ScrollViewer Grid.Column="1" BorderBrush="AliceBlue" BorderThickness="3">
+        <ScrollViewer Grid.Column="1" BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8">
             <ItemsRepeater ItemsSource="{x:Bind ViewModel.Items}">
                 <ItemsRepeater.Layout>
                     <UniformGridLayout MinItemHeight="42" MinItemWidth="280" Orientation="Vertical"/>
                 </ItemsRepeater.Layout>
             </ItemsRepeater>
         </ScrollViewer>
-        <ScrollViewer Grid.Column="2" BorderBrush="AliceBlue" BorderThickness="3">
+        <ScrollViewer Grid.Column="2" BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8">
             <ItemsRepeater ItemsSource="{x:Bind ViewModel.Items}">
                 <ItemsRepeater.Layout>
                     <UniformGridLayout MinItemHeight="42" MinItemWidth="280" Orientation="Vertical"/>
