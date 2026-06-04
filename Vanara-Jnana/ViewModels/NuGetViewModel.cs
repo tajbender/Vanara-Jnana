@@ -5,7 +5,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using Windows.ApplicationModel;
 
-namespace ClassicSamplesBrowser.ViewModels;
+namespace Jnana.ViewModels;
 
 internal partial class NuGetViewModel : INotifyPropertyChanged
 {

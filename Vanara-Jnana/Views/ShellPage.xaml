@@ -89,8 +89,8 @@
         </Grid>
         <Border Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="12,0,12,4" BorderThickness="1" BorderBrush="#D0D0D0" CornerRadius="4">
             <Grid>
-                <TabView x:Name="MainTabView">
-                    <TabViewItem Header="Home">
+                <TabView x:Name="MainTabView" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <TabViewItem Header="Workbench - Void-Page">
                         <Frame x:Name="MainFrame"/>
                     </TabViewItem>
                 </TabView>

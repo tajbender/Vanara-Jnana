@@ -11,35 +11,42 @@
     mc:Ignorable="d">
 
     <Grid Padding="24">
-        <ScrollViewer>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <ScrollViewer Grid.Column="0" BorderBrush="AliceBlue" BorderThickness="3">
             <ItemsRepeater ItemsSource="{x:Bind ViewModel.Items}">
                 <ItemsRepeater.Layout>
                     <UniformGridLayout MinItemHeight="42" MinItemWidth="280" Orientation="Vertical"/>
                 </ItemsRepeater.Layout>
-
                 <!--<ItemsRepeater.ItemTemplate>
                         <DataTemplate x:DataType="vm:FeatureItemViewModel">
-                            <Border
-                            Margin="12"
-                            CornerRadius="12"
-                            Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
-                            BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                            BorderThickness="1"
-                            Padding="16">
+                            <Border Margin="12" CornerRadius="12" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                            BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1" Padding="16">
                                 <StackPanel>
-                                    <TextBlock
-                                    Text="{x:Bind Title}"
-                                    Style="{StaticResource TitleTextBlockStyle}" />
-                                    <TextBlock
-                                    Text="{x:Bind Description}"
-                                    Style="{StaticResource BodyTextBlockStyle}"
-                                    Opacity="0.8" />
+                                    <TextBlock Text="{x:Bind Title}" Style="{StaticResource TitleTextBlockStyle}" />
+                                    <TextBlock Text="{x:Bind Description}" Style="{StaticResource BodyTextBlockStyle}" Opacity="0.8" />
                                 </StackPanel>
                             </Border>
                         </DataTemplate>
                     </ItemsRepeater.ItemTemplate>-->
             </ItemsRepeater>
         </ScrollViewer>
+        <ScrollViewer Grid.Column="1" BorderBrush="AliceBlue" BorderThickness="3">
+            <ItemsRepeater ItemsSource="{x:Bind ViewModel.Items}">
+                <ItemsRepeater.Layout>
+                    <UniformGridLayout MinItemHeight="42" MinItemWidth="280" Orientation="Vertical"/>
+                </ItemsRepeater.Layout>
+            </ItemsRepeater>
+        </ScrollViewer>
+        <ScrollViewer Grid.Column="2" BorderBrush="AliceBlue" BorderThickness="3">
+            <ItemsRepeater ItemsSource="{x:Bind ViewModel.Items}">
+                <ItemsRepeater.Layout>
+                    <UniformGridLayout MinItemHeight="42" MinItemWidth="280" Orientation="Vertical"/>
+                </ItemsRepeater.Layout>
+            </ItemsRepeater>
+        </ScrollViewer>
     </Grid>
 </Page>
-
