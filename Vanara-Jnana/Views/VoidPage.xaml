@@ -10,18 +10,14 @@
     d:DataContext="{d:DesignInstance vm:ViewModel}"
     mc:Ignorable="d">
 
-        <Grid Padding="24">
-            <ScrollViewer>
-                <ItemsRepeater ItemsSource="{x:Bind ViewModel.Items}">
-                    <ItemsRepeater.Layout>
-                        <UniformGridLayout
-                        ItemsJustification="Center"
-                        MinItemWidth="280"
-                        MinItemHeight="160"
-                        Orientation="Horizontal" />
-                    </ItemsRepeater.Layout>
+    <Grid Padding="24">
+        <ScrollViewer>
+            <ItemsRepeater ItemsSource="{x:Bind ViewModel.Items}">
+                <ItemsRepeater.Layout>
+                    <UniformGridLayout MinItemHeight="42" MinItemWidth="280" Orientation="Vertical"/>
+                </ItemsRepeater.Layout>
 
-                    <!--<ItemsRepeater.ItemTemplate>
+                <!--<ItemsRepeater.ItemTemplate>
                         <DataTemplate x:DataType="vm:FeatureItemViewModel">
                             <Border
                             Margin="12"
@@ -42,8 +38,8 @@
                             </Border>
                         </DataTemplate>
                     </ItemsRepeater.ItemTemplate>-->
-                </ItemsRepeater>
-            </ScrollViewer>
-        </Grid>
-    </Page>
+            </ItemsRepeater>
+        </ScrollViewer>
+    </Grid>
+</Page>
 

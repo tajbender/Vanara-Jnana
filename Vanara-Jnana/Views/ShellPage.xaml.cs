@@ -37,7 +37,7 @@ public sealed partial class ShellPage : Page
         _navigationService = new NavigationService(MainFrame); // TODO: Use dependency injection to provide the NavigationService instance, and consider making it a singleton if it doesn't need to maintain any state
 
         // OnLoading: Navigate to the default area (Void) to ensure the main content area is populated with a page, and to establish a consistent starting point for navigation
-        //_navigationService.NavigateTo(INavigationService.Area.Void);
+        _navigationService.NavigateTo(INavigationService.Area.Void);
         //_navigationService.NavigateTo(INavigationService.Area.Settings);
     }
 

@@ -30,17 +30,17 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <!-- Vanara Logo Area 51 -->
-            <Grid Grid.Column="0" Grid.Row="0">
+            <Grid Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <!-- TODO: Add navigate back button -->
-                <Image Grid.Column="0" Grid.Row="0" HorizontalAlignment="Stretch" Source="/Assets/Vanara/Vanara-64px.png"/>
-                <TextBlock Grid.Column="0" Grid.Row="1" FontSize="13" HorizontalAlignment="Center" Padding="3,7" Text="Vanara"/>
+                <Image Grid.Column="0" Grid.Row="0" Height="96" HorizontalAlignment="Stretch" Source="/Assets/Vanara/Vanara-64px.png"/>
+                <TextBlock Grid.Column="0" Grid.Row="1" FontSize="14" HorizontalAlignment="Center" Text="Vanara Jnana"/>
             </Grid>
             <!-- Feature Tiles Area -->
-            <StackPanel Grid.Column="1" Grid.Row="0"  HorizontalAlignment="Stretch" Orientation="Horizontal" Padding="7,0">
+            <StackPanel Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" Orientation="Horizontal" Padding="7,0">
                 <controls:FeatureTile Icon="&#xE7B8;" Title="NuGets" Subtitle="Package Releases"/>
                 <controls:FeatureTile Icon="&#xE9D5;" Title="GitHub" Subtitle="Vanara on GitHub"/>
                 <controls:FeatureTile Icon="&#xE8F1;" Title="Samples" Subtitle="Examples and Unit Tests"/>
