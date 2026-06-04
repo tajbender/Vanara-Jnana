@@ -1,11 +1,13 @@
 ﻿using ClassicSamplesBrowser.Vanara.NuGet;
 using NuGet.Common;
 using NuGet.Protocol.Core.Types;
+using System.ComponentModel;
+using System.Diagnostics;
 using Windows.ApplicationModel;
 
 namespace ClassicSamplesBrowser.ViewModels;
 
-internal class NuGetViewModel
+internal partial class NuGetViewModel : INotifyPropertyChanged
 {
     const string Framework = "net8.0";      // Imported from dahall's code, but not currently used. Consider removing if not needed.
     private const string Prefix = "Vanara"; // The prefix to filter NuGet packages by. This is a simple string match and can be adjusted as needed.
@@ -13,13 +15,22 @@ internal class NuGetViewModel
     static readonly ILogger Nuget = NullLogger.Instance; // TODO: Replace with actual nuget if needed
     static readonly CancellationToken CancellationToken = CancellationToken.None;
 
+    public event PropertyChangedEventHandler? PropertyChanged;
+
     public NuGetViewModel()
     {
-        Task.Factory.StartNew(async () =>
+        LoadNuGetPackagesAsync();
+    }
+
+    public void LoadNuGetPackagesAsync()
+    {
+        Task<Task> loadNuGetPackagesTask = Task.Factory.StartNew(async () =>
         {
             await foreach (var package in NuGetUtils.LoadNuGetPackageListAsync(Prefix, Nuget, CancellationToken))
                 if (package.Identity.Id.StartsWith(Prefix + '.', StringComparison.OrdinalIgnoreCase))
                     _packages.Add(package);
         }, CancellationToken);
+
+        Debug.Print("Started to load NuGet packages... CancellationToken: {0}", CancellationToken);
     }
 }
