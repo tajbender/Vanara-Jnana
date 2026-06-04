@@ -17,7 +17,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <ScrollViewer Grid.Column="0" BorderBrush="AliceBlue" BorderThickness="3">
-            <ItemsRepeater ItemsSource="{x:Bind ViewModel.Items}">
+            <ItemsRepeater Background="{ThemeResource SystemControlAcrylicWindowBrush}" ItemsSource="{x:Bind ViewModel.Items}">
                 <ItemsRepeater.Layout>
                     <UniformGridLayout MinItemHeight="42" MinItemWidth="280" Orientation="Vertical"/>
                 </ItemsRepeater.Layout>

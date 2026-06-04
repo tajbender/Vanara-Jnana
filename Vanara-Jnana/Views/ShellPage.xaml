@@ -54,14 +54,14 @@
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-                <Button x:Name="BtnPrevious" Grid.Column="0" ToolTipService.ToolTip="Previous">
+                <Button x:Name="BtnPrevious" Grid.Column="0" IsEnabled="False" ToolTipService.ToolTip="Previous" VerticalAlignment="Stretch">
                     <FontIcon Glyph="&#xE72B;"/>
                 </Button>
-                <SplitButton x:Name="BtnNext" Grid.Column="1" ToolTipService.ToolTip="Next">
+                <SplitButton x:Name="BtnNext" Grid.Column="1" IsEnabled="False" ToolTipService.ToolTip="Next" VerticalAlignment="Stretch">
                     <SplitButton.Content>
                         <FontIcon Glyph="&#xE72A;"/>
                     </SplitButton.Content>
@@ -75,21 +75,27 @@
                         </MenuFlyout>
                     </SplitButton.Flyout>
                 </SplitButton>
-                <Button x:Name="UpToParentButton" Grid.Column="2" Height="32" Padding="0" ToolTipService.ToolTip="Navigate Up to Parent Folder" Width="36">
+                <Button x:Name="UpToParentButton" Grid.Column="2" IsEnabled="False" Padding="0" ToolTipService.ToolTip="Navigate Up to Parent Folder" VerticalAlignment="Stretch" Width="36">
                     <SymbolIcon Symbol="Up" />
                 </Button>
-                <Button x:Name="ReloadButton" Grid.Column="3" Height="32" ToolTipService.ToolTip="Reload View..." >
+                <Border Grid.Column="3" Background="#F3F3F3" BorderBrush="#D0D0D0" BorderThickness="1" CornerRadius="4" Height="32" VerticalAlignment="Stretch" >
+                    <BreadcrumbBar x:Name="NavBreadcrumb" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsEnabled="False" ItemClicked="NavBreadcrumb_ItemClicked"/>
+                </Border>
+                <Button x:Name="ReloadButton" Grid.Column="4" Height="32" IsEnabled="False" ToolTipService.ToolTip="Reload View..." VerticalAlignment="Stretch">
                     <FontIcon Glyph="&#xE72C;"/>
                 </Button>
-                <Border Grid.Column="4" Background="#F3F3F3" BorderBrush="#D0D0D0" BorderThickness="1" CornerRadius="4" Height="32" VerticalAlignment="Stretch" >
-                    <BreadcrumbBar x:Name="NavBreadcrumb" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ItemClicked="NavBreadcrumb_ItemClicked"/>
-                </Border>
-                <AutoSuggestBox x:Name="SearchBox" Grid.Column="5" Height="32" PlaceholderText="Share your Thoughts..." QueryIcon="Find" QuerySubmitted="SearchBox_QuerySubmitted" TextChanged="SearchBox_TextChanged" />
+                <AutoSuggestBox x:Name="SearchBox" Grid.Column="5" Height="32" IsEnabled="False" PlaceholderText="Share your Thoughts..." QueryIcon="Find" QuerySubmitted="SearchBox_QuerySubmitted" TextChanged="SearchBox_TextChanged" />
             </Grid>
         </Grid>
-        <Border Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="12,0,12,4" BorderThickness="1" BorderBrush="#D0D0D0" CornerRadius="4">
-            <Grid>
+        <Border Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="12,0,12,4">
+            <Grid Background="#0FFFFFFF">
                 <TabView x:Name="MainTabView" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <TabView.Resources>
+                        <SolidColorBrush x:Key="TabViewBackground" Color="Transparent"/>
+                    </TabView.Resources>
+                    <TabView.TabStripHeader>
+                        <TextBlock Text="Workbench" FontSize="16" FontWeight="SemiBold"/>
+                    </TabView.TabStripHeader>
                     <TabViewItem Header="Workbench - Void-Page">
                         <Frame x:Name="MainFrame"/>
                     </TabViewItem>
