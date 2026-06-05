@@ -40,11 +40,7 @@
                 <TextBlock FontSize="32" Style="{StaticResource CaptionTextBlockStyle}" Text="GitHub"/>
                 <TextBlock FontSize="13" Opacity="0.8" Style="{ThemeResource CaptionTextBlockStyle}" Text="Vanara on GitHub."/>
                 <AppBarSeparator Margin="0,8"/>
-                <!--<ItemsRepeater ItemsSource="{x:Bind ViewModel.GitHubItems}">
-                    <ItemsRepeater.Layout>
-                        <UniformGridLayout MinItemHeight="42" MinItemWidth="280" Orientation="Vertical"/>
-                    </ItemsRepeater.Layout>
-                </ItemsRepeater>-->
+                <WebView2 Source="https://github.com/vanara"/>
             </StackPanel>
         </ScrollViewer>
         <ScrollViewer Grid.Column="2" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8">
