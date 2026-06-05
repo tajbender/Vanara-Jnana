@@ -11,7 +11,7 @@ namespace Jnana.ViewModels;
 
 public class VoidPageViewModel : ObservableObject
 {
-    public NuGetAreaViewModel NuGetArea { get; }
+    public NuGetsAreaViewModel NuGetArea { get; }
     public GitHubAreaViewModel GitHubArea { get; }
     public SamplesAreaViewModel SamplesArea { get; }
 
@@ -25,7 +25,7 @@ public class VoidPageViewModel : ObservableObject
     public ICommand NavigateCommand { get; }
 
     public VoidPageViewModel(
-        NuGetAreaViewModel nuget,
+        NuGetsAreaViewModel nuget,
         GitHubAreaViewModel github,
         SamplesAreaViewModel samples)
     {

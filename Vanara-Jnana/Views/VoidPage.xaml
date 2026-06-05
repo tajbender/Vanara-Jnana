@@ -17,16 +17,22 @@
         </Grid.ColumnDefinitions>
 
         <ScrollViewer Grid.Column="0" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8">
-            <StackPanel Margin="12" Spacing="8">
+            <StackPanel Margin="12" Spacing="8" >
                 <TextBlock FontSize="32" Style="{StaticResource CaptionTextBlockStyle}" Text="NuGets"/>
                 <TextBlock FontSize="13" Opacity="0.8" Style="{ThemeResource CaptionTextBlockStyle}" Text="Packages Releases."/>
                 <AppBarSeparator Margin="0,8"/>
-                <ItemsRepeater ItemsSource="{x:Bind ViewModel.NugetItems}">
-                    <ItemsRepeater.Layout>
-                        <UniformGridLayout MinItemHeight="42" MinItemWidth="280" Orientation="Vertical"/>
-                    </ItemsRepeater.Layout>
-                </ItemsRepeater>
-                <Button Content="Explore Assemblies..."/>
+                <Border BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8" Padding="12">
+                    <StackPanel Spacing="8">
+                        <TextBlock FontSize="15" Style="{StaticResource CaptionTextBlockStyle}" Text="Vanara.PInvoke"/>
+                        <TextBlock FontSize="13" Opacity="0.8" Style="{ThemeResource CaptionTextBlockStyle}" Text="The core PInvoke library."/>
+                        <ItemsRepeater ItemsSource="{x:Bind ViewModel.NugetItems}" MinHeight="127">
+                            <ItemsRepeater.Layout>
+                                <UniformGridLayout MinItemHeight="42" MinItemWidth="280" Orientation="Vertical"/>
+                            </ItemsRepeater.Layout>
+                        </ItemsRepeater>
+                    </StackPanel>
+                </Border>
+                <Button Content="Explore other Assemblies..." />
             </StackPanel>
         </ScrollViewer>
         <ScrollViewer Grid.Column="1" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8">

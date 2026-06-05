@@ -23,14 +23,14 @@ namespace ClassicSamplesBrowser.Views;
 public sealed partial class ShellPage : Page
 {
     static readonly CancellationToken CancellationToken = CancellationToken.None;
-    private NuGetAreaViewModel NuGetVM { get; }
+    private NuGetsAreaViewModel NuGetVM { get; }
     private GitHubAreaViewModel GitHubVM { get; }
     private SamplesAreaViewModel SamplesVM { get; }
     private NavigationService _navigationService { get; }
     public ShellPage()
     {
         InitializeComponent();
-        NuGetVM = new NuGetAreaViewModel();
+        NuGetVM = new NuGetsAreaViewModel();
         GitHubVM = new GitHubAreaViewModel();
         SamplesVM = new SamplesAreaViewModel();
 
