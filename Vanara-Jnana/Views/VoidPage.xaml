@@ -16,7 +16,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <ScrollViewer Grid.Column="0" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8">
+        <ScrollViewer x:Name="NuGetsScrollViewer" Grid.Column="0" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8">
             <StackPanel Margin="12" Spacing="8" >
                 <TextBlock FontSize="32" Style="{StaticResource CaptionTextBlockStyle}" Text="NuGets"/>
                 <TextBlock FontSize="13" Opacity="0.8" Style="{ThemeResource CaptionTextBlockStyle}" Text="Packages Releases."/>
@@ -35,15 +35,51 @@
                 <Button Content="Explore other Assemblies..." />
             </StackPanel>
         </ScrollViewer>
-        <ScrollViewer Grid.Column="1" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8">
+
+        <ScrollViewer x:Name="GitHubScrollViewer" Grid.Column="1"
+              Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}"
+              BorderBrush="DarkGray"
+              BorderThickness="3"
+              CornerRadius="8"
+              IsTabStop="False">
+
             <StackPanel Margin="12" Spacing="8">
                 <TextBlock FontSize="32" Style="{StaticResource CaptionTextBlockStyle}" Text="GitHub"/>
                 <TextBlock FontSize="13" Opacity="0.8" Style="{ThemeResource CaptionTextBlockStyle}" Text="Vanara on GitHub."/>
                 <AppBarSeparator Margin="0,8"/>
-                <WebView2 Source="https://github.com/vanara"/>
+                <Border BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8" Padding="0">
+                    <Grid>
+                        <!-- Fade-In Animation -->
+                        <!--<Grid.Opacity>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity"
+                                                   Storyboard.TargetName="GitHubPreview"
+                                                   Duration="0:0:0.6">
+                                <LinearDoubleKeyFrame Value="0" KeyTime="0:0:0"/>
+                                <LinearDoubleKeyFrame Value="1" KeyTime="0:0:0.6"/>
+                            </DoubleAnimationUsingKeyFrames>
+                        </Grid.Opacity>-->
+                        <WebView2 x:Name="GitHubPreview"
+                          MinHeight="127"
+                          MinWidth="280"
+                          DefaultBackgroundColor="Transparent"
+                          IsHitTestVisible="False" />
+                    </Grid>
+                </Border>
             </StackPanel>
         </ScrollViewer>
-        <ScrollViewer Grid.Column="2" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8">
+
+        <!--<ScrollViewer x:Name="GitHubScrollViewer" Grid.Column="1" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8" IsTabStop="False">
+            <StackPanel Margin="12" Spacing="8">
+                <TextBlock FontSize="32" Style="{StaticResource CaptionTextBlockStyle}" Text="GitHub"/>
+                <TextBlock FontSize="13" Opacity="0.8" Style="{ThemeResource CaptionTextBlockStyle}" Text="Vanara on GitHub."/>
+                <AppBarSeparator Margin="0,8"/>
+                <Border BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8" Padding="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <WebView2 x:Name="GitHubWebView2" DefaultBackgroundColor="Transparent" MinHeight="128" MinWidth="256" Source="https://google.com" IsHitTestVisible="False"/>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>-->
+
+        <ScrollViewer x:Name="SamplesScrollViewer" Grid.Column="2" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8">
             <StackPanel Margin="12" Spacing="8">
                 <TextBlock FontSize="32" Style="{StaticResource CaptionTextBlockStyle}" Text="Samples"/>
                 <TextBlock FontSize="13" Opacity="0.8" Style="{ThemeResource CaptionTextBlockStyle}" Text="Examples and Unit Tests."/>
