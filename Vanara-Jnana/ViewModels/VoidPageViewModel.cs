@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Microsoft.UI.Xaml.Controls;   // INFO: `ContentPresenter` here
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -52,9 +53,9 @@ public class VoidPageViewModel : ObservableObject
     /// <summary>
     /// the following properties are just placeholders for the actual content of each area. In a real application, these would likely be more complex types representing the data and functionality of each area.
     /// </summary>
-    public List<String> NugetItems { get; set; }
-    public List<String> GitHubItems { get; set; }
-    public List<String> SamplesItems { get; set; }
+//    public List<String> NugetItems { get; set; }
+//    public List<String> GitHubItems { get; set; }
+//    public List<String> SamplesItems { get; set; }
 }
 
 // internal class VoidPageViewModel {
