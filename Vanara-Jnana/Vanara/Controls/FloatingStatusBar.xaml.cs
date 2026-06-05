@@ -31,7 +31,7 @@ public sealed partial class FloatingStatusBar : UserControl,
     public void Show(string message, string icon = "\uE946")
     {
         MessageElement.Text = message;
-        IconElement.Glyph = icon;
+        //IconElement.Glyph = icon;
 
         ControlRoot.Opacity = 1;
         ControlRoot.Translation = new System.Numerics.Vector3(0, 0, 0);

@@ -19,7 +19,9 @@
           Translation="0,20,0">
 
         <StackPanel Orientation="Horizontal" Spacing="8">
-            <TextBlock FontSize="14" Text="Zone: Workbench" VerticalAlignment="Center"/>
+            <FontIcon x:Name="AreaIcon" Glyph="&#xE946;" VerticalAlignment="Center"/>
+            <TextBlock FontSize="14" Text="Area: Workbench" VerticalAlignment="Center"/>
+            <AppBarSeparator Margin="12,0"/>
             <FontIcon x:Name="IconElement" Glyph="&#xE946;" VerticalAlignment="Center"/>
             <TextBlock x:Name="MessageElement" FontSize="14" Text="Ready." VerticalAlignment="Center"/>
             <FontIcon x:Name="Resizer" Glyph="&#xE7C1;" Opacity="0.66" VerticalAlignment="Center"/>
