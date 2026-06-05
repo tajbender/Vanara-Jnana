@@ -22,6 +22,6 @@ public sealed partial class VoidPage : Page
     public VoidPage()
     {
         InitializeComponent();
-        ViewModel = new VoidPageViewModel();
+        // TODO: ViewModel = new VoidPageViewModel();
     }
 }

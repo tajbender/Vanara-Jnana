@@ -4,9 +4,9 @@ using CommunityToolkit.Mvvm.Input;
 using Jnana.Vanara.NuGet;
 using System.Collections.ObjectModel;
 
-namespace Vanara.Jnana.ViewModels;
+namespace Jnana.ViewModels;
 
-public partial class NuGetViewModel : ObservableObject
+public partial class NuGetAreaViewModel : ObservableObject
 {
 //    private readonly AssemblyLoaderService _loader;
 //

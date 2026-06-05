@@ -1,5 +1,4 @@
 using ClassicSamplesBrowser.Services;
-using ClassicSamplesBrowser.ViewModels;
 using CommunityToolkit.Mvvm.Input;
 using Jnana.ViewModels;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -16,7 +15,6 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Windows.Input;
 using System;
-using Vanara.Jnana.ViewModels;
 using Windows.Foundation.Collections;
 using Windows.Foundation;
 
@@ -25,16 +23,16 @@ namespace ClassicSamplesBrowser.Views;
 public sealed partial class ShellPage : Page
 {
     static readonly CancellationToken CancellationToken = CancellationToken.None;
-    private NuGetViewModel NuGetVM { get; }
-    private GitHubViewModel GitHubVM { get; }
-    private SamplesViewModel SamplesVM { get; }
+    private NuGetAreaViewModel NuGetVM { get; }
+    private GitHubAreaViewModel GitHubVM { get; }
+    private SamplesAreaViewModel SamplesVM { get; }
     private NavigationService _navigationService { get; }
     public ShellPage()
     {
         InitializeComponent();
-        NuGetVM = new NuGetViewModel();
-        GitHubVM = new GitHubViewModel();
-        SamplesVM = new SamplesViewModel();
+        NuGetVM = new NuGetAreaViewModel();
+        GitHubVM = new GitHubAreaViewModel();
+        SamplesVM = new SamplesAreaViewModel();
 
         _navigationService = new NavigationService(MainFrame); // TODO: Use dependency injection to provide the NavigationService instance, and consider making it a singleton if it doesn't need to maintain any state
 
