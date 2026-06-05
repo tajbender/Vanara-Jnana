@@ -5,7 +5,7 @@ using System.Collections.ObjectModel;
 //using System.Reflection.Metadata;
 //using static ICSharpCode.Decompiler.SingleFileBundle;
 
-namespace ClassicSamplesBrowser.Services;
+namespace Jnana.Services;
 
 public static class TabNavigationService
 {

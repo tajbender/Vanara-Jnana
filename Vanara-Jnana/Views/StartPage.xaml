@@ -34,11 +34,6 @@
             <controls:FeatureTile Grid.Row="1" Grid.Column="1" Subtitle="Tools and diagnostics" Title="Utilities"/>
             <controls:FeatureTile Grid.Row="1" Grid.Column="2" Subtitle="Settings and preferences" Title="Settings"/>
         </Grid>
-        <TabView x:Name="_tabView" 
-                 Grid.Row="2" 
-                 BorderBrush="{StaticResource TabViewSelectedItemBorderBrush}" 
-                 BorderThickness="3" 
-                 HorizontalAlignment="Stretch" 
-                 VerticalAlignment="Stretch"/>
+        <TabView x:Name="MainTabs" Grid.Row="2" BorderBrush="{StaticResource TabViewSelectedItemBorderBrush}" BorderThickness="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
     </Grid>
 </Page>

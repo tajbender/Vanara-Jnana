@@ -17,6 +17,8 @@ public interface INavigationService
         NuGets,
         GitHub,
         Samples,
+        Disassembler,
+        Utilities,
         Settings
     }
 
@@ -114,12 +116,10 @@ public partial class NavigationService : ObservableObject, INavigationService
     {
         if (_areaPageMap.TryGetValue(area, out var pageType))
         {
+            Debug.Print($"Navigating to `{area}` page.");
             _frame.Navigate(pageType);
         }
     }
 
-    public void Navigate(Area area)
-    {
-        CurrentArea = area;
-    }
+    //public void Navigate(Area area) { CurrentArea = area; }
 }

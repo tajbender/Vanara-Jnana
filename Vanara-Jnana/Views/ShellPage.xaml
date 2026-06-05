@@ -42,12 +42,12 @@
             </Grid>
             <!-- Feature Tiles Area -->
             <StackPanel Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" Orientation="Horizontal" Padding="7,0">
-                <controls:FeatureTile Icon="&#xE7B8;" IsEnabled="False" Title="NuGets" Subtitle="Package Releases"/>
-                <controls:FeatureTile Icon="&#xE9D5;" IsEnabled="False" Title="GitHub" Subtitle="Vanara on GitHub"/>
-                <controls:FeatureTile Icon="&#xE8F1;" IsEnabled="False" Title="Samples" Subtitle="Examples and Unit Tests"/>
-                <controls:FeatureTile Icon="&#xEA86;" IsEnabled="False" Title="Assemblies" Subtitle="Explore Types, Members and Interfaces"/>
-                <controls:FeatureTile Icon="&#xE90F;" IsEnabled="False" Title="Utilities" Subtitle="Tools, Helpers, Generators"/>
-                <controls:FeatureTile Icon="&#xE90F;" IsEnabled="False" Title="Settings" Subtitle="Settings, Version Info, Help"/>
+                <controls:FeatureTile Icon="&#xE7B8;" Title="NuGets" Subtitle="Package Releases"/>
+                <controls:FeatureTile Icon="&#xE9D5;" Title="GitHub" Subtitle="Vanara on GitHub"/>
+                <controls:FeatureTile Icon="&#xE8F1;" Title="Samples" Subtitle="Examples and Unit Tests"/>
+                <controls:FeatureTile Icon="&#xEA86;" Title="Assemblies" Subtitle="Explore Types, Members and Interfaces"/>
+                <controls:FeatureTile Icon="&#xE90F;" Title="Utilities" Subtitle="Tools, Helpers, Generators"/>
+                <controls:FeatureTile Icon="&#xE90F;" Title="Settings" Subtitle="Settings, Version Info, Help"/>
             </StackPanel>
             <!-- Navigation Area -->
             <Grid Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Margin="12,8,12,4" Padding="7" VerticalAlignment="Stretch" >

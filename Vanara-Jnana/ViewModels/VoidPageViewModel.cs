@@ -10,11 +10,13 @@ using System.Windows.Input;
 
 namespace Jnana.ViewModels;
 
-public class VoidPageViewModel : ObservableObject
+public partial class VoidPageViewModel : ObservableObject
 {
     public NuGetsAreaViewModel NuGetArea { get; }
     public GitHubAreaViewModel GitHubArea { get; }
     public SamplesAreaViewModel SamplesArea { get; }
+
+    public List<string> NugetItems => ["NuGet", "GitHub", "Samples"];
 
     private object _currentArea;
     public object CurrentArea
