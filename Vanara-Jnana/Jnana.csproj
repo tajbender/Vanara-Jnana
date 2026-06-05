@@ -107,7 +107,6 @@
 		<PRIResource Remove="Resources\**" />
 	</ItemGroup>
 	<ItemGroup>
-		<None Remove="Views\AssembliesPage.xaml" />
 		<None Remove="Views\ShellPage.xaml" />
 		<None Remove="Views\UtilitiesPage.xaml" />
 		<None Remove="Views\VoidPage.xaml" />
@@ -123,7 +122,7 @@
 		</Page>
 	</ItemGroup>
 	<ItemGroup>
-		<Page Update="Views\AssembliesPage.xaml">
+		<Page Update="Views\DisassemblerPage.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</Page>
 	</ItemGroup>
