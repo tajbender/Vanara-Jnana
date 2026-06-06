@@ -1,9 +1,7 @@
-﻿using ClassicSamplesBrowser.Views;
+﻿using Jnana.Views;
 using Microsoft.UI.Xaml.Controls;
-using System;
 using System.Collections.ObjectModel;
-//using System.Reflection.Metadata;
-//using static ICSharpCode.Decompiler.SingleFileBundle;
+using System;
 
 namespace Jnana.Services;
 
@@ -16,7 +14,7 @@ public static class TabNavigationService
     {
         _tabView = tabView;
     }
-    public static void AddPageTab<T>(string header, Type pageType, object? parameter = null, bool selectTab = true) 
+    public static void AddPageTab<T>(string header, Type pageType, object? parameter = null, bool selectTab = true)
         where T : Control
     {
         var tab = new TabViewItem

@@ -5,7 +5,7 @@ using NuGet.Protocol.Core.Types;
 using System.Diagnostics;
 using ClassicSamplesBrowser.Models.Contracts;
 
-namespace ClassicSamplesBrowser.Views;
+namespace Jnana.Views;
 
 /// <summary><completionlist cref="StartPage"></completionlist>
 /// StartPage is the main page that is shown when the app is launched
