@@ -1,12 +1,9 @@
-using ClassicSamplesBrowser.Models.Contracts;
-using ClassicSamplesBrowser.Services;
-using ClassicSamplesBrowser.Vanara.NuGet;
-using ClassicSamplesBrowser.ViewModels;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml;
 using NuGet.Common;
 using NuGet.Protocol.Core.Types;
 using System.Diagnostics;
+using ClassicSamplesBrowser.Models.Contracts;
 
 namespace ClassicSamplesBrowser.Views;
 
@@ -36,7 +33,7 @@ public sealed partial class StartPage : Page,
             // var tab = new TabViewItem { Header = "NuGet", Content = new NuGetsPage { DataContext = NuGetVM } };
             // sender.TabItems.Add(tab);
             // sender.SelectedItem = tab;
-            TabNavigationService.AddGitHubPageTab();  // TODO: .NavigateTo()
+            //TabNavigationService.AddGitHubPageTab();  // TODO: .NavigateTo()
         }
         catch (Exception ex)
         {

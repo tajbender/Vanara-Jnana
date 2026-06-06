@@ -28,19 +28,20 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <!-- Vanara Logo Area 51 -->
-            <Grid Grid.Column="0" Grid.Row="0">
+            <Grid Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <!-- TODO: Add navigate back button -->
-                <Image Grid.Column="0" Grid.Row="0" HorizontalAlignment="Stretch" Source="/Assets/Vanara/Vanara-64px.png"/>
-                <TextBlock Grid.Column="0" Grid.Row="1" FontSize="13" HorizontalAlignment="Center" Padding="3,7" Text="Vanara"/>
+                <Image Grid.Column="0" Grid.Row="0" Height="96" HorizontalAlignment="Stretch" Source="/Assets/Vanara/Vanara-64px.png"/>
+                <TextBlock Grid.Column="0" Grid.Row="1" FontSize="14" HorizontalAlignment="Center" Text="Vanara Jnana"/>
             </Grid>
             <!-- Feature Tiles Area -->
-            <StackPanel Grid.Column="1" Grid.Row="0"  HorizontalAlignment="Stretch" Orientation="Horizontal" Padding="7,0">
+            <StackPanel Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" Orientation="Horizontal" Padding="7,0">
                 <controls:FeatureTile Icon="&#xE7B8;" Title="NuGets" Subtitle="Package Releases"/>
                 <controls:FeatureTile Icon="&#xE9D5;" Title="GitHub" Subtitle="Vanara on GitHub"/>
                 <controls:FeatureTile Icon="&#xE8F1;" Title="Samples" Subtitle="Examples and Unit Tests"/>
@@ -54,14 +55,14 @@
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-                <Button x:Name="BtnPrevious" Grid.Column="0" ToolTipService.ToolTip="Previous">
+                <Button x:Name="BtnPrevious" Grid.Column="0" IsEnabled="False" ToolTipService.ToolTip="Previous" VerticalAlignment="Stretch">
                     <FontIcon Glyph="&#xE72B;"/>
                 </Button>
-                <SplitButton x:Name="BtnNext" Grid.Column="1" ToolTipService.ToolTip="Next">
+                <SplitButton x:Name="BtnNext" Grid.Column="1" IsEnabled="False" ToolTipService.ToolTip="Next" VerticalAlignment="Stretch">
                     <SplitButton.Content>
                         <FontIcon Glyph="&#xE72A;"/>
                     </SplitButton.Content>
@@ -75,26 +76,30 @@
                         </MenuFlyout>
                     </SplitButton.Flyout>
                 </SplitButton>
-                <Button x:Name="UpToParentButton" Grid.Column="2" Height="32" Padding="0" ToolTipService.ToolTip="Navigate Up to Parent Folder" Width="36">
+                <Button x:Name="UpToParentButton" Grid.Column="2" IsEnabled="False" Padding="0" ToolTipService.ToolTip="Navigate Up to Parent Folder" VerticalAlignment="Stretch" Width="36">
                     <SymbolIcon Symbol="Up" />
                 </Button>
-                <Button x:Name="ReloadButton" Grid.Column="3" Height="32" ToolTipService.ToolTip="Reload View..." >
+                <Border Grid.Column="3" Background="#F3F3F3" BorderBrush="#D0D0D0" BorderThickness="1" CornerRadius="4" Height="32" VerticalAlignment="Stretch" >
+                    <BreadcrumbBar x:Name="NavBreadcrumb" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsEnabled="False" ItemClicked="NavBreadcrumb_ItemClicked"/>
+                </Border>
+                <Button x:Name="ReloadButton" Grid.Column="4" Height="32" IsEnabled="False" ToolTipService.ToolTip="Reload View..." VerticalAlignment="Stretch">
                     <FontIcon Glyph="&#xE72C;"/>
                 </Button>
-                <Border Grid.Column="4" Background="#F3F3F3" BorderBrush="#D0D0D0" BorderThickness="1" CornerRadius="4" Height="32" VerticalAlignment="Stretch" >
-                    <BreadcrumbBar x:Name="NavBreadcrumb" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ItemClicked="NavBreadcrumb_ItemClicked"/>
-                </Border>
-                <AutoSuggestBox x:Name="SearchBox" Grid.Column="5" Height="32" PlaceholderText="Share your Thoughts..." QueryIcon="Find" QuerySubmitted="SearchBox_QuerySubmitted" TextChanged="SearchBox_TextChanged" />
+                <AutoSuggestBox x:Name="SearchBox" Grid.Column="5" Height="32" IsEnabled="False" PlaceholderText="Share your Thoughts..." QueryIcon="Find" QuerySubmitted="SearchBox_QuerySubmitted" TextChanged="SearchBox_TextChanged" />
             </Grid>
         </Grid>
-        <Border Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="12,0,12,4" BorderThickness="1" BorderBrush="#D0D0D0" CornerRadius="4">
+        <Border Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="12,0,12,4">
             <Grid>
-                <TabView x:Name="MainTabView">
-                    <TabViewItem Header="Home">
-                        <Frame x:Name="MainFrame"/>
+                <TabView x:Name="MainTabView" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <TabView.Resources>
+                        <SolidColorBrush x:Key="TabViewBackground" Color="Transparent"/>
+                    </TabView.Resources>
+                    <TabViewItem Header="Workbench - Void-Page">
+                        <Frame x:Name="MainFrame" CornerRadius="8"/>
                     </TabViewItem>
                 </TabView>
             </Grid>
         </Border>
+        <controls:FloatingStatusBar Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Stretch"/>
     </Grid>
 </Page>

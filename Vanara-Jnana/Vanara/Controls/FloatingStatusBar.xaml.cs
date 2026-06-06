@@ -9,15 +9,17 @@ namespace ClassicSamplesBrowser.Vanara.Controls;
 public sealed partial class FloatingStatusBar : UserControl,
     INotifyPropertyChanged
 {
-    private bool _autoHide = true;
+    private bool _autoHide = false;
 
     /// <summary>The timer used to hide the status bar automatically.</summary>
     private readonly DispatcherTimer _hideTimer = new() { Interval = TimeSpan.FromSeconds(2) };
 
+    public event PropertyChangedEventHandler? PropertyChanged;
+
     public FloatingStatusBar()
     {
         InitializeComponent();
-        _hideTimer.Tick += (s, e) => Hide();
+        _hideTimer.Tick += (s, e) => { if (_autoHide) Hide(); };
         Show("READY.");
 
         /*  TODO: Sizer Glyphs:
@@ -29,7 +31,7 @@ public sealed partial class FloatingStatusBar : UserControl,
     public void Show(string message, string icon = "\uE946")
     {
         MessageElement.Text = message;
-        IconElement.Glyph = icon;
+        //IconElement.Glyph = icon;
 
         ControlRoot.Opacity = 1;
         ControlRoot.Translation = new System.Numerics.Vector3(0, 0, 0);
@@ -42,8 +44,6 @@ public sealed partial class FloatingStatusBar : UserControl,
         ControlRoot.Opacity = 0;
         ControlRoot.Translation = new System.Numerics.Vector3(0, 20, 0);
     }
-    // INotifyPropertyChanged implementation
-    public event PropertyChangedEventHandler? PropertyChanged;
     private void OnPropertyChanged([CallerMemberName] string? propertyName = null)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

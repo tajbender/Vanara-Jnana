@@ -14,6 +14,11 @@ public interface INavigationService
     public enum Area
     {
         Void,
+        NuGets,
+        GitHub,
+        Samples,
+        Disassembler,
+        Utilities,
         Settings
     }
 
@@ -36,26 +41,32 @@ public partial class NavigationService : ObservableObject, INavigationService
 
     public Page CurrentPage => CurrentArea switch
     {
+        Area.GitHub => new GitHubPage(),
+        Area.NuGets => new NuGetsPage(),
+        Area.Samples => new SamplesPage(),
         Area.Settings => new SettingsPage(),
         _ => new VoidPage()
     };
 
     private readonly Frame _frame;
-    private readonly Dictionary<Area, Type> _registry;
+    private readonly Dictionary<Area, Type> _areaPageMap;
 
     public NavigationService(Frame frame)
     {
         _frame = frame;
 
-        _registry = new()
+        _areaPageMap = new()
         {
+            { Area.GitHub, typeof(GitHubPage) },
+            { Area.NuGets, typeof(NuGetsPage) },
+            { Area.Samples, typeof(SamplesPage) },
+            { Area.Settings, typeof(SettingsPage) },
             { Area.Void, typeof(VoidPage) },
-            { Area.Settings, typeof(SettingsPage) }
         };
 
         // INFO: @dahall - select a default page to navigate to on loading, to ensure the main content area is populated with a page, and to establish a consistent starting point for navigation
         //NavigateTo(Area.Void);
-        NavigateTo(Area.Settings);
+        //NavigateTo(Area.Settings);
     }
 
     //    // TODO:
@@ -103,14 +114,12 @@ public partial class NavigationService : ObservableObject, INavigationService
 
     public void NavigateTo(Area area)
     {
-        if (_registry.TryGetValue(area, out var pageType))
+        if (_areaPageMap.TryGetValue(area, out var pageType))
         {
+            Debug.Print($"Navigating to `{area}` page.");
             _frame.Navigate(pageType);
         }
     }
 
-    public void Navigate(Area area)
-    {
-        CurrentArea = area;
-    }
+    //public void Navigate(Area area) { CurrentArea = area; }
 }

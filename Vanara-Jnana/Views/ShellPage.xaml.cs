@@ -1,43 +1,43 @@
 using ClassicSamplesBrowser.Services;
-using ClassicSamplesBrowser.ViewModels;
 using CommunityToolkit.Mvvm.Input;
-using Microsoft.UI.Xaml;
-using Microsoft.UI.Xaml.Controls;
+using Jnana.ViewModels;
 using Microsoft.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
-using System;
+using Microsoft.UI.Xaml;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Windows.Input;
-using Windows.Foundation;
+using System;
 using Windows.Foundation.Collections;
+using Windows.Foundation;
 
 namespace ClassicSamplesBrowser.Views;
 
 public sealed partial class ShellPage : Page
 {
     static readonly CancellationToken CancellationToken = CancellationToken.None;
-    private NuGetViewModel NuGetVM { get; }
-    private GitHubViewModel GitHubVM { get; }
-    private SamplesViewModel SamplesVM { get; }
+    private NuGetsAreaViewModel NuGetVM { get; }
+    private GitHubAreaViewModel GitHubVM { get; }
+    private SamplesAreaViewModel SamplesVM { get; }
     private NavigationService _navigationService { get; }
     public ShellPage()
     {
         InitializeComponent();
-        NuGetVM = new NuGetViewModel();
-        GitHubVM = new GitHubViewModel();
-        SamplesVM = new SamplesViewModel();
+        NuGetVM = new NuGetsAreaViewModel();
+        GitHubVM = new GitHubAreaViewModel();
+        SamplesVM = new SamplesAreaViewModel();
 
         _navigationService = new NavigationService(MainFrame); // TODO: Use dependency injection to provide the NavigationService instance, and consider making it a singleton if it doesn't need to maintain any state
 
         // OnLoading: Navigate to the default area (Void) to ensure the main content area is populated with a page, and to establish a consistent starting point for navigation
-        //_navigationService.NavigateTo(INavigationService.Area.Void);
+        _navigationService.NavigateTo(INavigationService.Area.Void);
         //_navigationService.NavigateTo(INavigationService.Area.Settings);
     }
 

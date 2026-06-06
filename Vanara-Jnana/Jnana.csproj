@@ -1,7 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-	<PropertyGroup Label="Globals">
-	  <WebView2EnableCsWinRTProjection>False</WebView2EnableCsWinRTProjection>
-	</PropertyGroup>
 	<PropertyGroup>
 		<EnableMsixTooling>true</EnableMsixTooling>
 		<ImplicitUsings>enable</ImplicitUsings>
@@ -31,19 +28,16 @@
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
 		<PackageReference Include="Microsoft.Web.WebView2" Version="1.0.3912.50" />
-		<PackageReference Include="Microsoft.Win32.SystemEvents" Version="10.0.7" />
 		<PackageReference Include="Microsoft.WindowsAppSDK" Version="1.8.260317003" />
 		<PackageReference Include="NuGet.Common" Version="7.3.1" />
 		<PackageReference Include="NuGet.Protocol" Version="7.3.1" />
-		<PackageReference Include="Vanara.Core" Version="5.0.4" />
-		<PackageReference Include="Vanara.PInvoke.SearchApi" Version="5.0.4" />
-		<PackageReference Include="Vanara.PInvoke.Shell32" Version="5.0.4" />
-		<PackageReference Include="Vanara.PInvoke.User32" Version="5.0.4" />
-		<PackageReference Include="Vanara.Windows.Shell" Version="5.0.4" />
-		<PackageReference Include="Vanara.WinUI.Extensions" Version="5.0.4" />
+		<PackageReference Include="Vanara.Core" Version="5.0.5" />
+		<PackageReference Include="Vanara.PInvoke.Shell32" Version="5.0.5" />
+		<PackageReference Include="Vanara.PInvoke.User32" Version="5.0.5" />
+		<PackageReference Include="Vanara.Windows.Shell" Version="5.0.5" />
 	</ItemGroup>
 	<ItemGroup>
-		<Folder Include="Templates\" />
+		<Folder Include="DOCS\Templates\" />
 		<Folder Include="Vanara\Controls\Shell32\" />
 	</ItemGroup>
 	<ItemGroup>
@@ -113,7 +107,6 @@
 		<PRIResource Remove="Resources\**" />
 	</ItemGroup>
 	<ItemGroup>
-		<None Remove="Views\AssembliesPage.xaml" />
 		<None Remove="Views\ShellPage.xaml" />
 		<None Remove="Views\UtilitiesPage.xaml" />
 		<None Remove="Views\VoidPage.xaml" />
@@ -129,7 +122,7 @@
 		</Page>
 	</ItemGroup>
 	<ItemGroup>
-		<Page Update="Views\AssembliesPage.xaml">
+		<Page Update="Views\DisassemblerPage.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</Page>
 	</ItemGroup>
