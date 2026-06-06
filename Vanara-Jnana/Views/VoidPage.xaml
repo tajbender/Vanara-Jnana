@@ -24,34 +24,24 @@
                 <AppBarSeparator Margin="0,8"/>
                 <Border BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8" Padding="12">
                     <ItemsRepeater ItemsSource="{x:Bind ViewModel.NugetItems}" MinHeight="127">
-                            <ItemsRepeater.Layout>
-                                <UniformGridLayout MinItemHeight="42" MinItemWidth="280" Orientation="Vertical"/>
-                            </ItemsRepeater.Layout>
-                        </ItemsRepeater>
+                        <ItemsRepeater.Layout>
+                            <UniformGridLayout MinItemHeight="42" MinItemWidth="280" Orientation="Vertical"/>
+                        </ItemsRepeater.Layout>
+                    </ItemsRepeater>
                     <!--<StackPanel Spacing="8">
                         <TextBlock FontSize="15" Style="{StaticResource CaptionTextBlockStyle}" Text="Vanara.PInvoke"/>
                         <TextBlock FontSize="13" Opacity="0.8" Style="{ThemeResource CaptionTextBlockStyle}" Text="The core PInvoke library."/>
                     </StackPanel>-->
                 </Border>
-                <Button Content="Explore other Assemblies..." />
-
-                <ScrollViewer>
-                    <StackPanel Spacing="16" Padding="24">
-                        <!-- TODO: Icon -->
-                        <toolkit:SettingsCard Description="Choose between Light, Dark or System default" Header="Theme">
-                            <!-- SelectedItem="{x:Bind ViewModel.AppTheme, Mode=TwoWay}" -->
-                            <ComboBox >
-                                <x:String>Light</x:String>
-                                <x:String>Dark</x:String>
-                                <x:String>System</x:String>
-                            </ComboBox>
-                        </toolkit:SettingsCard>
-                        <!--<toolkit:ToggleSwitchSetting Description="Enable Mica background for supported windows" Header="Use Mica" IsOn="{x:Bind ViewModel.UseMica, Mode=TwoWay}" />
-                <toolkit:ToggleSwitchSetting Description="Allow anonymous usage data" Header="Telemetry" IsOn="{x:Bind ViewModel.AllowTelemetry, Mode=TwoWay}" />-->
-                    </StackPanel>
-                </ScrollViewer>
-
-
+                <Button Content="Use ILSpy to inspect an Assembly..." />
+                <!-- <ScrollViewer> <StackPanel Spacing="16" Padding="24"> --> <!-- TODO: Icon -->
+                <!--  <toolkit:SettingsCard Description="Choose between Light, Dark or System default" Header="Theme"> -->
+                <!--   SelectedItem="{x:Bind ViewModel.AppTheme, Mode=TwoWay}" -->
+                <!--   <ComboBox> <x:String>Light</x:String> <x:String>Dark</x:String> <x:String>System</x:String> </ComboBox>
+                      </toolkit:SettingsCard> -->
+                <!-- <toolkit:ToggleSwitchSetting Description="Enable Mica background for supported windows" Header="Use Mica" IsOn="{x:Bind ViewModel.UseMica, Mode=TwoWay}" />
+                     <toolkit:ToggleSwitchSetting Description="Allow anonymous usage data" Header="Telemetry" IsOn="{x:Bind ViewModel.AllowTelemetry, Mode=TwoWay}" /> -->
+                <!-- </StackPanel> </ScrollViewer>-->
             </StackPanel>
         </ScrollViewer>
 
@@ -61,12 +51,11 @@
               BorderThickness="3"
               CornerRadius="8"
               IsTabStop="False">
-
             <StackPanel Margin="12" Spacing="8">
                 <TextBlock FontSize="32" Style="{StaticResource CaptionTextBlockStyle}" Text="GitHub"/>
                 <TextBlock FontSize="13" Opacity="0.8" Style="{ThemeResource CaptionTextBlockStyle}" Text="Vanara on GitHub."/>
                 <AppBarSeparator Margin="0,8"/>
-                <Border BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8" Padding="0">
+                <!--<Border BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8" Padding="0">-->
                     <Grid>
                         <!-- Fade-In Animation -->
                         <!--<Grid.Opacity>
@@ -77,13 +66,10 @@
                                 <LinearDoubleKeyFrame Value="1" KeyTime="0:0:0.6"/>
                             </DoubleAnimationUsingKeyFrames>
                         </Grid.Opacity>-->
-                        <WebView2 x:Name="GitHubPreview"
-                          MinHeight="127"
-                          MinWidth="280"
-                          DefaultBackgroundColor="Transparent"
-                          IsHitTestVisible="False" />
+                        <WebView2 x:Name="GitHubWebView2" MinHeight="127" MinWidth="280" />
+                    <!--  => TODO: WebView DefaultBackgroundColor="Transparent" IsHitTestVisible="False" -->
                     </Grid>
-                </Border>
+                <Button Content="Visit GitHub..." />
             </StackPanel>
         </ScrollViewer>
 

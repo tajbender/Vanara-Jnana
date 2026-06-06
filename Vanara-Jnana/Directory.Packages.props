@@ -1,6 +1,5 @@
 <Project>
   <ItemGroup>
-    <PackageVersion Include="Microsoft.Web.WebView2" />
     <PackageVersion Include="Microsoft.WindowsAppSDK" Version="1.8.0" />
   </ItemGroup>
 </Project>
