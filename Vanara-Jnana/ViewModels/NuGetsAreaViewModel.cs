@@ -1,7 +1,5 @@
-﻿using ClassicSamplesBrowser.Vanara.Reflection;
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using Jnana.Vanara.NuGet;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 
@@ -10,8 +8,7 @@ namespace Jnana.ViewModels;
 public partial class NuGetsAreaViewModel : ObservableObject
 {
     // TODO: Use `NuGetPackageInfo` here:
-    public ObservableCollection<String> Packages { get; } =
-        new ObservableCollection<String>();
+    public ObservableCollection<String> Packages { get; } = new ObservableCollection<String>();
 
     public ICommand RefreshCommand { get; }
 

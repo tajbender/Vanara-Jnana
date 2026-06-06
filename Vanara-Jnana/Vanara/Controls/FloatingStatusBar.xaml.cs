@@ -1,8 +1,9 @@
-using Microsoft.UI.Xaml.Controls;
+using CommunityToolkit.Mvvm.ComponentModel;
 using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using CommunityToolkit.Mvvm.ComponentModel;
+using WinRT.Interop;
 
 namespace Jnana.Vanara.Controls;
 
@@ -22,12 +23,22 @@ public sealed partial class FloatingStatusBar : UserControl,
         _hideTimer.Tick += (s, e) => { if (_autoHide) Hide(); };
         Show("READY.");
 
+        ResizeGrip.PointerPressed += ResizeGrip_PointerPressed;
+
         /*  TODO: Sizer Glyphs:
             Klassischer Resize‑Grip	E7BF	„GripperResize“ – diagonale Linien, wirkt wie der alte Win32‑Grip
             Alternative minimal	    E7C0	„GripperBarHorizontal“ – drei Punkte, subtiler Look
             Symbolisch	            E7C1	„GripperBarVertical“ – vertikale Punkte, wenn du rechts unten eine Spalte andeutest
          */
     }
+
+    private void ResizeGrip_PointerPressed(object sender, Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
+    {
+        //var hwnd = WindowNative.GetWindowHandle(this);
+
+        // TODO: NativeMethods.SendMessage(hwnd, NativeMethods.WM_NCLBUTTONDOWN, (IntPtr)NativeMethods.HTBOTTOMRIGHT, IntPtr.Zero);
+    }
+
     public void Show(string message, string icon = "\uE946")
     {
         MessageElement.Text = message;
