@@ -11,17 +11,18 @@
 
     <ScrollViewer>
         <StackPanel Spacing="16" Padding="24">
-                <!-- TODO: Icon -->
-                <toolkit:SettingsCard Description="Choose between Light, Dark or System default" Header="Theme">
+            <!-- TODO: Icon -->
+            <toolkit:SettingsCard Description="Choose between Light, Dark or System default" Header="Theme">
                 <!-- SelectedItem="{x:Bind ViewModel.AppTheme, Mode=TwoWay}" -->
-                    <ComboBox >
-                        <x:String>Light</x:String>
-                        <x:String>Dark</x:String>
-                        <x:String>System</x:String>
-                    </ComboBox>
-                </toolkit:SettingsCard>
-                <!--<toolkit:ToggleSwitchSetting Description="Enable Mica background for supported windows" Header="Use Mica" IsOn="{x:Bind ViewModel.UseMica, Mode=TwoWay}" />
-                <toolkit:ToggleSwitchSetting Description="Allow anonymous usage data" Header="Telemetry" IsOn="{x:Bind ViewModel.AllowTelemetry, Mode=TwoWay}" />-->
+                <ComboBox >
+                    <x:String>Light</x:String>
+                    <x:String>Dark</x:String>
+                    <x:String>High Contrast</x:String>
+                </ComboBox>
+            </toolkit:SettingsCard>
+            <toolkit:SettingsExpander Header="Advanced Examples">
+                <toolkit:SettingsCard Description="Allow anonymous usage data" Header="Telemetry" />
+            </toolkit:SettingsExpander>
         </StackPanel>
     </ScrollViewer>
 </Page>
