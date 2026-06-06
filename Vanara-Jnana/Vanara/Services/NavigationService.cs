@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ClassicSamplesBrowser.Views;
 
-namespace ClassicSamplesBrowser.Vanara.Services;
+namespace Jnana.Vanara.Services;
 
 
 public static class NavigationService

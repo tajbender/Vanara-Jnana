@@ -1,4 +1,3 @@
-using ClassicSamplesBrowser.Helpers;
 using ClassicSamplesBrowser.Views;
 using Microsoft.UI.Composition.SystemBackdrops;
 using Microsoft.UI.Windowing;
@@ -10,6 +9,7 @@ using Windows.Graphics;
 using WinRT;
 using ClassicSamplesBrowser.Services;
 using System.Diagnostics;
+using Jnana.Helpers;
 
 namespace ClassicSamplesBrowser;
 
