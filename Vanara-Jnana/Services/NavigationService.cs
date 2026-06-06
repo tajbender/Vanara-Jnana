@@ -69,6 +69,10 @@ public partial class NavigationService : ObservableObject, INavigationService
             Debug.Print($"Navigating to `{area}` page.");
             _frame.Navigate(pageType);
         }
+        else
+        {
+            Debug.Print($"Failed to get page for `{area}` from PageMap.");
+        }
     }
 
     //public void Navigate(Area area) { CurrentArea = area; }
