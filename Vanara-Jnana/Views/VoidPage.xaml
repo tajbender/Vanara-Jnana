@@ -4,6 +4,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:Jnana.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="using:CommunityToolkit.WinUI.Controls"
     xmlns:viewmodels="using:Jnana.ViewModels"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -33,6 +34,24 @@
                     </StackPanel>-->
                 </Border>
                 <Button Content="Explore other Assemblies..." />
+
+                <ScrollViewer>
+                    <StackPanel Spacing="16" Padding="24">
+                        <!-- TODO: Icon -->
+                        <toolkit:SettingsCard Description="Choose between Light, Dark or System default" Header="Theme">
+                            <!-- SelectedItem="{x:Bind ViewModel.AppTheme, Mode=TwoWay}" -->
+                            <ComboBox >
+                                <x:String>Light</x:String>
+                                <x:String>Dark</x:String>
+                                <x:String>System</x:String>
+                            </ComboBox>
+                        </toolkit:SettingsCard>
+                        <!--<toolkit:ToggleSwitchSetting Description="Enable Mica background for supported windows" Header="Use Mica" IsOn="{x:Bind ViewModel.UseMica, Mode=TwoWay}" />
+                <toolkit:ToggleSwitchSetting Description="Allow anonymous usage data" Header="Telemetry" IsOn="{x:Bind ViewModel.AllowTelemetry, Mode=TwoWay}" />-->
+                    </StackPanel>
+                </ScrollViewer>
+
+
             </StackPanel>
         </ScrollViewer>
 

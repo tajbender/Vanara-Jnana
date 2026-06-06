@@ -4,16 +4,24 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:ClassicSamplesBrowser.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="using:CommunityToolkit.WinUI.Controls"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
-    <Grid BorderThickness="3">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="200"/>
-        </Grid.ColumnDefinitions>
-        <TextBlock Grid.Column="0" Text="Settings and Preferences" FontSize="20"/>
-        <Image Grid.Column="1" Height="64" HorizontalAlignment="Right" Opacity="0.42" Source="/Assets/Vanara/Amiga-Disk.png" Stretch="Uniform" VerticalAlignment="Top"/>
-    </Grid>
+    <ScrollViewer>
+        <StackPanel Spacing="16" Padding="24">
+                <!-- TODO: Icon -->
+                <toolkit:SettingsCard Description="Choose between Light, Dark or System default" Header="Theme">
+                <!-- SelectedItem="{x:Bind ViewModel.AppTheme, Mode=TwoWay}" -->
+                    <ComboBox >
+                        <x:String>Light</x:String>
+                        <x:String>Dark</x:String>
+                        <x:String>System</x:String>
+                    </ComboBox>
+                </toolkit:SettingsCard>
+                <!--<toolkit:ToggleSwitchSetting Description="Enable Mica background for supported windows" Header="Use Mica" IsOn="{x:Bind ViewModel.UseMica, Mode=TwoWay}" />
+                <toolkit:ToggleSwitchSetting Description="Allow anonymous usage data" Header="Telemetry" IsOn="{x:Bind ViewModel.AllowTelemetry, Mode=TwoWay}" />-->
+        </StackPanel>
+    </ScrollViewer>
 </Page>
