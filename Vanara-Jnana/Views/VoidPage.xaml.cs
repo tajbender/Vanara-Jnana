@@ -25,7 +25,6 @@ public sealed partial class VoidPage : Page
         InitializeComponent();
         // TODO: ViewModel = new VoidPageViewModel();
 
-        GitHubWebView2.Loaded += GitHubPreview_Loaded;
 
         //        GitHubPreview.CoreWebView2Initialized += (_, __) =>
         //        {
@@ -49,18 +48,5 @@ public sealed partial class VoidPage : Page
         //            //    body { overflow: hidden !important; }
         //            //`; document.head.appendChild(style); ");
         //        };
-    }
-
-    private async void GitHubPreview_Loaded(object sender, RoutedEventArgs e)
-    {
-        try
-        {
-            await GitHubWebView2.EnsureCoreWebView2Async();
-            GitHubWebView2.Source = new Uri("https://github.com/vanara");
-        }
-        catch (Exception ex)
-        {
-            Debug.WriteLine("WebView2 init failed: " + ex);
-        }
     }
 }

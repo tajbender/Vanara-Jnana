@@ -27,6 +27,9 @@ public interface INavigationService
 
 public partial class NavigationService : ObservableObject, INavigationService
 {
+    private readonly Frame _frame;
+    private readonly Dictionary<Area, Type> _areaPageMap;
+
     public Area CurrentArea
     {
         get;
@@ -48,12 +51,10 @@ public partial class NavigationService : ObservableObject, INavigationService
         _ => new VoidPage()
     };
 
-    private readonly Frame _frame;
-    private readonly Dictionary<Area, Type> _areaPageMap;
 
     public NavigationService(Frame frame)
     {
-        _frame = frame;
+        _frame = frame ?? throw new ArgumentNullException(nameof(frame));
 
         _areaPageMap = new()
         {

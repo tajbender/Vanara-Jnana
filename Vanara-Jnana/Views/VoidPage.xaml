@@ -17,11 +17,14 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <ScrollViewer x:Name="NuGetsScrollViewer" Grid.Column="0" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8">
+        <!-- Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" -->
+        <ScrollViewer x:Name="NuGetsScrollViewer" Grid.Column="0" BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8">
             <StackPanel Margin="12" Spacing="8" >
-                <TextBlock FontSize="32" Style="{StaticResource CaptionTextBlockStyle}" Text="NuGets"/>
-                <TextBlock FontSize="13" Opacity="0.8" Style="{ThemeResource CaptionTextBlockStyle}" Text="Packages Releases."/>
-                <AppBarSeparator Margin="0,8"/>
+                <StackPanel>
+                    <TextBlock FontSize="32" Style="{StaticResource CaptionTextBlockStyle}" Text="NuGets"/>
+                    <TextBlock FontSize="13" Opacity="0.8" Style="{ThemeResource CaptionTextBlockStyle}" Text="Packages Releases."/>
+                    <AppBarSeparator Margin="0,8"/>
+                </StackPanel>
                 <Border BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8" Padding="12">
                     <ItemsRepeater ItemsSource="{x:Bind ViewModel.NugetItems}" MinHeight="127">
                         <ItemsRepeater.Layout>
@@ -33,8 +36,9 @@
                         <TextBlock FontSize="13" Opacity="0.8" Style="{ThemeResource CaptionTextBlockStyle}" Text="The core PInvoke library."/>
                     </StackPanel>-->
                 </Border>
-                <Button Content="Use ILSpy to inspect an Assembly..." />
-                <!-- <ScrollViewer> <StackPanel Spacing="16" Padding="24"> --> <!-- TODO: Icon -->
+                <Button Content="Use ILSpy to inspect any Assembly..." HorizontalAlignment="Stretch"/>
+                <!-- <ScrollViewer> <StackPanel Spacing="16" Padding="24"> -->
+                <!-- TODO: Icon -->
                 <!--  <toolkit:SettingsCard Description="Choose between Light, Dark or System default" Header="Theme"> -->
                 <!--   SelectedItem="{x:Bind ViewModel.AppTheme, Mode=TwoWay}" -->
                 <!--   <ComboBox> <x:String>Light</x:String> <x:String>Dark</x:String> <x:String>System</x:String> </ComboBox>
@@ -45,31 +49,16 @@
             </StackPanel>
         </ScrollViewer>
 
-        <ScrollViewer x:Name="GitHubScrollViewer" Grid.Column="1"
-              Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}"
-              BorderBrush="DarkGray"
-              BorderThickness="3"
-              CornerRadius="8"
-              IsTabStop="False">
+        <ScrollViewer x:Name="GitHubScrollViewer" Grid.Column="1" BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8">
             <StackPanel Margin="12" Spacing="8">
                 <TextBlock FontSize="32" Style="{StaticResource CaptionTextBlockStyle}" Text="GitHub"/>
                 <TextBlock FontSize="13" Opacity="0.8" Style="{ThemeResource CaptionTextBlockStyle}" Text="Vanara on GitHub."/>
                 <AppBarSeparator Margin="0,8"/>
-                <!--<Border BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8" Padding="0">-->
-                    <Grid>
-                        <!-- Fade-In Animation -->
-                        <!--<Grid.Opacity>
-                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity"
-                                                   Storyboard.TargetName="GitHubPreview"
-                                                   Duration="0:0:0.6">
-                                <LinearDoubleKeyFrame Value="0" KeyTime="0:0:0"/>
-                                <LinearDoubleKeyFrame Value="1" KeyTime="0:0:0.6"/>
-                            </DoubleAnimationUsingKeyFrames>
-                        </Grid.Opacity>-->
-                        <WebView2 x:Name="GitHubWebView2" MinHeight="127" MinWidth="280" />
-                    <!--  => TODO: WebView DefaultBackgroundColor="Transparent" IsHitTestVisible="False" -->
-                    </Grid>
-                <Button Content="Visit GitHub..." />
+                <StackPanel Spacing="8">
+                    <TextBlock FontSize="15" Style="{StaticResource CaptionTextBlockStyle}" Text="Jnana"/>
+                    <TextBlock FontSize="13" Opacity="0.8" Style="{ThemeResource CaptionTextBlockStyle}" Text="The source code for this app."/>
+                    <Button Content="Visit GitHub..." />
+                </StackPanel>
             </StackPanel>
         </ScrollViewer>
 
@@ -84,7 +73,7 @@
             </StackPanel>
         </ScrollViewer>-->
 
-        <ScrollViewer x:Name="SamplesScrollViewer" Grid.Column="2" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8">
+        <ScrollViewer x:Name="SamplesScrollViewer" Grid.Column="2" BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8">
             <StackPanel Margin="12" Spacing="8">
                 <TextBlock FontSize="32" Style="{StaticResource CaptionTextBlockStyle}" Text="Samples"/>
                 <TextBlock FontSize="13" Opacity="0.8" Style="{ThemeResource CaptionTextBlockStyle}" Text="Examples and Unit Tests."/>
