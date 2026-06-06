@@ -58,6 +58,7 @@ public partial class NavigationService : ObservableObject, INavigationService
             { Area.NuGets, typeof(NuGetsPage) },
             { Area.Samples, typeof(SamplesPage) },
             { Area.Settings, typeof(SettingsPage) },
+            { Area.Utilities, typeof(UtilitiesPage) },
             { Area.Void, typeof(VoidPage) },
         };
     }
