@@ -8,7 +8,11 @@ namespace Jnana.ViewModels;
 
 public partial class GitHubAreaViewModel : ObservableObject
 {
-    private Url GitHubRepoUrl { get; } = new("https://github.com/vanara/Vanara");
-    private Url GitHubIssuesUrl { get; } = new("https://github.com/vanara/Vanara/issues");
-    private Url GitHubPullRequestsUrl { get; } = new("https://github.com/vanara/Vanara/pulls");
+    private readonly Url gitHubRepoUrl = new("https://github.com/vanara/Vanara");
+    private readonly Url gitHubIssuesUrl = new("https://github.com/vanara/Vanara/issues");
+    private readonly Url gitHubPullRequestsUrl = new("https://github.com/vanara/Vanara/pulls");
+
+    public Url GitHubRepoUrl => gitHubRepoUrl;
+    public Url GitHubIssuesUrl => gitHubIssuesUrl; 
+    public Url GitHubPullRequestsUrl => gitHubPullRequestsUrl;
 }

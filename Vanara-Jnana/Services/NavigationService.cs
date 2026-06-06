@@ -48,7 +48,6 @@ public partial class NavigationService : ObservableObject, INavigationService
         _ => new VoidPage()
     };
 
-
     public NavigationService(Frame frame)
     {
         _frame = frame ?? throw new ArgumentNullException(nameof(frame));
@@ -61,12 +60,18 @@ public partial class NavigationService : ObservableObject, INavigationService
             { Area.Settings, typeof(SettingsPage) },
             { Area.Void, typeof(VoidPage) },
         };
-
-        // INFO: @dahall - select a default page to navigate to on loading, to ensure the main content area is populated with a page, and to establish a consistent starting point for navigation
-        //NavigateTo(Area.Void);
-        //NavigateTo(Area.Settings);
     }
 
+    public void NavigateTo(Area area)
+    {
+        if (_areaPageMap.TryGetValue(area, out var pageType))
+        {
+            Debug.Print($"Navigating to `{area}` page.");
+            _frame.Navigate(pageType);
+        }
+    }
+
+    //public void Navigate(Area area) { CurrentArea = area; }
     //    // TODO:
     //    //    public static void Navigate(Shell32.IShellFolder shellFolder)
     //    //    {
@@ -105,19 +110,4 @@ public partial class NavigationService : ObservableObject, INavigationService
     //            throw;
     //        }
     //    }
-
-    public static void NavigateBack() { }
-
-    public static void Forward() { }
-
-    public void NavigateTo(Area area)
-    {
-        if (_areaPageMap.TryGetValue(area, out var pageType))
-        {
-            Debug.Print($"Navigating to `{area}` page.");
-            _frame.Navigate(pageType);
-        }
-    }
-
-    //public void Navigate(Area area) { CurrentArea = area; }
 }

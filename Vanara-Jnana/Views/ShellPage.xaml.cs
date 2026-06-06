@@ -39,12 +39,14 @@ public sealed partial class ShellPage : Page
         var clicked = args.Item.ToString();
         Debug.WriteLine($"Breadcrumb item clicked: {clicked} (TODO: Navigate to the clicked item)");
     }
+
     private void SearchBox_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
     {
         var query = args.QueryText;
-        Debug.WriteLine($"Search query submitted: {query} (TODO: Handle search query submission)");
         query = query.Trim();
+        Debug.WriteLine($"Search query submitted: {query} (TODO: Handle search query submission)");
     }
+
     private void SearchBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
     {
         Debug.WriteLine($"Search box text changed: {sender.Text} {args.ToString} (TODO: Handle text change)");
@@ -52,5 +54,15 @@ public sealed partial class ShellPage : Page
         {
             sender.ItemsSource = new List<string> { "ShellItem", "ShellFolder", "IShellItem", "ExplorerBrowser" };
         }
+    }
+
+    private void FeatureTile_Click(object sender, EventArgs e)
+    {
+        Debug.Print("Feature tile clicked (TODO: Navigate to the corresponding area)");
+    }
+
+    private void MainTabView_AddTabButtonClick(TabView sender, object args)
+    {
+        Debug.Print("Add tab button clicked (TODO: Add a new tab with the default page)");
     }
 }
