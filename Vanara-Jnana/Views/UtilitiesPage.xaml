@@ -36,5 +36,16 @@
                 </Button>
             </toolkit:RibbonGroup>
         </toolkit:Ribbon>
+        <TabView>
+            <TabViewItem Header="Tab 1">
+                <TextBlock Text="Content for Tab 1" Margin="12"/>
+            </TabViewItem>
+            <TabViewItem Header="Tab 2">
+                <TextBlock Text="Content for Tab 2" Margin="12"/>
+            </TabViewItem>
+            <TabViewItem Header="Tab 3">
+                <TextBlock Text="Content for Tab 3" Margin="12"/>
+            </TabViewItem>
+        </TabView>
     </StackPanel>
 </Page>
