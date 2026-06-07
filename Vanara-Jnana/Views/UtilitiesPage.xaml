@@ -14,40 +14,27 @@
             <toolkit:RibbonGroup>
                 <Button>
                     <StackPanel>
+                        <FontIcon Glyph="&#xE104;" FontSize="20"/>
+                        <TextBlock Text="Cut" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </toolkit:RibbonGroup>
+            <toolkit:RibbonGroup>
+                <Button>
+                    <StackPanel>
+                        <FontIcon Glyph="&#xE105;" FontSize="20"/>
+                        <TextBlock Text="Copy" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </toolkit:RibbonGroup>
+            <toolkit:RibbonGroup>
+                <Button>
+                    <StackPanel>
                         <FontIcon Glyph="&#xE16C;" FontSize="20"/>
                         <TextBlock Text="Paste" HorizontalAlignment="Center"/>
                     </StackPanel>
                 </Button>
             </toolkit:RibbonGroup>
         </toolkit:Ribbon>
-
-        <!-- <toolkit.RibbonPanel>
-                <StackPanel Orientation="Horizontal" Spacing="24">
-                    <toolkit:RibbonGroup>
-                        <Button>
-                            <StackPanel>
-                                <FontIcon Glyph="&#xE16C;" FontSize="20"/>
-                                <TextBlock Text="Paste" HorizontalAlignment="Center"/>
-                            </StackPanel>
-                        </Button>
-                    </toolkit:RibbonGroup>
-                    <toolkit:RibbonGroup>
-                        <Button>
-                            <StackPanel>
-                                <FontIcon Glyph="&#xE104;" FontSize="20"/>
-                                <TextBlock Text="Cut" HorizontalAlignment="Center"/>
-                            </StackPanel>
-                        </Button>
-                        <Button>
-                            <StackPanel>
-                                <FontIcon Glyph="&#xE105;" FontSize="20"/>
-                                <TextBlock Text="Copy" HorizontalAlignment="Center"/>
-                            </StackPanel>
-                        </Button>
-                    </toolkit:RibbonGroup>
-                </StackPanel>
-            </toolkit:RibbonPanel> -->
-
-
     </StackPanel>
 </Page>
