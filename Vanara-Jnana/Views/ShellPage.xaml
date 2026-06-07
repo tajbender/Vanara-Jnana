@@ -95,7 +95,7 @@
                     <TabView.Resources>
                         <SolidColorBrush x:Key="TabViewBackground" Color="Transparent"/>
                     </TabView.Resources>
-                    <TabViewItem Header="Utilities">
+                    <TabViewItem Header="NuGets">
                         <Frame x:Name="MainFrame" CornerRadius="8"/>
                     </TabViewItem>
                 </TabView>
