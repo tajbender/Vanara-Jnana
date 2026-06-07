@@ -15,7 +15,8 @@ public sealed partial class ShellPage : Page
     private SamplesAreaViewModel SamplesVM { get; }
     private NavigationService _navigationService { get; }
     // TODO: Consider making this a user setting that can be persisted across sessions, or determining it based on the last visited area
-    private readonly INavigationService.Area defaultNavigationTarget = INavigationService.Area.NuGets;
+    // TODO: @dahall this is where you currently set the default navigation target...
+    private readonly INavigationService.Area defaultNavigationTarget = INavigationService.Area.GitHub;
 
     public ShellPage()
     {
