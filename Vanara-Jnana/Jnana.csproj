@@ -26,9 +26,17 @@
 		<Page Remove="Resources\**" />
 	</ItemGroup>
 	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Labs.WinUI.Controls.Ribbon" Version="0.1.251217-build.2433" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
+		<PackageReference Include="CommunityToolkit.WinUI.Behaviors" Version="8.2.251219" />
+		<PackageReference Include="CommunityToolkit.WinUI.Collections" Version="8.2.251219" />
 		<PackageReference Include="CommunityToolkit.WinUI.Controls.SettingsControls" Version="8.2.251219" />
+		<PackageReference Include="CommunityToolkit.WinUI.Controls.Sizers" Version="8.2.251219" />
+		<PackageReference Include="CommunityToolkit.WinUI.Converters" Version="8.2.251219" />
+		<PackageReference Include="CommunityToolkit.WinUI.DeveloperTools" Version="8.2.251219" />
 		<PackageReference Include="CommunityToolkit.WinUI.Extensions" Version="8.2.251219" />
+		<PackageReference Include="CommunityToolkit.WinUI.Media" Version="8.2.251219" />
+		<PackageReference Include="CommunityToolkit.WinUI.Triggers" Version="8.2.251219" />
 		<PackageReference Include="Microsoft.WindowsAppSDK" Version="1.8.260317003" />
 		<PackageReference Include="NuGet.Common" Version="7.3.1" />
 		<PackageReference Include="NuGet.Protocol" Version="7.3.1" />
