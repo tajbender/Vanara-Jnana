@@ -1,6 +1,10 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using ClassicSamplesBrowser.Vanara.Reflection;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using NuGet.Common;
+using NuGet.Protocol.Core.Types;
 using System.Collections.ObjectModel;
+using System.Runtime.CompilerServices;
 using System.Windows.Input;
 
 namespace Jnana.ViewModels;
@@ -16,6 +20,54 @@ public partial class NuGetsAreaViewModel : ObservableObject
     {
         RefreshCommand = new RelayCommand(LoadPackages);
         Packages = new ObservableCollection<String>() { "Vanara.PInvoke.User32", "Vanara.PInvoke.Kernel32", "Vanara.PInvoke.Gdi32" };
+    }
+
+    // TODO: 06-08-26: Added this stub... Minor fix, and it should work. The main issue is that the NuGet API is a bit complex, and I need to figure out how to use it properly.
+    //public static async IAsyncEnumerable<IPackageSearchMetadata> LoadLatestPackagesAsync(
+    //    string prefix, ILogger? logger, [EnumeratorCancellation] CancellationToken cancellationToken)
+    //{
+    //    PackageSearchResource searchResource =
+    //        await repository.GetResourceAsync<PackageSearchResource>(cancellationToken);
+    //
+    //    SearchFilter filter = new(includePrerelease: false);
+    //
+    //    IEnumerable<IPackageSearchMetadata> results =
+    //        await searchResource.SearchAsync(prefix, filter, skip: 0, take: 200, logger, cancellationToken);
+    //
+    //    foreach (var pkg in results)
+    //    {
+    //        // pkg.Versions ist eine IAsyncEnumerable<VersionInfo>
+    //        var latest = await pkg.GetVersionsAsync();
+    //
+    //        var stable = latest
+    //            .Where(v => !v.Version.IsPrerelease)
+    //            .OrderBy(v => v.Version)
+    //            .LastOrDefault();
+    //
+    //        if (stable != null)
+    //            yield return pkg;
+    //    }
+    //}
+
+
+    internal async Task<IElementInfo?> LoadVanaraAssemblyTreeAsync()
+    {
+        // Get Vanara packages from NuGet
+        //        var packages = await NuGetUtils.GetVanaraPackagesAsync();
+        //
+        //        // Select the latest version (simple for now)
+        //        var latest = packages.OrderByDescending(p => p.Version).FirstOrDefault();
+        //        if (latest == null)
+        //            return null;
+        //
+        //        // Download package and extract DLLs
+        //        var dllPaths = await NuGetUtils.DownloadAndExtractAssembliesAsync(latest);
+        //
+        //        // Create reflection tree
+        //        var root = AssemblyElements.CreateFromAssemblies(dllPaths);
+        //
+        //        return root;
+        return null;
     }
 
     private void LoadPackages()
