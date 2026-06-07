@@ -19,16 +19,10 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal">
             <FontIcon x:Name="IconElement" Grid.Column="0" Grid.Row="0"  Glyph="&#xE7B8;"/>
-            <TextBlock Grid.Column="1" Grid.Row="0"  Text="NuGets" FontSize="20"/>
+            <TextBlock Grid.Column="1" Grid.Row="0" Text="NuGets" FontSize="20"/>
         </StackPanel>
-        <!-- TextBox: Text="{x:Bind SearchQuery, Mode=TwoWay}" -->
-        <!--<TextBox Grid.Column="0" Grid.Row="1" Margin="0,12,12,0" PlaceholderText="Search NuGet packages..."/>
-        <TextBlock Grid.Column="1" Grid.Row="1" Margin="12,12,0,0" Opacity="0.8" Text="https://www.nuget.org/profiles/dahall"/>-->
-
-        <Grid ColumnDefinitions="Auto,*">
-            <!-- Left: Package list -->
-            <!--<ItemsRepeater x:Name="PackageList" ItemsSource="{x:Bind ViewModel.Packages}">
-                --><!--<DataTemplate x:DataType="models:NuGetPackage">
+        <ItemsRepeater x:Name="PackageList" Grid.Column="0" Grid.Row="1" ItemsSource="{x:Bind ViewModel.Packages}">
+            <!--<DataTemplate x:DataType="models:NuGetPackage">
                     <StackPanel Orientation="Horizontal" Margin="8">
                         <Image Source="{x:Bind Icon}" Width="32" Height="32"/>
                         <StackPanel Margin="8,0,0,0">
@@ -37,15 +31,14 @@
                             <TextBlock Text="{x:Bind Version}" Foreground="{ThemeResource AccentBrush}"/>
                         </StackPanel>
                     </StackPanel>
-                </DataTemplate>--><!--
-            </ItemsRepeater>-->
+                </DataTemplate>-->
+        </ItemsRepeater>
 
-            <!-- Right: Info panel -->
-            <TextBox Grid.Column="1" Margin="12,0,0,0" TextWrapping="Wrap" IsReadOnly="True"
-                     Text="Here come thy Bastards"/>
-            <!--<Frame Grid.Column="1" x:Name="InfoPanel" Content="{x:Bind ViewModel.SelectedPackageDetail, Mode=OneWay}"/>-->
-        </Grid>
-
-
+        <!-- Right: Info panel -->
+        <Border Grid.Column="1" Grid.Row="1" Margin="12,0,0,0" Background="#0FFFFFFF" BorderBrush="#0FFFFFFF" BorderThickness="1" CornerRadius="8">
+            <!--<TextBox Margin="12" TextWrapping="Wrap" IsReadOnly="True" Text="this may be inaccurate."/>-->
+            <TextBlock Grid.Column="1" Grid.Row="1" Margin="12,12,0,0" Opacity="0.8" Text="https://www.nuget.org/profiles/dahall"/>
+        </Border>
+        <!--<Frame Grid.Column="1" x:Name="InfoPanel" Content="{x:Bind ViewModel.SelectedPackageDetail, Mode=OneWay}"/>-->
     </Grid>
 </Page>
