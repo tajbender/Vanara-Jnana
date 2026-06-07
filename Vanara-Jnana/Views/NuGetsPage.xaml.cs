@@ -1,3 +1,4 @@
+using Jnana.ViewModels;
 using Microsoft.UI.Xaml.Controls;
 
 // To learn more about WinUI, the WinUI project structure,
@@ -10,6 +11,7 @@ namespace Jnana.Views;
 /// </summary>
 public sealed partial class NuGetsPage : Page
 {
+    public NuGetsAreaViewModel ViewModel { get; } = new NuGetsAreaViewModel();
     public NuGetsPage()
     {
         InitializeComponent();

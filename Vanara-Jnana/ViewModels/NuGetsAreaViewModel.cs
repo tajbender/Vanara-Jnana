@@ -15,6 +15,7 @@ public partial class NuGetsAreaViewModel : ObservableObject
     public NuGetsAreaViewModel()
     {
         RefreshCommand = new RelayCommand(LoadPackages);
+        Packages = new ObservableCollection<String>() { "Vanara.PInvoke.User32", "Vanara.PInvoke.Kernel32", "Vanara.PInvoke.Gdi32" };
     }
 
     private void LoadPackages()
