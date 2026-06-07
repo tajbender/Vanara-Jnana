@@ -1,20 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Page
     x:Class="Jnana.Views.UtilitiesPage"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Jnana.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:Jnana.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="using:CommunityToolkit.WinUI.Controls"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     mc:Ignorable="d">
 
-    <Grid BorderThickness="3">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="200"/>
-        </Grid.ColumnDefinitions>
-        <TextBlock Grid.Column="0" Text="Utilities" FontSize="20"/>
-        <Image Grid.Column="1" Height="64" HorizontalAlignment="Right" Opacity="0.42" Source="/Assets/Vanara/Amiga-Disk.png" Stretch="Uniform"/>
-        <ListView HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-    </Grid>
+    <StackPanel Orientation="Vertical" Padding="24" Spacing="16">
+        <toolkit:Ribbon>
+            <toolkit:RibbonGroup>
+                <Button>
+                    <StackPanel>
+                        <FontIcon Glyph="&#xE16C;" FontSize="20"/>
+                        <TextBlock Text="Paste" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </toolkit:RibbonGroup>
+        </toolkit:Ribbon>
+
+        <!-- <toolkit.RibbonPanel>
+                <StackPanel Orientation="Horizontal" Spacing="24">
+                    <toolkit:RibbonGroup>
+                        <Button>
+                            <StackPanel>
+                                <FontIcon Glyph="&#xE16C;" FontSize="20"/>
+                                <TextBlock Text="Paste" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+                    </toolkit:RibbonGroup>
+                    <toolkit:RibbonGroup>
+                        <Button>
+                            <StackPanel>
+                                <FontIcon Glyph="&#xE104;" FontSize="20"/>
+                                <TextBlock Text="Cut" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+                        <Button>
+                            <StackPanel>
+                                <FontIcon Glyph="&#xE105;" FontSize="20"/>
+                                <TextBlock Text="Copy" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+                    </toolkit:RibbonGroup>
+                </StackPanel>
+            </toolkit:RibbonPanel> -->
+
+
+    </StackPanel>
 </Page>
