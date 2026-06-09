@@ -11,8 +11,8 @@
 
     <Grid Background="#0FFFFFFF" ColumnSpacing="42" HorizontalAlignment="Stretch" Padding="15" VerticalAlignment="Stretch">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -26,15 +26,14 @@
         <ScrollViewer x:Name="NuGetsScrollViewer" Grid.Column="0" Grid.Row="1" BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8">
             <ItemsRepeater x:Name="PackageList" Grid.Column="0" ItemsSource="{x:Bind ViewModel.Packages}">
                 <DataTemplate x:DataType="models:PackageVersionInfo">
-                    <StackPanel Orientation="Horizontal" Margin="8">
-                        <!--<Image Source="{x:Bind Icon}" Width="32" Height="32"/>-->
-                        <StackPanel Margin="8,0,0,0">
-                            <TextBlock Text="{x:Bind Id}" FontWeight="SemiBold"/>
-                            <TextBlock Text="{x:Bind Version}"/>
-                            <!--<TextBlock Text="{x:Bind Description}" TextWrapping="Wrap"/>
-                            <TextBlock Text="{x:Bind Summary}" TextWrapping="Wrap"/>-->
-                        </StackPanel>
-                    </StackPanel>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="64"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{x:Bind Id}" FontWeight="SemiBold"/>
+                        <TextBlock Grid.Column="1" Text="{x:Bind Version}" HorizontalAlignment="Right"/>
+                    </Grid>
                 </DataTemplate>
             </ItemsRepeater>
         </ScrollViewer>
