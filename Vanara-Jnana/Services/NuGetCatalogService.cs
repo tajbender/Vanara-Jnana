@@ -97,16 +97,17 @@ public sealed class NuGetCatalogService : INuGetCatalogService
         //        var readme = await reader.GetReadmeAsync(token);
         //        var icon = await reader.GetIconAsync(token);
 
-        string readme = null;
-        byte[] icon = null;
-
+        var readmeStream = await reader.GetStreamAsync("readme.md", token);
+        var iconStream = await reader.GetStreamAsync("icon.png", token);
 
         return new PackageContent(
             id,
             version,
             dlls,
-            readme,
-            icon
+            null,
+            readmeStream,
+            null,
+            iconStream
         );
     }
 }

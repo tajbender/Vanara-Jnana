@@ -25,18 +25,20 @@
         </StackPanel>
 
         <ScrollViewer x:Name="PackageListScrollViewer" Grid.Column="0" Grid.Row="1" BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8">
-            <ItemsRepeater x:Name="PackageList" Grid.Column="0" ItemsSource="{x:Bind ViewModel.Packages}">
-                <DataTemplate x:DataType="models:PackageVersionInfo">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="64"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Text="{x:Bind Id}" FontWeight="SemiBold"/>
-                        <TextBlock Grid.Column="1" Text="{x:Bind Version}" HorizontalAlignment="Right"/>
-                    </Grid>
-                </DataTemplate>
-            </ItemsRepeater>
+            <TreeView x:Name="PackageTreeView" Grid.Column="0" ItemsSource="{x:Bind ViewModel.Packages}">
+                <TreeView.ItemTemplate>
+                    <DataTemplate x:DataType="models:PackageVersionInfo">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="32"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="{x:Bind Id}" FontWeight="SemiBold"/>
+                            <TextBlock Grid.Column="1" Text="{x:Bind Version}" HorizontalAlignment="Right"/>
+                        </Grid>
+                    </DataTemplate>
+                </TreeView.ItemTemplate>
+            </TreeView>
         </ScrollViewer>
         <!-- Right: Info panel -->
         <Border Grid.Column="1" Grid.Row="1" Margin="12,0,0,0" Background="#0FFFFFFF" BorderBrush="#0FFFFFFF" BorderThickness="1" CornerRadius="8">

@@ -22,7 +22,9 @@ public record PackageContent(
     NuGetVersion Version,
     IReadOnlyList<string> Assemblies,
     string? Readme,
-    byte[]? IconBytes
+    Stream? ReadmeStream,
+    byte[]? IconBytes,
+    Stream? IconBytesStream
 );
 
 public interface INuGetCatalogService
