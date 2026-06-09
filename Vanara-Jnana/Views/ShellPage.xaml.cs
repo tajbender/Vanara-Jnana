@@ -10,7 +10,6 @@ namespace Jnana.Views;
 public sealed partial class ShellPage : Page
 {
     static readonly CancellationToken CancellationToken = CancellationToken.None;
-    private NuGetsAreaViewModel NuGetVM { get; }
     private GitHubAreaViewModel GitHubVM { get; }
     private SamplesAreaViewModel SamplesVM { get; }
     private NavigationService _navigationService { get; }
@@ -21,7 +20,6 @@ public sealed partial class ShellPage : Page
     public ShellPage()
     {
         InitializeComponent();
-        NuGetVM = new NuGetsAreaViewModel();
         GitHubVM = new GitHubAreaViewModel();
         SamplesVM = new SamplesAreaViewModel();
 

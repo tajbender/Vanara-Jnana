@@ -4,14 +4,15 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:Jnana.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:Jnana.Services"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
     <Grid Background="#0FFFFFFF" ColumnSpacing="42" HorizontalAlignment="Stretch" Padding="15" VerticalAlignment="Stretch">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -21,19 +22,22 @@
             <FontIcon x:Name="IconElement" Grid.Column="0" Grid.Row="0"  Glyph="&#xE7B8;"/>
             <TextBlock Grid.Column="1" Grid.Row="0" Text="NuGets" FontSize="20"/>
         </StackPanel>
-        <ItemsRepeater x:Name="PackageList" Grid.Column="0" Grid.Row="1" ItemsSource="{x:Bind ViewModel.Packages}">
-            <!--<DataTemplate x:DataType="models:NuGetPackage">
+
+        <ScrollViewer x:Name="NuGetsScrollViewer" Grid.Column="0" Grid.Row="1" BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8">
+            <ItemsRepeater x:Name="PackageList" Grid.Column="0" ItemsSource="{x:Bind ViewModel.Packages}">
+                <DataTemplate x:DataType="models:PackageVersionInfo">
                     <StackPanel Orientation="Horizontal" Margin="8">
-                        <Image Source="{x:Bind Icon}" Width="32" Height="32"/>
+                        <!--<Image Source="{x:Bind Icon}" Width="32" Height="32"/>-->
                         <StackPanel Margin="8,0,0,0">
-                            <TextBlock Text="{x:Bind Name}" FontWeight="Bold"/>
-                            <TextBlock Text="{x:Bind Description}" TextWrapping="Wrap"/>
-                            <TextBlock Text="{x:Bind Version}" Foreground="{ThemeResource AccentBrush}"/>
+                            <TextBlock Text="{x:Bind Id}" FontWeight="SemiBold"/>
+                            <TextBlock Text="{x:Bind Version}"/>
+                            <!--<TextBlock Text="{x:Bind Description}" TextWrapping="Wrap"/>
+                            <TextBlock Text="{x:Bind Summary}" TextWrapping="Wrap"/>-->
                         </StackPanel>
                     </StackPanel>
-                </DataTemplate>-->
-        </ItemsRepeater>
-
+                </DataTemplate>
+            </ItemsRepeater>
+        </ScrollViewer>
         <!-- Right: Info panel -->
         <Border Grid.Column="1" Grid.Row="1" Margin="12,0,0,0" Background="#0FFFFFFF" BorderBrush="#0FFFFFFF" BorderThickness="1" CornerRadius="8">
             <!--<TextBox Margin="12" TextWrapping="Wrap" IsReadOnly="True" Text="this may be inaccurate."/>-->

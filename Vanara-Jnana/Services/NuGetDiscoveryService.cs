@@ -27,6 +27,7 @@ public record PackageContent(
     byte[]? IconBytes
 );
 
+[Obsolete("This class has been replaced by NuGetCatalogService")]
 public sealed class NuGetDiscoveryService
 {
     private readonly SourceRepository _repo;
