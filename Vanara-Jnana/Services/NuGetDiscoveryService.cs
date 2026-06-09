@@ -9,24 +9,6 @@ using System.Runtime.CompilerServices;
 
 namespace Jnana.Services;
 
-public record PackageId(string Id);
-
-public record PackageVersionInfo(
-    string Id,
-    NuGetVersion Version,
-    Uri? IconUrl,
-    string? Description,
-    string? Summary
-);
-
-public record PackageContent(
-    string Id,
-    NuGetVersion Version,
-    IReadOnlyList<string> Assemblies,
-    string? Readme,
-    byte[]? IconBytes
-);
-
 [Obsolete("This class has been replaced by NuGetCatalogService")]
 public sealed class NuGetDiscoveryService
 {

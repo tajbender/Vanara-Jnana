@@ -63,7 +63,7 @@ public sealed class NuGetCatalogService : INuGetCatalogService
 
         return new PackageVersionInfo(
             pkg.Identity.Id,
-            latestStable.Version,
+            latestStable.Version.ToString(),
             pkg.IconUrl,
             pkg.Description,
             pkg.Summary

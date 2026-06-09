@@ -7,6 +7,24 @@ using System.Threading.Tasks;
 
 namespace Jnana.Services;
 
+public record PackageId(string Id);
+
+public record PackageVersionInfo(
+    string Id,
+    string Version,
+    Uri? IconUrl,
+    string? Description,
+    string? Summary
+);
+
+public record PackageContent(
+    string Id,
+    NuGetVersion Version,
+    IReadOnlyList<string> Assemblies,
+    string? Readme,
+    byte[]? IconBytes
+);
+
 public interface INuGetCatalogService
 {
     IAsyncEnumerable<PackageId> SearchPackagesAsync(string prefix, CancellationToken token);

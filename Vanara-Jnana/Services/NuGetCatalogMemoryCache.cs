@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace Jnana.Services;
 
-public sealed class NuGetCatalogCache : INuGetCatalogService
+public sealed class NuGetCatalogMemoryCache : INuGetCatalogService
 {
     private readonly INuGetCatalogService _inner;
     private readonly TimeSpan _ttl = TimeSpan.FromHours(24);
@@ -11,7 +11,7 @@ public sealed class NuGetCatalogCache : INuGetCatalogService
     private readonly Dictionary<string, (DateTime Timestamp, PackageVersionInfo Info)> _cache
         = new();
 
-    public NuGetCatalogCache(INuGetCatalogService inner)
+    public NuGetCatalogMemoryCache(INuGetCatalogService inner)
     {
         _inner = inner;
     }

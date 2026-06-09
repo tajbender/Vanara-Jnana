@@ -18,12 +18,13 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+
         <StackPanel Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal">
             <FontIcon x:Name="IconElement" Grid.Column="0" Grid.Row="0"  Glyph="&#xE7B8;"/>
             <TextBlock Grid.Column="1" Grid.Row="0" Text="NuGets" FontSize="20"/>
         </StackPanel>
 
-        <ScrollViewer x:Name="NuGetsScrollViewer" Grid.Column="0" Grid.Row="1" BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8">
+        <ScrollViewer x:Name="PackageListScrollViewer" Grid.Column="0" Grid.Row="1" BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8">
             <ItemsRepeater x:Name="PackageList" Grid.Column="0" ItemsSource="{x:Bind ViewModel.Packages}">
                 <DataTemplate x:DataType="models:PackageVersionInfo">
                     <Grid>
