@@ -1,11 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using Jnana.Services;
 using Jnana.Helpers;
+using Jnana.Services;
 using Microsoft.UI.Xaml.Media.Imaging;
 using NuGet.Versioning;
-using System.IO;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace Jnana.ViewModels;
 
@@ -30,6 +27,9 @@ public sealed partial class NuGetPackageDetailViewModel : ObservableObject
     public NuGetPackageDetailViewModel(INuGetCatalogService catalog)
     {
         _catalog = catalog;
+
+        // TODO: Consider adding a placeholder icon here while the real one is loading, or if it fails to load.
+        // TODO: Bind Details Pane against Package Details View Model, and show
     }
 
     public async Task LoadAsync(string id, NuGetVersion version, CancellationToken token)

@@ -1,12 +1,7 @@
-﻿using ClassicSamplesBrowser.Vanara.Reflection;
-using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using Jnana.Services;
 using NuGet.Common;
-using NuGet.Protocol.Core.Types;
 using System.Collections.ObjectModel;
-using System.Runtime.CompilerServices;
-using System.Windows.Input;
 
 namespace Jnana.ViewModels;
 
