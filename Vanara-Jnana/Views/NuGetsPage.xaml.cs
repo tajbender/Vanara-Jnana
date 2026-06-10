@@ -16,7 +16,6 @@ public sealed partial class NuGetsPage : Page
 
     private CancellationToken cancelToken = CancellationToken.None;
     public PackageVersionInfo? SelectedPackage { get; private set; } = null;
-    public ICommand SelectVersionCommand { get; }
 
     public NuGetsPage()
     {
@@ -25,8 +24,7 @@ public sealed partial class NuGetsPage : Page
         logger = new NullLogger();
         ViewModel = new NuGetsAreaViewModel(logger);
 
-        SelectVersionCommand = new RelayCommand<PackageVersionInfo?>(OnVersionSelected);
-
+        
         ViewModel.LoadPackagesAsync().ContinueWith(t =>
             {
                 if (t.IsFaulted)
@@ -46,19 +44,8 @@ public sealed partial class NuGetsPage : Page
             if (SelectedPackage != null)
             {
                 Debug.Print($"Selected package: {SelectedPackage.Id} {SelectedPackage.Version}");
-
-                OnVersionSelected(SelectedPackage);
+                ViewModel.SelectVersionCommand.Execute(SelectedPackage);
             }
         }
-    }
-
-    private async void OnVersionSelected(PackageVersionInfo? version)
-    {
-        if (version != null)
-        {
-            // TODO: Update package Detail view with the selected version
-            await ViewModel.PackageDetailViewModel.LoadAsync(version.Id, NuGetVersion.Parse(version.Version), CancellationToken.None);
-        }
-        // await PackageDetailViewModel.LoadAsync(version.Id, NuGetVersion.Parse(version.Version), CancellationToken.None);
     }
 }

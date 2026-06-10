@@ -1,7 +1,11 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using Jnana.Services;
 using NuGet.Common;
+using NuGet.Versioning;
 using System.Collections.ObjectModel;
+using System.Windows.Input;
+using Windows.ApplicationModel.Background;
 
 namespace Jnana.ViewModels;
 
@@ -18,6 +22,8 @@ public partial class NuGetsAreaViewModel : ObservableObject
 
     public NuGetPackageDetailViewModel PackageDetailViewModel { get; }
 
+    public ICommand SelectVersionCommand { get; }
+
     public NuGetsAreaViewModel(ILogger? logger = null)
     {
         nuGetCatalogService = new NuGetCatalogService("https://api.nuget.org/v3/index.json", logger);
@@ -28,6 +34,8 @@ public partial class NuGetsAreaViewModel : ObservableObject
 
         nuGetCatalogDiskCache = new NuGetCatalogDiskCache(nuGetCatalogMemoryCache, cachePath);
         PackageDetailViewModel = new NuGetPackageDetailViewModel(nuGetCatalogDiskCache);
+
+        SelectVersionCommand = new RelayCommand<PackageVersionInfo?>(OnVersionSelected);
     }
 
     public async Task LoadPackagesAsync()
@@ -40,5 +48,20 @@ public partial class NuGetsAreaViewModel : ObservableObject
             if (latest != null)
                 Packages.Add(latest);
         }
+    }
+
+    private async void OnVersionSelected(PackageVersionInfo? version)
+    {
+        if (version != null)
+        {
+            // TODO: Update package Detail view with the selected version
+            await PackageDetailViewModel.LoadAsync(version.Id, NuGetVersion.Parse(version.Version), CancellationToken.None);
+        }
+        else
+        {
+            // Make sure all values are cleared if no version is selected
+            PackageDetailViewModel.Clear();
+        }
+        // TODO: Update Details pane to show the selected version's details
     }
 }

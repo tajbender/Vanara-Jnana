@@ -6,8 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:models="using:Jnana.Services"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    DataContext="{Binding RelativeSource={RelativeSource Self}}">
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 
     <Grid Background="#0FFFFFFF" ColumnSpacing="42" HorizontalAlignment="Stretch" Padding="15" VerticalAlignment="Stretch">
         <Grid.ColumnDefinitions>
@@ -24,7 +23,7 @@
             <FontIcon x:Name="IconElement" Grid.Column="0" Grid.Row="0"  Glyph="&#xE7B8;"/>
             <TextBlock Grid.Column="1" Grid.Row="0" Text="NuGets" FontSize="20"/>
         </StackPanel>
-        
+
         <!-- Package list -->
 
         <ScrollViewer x:Name="PackageListScrollViewer" Grid.Column="0" Grid.Row="1" BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8">
@@ -46,16 +45,18 @@
 
         <!-- Right pane info panel -->
         <Border Grid.Column="1" Grid.Row="1" Margin="12,0,0,0" Background="#0FFFFFFF" BorderBrush="#0FFFFFFF" BorderThickness="1" CornerRadius="8">
-            <Grid>
-                <StackPanel Orientation="Horizontal" Spacing="12">
-                    <Image Source="{x:Bind ViewModel.PackageDetailViewModel.Icon}" Width="64" Height="64"/>
+            <Grid DataContext="{x:Bind ViewModel.PackageDetailViewModel}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Orientation="Horizontal" Spacing="12">
+                    <Image Source="{Binding Icon}" Width="64" Height="64"/>
                     <StackPanel>
-                        <TextBlock Text="{x:Bind ViewModel.PackageDetailViewModel.Id}" Style="{StaticResource TitleTextBlockStyle}"/>
-                        <TextBlock Text="{x:Bind ViewModel.PackageDetailViewModel.Version}" Style="{StaticResource CaptionTextBlockStyle}"/>
+                        <TextBlock Text="{Binding Id}" Style="{StaticResource TitleTextBlockStyle}"/>
+                        <TextBlock Text="{Binding Version}" Style="{StaticResource CaptionTextBlockStyle}"/>
                     </StackPanel>
                 </StackPanel>
-                <!--<TextBlock Text="{x:Bind PackageDetailViewModel.Description}" TextWrapping="Wrap" Margin="0,12,0,0"/>-->
-                <!--<markdown:MarkdownTextBlock Text="{x:Bind PackageDetailViewModel.Readme}" Margin="0,12,0,0"/>-->
             </Grid>
         </Border>
     </Grid>
