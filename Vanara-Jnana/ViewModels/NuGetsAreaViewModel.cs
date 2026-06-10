@@ -12,9 +12,13 @@ namespace Jnana.ViewModels;
 
 public partial class NuGetsAreaViewModel : ObservableObject
 {
-    private INuGetCatalogService nuGetCatalogService;
-    private INuGetCatalogService nuGetCatalogMemoryCache;
-    private INuGetCatalogService NuGetCatalogDiskCache;
+    private readonly NuGetCatalogService nuGetCatalogService;
+    private readonly NuGetCatalogMemoryCache nuGetCatalogMemoryCache;
+    private readonly NuGetCatalogDiskCache _nuGetCatalogDiskCache;
+
+    /// <summary>Get the current INuGetCatalogService that is in use.</summary>
+    public INuGetCatalogService NuGetCatalogService => _nuGetCatalogDiskCache;
+
     public ObservableCollection<PackageVersionInfo> Packages { get; } = new();
 
     public NuGetsAreaViewModel(ILogger? logger = null)
@@ -25,16 +29,16 @@ public partial class NuGetsAreaViewModel : ObservableObject
         var cachePath = Path.Combine(
             Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Jnana", "nuget-cache.json");
 
-        NuGetCatalogDiskCache = new NuGetCatalogDiskCache(nuGetCatalogMemoryCache, cachePath);
+        _nuGetCatalogDiskCache = new NuGetCatalogDiskCache(nuGetCatalogMemoryCache, cachePath);
     }
 
     public async Task LoadPackagesAsync()
     {
         Packages.Clear();
 
-        await foreach (var pkg in NuGetCatalogDiskCache.SearchPackagesAsync("Vanara.", CancellationToken.None))
+        await foreach (var pkg in _nuGetCatalogDiskCache.SearchPackagesAsync("Vanara.", CancellationToken.None))
         {
-            var latest = await NuGetCatalogDiskCache.GetLatestStableVersionAsync(pkg.Id, CancellationToken.None);
+            var latest = await _nuGetCatalogDiskCache.GetLatestStableVersionAsync(pkg.Id, CancellationToken.None);
             if (latest != null)
                 Packages.Add(latest);
         }

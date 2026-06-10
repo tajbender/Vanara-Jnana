@@ -19,13 +19,16 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
+        <!-- Top header TODO: Move this to generic header -->
         <StackPanel Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal">
             <FontIcon x:Name="IconElement" Grid.Column="0" Grid.Row="0"  Glyph="&#xE7B8;"/>
             <TextBlock Grid.Column="1" Grid.Row="0" Text="NuGets" FontSize="20"/>
         </StackPanel>
+        
+        <!-- Package list -->
 
         <ScrollViewer x:Name="PackageListScrollViewer" Grid.Column="0" Grid.Row="1" BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8">
-            <TreeView x:Name="PackageTreeView" Grid.Column="0" ItemsSource="{x:Bind ViewModel.Packages}">
+            <TreeView x:Name="PackageTreeView" Grid.Column="0" ItemsSource="{x:Bind ViewModel.Packages}" SelectionChanged="PackageTreeView_SelectionChanged">
                 <TreeView.ItemTemplate>
                     <DataTemplate x:DataType="models:PackageVersionInfo">
                         <Grid>
@@ -40,11 +43,20 @@
                 </TreeView.ItemTemplate>
             </TreeView>
         </ScrollViewer>
-        <!-- Right: Info panel -->
+
+        <!-- Right pane info panel -->
         <Border Grid.Column="1" Grid.Row="1" Margin="12,0,0,0" Background="#0FFFFFFF" BorderBrush="#0FFFFFFF" BorderThickness="1" CornerRadius="8">
-            <!--<TextBox Margin="12" TextWrapping="Wrap" IsReadOnly="True" Text="this may be inaccurate."/>-->
-            <TextBlock Grid.Column="1" Grid.Row="1" Margin="12,12,0,0" Opacity="0.8" Text="https://www.nuget.org/profiles/dahall"/>
+            <Grid>
+                <StackPanel Orientation="Horizontal" Spacing="12">
+                    <Image Source="{x:Bind PackageDetailViewModel.Icon}" Width="64" Height="64"/>
+                    <StackPanel>
+                        <TextBlock Text="{x:Bind PackageDetailViewModel.Id}" Style="{StaticResource TitleTextBlockStyle}"/>
+                        <TextBlock Text="{x:Bind PackageDetailViewModel.Version}" Style="{StaticResource CaptionTextBlockStyle}"/>
+                    </StackPanel>
+                </StackPanel>
+                <!--<TextBlock Text="{x:Bind PackageDetailViewModel.Description}" TextWrapping="Wrap" Margin="0,12,0,0"/>-->
+                <!--<markdown:MarkdownTextBlock Text="{x:Bind PackageDetailViewModel.Readme}" Margin="0,12,0,0"/>-->
+            </Grid>
         </Border>
-        <!--<Frame Grid.Column="1" x:Name="InfoPanel" Content="{x:Bind ViewModel.SelectedPackageDetail, Mode=OneWay}"/>-->
     </Grid>
 </Page>

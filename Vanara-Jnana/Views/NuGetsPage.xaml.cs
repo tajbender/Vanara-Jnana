@@ -2,7 +2,9 @@ using Jnana.Helpers;
 using Jnana.Services;
 using Jnana.ViewModels;
 using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls.Primitives;
 using NuGet.Common;
+using NuGet.Versioning;
 using System.Diagnostics;
 
 namespace Jnana.Views;
@@ -12,7 +14,10 @@ public sealed partial class NuGetsPage : Page
     private readonly ILogger? logger;
 
     public NuGetsAreaViewModel ViewModel { get; }
+    public NuGetPackageDetailViewModel PackageDetailViewModel { get; }
+
     private CancellationToken cancelToken = CancellationToken.None;
+    public PackageVersionInfo? SelectedPackage { get; private set; } = null;
 
     public NuGetsPage()
     {
@@ -20,6 +25,7 @@ public sealed partial class NuGetsPage : Page
 
         logger = new NullLogger();
         ViewModel = new NuGetsAreaViewModel(logger);
+        PackageDetailViewModel = new NuGetPackageDetailViewModel(ViewModel.NuGetCatalogService);
 
         ViewModel.LoadPackagesAsync().ContinueWith(t =>
         {
@@ -29,6 +35,21 @@ public sealed partial class NuGetsPage : Page
                 //logger?.LogError(t.Exception, "Failed to load NuGet packages");
             }
         }, cancelToken);
+    }
 
+    private void PackageTreeView_SelectionChanged(TreeView sender, TreeViewSelectionChangedEventArgs args)
+    {
+        if (sender.Equals(PackageTreeView))
+        {
+            SelectedPackage = args.AddedItems.FirstOrDefault() as PackageVersionInfo;
+
+            if (SelectedPackage != null)
+            {
+                Debug.Print($"Selected package: {SelectedPackage.Id} {SelectedPackage.Version}");
+
+                PackageDetailViewModel.Clear();
+                _ = PackageDetailViewModel.LoadAsync(SelectedPackage.Id, NuGetVersion.Parse(SelectedPackage.Version), cancelToken);
+            }
+        }
     }
 }
