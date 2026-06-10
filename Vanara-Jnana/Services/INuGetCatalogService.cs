@@ -1,4 +1,5 @@
-﻿using NuGet.Versioning;
+﻿using Microsoft.UI.Xaml.Media.Imaging;
+using NuGet.Versioning;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,8 @@ public record PackageVersionInfo(
     string Version,
     Uri? IconUrl,
     string? Description,
-    string? Summary
+    string? Summary,
+    BitmapImage? Icon
 );
 
 public record PackageContent(
@@ -22,9 +24,8 @@ public record PackageContent(
     NuGetVersion Version,
     IReadOnlyList<string> Assemblies,
     string? Readme,
-    Stream? ReadmeStream,
     byte[]? IconBytes,
-    Stream? IconBytesStream
+    BitmapImage? Icon
 );
 
 public interface INuGetCatalogService

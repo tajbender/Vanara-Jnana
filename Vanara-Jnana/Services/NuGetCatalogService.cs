@@ -1,16 +1,11 @@
-﻿using NuGet.Common;
-using NuGet.Configuration;
+﻿using Jnana.Helpers;
+using Microsoft.UI.Xaml.Media.Imaging;
+using NuGet.Common;
 using NuGet.Packaging;
-using NuGet.Packaging.Core;
-using NuGet.Protocol;
 using NuGet.Protocol.Core.Types;
+using NuGet.Protocol;
 using NuGet.Versioning;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Jnana.Services;
 
@@ -32,6 +27,9 @@ public sealed class NuGetCatalogService : INuGetCatalogService
         var search = await _repo.GetResourceAsync<PackageSearchResource>(token);
         var filter = new SearchFilter(includePrerelease: true);
 
+        // TODO: @dahall NuGet's search API doesn't support prefix searching,
+        // TODO:  so we fetch a bunch of results and then would have to filter them ourselves.
+        // TODO:  See the results, they include `MonitoringUtils` and `LeadManager.Common`. These appear in vs NuGet pack, too.
         var results = await search.SearchAsync(prefix, filter, 0, 200, _logger, token);
 
         foreach (var r in results)
@@ -66,7 +64,8 @@ public sealed class NuGetCatalogService : INuGetCatalogService
             latestStable.Version.ToString(),
             pkg.IconUrl,
             pkg.Description,
-            pkg.Summary
+            pkg.Summary,
+            Icon: null
         );
     }
 
@@ -88,26 +87,49 @@ public sealed class NuGetCatalogService : INuGetCatalogService
 
         stream.Position = 0;
         using var reader = new PackageArchiveReader(stream);
+        var packageFiles = reader.GetFiles().ToList();
 
-        var dlls = reader.GetFiles()
+        // First, extract all DLLs
+        var dlls = packageFiles
             .Where(f => f.EndsWith(".dll", StringComparison.OrdinalIgnoreCase))
             .ToList();
 
-        // TODO: Use ExtractFile to load the files
-        //        var readme = await reader.GetReadmeAsync(token);
-        //        var icon = await reader.GetIconAsync(token);
+        // Extract the readme if it exists
+        string? readmeText = null;
+        var readmePath = packageFiles.FirstOrDefault(f =>
+            f.EndsWith("readme.md", StringComparison.OrdinalIgnoreCase));
 
-        var readmeStream = await reader.GetStreamAsync("readme.md", token);
-        var iconStream = await reader.GetStreamAsync("icon.png", token);
+        if (readmePath != null)
+        {
+            using var readmeStream = await reader.GetStreamAsync(readmePath, token);
+            using var sr = new StreamReader(readmeStream);
+            readmeText = await sr.ReadToEndAsync();
+        }
+
+        // Extract the icon if it exists
+        byte[]? iconBytes = null;
+        var iconPath = packageFiles.FirstOrDefault(f =>
+            f.EndsWith(".png", StringComparison.OrdinalIgnoreCase) ||
+            f.EndsWith(".jpg", StringComparison.OrdinalIgnoreCase));
+
+        BitmapImage? Icon = null;
+        if (iconPath != null)
+        {
+            using var iconStream = await reader.GetStreamAsync(iconPath, token);
+            using var ms = new MemoryStream();
+            await iconStream.CopyToAsync(ms, token);
+            iconBytes = ms.ToArray();
+
+            Icon = ImageExtensions.ToBitmapImage(iconBytes);
+        }
 
         return new PackageContent(
             id,
             version,
             dlls,
-            null,
-            readmeStream,
-            null,
-            iconStream
+            readmeText,
+            iconBytes,
+            Icon
         );
     }
 }
