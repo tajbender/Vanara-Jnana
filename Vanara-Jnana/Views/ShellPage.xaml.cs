@@ -10,12 +10,13 @@ namespace Jnana.Views;
 public sealed partial class ShellPage : Page
 {
     static readonly CancellationToken CancellationToken = CancellationToken.None;
+    private NuGetsAreaViewModel NuGetsVM { get; }
     private GitHubAreaViewModel GitHubVM { get; }
     private SamplesAreaViewModel SamplesVM { get; }
     private NavigationService _navigationService { get; }
     // TODO: Consider making this a user setting that can be persisted across sessions, or determining it based on the last visited area
     // TODO: @dahall this is where you currently set the default navigation target...
-    private readonly INavigationService.Area defaultNavigationTarget = INavigationService.Area.NuGets;
+    private readonly INavigationService.Area defaultNavigationTarget = INavigationService.Area.Void;
 
     public ShellPage()
     {

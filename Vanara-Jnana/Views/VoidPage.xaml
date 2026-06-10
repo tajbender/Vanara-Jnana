@@ -26,7 +26,7 @@
                     <AppBarSeparator Margin="0,8"/>
                 </StackPanel>
                 <Border BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8" Padding="12">
-                    <ItemsRepeater ItemsSource="{x:Bind ViewModel.NugetItems}" MinHeight="127">
+                    <ItemsRepeater ItemsSource="{x:Bind ViewModel.dummyNugetItems}" MinHeight="127">
                         <ItemsRepeater.Layout>
                             <UniformGridLayout MinItemHeight="42" MinItemWidth="280" Orientation="Vertical"/>
                         </ItemsRepeater.Layout>
@@ -55,7 +55,7 @@
                 <TextBlock FontSize="13" Opacity="0.8" Style="{ThemeResource CaptionTextBlockStyle}" Text="Vanara on GitHub."/>
                 <AppBarSeparator Margin="0,8"/>
 
-                <ItemsRepeater ItemsSource="{x:Bind ViewModel.NugetItems}">
+                <ItemsRepeater ItemsSource="{x:Bind ViewModel.dummyNugetItems}">
                     <ItemsRepeater.Layout>
                         <UniformGridLayout MinItemHeight="42" MinItemWidth="280" Orientation="Vertical"/>
                     </ItemsRepeater.Layout>

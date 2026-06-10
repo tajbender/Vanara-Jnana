@@ -9,7 +9,11 @@ public sealed partial class VoidPage : Page
     public VoidPage()
     {
         InitializeComponent();
-        // TODO: ViewModel = new VoidPageViewModel();
+        ViewModel = new VoidPageViewModel(      // TODO: Consider using dependency injection to provide these view models, especially if they need to maintain state or interact with services
+            new NuGetsAreaViewModel(),
+            new GitHubAreaViewModel(),
+            new SamplesAreaViewModel());
+
 
 
         //        GitHubPreview.CoreWebView2Initialized += (_, __) =>

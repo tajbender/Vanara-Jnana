@@ -26,8 +26,8 @@ public sealed partial class MainWindow : Window
 
         //        _navigationService = new NavigationService(RootFrame);
 
-        //var initialSize = ApplicationData.Current.LocalSettings.Values["InitialWindowSize"] as string;
-        //this.AppWindow.Size = _initialWindowSize;
+        // var initialSize = ApplicationData.Current.LocalSettings.Values["InitialWindowSize"] as string;
+        // this.AppWindow.Size = _initialWindowSize;
         // AppWindow.Size = new Size() { Width = 800, Height = 600 };
 
         _ = RootFrame.Navigate(typeof(ShellPage));
