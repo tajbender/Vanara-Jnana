@@ -54,18 +54,11 @@
                 <TextBlock FontSize="32" Style="{StaticResource CaptionTextBlockStyle}" Text="GitHub"/>
                 <TextBlock FontSize="13" Opacity="0.8" Style="{ThemeResource CaptionTextBlockStyle}" Text="Vanara on GitHub."/>
                 <AppBarSeparator Margin="0,8"/>
-
-                <ItemsRepeater ItemsSource="{x:Bind ViewModel.dummyNugetItems}">
-                    <ItemsRepeater.Layout>
-                        <UniformGridLayout MinItemHeight="42" MinItemWidth="280" Orientation="Vertical"/>
-                    </ItemsRepeater.Layout>
-                </ItemsRepeater>
-
-                <StackPanel Spacing="8" BorderThickness="3" BorderBrush="DarkGray" CornerRadius="8">
-                    <TextBlock FontSize="15" Style="{StaticResource CaptionTextBlockStyle}" Text="Vanara Jñāna"/>
-                    <TextBlock FontSize="13" Opacity="0.8" Style="{ThemeResource CaptionTextBlockStyle}" Text="The source code for this app."/>
-                    <Button Content="Visit GitHub: www.github.com/vanara/Vanara" />
-                </StackPanel>
+                <Button Content="github.com/dagall/Vanara" />
+                <Button Content="github.com/dahall/Vanara/issues" />
+                <Button Content="github.com/dahall/Vanara/pulls" />
+                <Button Content="github.com/dahall/Vanara/discussions" />
+                <Button Content="github.com/dahall/Vanara/releases" />
             </StackPanel>
         </ScrollViewer>
 
