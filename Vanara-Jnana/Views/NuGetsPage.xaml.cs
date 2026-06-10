@@ -13,7 +13,6 @@ public sealed partial class NuGetsPage : Page
 {
     private readonly ILogger? logger;
     public NuGetsAreaViewModel ViewModel { get; }
-    public NuGetPackageDetailViewModel PackageDetailViewModel { get; }
 
     private CancellationToken cancelToken = CancellationToken.None;
     public PackageVersionInfo? SelectedPackage { get; private set; } = null;
@@ -25,7 +24,6 @@ public sealed partial class NuGetsPage : Page
 
         logger = new NullLogger();
         ViewModel = new NuGetsAreaViewModel(logger);
-        PackageDetailViewModel = new NuGetPackageDetailViewModel(ViewModel.NuGetCatalogService);
 
         SelectVersionCommand = new RelayCommand<PackageVersionInfo?>(OnVersionSelected);
 
@@ -49,8 +47,7 @@ public sealed partial class NuGetsPage : Page
             {
                 Debug.Print($"Selected package: {SelectedPackage.Id} {SelectedPackage.Version}");
 
-                PackageDetailViewModel.Clear();
-                _ = PackageDetailViewModel.LoadAsync(SelectedPackage.Id, NuGetVersion.Parse(SelectedPackage.Version), cancelToken);
+                OnVersionSelected(SelectedPackage);
             }
         }
     }
@@ -60,7 +57,8 @@ public sealed partial class NuGetsPage : Page
         if (version != null)
         {
             // TODO: Update package Detail view with the selected version
-            await PackageDetailViewModel.LoadAsync(version.Id, NuGetVersion.Parse(version.Version), CancellationToken.None);
+            await ViewModel.PackageDetailViewModel.LoadAsync(version.Id, NuGetVersion.Parse(version.Version), CancellationToken.None);
         }
+        // await PackageDetailViewModel.LoadAsync(version.Id, NuGetVersion.Parse(version.Version), CancellationToken.None);
     }
 }
