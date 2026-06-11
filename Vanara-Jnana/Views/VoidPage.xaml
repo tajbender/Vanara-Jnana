@@ -57,6 +57,7 @@
                 <TextBlock FontSize="32" Style="{StaticResource CaptionTextBlockStyle}" Text="Samples"/>
                 <TextBlock FontSize="13" Opacity="0.8" Style="{ThemeResource CaptionTextBlockStyle}" Text="Examples and Unit Tests."/>
                 <AppBarSeparator Margin="0,8"/>
+                <TextBlock FontSize="32" Style="{StaticResource CaptionTextBlockStyle}" Text="TODO: Add samples here."/>
             </StackPanel>
         </ScrollViewer>
     </Grid>
