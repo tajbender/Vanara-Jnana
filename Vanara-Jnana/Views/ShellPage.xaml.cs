@@ -4,6 +4,7 @@ using Jnana.Services;
 using Jnana.ViewModels;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Input;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Windows.Input;
 
@@ -19,8 +20,12 @@ public sealed partial class ShellPage : Page
     // TODO: Consider making this a user setting that can be persisted across sessions, or determining it based on the last visited area
     // TODO: @dahall this is where you currently set the default navigation target...
     private readonly INavigationService.Area defaultNavigationTarget = INavigationService.Area.Void;
+    private ObservableCollection<TabViewItem> Tabs { get; }
 
     public StandardUICommand NavigateCommand => new(StandardUICommandKind.Open);
+    public ICommand OpenNewTabCommand { get; }
+
+    public TabViewItem SelectedTab { get; set; }
 
     public ShellPage()
     {
@@ -35,8 +40,42 @@ public sealed partial class ShellPage : Page
         // TODO: WARN: This is the initial navigation target, but it should be determined based on user settings or the last visited area to provide a more personalized experience
         _navigationService.NavigateTo(defaultNavigationTarget);
 
+        OpenNewTabCommand = new RelayCommand<string>(OpenNewTab);
         NavigateCommand.ExecuteRequested += NavigateCommand_ExecuteRequested;
     }
+
+    private void AddNewTab(string header, Page page)
+    {
+        var newTab = new TabViewItem
+        {
+            Header = header,
+            IconSource = new SymbolIconSource { Symbol = Symbol.Document },
+            Content = new Frame()
+        };
+
+        // Navigate the new tab's frame to the specified page
+        ((Frame)newTab.Content).Navigate(page.GetType());
+
+        // Add new tab and select it
+        MainTabView.TabItems.Add(newTab);
+        MainTabView.SelectedItem = newTab;
+    }
+
+    private void OpenNewTab(string? header)
+    {
+        var tab = new TabViewItem
+        {
+            Header = header ?? "New Tab",
+            Content = new Frame()
+        };
+
+        ((Frame)tab.Content).Navigate(typeof(VoidPage));
+
+        Tabs.Add(tab);
+        SelectedTab = tab;
+    }
+
+
 
     private void NavigateCommand_ExecuteRequested(XamlUICommand sender, ExecuteRequestedEventArgs args)
     {
@@ -61,7 +100,7 @@ public sealed partial class ShellPage : Page
 
     private void MainTabView_AddTabButtonClick(TabView sender, object args)
     {
-        Debug.Print("Add tab button clicked (TODO: Add a new tab with the default page)");
+        AddNewTab("NuGets", new NuGetsPage());
     }
 
     private void NavBreadcrumb_ItemClicked(object sender, BreadcrumbBarItemClickedEventArgs args)
