@@ -1,4 +1,5 @@
 using CommunityToolkit.Mvvm.Input;
+using Jnana.Models;
 using Jnana.Services;
 using Jnana.ViewModels;
 using Microsoft.UI.Xaml.Controls;
@@ -21,13 +22,12 @@ public sealed partial class ShellPage : Page
 
     public StandardUICommand NavigateCommand => new(StandardUICommandKind.Open);
 
-
     public ShellPage()
     {
         InitializeComponent();
+        NuGetsVM = new NuGetsAreaViewModel();
         GitHubVM = new GitHubAreaViewModel();
         SamplesVM = new SamplesAreaViewModel();
-
         _navigationService = new NavigationService(MainFrame); // TODO: Use dependency injection to provide the NavigationService instance, and consider making it a singleton if it doesn't need to maintain any state
 
         // OnLoading: Navigate to the default area (Void) to ensure the main content area
