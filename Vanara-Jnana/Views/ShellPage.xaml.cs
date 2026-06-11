@@ -12,7 +12,6 @@ namespace Jnana.Views;
 
 public sealed partial class ShellPage : Page
 {
-    static readonly CancellationToken CancellationToken = CancellationToken.None;
     private NuGetsAreaViewModel NuGetsVM { get; }
     private GitHubAreaViewModel GitHubVM { get; }
     private SamplesAreaViewModel SamplesVM { get; }
@@ -44,21 +43,31 @@ public sealed partial class ShellPage : Page
         NavigateCommand.ExecuteRequested += NavigateCommand_ExecuteRequested;
     }
 
-    private void AddNewTab(string header, Page page)
+    private void AddNewTab(string header, Page page, IconSource? iconSource = null)
     {
-        var newTab = new TabViewItem
+        Debug.Print($"Adding new tab with header: {header}, page: {page.GetType().Name}, icon: {(iconSource != null ? iconSource.GetType().Name : "null")}");
+
+        try
         {
-            Header = header,
-            IconSource = new SymbolIconSource { Symbol = Symbol.Document },
-            Content = new Frame()
-        };
+            var tabViewIconSource = iconSource ?? new SymbolIconSource { Symbol = Symbol.Document };
+            var newTab = new TabViewItem
+            {
+                Content = new Frame(),
+                Header = header,
+                IconSource = tabViewIconSource,
+            };
 
-        // Navigate the new tab's frame to the specified page
-        ((Frame)newTab.Content).Navigate(page.GetType());
+            // Navigate the new tab's frame to the specified page
+            ((Frame)newTab.Content).Navigate(page.GetType());
 
-        // Add new tab and select it
-        MainTabView.TabItems.Add(newTab);
-        MainTabView.SelectedItem = newTab;
+            // Add new tab and select it
+            MainTabView.TabItems.Add(newTab);
+            MainTabView.SelectedItem = newTab;
+        }
+        catch (Exception ex)
+        {
+            Debug.Fail($"Failed to to create new tab {header}: {ex}");
+        }
     }
 
     private void OpenNewTab(string? header)
@@ -75,28 +84,10 @@ public sealed partial class ShellPage : Page
         SelectedTab = tab;
     }
 
-
-
     private void NavigateCommand_ExecuteRequested(XamlUICommand sender, ExecuteRequestedEventArgs args)
     {
         Debug.Print("TODO: NavigateCommand_ExecuteRequested()");
     }
-
-    //public ICommand NavigateCommand => new RelayCommand<string>(areaName =>
-    //{
-    //    if (Enum.TryParse(areaName, out INavigationService.Area area))
-    //        _navigationService.NavigateTo(area);
-    //    else
-    //    {
-    //        Debug.WriteLine($"Invalid navigation target: {areaName}, navigating to default area instead");
-    //        _navigationService.NavigateTo(defaultNavigationTarget);
-    //    }
-    //});
-
-    //private void FeatureTile_Click(object sender, EventArgs e)
-    //{
-    //    NavigateCommand.Execute("GitHub"); // TODO: Determine the area to navigate to based on the clicked tile, this is just a placeholder
-    //}
 
     private void MainTabView_AddTabButtonClick(TabView sender, object args)
     {

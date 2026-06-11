@@ -12,29 +12,6 @@ public partial class NavigationService : ObservableObject, INavigationService
     private readonly Frame _frame;
     private readonly Dictionary<Area, Type> _areaPageMap;
 
-    public Area CurrentArea
-    {
-        get;
-        set
-        {
-            if (SetProperty(ref field, value))
-            {
-                OnPropertyChanged(nameof(CurrentPage));
-            }
-        }
-    } = Area.Void;
-
-    public Page CurrentPage => CurrentArea switch
-    {
-        Area.Disassembler => new DisassemblerPage(),
-        Area.GitHub => new GitHubPage(),
-        Area.NuGets => new NuGetsPage(),
-        Area.Samples => new SamplesPage(),
-        Area.Settings => new SettingsPage(),
-        Area.Utilities => new UtilitiesPage(),
-        _ => new VoidPage()
-    };
-
     public NavigationService(Frame frame)
     {
         _frame = frame ?? throw new ArgumentNullException(nameof(frame));
