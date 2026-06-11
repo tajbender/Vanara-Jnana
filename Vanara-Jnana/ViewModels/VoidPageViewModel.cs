@@ -15,7 +15,6 @@ public partial class VoidPageViewModel : ObservableObject
     public NuGetsAreaViewModel NuGetsViewModel { get; }
     public GitHubAreaViewModel GitHubViewModel { get; }
     public SamplesAreaViewModel SamplesViewModel { get; }
-    public List<string> dummyNugetItems => ["Vanara.Core", "Vanara.PInvoke", "Vanara.Windows"];
 
     public VoidPageViewModel(
         NuGetsAreaViewModel nuget,
