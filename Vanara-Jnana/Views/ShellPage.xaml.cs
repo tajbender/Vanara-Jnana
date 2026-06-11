@@ -34,6 +34,8 @@ public sealed partial class ShellPage : Page
         SamplesVM = new SamplesAreaViewModel();
         _navigationService = new NavigationService(MainFrame); // TODO: Use dependency injection to provide the NavigationService instance, and consider making it a singleton if it doesn't need to maintain any state
 
+        _ = NuGetsVM.SynchronizePackageCacheAsync();
+
         // OnLoading: Navigate to the default area (Void) to ensure the main content area
         // is populated with a page, and to establish a consistent starting point for navigation
         // TODO: WARN: This is the initial navigation target, but it should be determined based on user settings or the last visited area to provide a more personalized experience

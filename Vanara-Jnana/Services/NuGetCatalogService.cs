@@ -17,7 +17,7 @@ public sealed class NuGetCatalogService : INuGetCatalogService
     public NuGetCatalogService(string sourceUrl, ILogger? logger = null)
     {
         _repo = Repository.Factory.GetCoreV3(sourceUrl);
-        _logger = logger;
+        _logger = logger ?? NullLogger.Instance;
     }
 
     public async IAsyncEnumerable<PackageId> SearchPackagesAsync(
@@ -27,9 +27,8 @@ public sealed class NuGetCatalogService : INuGetCatalogService
         var search = await _repo.GetResourceAsync<PackageSearchResource>(token);
         var filter = new SearchFilter(includePrerelease: true);
 
-        // TODO: @dahall NuGet's search API doesn't support prefix searching,
-        // TODO:  so we fetch a bunch of results and then would have to filter them ourselves.
-        // TODO:  See the results, they include `MonitoringUtils` and `LeadManager.Common`. These appear in vs NuGet pack, too.
+        // TODO: @dahall NuGet's search API doesn't support prefix searching, so we may fetch a bunch of results and then would have to filter them ourselves.
+        // TODO: See the results, they include `MonitoringUtils` and `LeadManager.Common`. Note these appear in VS NuGet Pane, too.
         var results = await search.SearchAsync(prefix, filter, 0, 200, _logger, token);
 
         foreach (var r in results)

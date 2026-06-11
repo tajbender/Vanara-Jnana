@@ -25,7 +25,7 @@ public sealed partial class NuGetsPage : Page
         ViewModel = new NuGetsAreaViewModel(logger);
 
         
-        ViewModel.LoadPackagesAsync().ContinueWith(t =>
+        ViewModel.SynchronizePackageCacheAsync().ContinueWith(t =>
             {
                 if (t.IsFaulted)
                 {

@@ -1,6 +1,7 @@
 ﻿using NuGet.Versioning;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -23,10 +24,10 @@ public sealed class NuGetCatalogDiskCache : INuGetCatalogService
         _inner = inner;
         _cacheFile = cacheFile;
 
-        LoadFromDisk();
+        _ = LoadFromDisk();
     }
 
-    private void LoadFromDisk()
+    private async Task LoadFromDisk()
     {
         if (!File.Exists(_cacheFile))
             return;
@@ -40,6 +41,8 @@ public sealed class NuGetCatalogDiskCache : INuGetCatalogService
             {
                 _timestamp = data.Timestamp;
                 _cache = data.Packages.ToDictionary(p => p.Id, p => p);
+
+                Debug.WriteLine("LoadFromDisk(): Cache dated {0} successfully loaded from disk ", _timestamp);
             }
         }
         catch

@@ -38,8 +38,9 @@ public partial class NuGetsAreaViewModel : ObservableObject
         SelectVersionCommand = new RelayCommand<PackageVersionInfo?>(OnVersionSelected);
     }
 
-    public async Task LoadPackagesAsync()
+    public async Task SynchronizePackageCacheAsync()
     {
+        // TODO: Instead of clearing the entire cache, consider implementing a more efficient synchronization strategy that only updates changed packages.
         Packages.Clear();
 
         await foreach (var pkg in nuGetCatalogDiskCache.SearchPackagesAsync("Vanara.", CancellationToken.None))
