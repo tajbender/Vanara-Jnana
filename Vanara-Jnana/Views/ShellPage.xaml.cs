@@ -2,6 +2,7 @@ using CommunityToolkit.Mvvm.Input;
 using Jnana.Services;
 using Jnana.ViewModels;
 using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Input;
 using System.Diagnostics;
 using System.Windows.Input;
 
@@ -18,6 +19,9 @@ public sealed partial class ShellPage : Page
     // TODO: @dahall this is where you currently set the default navigation target...
     private readonly INavigationService.Area defaultNavigationTarget = INavigationService.Area.Void;
 
+    public StandardUICommand NavigateCommand => new(StandardUICommandKind.Open);
+
+
     public ShellPage()
     {
         InitializeComponent();
@@ -30,13 +34,35 @@ public sealed partial class ShellPage : Page
         // is populated with a page, and to establish a consistent starting point for navigation
         // TODO: WARN: This is the initial navigation target, but it should be determined based on user settings or the last visited area to provide a more personalized experience
         _navigationService.NavigateTo(defaultNavigationTarget);
+
+        NavigateCommand.ExecuteRequested += NavigateCommand_ExecuteRequested;
     }
 
-    public ICommand NavigateCommand => new RelayCommand<string>(areaName =>
+    private void NavigateCommand_ExecuteRequested(XamlUICommand sender, ExecuteRequestedEventArgs args)
     {
-        if (Enum.TryParse(areaName, out INavigationService.Area area))
-            _navigationService.NavigateTo(area);
-    });
+        Debug.Print("TODO: NavigateCommand_ExecuteRequested()");
+    }
+
+    //public ICommand NavigateCommand => new RelayCommand<string>(areaName =>
+    //{
+    //    if (Enum.TryParse(areaName, out INavigationService.Area area))
+    //        _navigationService.NavigateTo(area);
+    //    else
+    //    {
+    //        Debug.WriteLine($"Invalid navigation target: {areaName}, navigating to default area instead");
+    //        _navigationService.NavigateTo(defaultNavigationTarget);
+    //    }
+    //});
+
+    //private void FeatureTile_Click(object sender, EventArgs e)
+    //{
+    //    NavigateCommand.Execute("GitHub"); // TODO: Determine the area to navigate to based on the clicked tile, this is just a placeholder
+    //}
+
+    private void MainTabView_AddTabButtonClick(TabView sender, object args)
+    {
+        Debug.Print("Add tab button clicked (TODO: Add a new tab with the default page)");
+    }
 
     private void NavBreadcrumb_ItemClicked(object sender, BreadcrumbBarItemClickedEventArgs args)
     {
@@ -58,15 +84,5 @@ public sealed partial class ShellPage : Page
         {
             sender.ItemsSource = new List<string> { "ShellItem", "ShellFolder", "IShellItem", "ExplorerBrowser" };
         }
-    }
-
-    private void FeatureTile_Click(object sender, EventArgs e)
-    {
-        Debug.Print("Feature tile clicked (TODO: Navigate to the corresponding area)");
-    }
-
-    private void MainTabView_AddTabButtonClick(TabView sender, object args)
-    {
-        Debug.Print("Add tab button clicked (TODO: Add a new tab with the default page)");
     }
 }

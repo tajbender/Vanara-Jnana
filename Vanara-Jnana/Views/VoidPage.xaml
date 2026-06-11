@@ -54,7 +54,7 @@
                 <TextBlock FontSize="32" Style="{StaticResource CaptionTextBlockStyle}" Text="GitHub"/>
                 <TextBlock FontSize="13" Opacity="0.8" Style="{ThemeResource CaptionTextBlockStyle}" Text="Vanara on GitHub."/>
                 <AppBarSeparator Margin="0,8"/>
-                <Button Content="github.com/dagall/Vanara" />
+                <Button Content="github.com/dahall/Vanara" />
                 <Button Content="github.com/dahall/Vanara/issues" />
                 <Button Content="github.com/dahall/Vanara/pulls" />
                 <Button Content="github.com/dahall/Vanara/discussions" />

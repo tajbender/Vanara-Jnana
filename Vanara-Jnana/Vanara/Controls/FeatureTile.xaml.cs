@@ -1,18 +1,12 @@
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Input;
+using System.Diagnostics;
 
 namespace Jnana.Vanara.Controls;
 
 public sealed partial class FeatureTile : UserControl
 {
-    public FeatureTile()
-    {
-        InitializeComponent();
-        SetupInteractions();
-
-        //this.Click += (_, __) =>  DebugSettings.;
-    }
-
     // Dependency Properties
     public static readonly DependencyProperty TitleProperty =
         DependencyProperty.Register(nameof(Title), typeof(string), typeof(FeatureTile),
@@ -35,7 +29,13 @@ public sealed partial class FeatureTile : UserControl
                 ((FeatureTile)d).IconElement.Glyph = (string)e.NewValue;
             }));
 
-    public event EventHandler Click;
+    public static readonly DependencyProperty CommandProperty =
+        DependencyProperty.Register(nameof(Command), typeof(StandardUICommand), typeof(FeatureTile),
+            new PropertyMetadata(null, (d, e) =>
+            {
+                ((FeatureTile)d).Command = (StandardUICommand)e.NewValue;
+            }));
+
 
     public string Title
     {
@@ -53,6 +53,22 @@ public sealed partial class FeatureTile : UserControl
     {
         get => (string)GetValue(IconProperty);
         set => SetValue(IconProperty, value);
+    }
+
+    public event EventHandler Click;
+
+    public StandardUICommand Command
+    {
+        get => (StandardUICommand)GetValue(CommandProperty);
+        set => SetValue(CommandProperty, value);
+    }
+
+    public FeatureTile()
+    {
+        InitializeComponent();
+        SetupInteractions();
+
+        this.Click += (_, __) => Debug.WriteLine($"FeatureTile clicked: Title='{Title}', Subtitle='{Subtitle}'");
     }
 
     private void SetupInteractions()

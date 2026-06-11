@@ -42,14 +42,14 @@
             </Grid>
             <!-- Feature Tiles Area -->
             <StackPanel Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" Orientation="Horizontal" Padding="7,0">
-                <controls:FeatureTile Click="FeatureTile_Click" Icon="&#xE7B8;" Title="NuGets" Subtitle="Package Releases"/>
-                <controls:FeatureTile Click="FeatureTile_Click" Icon="&#xE9D5;" Title="GitHub" Subtitle="Vanara on GitHub"/>
-                <controls:FeatureTile Click="FeatureTile_Click" Icon="&#xE8F1;" Title="Samples" Subtitle="Examples and Unit Tests"/>
+                <controls:FeatureTile Command="{x:Bind NavigateCommand}" Icon="&#xE7B8;" Title="NuGets" Subtitle="Package Releases"/>
+                <controls:FeatureTile Command="{x:Bind NavigateCommand}" Icon="&#xE9D5;" Title="GitHub" Subtitle="Vanara on GitHub"/>
+                <controls:FeatureTile Command="{x:Bind NavigateCommand}" Icon="&#xE8F1;" Title="Samples" Subtitle="Examples and Unit Tests"/>
                 <AppBarSeparator Margin="12,0"/>
-                <controls:FeatureTile Click="FeatureTile_Click" Icon="&#xEA86;" Title="Assemblies" Subtitle="Explore Types, Members and Interfaces"/>
-                <controls:FeatureTile Click="FeatureTile_Click" Icon="&#xE90F;" Title="Utilities" Subtitle="Tools, Helpers, Generators"/>
+                <controls:FeatureTile Command="{x:Bind NavigateCommand}" Icon="&#xEA86;" Title="Assemblies" Subtitle="Explore Types, Members and Interfaces"/>
+                <controls:FeatureTile Command="{x:Bind NavigateCommand}" Icon="&#xE90F;" Title="Utilities" Subtitle="Tools, Helpers, Generators"/>
                 <AppBarSeparator Margin="12,0"/>
-                <controls:FeatureTile Click="FeatureTile_Click" Icon="&#xE713;" Title="Settings" Subtitle="Settings, Version Info, Help"/>
+                <controls:FeatureTile Command="{x:Bind NavigateCommand}" Icon="&#xE713;" Title="Settings" Subtitle="Settings, Version Info, Help"/>
             </StackPanel>
             <!-- Navigation Area -->
             <Grid Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Margin="12,8,12,4" Padding="7" VerticalAlignment="Stretch" >
