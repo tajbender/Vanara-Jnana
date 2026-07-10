@@ -75,8 +75,9 @@ public sealed partial class MainWindow : Window
         {
             var hwnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
             var windowId = Win32Interop.GetWindowIdFromWindow(hwnd);
-            //TODO: 10-07-26 var appWindow = AppWindow.GetFromWindowId(windowId);
-            //TODO: 10-07-26 appWindow.MoveAndResize(bounds);
+            // TODO: 10-07-26 var appWindow = AppWindow.GetFromWindowId(windowId);
+            // TODO: 10-07-26 appWindow.MoveAndResize(bounds);
+            // TODO: OnNotifyPropertyChanged("WindowBounds"); Store to configuration file or settings for persistence across sessions.
         }
         catch
         {
@@ -93,24 +94,32 @@ public sealed partial class MainWindow : Window
         if (!MicaController.IsSupported())
             return false;
 
-        _wsdqHelper = new WindowsSystemDispatcherQueueHelper();
-        _wsdqHelper.EnsureWindowsSystemDispatcherQueueController();
-
-        _backdropConfig = new SystemBackdropConfiguration
+        try
         {
-            IsInputActive = true,
-            Theme = SystemBackdropTheme.Default
-        };
+            _wsdqHelper = new WindowsSystemDispatcherQueueHelper();
+            _wsdqHelper.EnsureWindowsSystemDispatcherQueueController();
 
-        _micaController = new MicaController
+            _backdropConfig = new SystemBackdropConfiguration
+            {
+                IsInputActive = true,
+                Theme = SystemBackdropTheme.Default
+            };
+
+            _micaController = new MicaController
+            {
+                Kind = MicaKind.BaseAlt
+            };
+
+            _micaController.AddSystemBackdropTarget(this.As<Microsoft.UI.Composition.ICompositionSupportsSystemBackdrop>());
+            _micaController.SetSystemBackdropConfiguration(_backdropConfig);
+
+            return true;
+        }
+        catch (Exception ex)
         {
-            Kind = MicaKind.BaseAlt
-        };
-
-        _micaController.AddSystemBackdropTarget(this.As<Microsoft.UI.Composition.ICompositionSupportsSystemBackdrop>());
-        _micaController.SetSystemBackdropConfiguration(_backdropConfig);
-
-        return true;
+            Debug.WriteLine($"Failed to set Mica backdrop: {ex.Message}");
+            return false;
+        }
     }
 
     #region DockingService stuff

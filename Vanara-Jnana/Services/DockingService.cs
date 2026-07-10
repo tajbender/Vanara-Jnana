@@ -11,9 +11,13 @@ public class DockingService
     /// <summary>Represents the position where a window can be docked.</summary>
     public enum DockPosition
     {
+        Top,
         Left,
         Right,
-        Bottom
+        Bottom,
+        Center,
+        Floating,
+        Fullscreen,
     }
 
     private readonly Window _mainWindow;
