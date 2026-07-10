@@ -15,13 +15,14 @@ public class DockingService
     /// <summary>Represents the position where a window can be docked.</summary>
     public enum DockPosition
     {
-        Top,
-        Left,
-        Right,
-        Bottom,
-        Center,
-        Floating,
+        TopOfScreen,
+        LeftOfScreen,
+        RightOfScreen,
+        BottomOfScreen,
+        FreeFloating,
+        AbsoluteFloating,
         Fullscreen,
+        //MainWindow,
     }
 
     private readonly Window _mainWindow;
@@ -44,7 +45,7 @@ public class DockingService
         }
         catch
         {
-            Debug.Fail("Failed to get AppWindow from Window.");
+            Debug.Fail($"GetAppWindow() Failed to get AppWindow from {window}.");
             throw;
         }
     }
@@ -53,7 +54,7 @@ public class DockingService
     //  PUBLIC API
     // ------------------------------------------------------------
 
-    public AppWindow CreateDockPanel(string name, DockPosition position, int size = 400)
+    public AppWindow CreateDockPanel(string name, DockPosition position, int size = 320)
     {
         try
         {
@@ -70,7 +71,7 @@ public class DockingService
         }
         catch (Exception ex)
         {
-            Debug.Fail($"Failed to create dock panel '{name}': {ex.Message}");
+            Debug.Fail($"CreateDockPanel Failed to create dock panel '{name}' Position {position} Size {size}: {ex.Message}");
             throw;
         }
     }
@@ -79,40 +80,50 @@ public class DockingService
     {
         try
         {
-
             var displayArea = DisplayArea.GetFromWindowId(_mainAppWindow.Id, DisplayAreaFallback.Primary);
+            var moveAndResizeRect = new RectInt32();
             var workArea = displayArea.WorkArea;
-
-            RectInt32 rect;
 
             switch (position)
             {
-                case DockPosition.Right:
-                    rect = new RectInt32(
+                case DockPosition.RightOfScreen:
+                    moveAndResizeRect = new RectInt32(
                         workArea.X + workArea.Width - size,
                         workArea.Y,
                         size,
                         workArea.Height);
                     break;
 
-                case DockPosition.Left:
-                    rect = new RectInt32(
+                case DockPosition.LeftOfScreen:
+                    moveAndResizeRect = new RectInt32(
                         workArea.X,
                         workArea.Y,
                         size,
                         workArea.Height);
                     break;
 
-                case DockPosition.Bottom:
-                    rect = new RectInt32(
+                case DockPosition.BottomOfScreen:
+                    moveAndResizeRect = new RectInt32(
                         workArea.X,
                         workArea.Y + workArea.Height - size,
                         workArea.Width,
                         size);
                     break;
-
+                case DockPosition.TopOfScreen:
+                    moveAndResizeRect = new RectInt32(
+                        workArea.X,
+                        workArea.Y,
+                        workArea.Width,
+                        size);
+                    break;
+                case DockPosition.FreeFloating:
+                    break;
+                case DockPosition.AbsoluteFloating:
+                    break;
+                case DockPosition.Fullscreen:
+                    break;
                 default:
-                    rect = new RectInt32(
+                    moveAndResizeRect = new RectInt32(
                         workArea.X,
                         workArea.Y,
                         size,
@@ -120,7 +131,7 @@ public class DockingService
                     break;
             }
 
-            window.MoveAndResize(rect);
+            window.MoveAndResize(moveAndResizeRect);
         }
         catch (Exception ex)
         {

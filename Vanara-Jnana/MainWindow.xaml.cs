@@ -128,7 +128,7 @@ public sealed partial class MainWindow : Window
         docking ??= this._docking;
         Debug.Assert(docking != null, "DockingService is not initialized.");
 
-        AppWindow inspectorDockPanel = docking.CreateDockPanel("Inspector", DockingService.DockPosition.Right, 420);
+        AppWindow inspectorDockPanel = docking.CreateDockPanel("Inspector", DockingService.DockPosition.RightOfScreen, 420);
         inspectorDockPanel.Title = title ?? "Inspector dock panel"; // TODO: i18n
         if (IsVisible)
         {
