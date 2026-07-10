@@ -3,13 +3,10 @@ using Jnana.Services;
 using Jnana.Views;
 using Microsoft.UI;
 using Microsoft.UI.Composition.SystemBackdrops;
-using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
-using Microsoft.UI.Xaml.Controls;
 using System.Diagnostics;
 using Vanara.PInvoke;
 using Windows.Graphics;
-using Windows.UI.WindowManagement;
 using WinRT;
 
 namespace Jnana;
@@ -26,10 +23,10 @@ public sealed partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+        _docking = new DockingService(this);
+
         TrySetMicaBackdrop();
         SetWindowBounds(_defaultBounds);
-
-        _docking = new DockingService(this);
 
         CreateInspectorPanel();
 
@@ -59,7 +56,7 @@ public sealed partial class MainWindow : Window
         // TODO: Handle exceptions that may occur when calling the Win32 API functions, such as if the window handle is invalid or if the system menu cannot be retrieved or displayed
         var hwnd = WinRT.Interop.WindowNative.GetWindowHandle(targetObject);
         var menu = User32.GetSystemMenu(hwnd, bRevert);
-        var point = new Windows.Graphics.PointInt32(0, 0);
+        var point = new PointInt32(0, 0);
         User32.TrackPopupMenuFlags tpopMenuFlags = User32.TrackPopupMenuFlags.TPM_LEFTBUTTON;
         User32.TrackPopupMenu(menu, tpopMenuFlags, point.X, point.Y, 0, hwnd);
     }
@@ -117,21 +114,30 @@ public sealed partial class MainWindow : Window
 
     #region DockingService stuff
 
-    private void CreateInspectorPanel()
+    private void CreateInspectorPanel(DockingService? docking = null, bool IsVisible = true)
     {
-        var inspector = _docking.CreateDockPanel("Inspector", DockPosition.Right, 420);
+        if (docking == null)
+            docking = this._docking;
+
+        Debug.Assert(docking != null, "DockingService is not initialized.");
+
+        Microsoft.UI.Windowing.AppWindow inspectorDockPanel = docking.CreateDockPanel("Inspector", DockPosition.Right, 420);
+        inspectorDockPanel.Title = "InspectorView dock panel";
+        if (IsVisible)
+        {
+            inspectorDockPanel.Show();
+        }
 
         // TODO: Show the Panel beside the main window, not as a child of the main window.
         // This will allow the panel to be moved independently of the main window and will
         // also allow it to be shown on a different monitor if desired.
-
-        //        // TODO: Optional: XAML-Content setzen
+        //
+        // TODO: Optional: XAML-Content setzen
         //        var xamlRoot = inspector.XamlRoot;
         //        var frame = new Frame();
         //        frame.Navigate(typeof(Views.InspectorView));
         //        inspector.SetTitleBarVisibility(AppWindowTitleBarVisibility.Hidden);
     }
-
 
     #endregion DockingService stuff
 }
