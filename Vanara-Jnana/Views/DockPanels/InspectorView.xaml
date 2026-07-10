@@ -13,6 +13,12 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0"  FontSize="20" FontWeight="SemiBold" Text="Inspector Panel"/>
+        <!-- TODO: Load frame content into page -->
+        <TextBlock Grid.Row="0" FontSize="20" FontWeight="SemiBold" Text="Inspector Panel:"/>
+        <Border Grid.Row="1" Background="{ThemeResource SystemControlBackgroundAltHighBrush}" CornerRadius="4" BorderBrush="{ThemeResource SystemControlForegroundBaseLowBrush}" BorderThickness="1">
+            <ScrollViewer>
+                <StackPanel x:Name="InspectorPanel" Padding="12" Spacing="12"/>
+            </ScrollViewer>
+        </Border>
     </Grid>
 </Page>

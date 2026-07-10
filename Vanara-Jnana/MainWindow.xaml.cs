@@ -29,8 +29,7 @@ public sealed partial class MainWindow : Window
         TrySetMicaBackdrop();
         SetWindowBounds(_defaultBounds);
 
-        CreateInspectorPanel();
-
+        CreateInspectorPanel(IsVisible: false);
         //        _navigationService = new NavigationService(RootFrame);
 
         // var initialSize = ApplicationData.Current.LocalSettings.Values["InitialWindowSize"] as string;
@@ -64,7 +63,7 @@ public sealed partial class MainWindow : Window
 
     private void Window_Activated(object sender, WindowActivatedEventArgs args)
     {
-        Debug.WriteLine($"Window activated: {args.WindowActivationState}");
+        Debug.WriteLine($"Window_Activated {args.WindowActivationState}");
         _backdropConfig.IsInputActive = args.WindowActivationState != WindowActivationState.Deactivated;
     }
 
@@ -82,7 +81,7 @@ public sealed partial class MainWindow : Window
         }
         catch
         {
-            Debug.Fail($"Failed to set window bounds to {bounds}.");
+            Debug.Fail($"SetWindowBounds Failed to set window bounds to {bounds}.");
             throw;
         }
     }
@@ -124,15 +123,13 @@ public sealed partial class MainWindow : Window
     }
 
     #region DockingService stuff
-    private void CreateInspectorPanel(DockingService? docking = null, bool IsVisible = true)
+    private void CreateInspectorPanel(DockingService? docking = null, string? title = null, bool IsVisible = true)
     {
-        if (docking == null)
-            docking = this._docking;
-
+        docking ??= this._docking;
         Debug.Assert(docking != null, "DockingService is not initialized.");
 
         AppWindow inspectorDockPanel = docking.CreateDockPanel("Inspector", DockingService.DockPosition.Right, 420);
-        inspectorDockPanel.Title = "InspectorView dock panel";
+        inspectorDockPanel.Title = title ?? "Inspector dock panel"; // TODO: i18n
         if (IsVisible)
         {
             inspectorDockPanel.Show();
