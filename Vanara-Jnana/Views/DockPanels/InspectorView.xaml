@@ -9,7 +9,10 @@
     mc:Ignorable="d">
 
     <Grid Padding="12">
-        <TextBlock FontSize="20" FontWeight="SemiBold" Text="Inspector Panel"/>
-        <WebView2 x:Name="InspectorWebView" Margin="0,40,0,0" Source="https://www.github.com/dahall/Vanara" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0"  FontSize="20" FontWeight="SemiBold" Text="Inspector Panel"/>
     </Grid>
 </Page>

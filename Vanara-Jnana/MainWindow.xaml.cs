@@ -64,6 +64,7 @@ public sealed partial class MainWindow : Window
 
     private void Window_Activated(object sender, WindowActivatedEventArgs args)
     {
+        Debug.WriteLine($"Window activated: {args.WindowActivationState}");
         _backdropConfig.IsInputActive = args.WindowActivationState != WindowActivationState.Deactivated;
     }
 
@@ -81,7 +82,7 @@ public sealed partial class MainWindow : Window
         }
         catch
         {
-            Debug.WriteLine("Failed to set window bounds.");
+            Debug.Fail($"Failed to set window bounds to {bounds}.");
             throw;
         }
     }
