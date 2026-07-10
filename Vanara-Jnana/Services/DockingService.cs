@@ -2,11 +2,20 @@
 using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
 using Windows.Graphics;
+using WinRT.Interop;
 
 namespace Jnana.Services;
 
 public class DockingService
 {
+    /// <summary>Represents the position where a window can be docked.</summary>
+    public enum DockPosition
+    {
+        Left,
+        Right,
+        Bottom
+    }
+
     private readonly Window _mainWindow;
     private readonly AppWindow _mainAppWindow;
 
@@ -18,7 +27,7 @@ public class DockingService
 
     private AppWindow GetAppWindow(Window window)
     {
-        var hwnd = WinRT.Interop.WindowNative.GetWindowHandle(window);
+        var hwnd = WindowNative.GetWindowHandle(window);
         var windowId = Win32Interop.GetWindowIdFromWindow(hwnd);
         return AppWindow.GetFromWindowId(windowId);
     }
@@ -85,11 +94,4 @@ public class DockingService
 
         window.MoveAndResize(rect);
     }
-}
-
-public enum DockPosition
-{
-    Left,
-    Right,
-    Bottom
 }

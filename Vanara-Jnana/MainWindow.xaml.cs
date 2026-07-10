@@ -1,9 +1,10 @@
 using Jnana.Helpers;
 using Jnana.Services;
 using Jnana.Views;
-using Microsoft.UI;
 using Microsoft.UI.Composition.SystemBackdrops;
+using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
+using Microsoft.UI;
 using System.Diagnostics;
 using Vanara.PInvoke;
 using Windows.Graphics;
@@ -113,7 +114,6 @@ public sealed partial class MainWindow : Window
     }
 
     #region DockingService stuff
-
     private void CreateInspectorPanel(DockingService? docking = null, bool IsVisible = true)
     {
         if (docking == null)
@@ -121,7 +121,7 @@ public sealed partial class MainWindow : Window
 
         Debug.Assert(docking != null, "DockingService is not initialized.");
 
-        Microsoft.UI.Windowing.AppWindow inspectorDockPanel = docking.CreateDockPanel("Inspector", DockPosition.Right, 420);
+        AppWindow inspectorDockPanel = docking.CreateDockPanel("Inspector", DockingService.DockPosition.Right, 420);
         inspectorDockPanel.Title = "InspectorView dock panel";
         if (IsVisible)
         {
@@ -138,6 +138,5 @@ public sealed partial class MainWindow : Window
         //        frame.Navigate(typeof(Views.InspectorView));
         //        inspector.SetTitleBarVisibility(AppWindowTitleBarVisibility.Hidden);
     }
-
     #endregion DockingService stuff
 }
