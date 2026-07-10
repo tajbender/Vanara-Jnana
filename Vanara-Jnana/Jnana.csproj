@@ -91,7 +91,7 @@
 	</ItemGroup>
 	<ItemGroup>
 		<EmbeddedResource Include="DOCS\docs.assets\WinUi-Sailing.png">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</EmbeddedResource>
 	</ItemGroup>
 	<ItemGroup>
@@ -118,10 +118,16 @@
 		<PRIResource Remove="Resources\**" />
 	</ItemGroup>
 	<ItemGroup>
+		<None Remove="DOCS\docs.assets\WinForms Sampler.zip" />
 		<None Remove="Views\DockPanels\InspectorView.xaml" />
 		<None Remove="Views\ShellPage.xaml" />
 		<None Remove="Views\UtilitiesPage.xaml" />
 		<None Remove="Views\VoidPage.xaml" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Content Include="DOCS\docs.assets\WinForms Sampler.zip">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
 	</ItemGroup>
 	<ItemGroup>
 	  <Page Update="Views\DockPanels\InspectorView.xaml">
