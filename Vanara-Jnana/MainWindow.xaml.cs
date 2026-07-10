@@ -1,13 +1,16 @@
+using Jnana.Helpers;
+using Jnana.Services;
 using Jnana.Views;
+using Microsoft.UI;
 using Microsoft.UI.Composition.SystemBackdrops;
 using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
-using Microsoft.UI;
+using Microsoft.UI.Xaml.Controls;
 using System.Diagnostics;
 using Vanara.PInvoke;
 using Windows.Graphics;
+using Windows.UI.WindowManagement;
 using WinRT;
-using Jnana.Helpers;
 
 namespace Jnana;
 
@@ -18,11 +21,17 @@ public sealed partial class MainWindow : Window
     private MicaController _micaController;
     private WindowsSystemDispatcherQueueHelper _wsdqHelper;
 
+    private DockingService _docking;
+
     public MainWindow()
     {
         InitializeComponent();
         TrySetMicaBackdrop();
         SetWindowBounds(_defaultBounds);
+
+        _docking = new DockingService(this);
+
+        CreateInspectorPanel();
 
         //        _navigationService = new NavigationService(RootFrame);
 
@@ -68,8 +77,8 @@ public sealed partial class MainWindow : Window
         {
             var hwnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
             var windowId = Win32Interop.GetWindowIdFromWindow(hwnd);
-            var appWindow = AppWindow.GetFromWindowId(windowId);
-            appWindow.MoveAndResize(bounds);
+            //TODO: 10-07-26 var appWindow = AppWindow.GetFromWindowId(windowId);
+            //TODO: 10-07-26 appWindow.MoveAndResize(bounds);
         }
         catch
         {
@@ -105,4 +114,24 @@ public sealed partial class MainWindow : Window
 
         return true;
     }
+
+    #region DockingService stuff
+
+    private void CreateInspectorPanel()
+    {
+        var inspector = _docking.CreateDockPanel("Inspector", DockPosition.Right, 420);
+
+        // TODO: Show the Panel beside the main window, not as a child of the main window.
+        // This will allow the panel to be moved independently of the main window and will
+        // also allow it to be shown on a different monitor if desired.
+
+        //        // TODO: Optional: XAML-Content setzen
+        //        var xamlRoot = inspector.XamlRoot;
+        //        var frame = new Frame();
+        //        frame.Navigate(typeof(Views.InspectorView));
+        //        inspector.SetTitleBarVisibility(AppWindowTitleBarVisibility.Hidden);
+    }
+
+
+    #endregion DockingService stuff
 }
