@@ -38,7 +38,7 @@
 		<PackageReference Include="CommunityToolkit.WinUI.Extensions" Version="8.2.251219" />
 		<PackageReference Include="CommunityToolkit.WinUI.Media" Version="8.2.251219" />
 		<PackageReference Include="CommunityToolkit.WinUI.Triggers" Version="8.2.251219" />
-		<PackageReference Include="Microsoft.WindowsAppSDK" Version="1.8.260317003" />
+		<PackageReference Include="Microsoft.WindowsAppSDK" Version="2.2.0" />
 		<PackageReference Include="NuGet.Common" Version="7.3.1" />
 		<PackageReference Include="NuGet.Protocol" Version="7.3.1" />
 		<PackageReference Include="Vanara.Core" Version="5.0.5" />
