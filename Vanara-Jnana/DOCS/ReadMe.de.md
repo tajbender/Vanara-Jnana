@@ -1,3 +1,5 @@
+# THIS IS A STUB
+
 # WinUI Classic Samples Browser \ Docs
 
 ## Content of this folder

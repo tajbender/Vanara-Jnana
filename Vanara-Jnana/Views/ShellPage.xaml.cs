@@ -93,25 +93,26 @@ public sealed partial class ShellPage : Page
 
     private void MainTabView_AddTabButtonClick(TabView sender, object args)
     {
+        Debug.WriteLine($"MainTabView_AddTabButtonClick({args}) Breadcrumb item clicked.");
         AddNewTab("NuGets", new NuGetsPage());
     }
 
     private void NavBreadcrumb_ItemClicked(object sender, BreadcrumbBarItemClickedEventArgs args)
     {
+        Debug.WriteLine($"Breadcrumb item clicked: {args}");
         var clicked = args.Item.ToString();
-        Debug.WriteLine($"Breadcrumb item clicked: {clicked} (TODO: Navigate to the clicked item)");
     }
 
     private void SearchBox_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
     {
+        Debug.WriteLine($"Search query submitted: {args.QueryText} (TODO: Handle search query submission)");
         var query = args.QueryText;
         query = query.Trim();
-        Debug.WriteLine($"Search query submitted: {query} (TODO: Handle search query submission)");
     }
 
     private void SearchBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
     {
-        Debug.WriteLine($"Search box text changed: {sender.Text} {args.ToString} (TODO: Handle text change)");
+        Debug.WriteLine($"Search box text changed: {sender.Text} {args.ToString()} (TODO: Handle text change)");
         if (args.Reason == AutoSuggestionBoxTextChangeReason.UserInput)
         {
             sender.ItemsSource = new List<string> { "ShellItem", "ShellFolder", "IShellItem", "ExplorerBrowser" };

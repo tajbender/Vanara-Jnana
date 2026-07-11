@@ -30,9 +30,9 @@ The goal of Jñāna is to make the Vanara ecosystem more accessible — for cont
 
 ## 🧱 Technology Stack
 
-- **WinUI 3 / Windows App SDK 1.6**
+- **WinUI 3 / Windows App SDK 2.2**
 - **.NET 8**
-- **Vanara 4.x**
+- **Vanara 5.0.0**
 - **C#**
 - **MVU/MVVM‑friendly architecture**
 
@@ -56,9 +56,9 @@ The goal of Jñāna is to make the Vanara ecosystem more accessible — for cont
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Windows 11  
-- Visual Studio 2022 (17.10+)  
-- Windows App SDK 1.6  
+- Windows 10+ 22h2 or later 
+- Visual Studio 2022 (17.10+)
+- Windows App SDK 2.2
 - .NET 8 SDK  
 
 ### Build & Run
