@@ -24,11 +24,12 @@ public sealed partial class ShellPage : Page
     public StandardUICommand NavigateCommand => new(StandardUICommandKind.Open);
     public ICommand OpenNewTabCommand { get; }
 
-    public TabViewItem SelectedTab { get; set; }
+    public TabViewItem? SelectedTab { get; set; } = null;
 
     public ShellPage()
     {
         InitializeComponent();
+        Tabs = new ObservableCollection<TabViewItem>();
         NuGetsVM = new NuGetsAreaViewModel();
         GitHubVM = new GitHubAreaViewModel();
         SamplesVM = new SamplesAreaViewModel();
