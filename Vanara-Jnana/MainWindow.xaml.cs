@@ -63,7 +63,7 @@ public sealed partial class MainWindow : Window
 
     private void Window_Activated(object sender, WindowActivatedEventArgs args)
     {
-        Debug.WriteLine($"Window_Activated {args.WindowActivationState}");
+        Debug.WriteLine($"MainWindow.Window_Activated( WindowWindowActivationState: {args.WindowActivationState} )");
         _backdropConfig.IsInputActive = args.WindowActivationState != WindowActivationState.Deactivated;
     }
 
@@ -81,7 +81,7 @@ public sealed partial class MainWindow : Window
         }
         catch
         {
-            Debug.Fail($"SetWindowBounds Failed to set window bounds to {bounds}.");
+            Debug.Fail($"MainWindow.SetWindowBounds Failed to set window bounds to {bounds}.");
             throw;
         }
     }
@@ -117,7 +117,7 @@ public sealed partial class MainWindow : Window
         }
         catch (Exception ex)
         {
-            Debug.WriteLine($"Failed to set Mica backdrop: {ex.Message}");
+            Debug.WriteLine($"MainWindow.TrySetMicaBackdrop Failed to set Mica backdrop: {ex.Message}");
             return false;
         }
     }
