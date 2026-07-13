@@ -15,14 +15,17 @@ public partial class VoidPageViewModel : ObservableObject
     public NuGetsAreaViewModel NuGetsViewModel { get; }
     public GitHubAreaViewModel GitHubViewModel { get; }
     public SamplesAreaViewModel SamplesViewModel { get; }
+    public VanaraScienceLaboratoriesViewModel VanaraScienceLaboratoriesViewModel { get; }
 
     public VoidPageViewModel(
         NuGetsAreaViewModel nuget,
         GitHubAreaViewModel github,
-        SamplesAreaViewModel samples)
+        SamplesAreaViewModel samples,
+        VanaraScienceLaboratoriesViewModel vanaraScienceLaboratories)
     {
         NuGetsViewModel = nuget;
         GitHubViewModel = github;
         SamplesViewModel = samples;
+        VanaraScienceLaboratoriesViewModel = vanaraScienceLaboratories;
     }
 }

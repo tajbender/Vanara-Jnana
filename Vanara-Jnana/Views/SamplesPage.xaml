@@ -11,7 +11,7 @@
             <ColumnDefinition Width="420"/>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0" Spacing="12">
-            <TextBlock Style="{StaticResource TitleMediumTextBlockStyle}" Text="Samples" />
+            <TextBlock Text="Samples" />
             <!-- ItemsSource="{x:Bind ViewModel.Categories}" -->
             <TreeView >
                 <!-- Category Template -->
@@ -26,27 +26,24 @@
                                        ItemsJustification="Start"
                                        MinItemWidth="260"/>
                 </ItemsRepeater.Layout>
-                <!--<ItemsRepeater.ItemTemplate>
+                <!-- <ItemsRepeater.ItemTemplate>
                     <DataTemplate x:DataType="models:SampleInfo">
-                        --><!--<controls:FeatureCard Title="{x:Bind Title}"
+                        <controls:FeatureCard Title="{x:Bind Title}"
                                               Subtitle="{x:Bind Description}"
                                               Icon="{x:Bind Icon}"
-                                              Command="{x:Bind SelectCommand}"/>--><!--
+                                              Command="{x:Bind SelectCommand}"/>
                     </DataTemplate>
-                </ItemsRepeater.ItemTemplate>-->
+                </ItemsRepeater.ItemTemplate> -->
             </ItemsRepeater>
         </ScrollViewer>
         <Border x:Name="previousPane" Grid.Column="2" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" CornerRadius="8" Padding="16">
             <StackPanel Spacing="16">
                 
-                <!--<TextBlock Text="{x:Bind ViewModel.SelectedSample.Title}"
-                           Style="{StaticResource TitleMediumTextBlockStyle}"/>
-                <TextBlock Text="{x:Bind ViewModel.SelectedSample.Description}"
-                           TextWrapping="Wrap"/>-->
-                <!--<controls:CodeTabs CodeFiles="{x:Bind ViewModel.SelectedSample.CodeFiles}"/>
-                <controls:ApiLinkList Items="{x:Bind ViewModel.SelectedSample.ApiLinks}"/>-->
-                <!--<Button Content="Run Sample"
-                        Command="{x:Bind ViewModel.RunSelectedSampleCommand}"/>-->
+                <!-- <TextBlock Text="{x:Bind ViewModel.SelectedSample.Title}"/>
+                     <TextBlock Text="{x:Bind ViewModel.SelectedSample.Description}" TextWrapping="Wrap"/> -->
+                <!-- <controls:CodeTabs CodeFiles="{x:Bind ViewModel.SelectedSample.CodeFiles}"/>
+                     <controls:ApiLinkList Items="{x:Bind ViewModel.SelectedSample.ApiLinks}"/> -->
+                <!-- <Button Content="Run Sample" Command="{x:Bind ViewModel.RunSelectedSampleCommand}"/> -->
             </StackPanel>
         </Border>
 

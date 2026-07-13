@@ -28,24 +28,37 @@ public class DockingService
     private readonly Window _mainWindow;
     private readonly AppWindow _mainAppWindow;
 
-    public DockingService(Window mainWindow)
+    public DockingService(Window ownerWindow)
     {
-        _mainWindow = mainWindow;
-        _mainAppWindow = GetAppWindow(mainWindow);
+        _mainWindow = ownerWindow;
+        _mainAppWindow = GetAppWindowFromWindowInstance(ownerWindow);
     }
 
-    private AppWindow GetAppWindow(Window window)
+    /// <summary>
+    ///  Gets the AppWindow instance associated with the specified Window instance.
+    ///  <br/>
+    ///  - TODO. Move to Vanara.WinUI3.Interop and make it an extension method for Window.<br/>
+    ///  <br/>
+    ///  - TODO: Consider caching the AppWindow instance to avoid repeated calls to GetAppWindowFromWindowInstance.<br/>
+    ///  - TODO: Consider adding error handling for cases where the Window instance is not valid or the AppWindow cannot be retrieved.<br/>
+    ///  - TODO: Consider adding logging to track when the AppWindow is retrieved and any issues that occur.<br/>
+    ///  - TODO: Consider adding unit tests to verify the behavior of GetAppWindowFromWindowInstance with different Window instances and scenarios.<br/>
+    /// </summary>
+    /// <param name="window"></param>
+    /// <returns></returns>
+    private static AppWindow GetAppWindowFromWindowInstance(Window window)
     {
+        ArgumentNullException.ThrowIfNull(window);
+
         try
         {
             var hwnd = WindowNative.GetWindowHandle(window);
             var windowId = Win32Interop.GetWindowIdFromWindow(hwnd);
-
             return AppWindow.GetFromWindowId(windowId);
         }
         catch
         {
-            Debug.Fail($"GetAppWindow() Failed to get AppWindow from {window}.");
+            Debug.Fail($"GetAppWindowFromWindowInstance() Failed to get AppWindow from {window}.");
             throw;
         }
     }

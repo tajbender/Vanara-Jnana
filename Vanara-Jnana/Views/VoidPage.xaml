@@ -58,6 +58,27 @@
                 <TextBlock FontSize="13" Opacity="0.8" Style="{ThemeResource CaptionTextBlockStyle}" Text="Examples and Unit Tests."/>
                 <AppBarSeparator Margin="0,8"/>
                 <TextBlock FontSize="32" Style="{StaticResource CaptionTextBlockStyle}" Text="TODO: Add samples here."/>
+
+                <!--<Grid Background="{ThemeResource LabsBackgroundBrush}">
+                    <StackPanel Padding="20">
+                        <TextBlock Text="Vanara Laboratories" Margin="0,0,0,20" FontSize="28" FontWeight="Bold"/>
+                        --><!-- ItemsSource="{x:Bind ViewModel.LabExperiments}" --><!--
+                        <ItemsRepeater ItemsSource="{x:Bind ViewModel.LabExperiments}">
+                            <ItemsRepeater.ItemTemplate>
+                                --><!-- x:DataType="models:LabExperimentModel" --><!--
+                                <DataTemplate x:DataType="models:LabExperimentModel">
+                                    <Border Margin="0,0,0,10" Padding="10" Background="{ThemeResource CardBackgroundBrush}">
+                                        <StackPanel>
+                                            <TextBlock Text="{x:Bind Title}" FontWeight="SemiBold"/>
+                                            <TextBlock Text="{x:Bind Description}" FontSize="14" Opacity="0.8"/>
+                                        </StackPanel>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsRepeater.ItemTemplate>
+                        </ItemsRepeater>
+                    </StackPanel>
+                </Grid>-->
+
             </StackPanel>
         </ScrollViewer>
     </Grid>

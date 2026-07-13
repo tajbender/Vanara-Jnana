@@ -96,6 +96,8 @@ public sealed partial class ShellPage : Page
     {
         Debug.WriteLine($"MainTabView_AddTabButtonClick({args}) Breadcrumb item clicked.");
         AddNewTab("NuGets", new NuGetsPage());
+        AddNewTab("GitHub", new GitHubPage());
+        AddNewTab("Samples", new SamplesPage());
     }
 
     private void NavBreadcrumb_ItemClicked(object sender, BreadcrumbBarItemClickedEventArgs args)

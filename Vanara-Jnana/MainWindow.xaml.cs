@@ -3,11 +3,13 @@ using Jnana.Services;
 using Jnana.Views;
 using Microsoft.UI.Composition.SystemBackdrops;
 using Microsoft.UI.Windowing;
+using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml;
 using Microsoft.UI;
 using System.Diagnostics;
 using Vanara.PInvoke;
 using Windows.Graphics;
+using WinRT.Interop;
 using WinRT;
 
 namespace Jnana;
@@ -30,32 +32,33 @@ public sealed partial class MainWindow : Window
         SetWindowBounds(_defaultBounds);
 
         CreateInspectorPanel(IsVisible: false);
-        //        _navigationService = new NavigationService(RootFrame);
-
+        // _navigationService = new NavigationService(RootFrame);
         // var initialSize = ApplicationData.Current.LocalSettings.Values["InitialWindowSize"] as string;
         // this.AppWindow.Size = _initialWindowSize;
         // AppWindow.Size = new Size() { Width = 800, Height = 600 };
 
-        _ = RootFrame.Navigate(typeof(ShellPage));
         // TODO:  this.SetTitleBar(StartPage.DragRegion);
+
+        _ = RootFrame.Navigate(typeof(ShellPage));
     }
 
-    //    private void OnIconPressed(object sender, PointerRoutedEventArgs e)
-    //    {
-    //        // Show the system menu when the icon is pressed
-    //        var ptrPointer = e.Pointer;
-    //
-    //        ShowSystemMenu();
-    //    }
-    //
-    public void ShowSystemMenu() => ShowSystemMenu(targetObject: this, uFlags: 0x0000, bRevert: false);
+    public void ShowSystemMenu() => ShowSystemMenu(windowHandleTargetObject: this, uFlags: 0x0000, bGetSystemMenuRevert: false);
 
-    public static void ShowSystemMenu(object targetObject, uint uFlags = 0x0000, bool bRevert = false)
+    /// <summary>
+    /// Shows the system menu of the specified window.
+    /// TODO: Move to Vanara.WinUI3.Interop and make it an extension method for Window.
+    /// </summary>
+    /// <param name="windowHandleTargetObject"></param>
+    /// <param name="uFlags"></param>
+    /// <param name="bGetSystemMenuRevert">The action to be taken. If this parameter is FALSE, GetSystemMenu returns a handle to the copy of the window menu currently in use.
+    /// The copy is initially identical to the window menu, but it can be modified. If this parameter is TRUE, GetSystemMenu resets the window menu back to the default state.
+    /// The previous window menu, if  any, is destroyed.</param>
+    public static void ShowSystemMenu(object windowHandleTargetObject, uint uFlags = 0x0000, bool bGetSystemMenuRevert = false)
     {
         // TODO: Add support for right-clicking the title bar to show the system menu, and for showing the system menu at the cursor position instead of the top-left corner of the window
         // TODO: Handle exceptions that may occur when calling the Win32 API functions, such as if the window handle is invalid or if the system menu cannot be retrieved or displayed
-        var hwnd = WinRT.Interop.WindowNative.GetWindowHandle(targetObject);
-        var menu = User32.GetSystemMenu(hwnd, bRevert);
+        var hwnd = WindowNative.GetWindowHandle(windowHandleTargetObject);
+        var menu = User32.GetSystemMenu(hwnd, bGetSystemMenuRevert);
         var point = new PointInt32(0, 0);
         User32.TrackPopupMenuFlags tpopMenuFlags = User32.TrackPopupMenuFlags.TPM_LEFTBUTTON;
         User32.TrackPopupMenu(menu, tpopMenuFlags, point.X, point.Y, 0, hwnd);
@@ -120,6 +123,14 @@ public sealed partial class MainWindow : Window
             Debug.WriteLine($"MainWindow.TrySetMicaBackdrop Failed to set Mica backdrop: {ex.Message}");
             return false;
         }
+    }
+
+    private void OnIconPressed(object sender, PointerRoutedEventArgs e)
+    {
+        // Show the system menu when the icon is pressed
+        var ptrPointer = e.Pointer;
+
+        ShowSystemMenu();
     }
 
     #region DockingService stuff

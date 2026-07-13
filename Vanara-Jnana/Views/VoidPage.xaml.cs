@@ -6,6 +6,11 @@ namespace Jnana.Views;
 public sealed partial class VoidPage : Page
 {
     private VoidPageViewModel ViewModel { get; }
+    private NuGetsAreaViewModel NuGetsViewModel => ViewModel.NuGetsViewModel;
+    private GitHubAreaViewModel GitHubViewModel => ViewModel.GitHubViewModel;
+    private SamplesAreaViewModel SamplesViewModel => ViewModel.SamplesViewModel;
+    private VanaraScienceLaboratoriesViewModel VanaraScienceLaboratoriesViewModel => ViewModel.VanaraScienceLaboratoriesViewModel;
+
 
     public VoidPage()
     {
@@ -16,6 +21,7 @@ public sealed partial class VoidPage : Page
         ViewModel = new VoidPageViewModel(
             new NuGetsAreaViewModel(),
             new GitHubAreaViewModel(),
-            new SamplesAreaViewModel());
+            new SamplesAreaViewModel(),
+            new VanaraScienceLaboratoriesViewModel());
     }
 }
