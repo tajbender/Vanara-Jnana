@@ -19,10 +19,10 @@ public partial class App : Application
     {
         if (_mainWindow == null && allowInitialCreation)
         {
-            _mainWindow = new MainWindow
-            {
+            _mainWindow = new MainWindow();
+//            {
 //  ExtendsContentIntoTitleBar = true
-            };
+//            };
 
 //  var titleBar = _mainWindow.AppWindow.TitleBar;
 //  _mainWindow.SetTitleBar(MyDragRegion);

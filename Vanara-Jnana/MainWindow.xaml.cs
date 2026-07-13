@@ -16,30 +16,30 @@ namespace Jnana;
 
 public sealed partial class MainWindow : Window
 {
-    private RectInt32 _defaultBounds = new(430, 256, 1280, 760);
     private SystemBackdropConfiguration _backdropConfig;
+    private RectInt32 _defaultBounds = new(320, 256, 1024, 768);
+    private DockingService _docking;
     private MicaController _micaController;
     private WindowsSystemDispatcherQueueHelper _wsdqHelper;
 
-    private DockingService _docking;
-
-    public MainWindow()
+    public MainWindow(DockingService? docking = null)
     {
         InitializeComponent();
-        _docking = new DockingService(this);
+        _docking = docking ??= new DockingService(this);
 
-        TrySetMicaBackdrop();
         SetWindowBounds(_defaultBounds);
-
+        TrySetMicaBackdrop();
         CreateInspectorPanel(IsVisible: false);
+
+        // Navigate to the ShellPage when the MainWindow is initialized
+        _ = RootFrame.Navigate(typeof(ShellPage));
+
         // _navigationService = new NavigationService(RootFrame);
         // var initialSize = ApplicationData.Current.LocalSettings.Values["InitialWindowSize"] as string;
         // this.AppWindow.Size = _initialWindowSize;
         // AppWindow.Size = new Size() { Width = 800, Height = 600 };
-
         // TODO:  this.SetTitleBar(StartPage.DragRegion);
 
-        _ = RootFrame.Navigate(typeof(ShellPage));
     }
 
     public void ShowSystemMenu() => ShowSystemMenu(windowHandleTargetObject: this, uFlags: 0x0000, bGetSystemMenuRevert: false);
@@ -68,25 +68,6 @@ public sealed partial class MainWindow : Window
     {
         Debug.WriteLine($"MainWindow.Window_Activated( WindowWindowActivationState: {args.WindowActivationState} )");
         _backdropConfig.IsInputActive = args.WindowActivationState != WindowActivationState.Deactivated;
-    }
-
-    /// <summary>Sets the window bounds to the specified rectangle.</summary>
-    /// <param name="bounds">The desired bounds for the window.</param>
-    public void SetWindowBounds(RectInt32 bounds)
-    {
-        try
-        {
-            var hwnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
-            var windowId = Win32Interop.GetWindowIdFromWindow(hwnd);
-            // TODO: 10-07-26 var appWindow = AppWindow.GetFromWindowId(windowId);
-            // TODO: 10-07-26 appWindow.MoveAndResize(bounds);
-            // TODO: OnNotifyPropertyChanged("WindowBounds"); Store to configuration file or settings for persistence across sessions.
-        }
-        catch
-        {
-            Debug.Fail($"MainWindow.SetWindowBounds Failed to set window bounds to {bounds}.");
-            throw;
-        }
     }
 
     /// <summary>Tries to set the Mica backdrop for the window. This method checks if Mica is supported on the current system, 
@@ -125,6 +106,31 @@ public sealed partial class MainWindow : Window
         }
     }
 
+    /// <summary>Sets the window bounds to the specified rectangle.</summary>
+    /// <param name="bounds">The desired bounds for the window.</param>
+    public void SetWindowBounds(RectInt32 bounds)
+    {
+        try
+        {
+            var hwnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
+            var windowId = Win32Interop.GetWindowIdFromWindow(hwnd);
+            // TODO: 10-07-26 var appWindow = AppWindow.GetFromWindowId(windowId);
+            // TODO: 10-07-26 appWindow.MoveAndResize(bounds);
+            // TODO: OnNotifyPropertyChanged("WindowBounds"); Store to configuration file or settings for persistence across sessions.
+        }
+        catch
+        {
+            Debug.Fail($"MainWindow.SetWindowBounds Failed to set window bounds to {bounds}.");
+            throw;
+        }
+    }
+
+    /// <summary>
+    /// Handles the event when the window icon is pressed.
+    /// This method shows the system menu for the window when the icon is clicked.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void OnIconPressed(object sender, PointerRoutedEventArgs e)
     {
         // Show the system menu when the icon is pressed
