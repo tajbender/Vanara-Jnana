@@ -38,7 +38,7 @@
                 </Grid.RowDefinitions>
                 <!-- TODO: Add navigate back button -->
                 <Image Grid.Column="0" Grid.Row="0" Height="123" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="/Assets/Vanara/Vanara-64px.png"/>
-                <TextBlock Grid.Column="0" Grid.Row="1" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Vanara Jñāna Samples Browser"/>
+                <TextBlock Grid.Column="0" Grid.Row="1" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Vanara Jñāna"/>
             </Grid>
             <!-- Feature Tiles Area -->
             <StackPanel Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" Orientation="Horizontal" Padding="7,0">
@@ -48,7 +48,7 @@
                 <controls:FeatureTile Command="{x:Bind NavigateCommand}" Icon="&#xE8F1;" Title="Samples" Subtitle="Vanara Science Laboratory, Examples and Unit Tests."/>
                 <AppBarSeparator Margin="4,0"/>
                 <controls:FeatureTile Command="{x:Bind NavigateCommand}" Icon="&#xEA86;" Title="Assemblies" Subtitle="Explore Types, Members and Interfaces."/>
-                <controls:FeatureTile Command="{x:Bind NavigateCommand}" Icon="&#xE90F;" Title="Utilities" Subtitle="Tools, Helpers and Generators."/>
+                <controls:FeatureTile Command="{x:Bind NavigateCommand}" Icon="&#xE90F;" Title="Utilities" Subtitle="Tools, Helpers and Generators. Dump extended System Info."/>
                 <AppBarSeparator Margin="4,0"/>
                 <controls:FeatureTile Command="{x:Bind NavigateCommand}" Icon="&#xE713;" Title="Settings" Subtitle="Settings, Version Info and Search for Help."/>
             </StackPanel>
@@ -100,7 +100,7 @@
                     <TabView.Resources>
                         <SolidColorBrush x:Key="TabViewBackground" Color="Transparent"/>
                     </TabView.Resources>
-                    <TabViewItem Header="Vanara Jñāna">
+                    <TabViewItem Header="Vanara Jñāna Workbench">
                         <Frame x:Name="MainFrame" CornerRadius="8"/>
                     </TabViewItem>
                 </TabView>
