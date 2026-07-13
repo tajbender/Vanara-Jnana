@@ -44,6 +44,13 @@ public sealed partial class ShellPage : Page
 
         OpenNewTabCommand = new RelayCommand<string>(OpenNewTab);
         NavigateCommand.ExecuteRequested += NavigateCommand_ExecuteRequested;
+
+        AddNewTab("NuGets", new NuGetsPage());
+        AddNewTab("GitHub", new GitHubPage());
+        AddNewTab("Samples", new SamplesPage());
+        AddNewTab("ILSpy Disassembler", new DisassemblerPage());
+        AddNewTab("Utilities", new UtilitiesPage());
+        AddNewTab("Settings", new SettingsPage());
     }
 
     private void AddNewTab(string header, Page page, IconSource? iconSource = null)
@@ -95,9 +102,7 @@ public sealed partial class ShellPage : Page
     private void MainTabView_AddTabButtonClick(TabView sender, object args)
     {
         Debug.WriteLine($"MainTabView_AddTabButtonClick({args}) Breadcrumb item clicked.");
-        AddNewTab("NuGets", new NuGetsPage());
-        AddNewTab("GitHub", new GitHubPage());
-        AddNewTab("Samples", new SamplesPage());
+        AddNewTab("Void", new VoidPage());
     }
 
     private void NavBreadcrumb_ItemClicked(object sender, BreadcrumbBarItemClickedEventArgs args)

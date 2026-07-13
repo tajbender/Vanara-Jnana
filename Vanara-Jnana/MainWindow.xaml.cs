@@ -112,7 +112,7 @@ public sealed partial class MainWindow : Window
     {
         try
         {
-            var hwnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
+            var hwnd = WindowNative.GetWindowHandle(this);
             var windowId = Win32Interop.GetWindowIdFromWindow(hwnd);
             // TODO: 10-07-26 var appWindow = AppWindow.GetFromWindowId(windowId);
             // TODO: 10-07-26 appWindow.MoveAndResize(bounds);
