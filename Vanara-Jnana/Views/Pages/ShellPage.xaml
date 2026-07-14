@@ -102,7 +102,7 @@
                         <SolidColorBrush x:Key="TabViewBackground" Color="Transparent"/>
                     </TabView.Resources>
                     <TabViewItem Header="Workbench">
-                        <Frame x:Name="MainFrame" CornerRadius="8"/>
+                        <Frame x:Name="WorkbenchFrame" CornerRadius="8"/>
                     </TabViewItem>
                 </TabView>
             </Grid>

@@ -4,7 +4,7 @@ namespace Jnana.Views;
 
 public sealed partial class GitHubPage : Page
 {
-    public GitHubPage()
+    public GitHubPage(ViewModels.GitHubAreaViewModel gitHubVM)
     {
         InitializeComponent();
     }

@@ -17,13 +17,11 @@ public sealed partial class NuGetsPage : Page
     private CancellationToken cancelToken = CancellationToken.None;
     public PackageVersionInfo? SelectedPackage { get; private set; } = null;
 
-    public NuGetsPage()
+    public NuGetsPage(NuGetsAreaViewModel viewModel)
     {
         InitializeComponent();
-
+        ViewModel = viewModel;
         logger = new NullLogger();
-        ViewModel = new NuGetsAreaViewModel(logger);
-
         
         ViewModel.SynchronizePackageCacheAsync().ContinueWith(t =>
             {

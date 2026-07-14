@@ -10,7 +10,7 @@ namespace Jnana.Views;
 /// </summary>
 public sealed partial class SamplesPage : Page
 {
-    public SamplesPage()
+    public SamplesPage(ViewModels.SamplesAreaViewModel samplesVM)
     {
         InitializeComponent();
     }

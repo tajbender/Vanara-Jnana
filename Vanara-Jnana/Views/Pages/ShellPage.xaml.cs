@@ -33,7 +33,7 @@ public sealed partial class ShellPage : Page
         NuGetsVM = new NuGetsAreaViewModel();
         GitHubVM = new GitHubAreaViewModel();
         SamplesVM = new SamplesAreaViewModel();
-        _navigationService = new NavigationService(MainFrame); // TODO: Use dependency injection to provide the NavigationService instance, and consider making it a singleton if it doesn't need to maintain any state
+        _navigationService = new NavigationService(WorkbenchFrame); // TODO: Use dependency injection to provide the NavigationService instance, and consider making it a singleton if it doesn't need to maintain any state
 
         _ = NuGetsVM.SynchronizePackageCacheAsync();
 
@@ -45,10 +45,8 @@ public sealed partial class ShellPage : Page
         OpenNewTabCommand = new RelayCommand<string>(OpenNewTab);
         NavigateCommand.ExecuteRequested += NavigateCommand_ExecuteRequested;
 
-        AddNewTab("NuGets", new NuGetsPage());
-        AddNewTab("GitHub", new GitHubPage());
-        AddNewTab("Samples", new SamplesPage());
-        AddNewTab("ILSpy Disassembler", new DisassemblerPage());
+        //AddNewTab("Utilities", new UtilitiesPage(), new SymbolIconSource { Symbol = Symbol.Utilities });
+        //AddNewTab("Settings", new SettingsPage(), new SymbolIconSource { Symbol = Symbol.Settings });
         AddNewTab("Utilities", new UtilitiesPage());
         AddNewTab("Settings", new SettingsPage());
     }
