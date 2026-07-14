@@ -9,43 +9,45 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     mc:Ignorable="d">
 
-    <StackPanel Orientation="Vertical" Padding="24" Spacing="16">
-        <toolkit:Ribbon>
-            <toolkit:RibbonGroup>
-                <Button>
-                    <StackPanel>
-                        <FontIcon Glyph="&#xE104;" FontSize="20"/>
-                        <TextBlock Text="Cut" HorizontalAlignment="Center"/>
-                    </StackPanel>
-                </Button>
-            </toolkit:RibbonGroup>
-            <toolkit:RibbonGroup>
-                <Button>
-                    <StackPanel>
-                        <FontIcon Glyph="&#xE105;" FontSize="20"/>
-                        <TextBlock Text="Copy" HorizontalAlignment="Center"/>
-                    </StackPanel>
-                </Button>
-            </toolkit:RibbonGroup>
-            <toolkit:RibbonGroup>
-                <Button>
-                    <StackPanel>
-                        <FontIcon Glyph="&#xE16C;" FontSize="20"/>
-                        <TextBlock Text="Paste" HorizontalAlignment="Center"/>
-                    </StackPanel>
-                </Button>
-            </toolkit:RibbonGroup>
-        </toolkit:Ribbon>
-        <TabView>
-            <TabViewItem Header="Tab 1">
-                <TextBlock Text="Content for Tab 1" Margin="12"/>
-            </TabViewItem>
-            <TabViewItem Header="Tab 2">
-                <TextBlock Text="Content for Tab 2" Margin="12"/>
-            </TabViewItem>
-            <TabViewItem Header="Tab 3">
-                <TextBlock Text="Content for Tab 3" Margin="12"/>
-            </TabViewItem>
-        </TabView>
-    </StackPanel>
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <toolkit:Ribbon>
+                <toolkit:RibbonGroup>
+                    <Button>
+                        <StackPanel>
+                            <FontIcon Glyph="&#xE104;" FontSize="20"/>
+                            <TextBlock Text="Cut" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                </toolkit:RibbonGroup>
+                <toolkit:RibbonGroup>
+                    <Button>
+                        <StackPanel>
+                            <FontIcon Glyph="&#xE105;" FontSize="20"/>
+                            <TextBlock Text="Copy" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                </toolkit:RibbonGroup>
+                <toolkit:RibbonGroup>
+                    <Button>
+                        <StackPanel>
+                            <FontIcon Glyph="&#xE16C;" FontSize="20"/>
+                            <TextBlock Text="Paste" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                </toolkit:RibbonGroup>
+            </toolkit:Ribbon>
+            <TabView>
+                <TabViewItem Header="SysInfo">
+                    <TextBlock Text="System Information" Margin="12"/>
+                </TabViewItem>
+                <TabViewItem Header="Text Editor">
+                    <TextBlock Text="Content for Text Editor" Margin="12"/>
+                </TabViewItem>
+                <TabViewItem Header="Markdown Editor">
+                    <TextBlock Text="Content for Markdown Editor" Margin="12"/>
+                </TabViewItem>
+            </TabView>
+        </StackPanel>
+    </Grid>
 </Page>

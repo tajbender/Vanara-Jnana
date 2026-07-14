@@ -53,6 +53,8 @@
 		<Folder Include="Vanara.WinUI.Extensions\Helpers\" />
 		<Folder Include="Vanara.WinUI.Extensions\Services\" />
 		<Folder Include="Vanara\Controls\Shell32\" />
+		<Folder Include="Views\Pages\" />
+		<Folder Include="Views\Tabs\" />
 	</ItemGroup>
 	<ItemGroup>
 		<Content Update="Assets\Vanara\Insert_Amiga-Disk.png">

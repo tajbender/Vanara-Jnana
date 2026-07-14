@@ -36,41 +36,42 @@ public sealed partial class FeatureTile : UserControl
                 ((FeatureTile)d).Command = (StandardUICommand)e.NewValue;
             }));
 
-
+    public event EventHandler Click;
+    public StandardUICommand Command
+    {
+        get => (StandardUICommand)GetValue(CommandProperty);
+        set => SetValue(CommandProperty, value);
+    }
+    public string Icon
+    {
+        get => (string)GetValue(IconProperty);
+        set => SetValue(IconProperty, value);
+    }
+    public string Subtitle
+    {
+        get => (string)GetValue(SubtitleProperty);
+        set => SetValue(SubtitleProperty, value);
+    }
     public string Title
     {
         get => (string)GetValue(TitleProperty);
         set => SetValue(TitleProperty, value);
     }
 
-    public string Subtitle
-    {
-        get => (string)GetValue(SubtitleProperty);
-        set => SetValue(SubtitleProperty, value);
-    }
-
-    public string Icon
-    {
-        get => (string)GetValue(IconProperty);
-        set => SetValue(IconProperty, value);
-    }
-
-    public event EventHandler Click;
-
-    public StandardUICommand Command
-    {
-        get => (StandardUICommand)GetValue(CommandProperty);
-        set => SetValue(CommandProperty, value);
-    }
-
+    /// <summary>
+    /// Initializes a new instance of the <see cref="FeatureTile"/> class, setting up the UI components and pointer interactions.
+    /// </summary>
     public FeatureTile()
     {
         InitializeComponent();
         SetupInteractions();
 
-        this.Click += (_, __) => Debug.WriteLine($"FeatureTile clicked: Title='{Title}', Subtitle='{Subtitle}'");
+        this.Click += (_, __) => Debug.WriteLine($"FeatureTile.Click(Title='{Title}', Subtitle='{Subtitle}')");
     }
 
+    /// <summary>
+    /// Sets up the pointer interactions for the FeatureTile, including hover and click effects.
+    /// </summary>
     private void SetupInteractions()
     {
         Root.PointerEntered += (_, __) =>
