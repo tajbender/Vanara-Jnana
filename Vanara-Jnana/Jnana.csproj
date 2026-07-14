@@ -53,7 +53,6 @@
 		<Folder Include="Vanara.WinUI.Extensions\Helpers\" />
 		<Folder Include="Vanara.WinUI.Extensions\Services\" />
 		<Folder Include="Vanara\Controls\Shell32\" />
-		<Folder Include="Views\Pages\" />
 		<Folder Include="Views\Tabs\" />
 	</ItemGroup>
 	<ItemGroup>
@@ -140,6 +139,11 @@
 	  <Resource Include="DOCS\ReadMe.de.md">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </Resource>
+	</ItemGroup>
+	<ItemGroup>
+	  <Page Update="Views\Pages\FileManagementOpus.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
 	</ItemGroup>
 	<ItemGroup>
 	  <Page Update="Views\DockPanels\DebugModeFloatingPanel.xaml">
