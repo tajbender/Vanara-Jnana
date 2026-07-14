@@ -38,14 +38,17 @@
                 </toolkit:RibbonGroup>
             </toolkit:Ribbon>
             <TabView>
+                <TabViewItem Header="File Opus">
+                    <TextBlock Text="Content for File Opus" Margin="12"/>
+                </TabViewItem>
+                <TabViewItem Header="Editor">
+                    <TextBlock Text="Content for Editors" Margin="12"/>
+                </TabViewItem>
+                <TabViewItem Header="ILSpy Disassembler">
+                    <TextBlock Text="ILSpy Disassembler" Margin="12"/>
+                </TabViewItem>
                 <TabViewItem Header="SysInfo">
                     <TextBlock Text="System Information" Margin="12"/>
-                </TabViewItem>
-                <TabViewItem Header="Text Editor">
-                    <TextBlock Text="Content for Text Editor" Margin="12"/>
-                </TabViewItem>
-                <TabViewItem Header="Markdown Editor">
-                    <TextBlock Text="Content for Markdown Editor" Margin="12"/>
                 </TabViewItem>
             </TabView>
         </StackPanel>
