@@ -9,8 +9,8 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
-    <ScrollViewer>
-        <StackPanel Spacing="16" Padding="24">
+    <ScrollViewer BorderThickness="3">
+        <StackPanel Spacing="16" Padding="24" >
             <!-- TODO: Icon -->
             <toolkit:SettingsCard Description="Choose between Light, Dark or System default" Header="Theme">
                 <!-- SelectedItem="{x:Bind ViewModel.AppTheme, Mode=TwoWay}" -->
