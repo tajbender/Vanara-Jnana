@@ -49,6 +49,7 @@
 	<ItemGroup>
 		<Folder Include="DOCS\docs.assets\Screenshots\" />
 		<Folder Include="DOCS\Templates\" />
+		<Folder Include="Styles\Backgrounds\" />
 		<Folder Include="Vanara.WinUI.Extensions\Controls\Shell32\" />
 		<Folder Include="Vanara.WinUI.Extensions\Helpers\" />
 		<Folder Include="Vanara.WinUI.Extensions\Services\" />

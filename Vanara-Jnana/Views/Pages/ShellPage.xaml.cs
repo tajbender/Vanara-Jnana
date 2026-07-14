@@ -45,8 +45,6 @@ public sealed partial class ShellPage : Page
         OpenNewTabCommand = new RelayCommand<string>(OpenNewTab);
         NavigateCommand.ExecuteRequested += NavigateCommand_ExecuteRequested;
 
-        //AddNewTab("Utilities", new UtilitiesPage(), new SymbolIconSource { Symbol = Symbol.Utilities });
-        //AddNewTab("Settings", new SettingsPage(), new SymbolIconSource { Symbol = Symbol.Settings });
         AddNewTab("Utilities", new UtilitiesPage());
         AddNewTab("Settings", new SettingsPage());
     }
