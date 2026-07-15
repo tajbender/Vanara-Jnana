@@ -32,13 +32,13 @@
             </toolkit:SettingsCard>
             
             <toolkit:SettingsExpander Header="Advanced Examples">
-                <toolkit:SettingsCard Description="Allow anonymous usage data" Header="Telemetry" />
-            </toolkit:SettingsExpander>
-            <toolkit:SettingsExpander Header="Advanced Examples">
-                <toolkit:SettingsCard Description="Allow anonymous usage data" Header="Telemetry" />
-            </toolkit:SettingsExpander>
-            <toolkit:SettingsExpander Header="Advanced Examples">
-                <toolkit:SettingsCard Description="Allow anonymous usage data" Header="Telemetry" />
+                <toolkit:SettingsCard Description="Allow anonymous usage data" Header="Telemetry">
+                    <ComboBox >
+                        <x:String>Navigate to last used Page</x:String>
+                        <x:String>Navigate to Workbench</x:String>
+                        <x:String>Navigate to Utility Page</x:String>
+                    </ComboBox>
+                </toolkit:SettingsCard>
             </toolkit:SettingsExpander>
         </StackPanel>
     </ScrollViewer>
