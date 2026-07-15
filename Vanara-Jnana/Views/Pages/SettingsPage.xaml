@@ -11,15 +11,32 @@
 
     <ScrollViewer BorderThickness="3">
         <StackPanel Spacing="16" Padding="24" >
+            <toolkit:SettingsCard Description="Select the page to navigate to on startup" Header="Startup behavior">
+                <!-- SelectedItem="{x:Bind ViewModel.AppTheme, Mode=TwoWay}" -->
+                <ComboBox >
+                    <x:String>Navigate to last used Page</x:String>
+                    <x:String>Navigate to Workbench</x:String>
+                    <x:String>Navigate to Utility Page</x:String>
+                </ComboBox>
+            </toolkit:SettingsCard>
+
             <!-- TODO: Icon -->
             <toolkit:SettingsCard Description="Choose between Light, Dark or System default" Header="Theme">
                 <!-- SelectedItem="{x:Bind ViewModel.AppTheme, Mode=TwoWay}" -->
                 <ComboBox >
+                    <x:String>Use System Setting</x:String>
                     <x:String>Light</x:String>
                     <x:String>Dark</x:String>
                     <x:String>High Contrast</x:String>
                 </ComboBox>
             </toolkit:SettingsCard>
+            
+            <toolkit:SettingsExpander Header="Advanced Examples">
+                <toolkit:SettingsCard Description="Allow anonymous usage data" Header="Telemetry" />
+            </toolkit:SettingsExpander>
+            <toolkit:SettingsExpander Header="Advanced Examples">
+                <toolkit:SettingsCard Description="Allow anonymous usage data" Header="Telemetry" />
+            </toolkit:SettingsExpander>
             <toolkit:SettingsExpander Header="Advanced Examples">
                 <toolkit:SettingsCard Description="Allow anonymous usage data" Header="Telemetry" />
             </toolkit:SettingsExpander>
