@@ -48,7 +48,25 @@
                     <TextBlock Text="ILSpy Disassembler" Margin="12"/>
                 </TabViewItem>
                 <TabViewItem Header="SysInfo">
-                    <TextBlock Text="System Information" Margin="12"/>
+                    <Grid RowDefinitions="Auto,*">
+                        <StackPanel Padding="12" Spacing="8">
+                            <TextBlock Text="Operating System:" Style="{StaticResource TitleTextBlockStyle}" />
+                            <!--<TextBlock Text="{x:Bind ViewModel.OSVersion}" />-->
+
+                            <TextBlock Text="WinAppSDK:" Style="{StaticResource TitleTextBlockStyle}" />
+                            <!--<TextBlock Text="{x:Bind ViewModel.WinAppSdkVersion}" />-->
+
+                            <TextBlock Text="Windows SDK:" Style="{StaticResource TitleTextBlockStyle}" />
+                            <!--<TextBlock Text="{x:Bind ViewModel.WindowsSdkVersion}" />-->
+
+                            <TextBlock Text="Machine Name:" Style="{StaticResource TitleTextBlockStyle}" />
+                            <!--<TextBlock Text="{x:Bind ViewModel.MachineName}" />-->
+
+                            <TextBlock Text="Workbench Version:" Style="{StaticResource TitleTextBlockStyle}" />
+                            <!--<TextBlock Text="{x:Bind ViewModel.WorkbenchVersion}" />-->
+                        </StackPanel>
+
+                    </Grid>
                 </TabViewItem>
             </TabView>
         </StackPanel>
