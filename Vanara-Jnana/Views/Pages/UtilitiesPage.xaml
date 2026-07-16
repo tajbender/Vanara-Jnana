@@ -7,6 +7,7 @@
     xmlns:toolkit="using:CommunityToolkit.WinUI.Controls"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    d:DataContext="{d:DesignInstance Type=viewmodels:UtilitiesPageViewModel}"
     mc:Ignorable="d">
 
     <Grid>
@@ -51,16 +52,16 @@
                     <Grid RowDefinitions="Auto,*">
                         <StackPanel Padding="12" Spacing="8">
                             <TextBlock Text="Operating System:" Style="{StaticResource TitleTextBlockStyle}" />
-                            <!--<TextBlock Text="{x:Bind ViewModel.OSVersion}" />-->
+                            <TextBlock Text="{x:Bind ViewModel.OSVersion}" />
 
                             <TextBlock Text="WinAppSDK:" Style="{StaticResource TitleTextBlockStyle}" />
-                            <!--<TextBlock Text="{x:Bind ViewModel.WinAppSdkVersion}" />-->
+                            <TextBlock Text="{x:Bind ViewModel.WinAppSdkVersion}" />
 
                             <TextBlock Text="Windows SDK:" Style="{StaticResource TitleTextBlockStyle}" />
-                            <!--<TextBlock Text="{x:Bind ViewModel.WindowsSdkVersion}" />-->
+                            <TextBlock Text="{x:Bind ViewModel.WindowsSdkVersion}" />
 
                             <TextBlock Text="Machine Name:" Style="{StaticResource TitleTextBlockStyle}" />
-                            <!--<TextBlock Text="{x:Bind ViewModel.MachineName}" />-->
+                            <TextBlock Text="{x:Bind ViewModel.MachineName}" />
 
                             <TextBlock Text="Workbench Version:" Style="{StaticResource TitleTextBlockStyle}" />
                             <!--<TextBlock Text="{x:Bind ViewModel.WorkbenchVersion}" />-->
