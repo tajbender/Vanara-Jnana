@@ -23,7 +23,7 @@
             <!-- TODO: Icon -->
             <toolkit:SettingsCard Description="Choose between Light, Dark or System default" Header="Theme">
                 <!-- SelectedItem="{x:Bind ViewModel.AppTheme, Mode=TwoWay}" -->
-                <ComboBox >
+                <ComboBox>
                     <x:String>Use System Setting</x:String>
                     <x:String>Light</x:String>
                     <x:String>Dark</x:String>
@@ -31,7 +31,7 @@
                 </ComboBox>
             </toolkit:SettingsCard>
             
-            <toolkit:SettingsExpander Header="Advanced Examples">
+            <!--<toolkit:SettingsExpander Header="Advanced Examples">
                 <toolkit:SettingsCard Description="Allow anonymous usage data" Header="Telemetry">
                     <ComboBox >
                         <x:String>Navigate to last used Page</x:String>
@@ -39,7 +39,7 @@
                         <x:String>Navigate to Utility Page</x:String>
                     </ComboBox>
                 </toolkit:SettingsCard>
-            </toolkit:SettingsExpander>
+            </toolkit:SettingsExpander>-->
         </StackPanel>
     </ScrollViewer>
 </Page>

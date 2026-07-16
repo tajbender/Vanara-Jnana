@@ -54,7 +54,6 @@
 		<Folder Include="Vanara.WinUI.Extensions\Helpers\" />
 		<Folder Include="Vanara.WinUI.Extensions\Services\" />
 		<Folder Include="Vanara\Controls\Shell32\" />
-		<Folder Include="Views\Tabs\" />
 	</ItemGroup>
 	<ItemGroup>
 		<Content Update="Assets\Vanara\Insert_Amiga-Disk.png">
@@ -128,6 +127,7 @@
 		<None Remove="Views\DockPanels\DebugModeFloatingPanel.xaml" />
 		<None Remove="Views\DockPanels\InspectorView.xaml" />
 		<None Remove="Views\ShellPage.xaml" />
+		<None Remove="Views\Tabs\HexEditorTab.xaml" />
 		<None Remove="Views\UtilitiesPage.xaml" />
 		<None Remove="Views\VoidPage.xaml" />
 	</ItemGroup>
@@ -140,6 +140,11 @@
 	  <Resource Include="DOCS\ReadMe.de.md">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </Resource>
+	</ItemGroup>
+	<ItemGroup>
+	  <Page Update="Views\Tabs\HexEditorTab.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
 	</ItemGroup>
 	<ItemGroup>
 	  <Page Update="Views\Pages\FileManagementOpus.xaml">
