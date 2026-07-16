@@ -4,6 +4,7 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
+  <Project Path="../Vanara.WinUI.Extensions/Vanara.WinUI.Extensions.csproj" Id="1490829b-889b-4fd0-b4ea-c4202c4730c4" />
   <Project Path="Jnana.csproj">
     <Deploy />
   </Project>
