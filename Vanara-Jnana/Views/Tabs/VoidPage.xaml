@@ -27,6 +27,7 @@
                     <TextBlock FontSize="13" Opacity="0.8" Style="{ThemeResource CaptionTextBlockStyle}" Text="Latest Version TODO: Insert latest Version here"/>
                     <AppBarSeparator Margin="0,8"/>
                 </StackPanel>
+                <controls:SettingsCard ActionIconToolTip="Visit official NuGet page in your Web Browser." Description="Visit official NuGets page." Header="Visit NuGet" IsClickEnabled="True" IsEnabled="True"/>
                 <Border BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8" Padding="12">
                     <ItemsRepeater ItemsSource="{x:Bind ViewModel.NuGetsViewModel.Packages}" MinHeight="127">
                         <ItemsRepeater.Layout>
@@ -34,7 +35,6 @@
                         </ItemsRepeater.Layout>
                     </ItemsRepeater>
                 </Border>
-                <controls:SettingsCard ActionIconToolTip="Visit official NuGets page in new Web Browser Window." Description="Visit official NuGets page." Header="Visit NuGet" IsClickEnabled="True" IsEnabled="True"/>
             </StackPanel>
         </ScrollViewer>
 
@@ -43,12 +43,13 @@
                 <TextBlock FontSize="32" Style="{StaticResource CaptionTextBlockStyle}" Text="GitHub"/>
                 <TextBlock FontSize="13" Opacity="0.8" Style="{ThemeResource CaptionTextBlockStyle}" Text="Vanara on GitHub."/>
                 <AppBarSeparator Margin="0,8"/>
-                <controls:SettingsCard ActionIconToolTip="Visit official NuGets page in new Web Browser Window." Header="Vanara" IsClickEnabled="True" IsEnabled="True"/>
+                <controls:SettingsCard ActionIconToolTip="Visit Vanara GitHub in your Web Browser." Description="Visit official GitHub page." Header="Visit Vanara on GitHub" IsClickEnabled="True" IsEnabled="True"/>
                 <controls:SettingsCard ActionIconToolTip="Visit official NuGets page in new Web Browser Window." Header="Issues" IsClickEnabled="True" IsEnabled="True"/>
                 <controls:SettingsCard ActionIconToolTip="Visit official NuGets page in new Web Browser Window." Header="Pull Requests" IsClickEnabled="True" IsEnabled="True"/>
                 <controls:SettingsCard ActionIconToolTip="Visit official NuGets page in new Web Browser Window." Header="Discussions" IsClickEnabled="True" IsEnabled="True"/>
                 <controls:SettingsCard ActionIconToolTip="Visit official NuGets page in new Web Browser Window." Header="Releases" IsClickEnabled="True" IsEnabled="True"/>
                 <controls:SettingsCard ActionIconToolTip="Visit official NuGets page in new Web Browser Window." Header="License" IsClickEnabled="True" IsEnabled="True"/>
+                <controls:SettingsCard ActionIconToolTip="Launch GitHub Desktop." Description="Launch GitHub Desktop application." Header="Launch GitHub Desktop" IsClickEnabled="True" IsEnabled="True"/>
             </StackPanel>
         </ScrollViewer>
 
