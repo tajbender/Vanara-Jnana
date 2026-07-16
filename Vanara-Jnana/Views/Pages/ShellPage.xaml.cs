@@ -46,7 +46,7 @@ public sealed partial class ShellPage : Page
         OpenNewTabCommand = new RelayCommand<string>(OpenNewTab);
         NavigateCommand.ExecuteRequested += NavigateCommand_ExecuteRequested;
 
-        AddNewTab("GitHub: Vanara", new NuGetsPage(NuGetViewModel));
+        //AddNewTab("GitHub: Vanara", new NuGetsPage(NuGetViewModel));  // TODO: The NuGetsPage is currently crashing due to a NullReferenceException in the NuGetViewModel. Investigate and resolve this issue before enabling this tab.
         AddNewTab("Utilities", new UtilitiesPage());
         AddNewTab("Settings", new SettingsPage());
     }
