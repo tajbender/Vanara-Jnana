@@ -20,7 +20,7 @@ public sealed partial class NuGetsPage : Page
     public NuGetsPage(NuGetsAreaViewModel viewModel, ILogger? logger = null)
     {
         InitializeComponent();
-        ViewModel = viewModel;
+        ViewModel = viewModel ?? new();
         this.logger = logger ?? new NullLogger();
 
         //ViewModel.SynchronizePackageCacheAsync().ContinueWith(t =>

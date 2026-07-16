@@ -124,6 +124,7 @@
 	<ItemGroup>
 		<None Remove="DOCS\docs.assets\WinForms Sampler.zip" />
 		<None Remove="DOCS\ReadMe.de.md" />
+		<None Remove="Vanara\Controls\NuGetPackageCard.xaml" />
 		<None Remove="Views\DockPanels\DebugModeFloatingPanel.xaml" />
 		<None Remove="Views\DockPanels\InspectorView.xaml" />
 		<None Remove="Views\ShellPage.xaml" />
@@ -140,6 +141,11 @@
 	  <Resource Include="DOCS\ReadMe.de.md">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </Resource>
+	</ItemGroup>
+	<ItemGroup>
+	  <Page Update="Vanara\Controls\NuGetPackageCard.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
 	</ItemGroup>
 	<ItemGroup>
 	  <Page Update="Views\Tabs\HexEditorTab.xaml">
