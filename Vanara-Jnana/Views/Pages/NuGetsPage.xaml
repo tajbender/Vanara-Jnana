@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Page
-    x:Class="Jnana.Views.NuGetsPage"
+    x:Class="Jnana.Views.Pages.NuGetsPage"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:Jnana.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -9,13 +9,33 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
     xmlns:tkcontrols="using:CommunityToolkit.WinUI.Controls">
 
-    <Grid Background="#0FFFFFFF" ColumnSpacing="42" HorizontalAlignment="Stretch" Padding="7" VerticalAlignment="Stretch">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+    <Grid RowDefinitions="Auto,*" Padding="16">
 
-        <!-- Package list -->
+        <!-- Search Bar -->
+        <StackPanel Orientation="Horizontal" Spacing="8">
+            <AutoSuggestBox
+                x:Name="SearchBox"
+                Width="300"
+                PlaceholderText="NuGet-Pakete suchen..." />
+
+            <Button Content="Aktualisieren" />
+        </StackPanel>
+
+        <!-- Package List -->
+        <ScrollViewer Grid.Row="1">
+            <ItemsRepeater x:Name="PackageRepeater">
+                <ItemsRepeater.Layout>
+                    <UniformGridLayout
+                        ItemsJustification="Start"
+                        MinColumnSpacing="12"
+                        MinRowSpacing="12"
+                        MinItemWidth="320" />
+                </ItemsRepeater.Layout>
+            </ItemsRepeater>
+        </ScrollViewer>
+
+    </Grid>
+        <!-- Package list --><!--
         <ScrollViewer x:Name="PackageListScrollViewer" Grid.Column="0" BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8">
             <TreeView x:Name="PackageTreeView" Grid.Column="0" ItemsSource="{x:Bind ViewModel.Packages}" SelectionChanged="PackageTreeView_SelectionChanged">
                 <TreeView.ItemTemplate>
@@ -33,7 +53,7 @@
             </TreeView>
         </ScrollViewer>
 
-        <!-- Right pane info panel -->
+        --><!-- Right pane info panel --><!--
         <Border Grid.Column="1" Background="#0FFFFFFF" BorderBrush="#0FFFFFFF" BorderThickness="1" CornerRadius="8">
             <Grid DataContext="{x:Bind ViewModel.PackageDetailViewModel}">
                 <Grid.RowDefinitions>
@@ -57,6 +77,5 @@
                     <Button Content="License..." IsEnabled="False"/>
                 </StackPanel>
             </Grid>
-        </Border>
-    </Grid>
+        </Border>-->
 </Page>

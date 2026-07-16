@@ -2,6 +2,7 @@ using CommunityToolkit.Mvvm.Input;
 using Jnana.Models;
 using Jnana.Services;
 using Jnana.ViewModels;
+using Jnana.Views.Pages;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Input;
 using System.Collections.ObjectModel;
@@ -12,7 +13,7 @@ namespace Jnana.Views;
 
 public sealed partial class ShellPage : Page
 {
-    private NuGetsAreaViewModel NuGetsVM { get; }
+    private NuGetsAreaViewModel NuGetViewModel { get; }
     private GitHubAreaViewModel GitHubVM { get; }
     private SamplesAreaViewModel SamplesVM { get; }
     private NavigationService _navigationService { get; }
@@ -30,12 +31,12 @@ public sealed partial class ShellPage : Page
     {
         InitializeComponent();
         Tabs = new ObservableCollection<TabViewItem>();
-        NuGetsVM = new NuGetsAreaViewModel();
+        NuGetViewModel = new NuGetsAreaViewModel();
         GitHubVM = new GitHubAreaViewModel();
         SamplesVM = new SamplesAreaViewModel();
         _navigationService = new NavigationService(WorkbenchFrame); // TODO: Use dependency injection to provide the NavigationService instance, and consider making it a singleton if it doesn't need to maintain any state
 
-        _ = NuGetsVM.SynchronizePackageCacheAsync();
+        _ = NuGetViewModel.SynchronizePackageCacheAsync();
 
         // OnLoading: Navigate to the default area (Void) to ensure the main content area
         // is populated with a page, and to establish a consistent starting point for navigation
@@ -45,6 +46,7 @@ public sealed partial class ShellPage : Page
         OpenNewTabCommand = new RelayCommand<string>(OpenNewTab);
         NavigateCommand.ExecuteRequested += NavigateCommand_ExecuteRequested;
 
+        AddNewTab("GitHub: Vanara", new NuGetsPage(NuGetViewModel));
         AddNewTab("Utilities", new UtilitiesPage());
         AddNewTab("Settings", new SettingsPage());
     }
