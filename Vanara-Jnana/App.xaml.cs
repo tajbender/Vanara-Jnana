@@ -1,9 +1,8 @@
-using Jnana;
 using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
 //using LaunchActivatedEventArgs = Windows.ApplicationModel.Activation.LaunchActivatedEventArgs;
 
-namespace ClassicSamplesBrowser;
+namespace Jnana;
 
 public partial class App : Application
 {
