@@ -127,6 +127,7 @@
 		<None Remove="Vanara\Controls\NuGetPackageCard.xaml" />
 		<None Remove="Vanara\Controls\Shell32\ShellInfoPanel.xaml" />
 		<None Remove="Views\DockPanels\DebugModeFloatingPanel.xaml" />
+		<None Remove="Views\DockPanels\FileWatcherPanel.xaml" />
 		<None Remove="Views\DockPanels\InspectorView.xaml" />
 		<None Remove="Views\ShellPage.xaml" />
 		<None Remove="Views\Tabs\HexEditorTab.xaml" />
@@ -142,6 +143,11 @@
 	  <Resource Include="DOCS\ReadMe.de.md">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </Resource>
+	</ItemGroup>
+	<ItemGroup>
+	  <Page Update="Views\DockPanels\FileWatcherPanel.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
 	</ItemGroup>
 	<ItemGroup>
 	  <Page Update="Vanara\Controls\Shell32\ShellInfoPanel.xaml">

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UserControl
+    x:Class="Jnana.Views.DockPanels.FileWatcherPanel"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Jnana.Views.DockPanels"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid ColumnDefinitions="260,*" RowDefinitions="Auto,*">
+
+        <!-- Ribbon / CommandBar -->
+        <CommandBar Grid.Row="0">
+            <AppBarButton Icon="Play" Label="Start" Command="{Binding StartCommand}" />
+            <AppBarButton Icon="Pause" Label="Pause" Command="{Binding PauseCommand}" />
+            <AppBarButton Icon="Delete" Label="Clear" Command="{Binding ClearEventsCommand}" />
+
+            <AppBarSeparator />
+
+            <AppBarButton Icon="Add" Label="Add File" Command="{Binding AddFileCommand}" />
+            <AppBarButton Icon="Add" Label="Add Folder" Command="{Binding AddFolderCommand}" />
+
+            <AppBarSeparator />
+
+            <AppBarToggleButton Label="Recursive" IsChecked="{Binding Recursive}" />
+
+            <AppBarSeparator />
+
+            <AppBarButton Icon="Save" Label="Export" Command="{Binding ExportCommand}" />
+        </CommandBar>
+
+        <!-- Left: Sources -->
+        <StackPanel Grid.Row="1" Grid.Column="0" Padding="12" Spacing="8">
+            <TextBlock Text="Sources" Style="{StaticResource SubtitleTextBlockStyle}" />
+
+            <ListView ItemsSource="{Binding Sources}"
+                      SelectedItem="{Binding SelectedSource}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <FontIcon Glyph="{Binding IconGlyph}" />
+                            <TextBlock Text="{Binding Path}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Button Content="Remove Selected"
+                    Command="{Binding RemoveSourceCommand}"
+                    Margin="0,8,0,0" />
+        </StackPanel>
+
+        <!-- Right: Event Stream -->
+        <Grid Grid.Row="1" Grid.Column="1" Padding="12">
+            <!--<DataGrid ItemsSource="{Binding Events}"
+                      AutoGenerateColumns="False"
+                      IsReadOnly="True"
+                      HeadersVisibility="Column"
+                      GridLinesVisibility="None">
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Timestamp"
+                                        Binding="{Binding Timestamp}"
+                                        Width="160" />
+
+                    <DataGridTextColumn Header="Type"
+                                        Binding="{Binding Type}"
+                                        Width="100" />
+
+                    <DataGridTextColumn Header="Path"
+                                        Binding="{Binding Path}"
+                                        Width="*" />
+
+                    <DataGridTextColumn Header="Old Path"
+                                        Binding="{Binding OldPath}"
+                                        Width="*" />
+                </DataGrid.Columns>
+
+            </DataGrid>-->
+        </Grid>
+    </Grid>
+</UserControl>
