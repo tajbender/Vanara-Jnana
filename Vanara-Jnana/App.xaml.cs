@@ -14,6 +14,7 @@ public partial class App : Application
         InitializeComponent();
         // TODO: AppWindowTitleBar.SetIcon("Assets/VanaraMonkey.png");
         // TODO: AppWindowTitleBar.SetDragRegion(new Rect(0, 0, 100, 32));
+        // TODO: CoreWebView2Environment.CreateAsync(null, "C:\\temp\\wv2logs", null);
     }
     private MainWindow? GetOrCreateMainWindow(bool allowInitialCreation = false)
     {
