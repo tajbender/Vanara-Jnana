@@ -1,0 +1,65 @@
+<ContentDialog
+    x:Class="Jnana.UI.GuruMeditationDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="Guru Meditation"
+    PrimaryButtonText="Report this bug"
+    SecondaryButtonText="Restart Jñāna"
+    CloseButtonText="Ignore and continue"
+    DefaultButton="Primary"
+    Background="#FF000000"
+    Foreground="#FFFF3B3B"
+    CornerRadius="0"
+    Padding="32">
+
+    <StackPanel Spacing="24">
+
+        <!-- Classic red bar -->
+        <Border Height="4"
+                Background="#FFFF3B3B"
+                HorizontalAlignment="Stretch"
+                Margin="0,0,0,12"/>
+
+        <!-- Error code -> Text="{x:Bind ErrorCode}" -->
+        <TextBlock 
+                   FontSize="28"
+                   FontWeight="Bold"
+                   HorizontalAlignment="Center"
+                   TextAlignment="Center"/>
+
+        <!-- Error message -> Text="{x:Bind ErrorMessage}" -->
+        <TextBlock 
+                   FontSize="16"
+                   TextWrapping="Wrap"
+                   HorizontalAlignment="Center"
+                   TextAlignment="Center"
+                   Margin="0,0,0,12"/>
+
+        <!-- Stacktrace box -->
+        <Border Background="#22000000"
+                Padding="12"
+                CornerRadius="4"
+                BorderBrush="#44FF3B3B"
+                BorderThickness="1">
+            <ScrollViewer Height="180">
+                <!-- Text="{x:Bind StackTrace}"-->
+                <TextBlock 
+                           FontFamily="Consolas"
+                           FontSize="14"
+                           TextWrapping="Wrap"/>
+            </ScrollViewer>
+        </Border>
+
+        <!-- Optional: dump file info -->
+        <!-- Text="{x:Bind DumpFilePath}" -->
+        <TextBlock 
+                   FontSize="12"
+                   Opacity="0.7"
+                   TextAlignment="Center"
+                   Margin="0,12,0,0"/>
+
+    </StackPanel>
+</ContentDialog>

@@ -122,7 +122,6 @@
 		<PRIResource Remove="Resources\**" />
 	</ItemGroup>
 	<ItemGroup>
-		<None Remove="Controls\GuruMeditationPanel.xaml" />
 		<None Remove="DOCS\docs.assets\WinForms Sampler.zip" />
 		<None Remove="DOCS\ReadMe.de.md" />
 		<None Remove="Vanara\Controls\NuGetPackageCard.xaml" />
@@ -145,7 +144,7 @@
 	  </Resource>
 	</ItemGroup>
 	<ItemGroup>
-	  <Page Update="Controls\GuruMeditationPanel.xaml">
+	  <Page Update="Controls\GuruMeditationDialog.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </Page>
 	</ItemGroup>
