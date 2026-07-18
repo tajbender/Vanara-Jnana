@@ -6,13 +6,30 @@
     AllowDrop="True">
 
     <Grid Background="{ThemeResource LayerFillColorDefaultBrush}">
-        <StackPanel Orientation="Horizontal" Spacing="8" Padding="6">
-            <!-- Beispiel-Glyphs -->
-            <FontIcon Glyph="&#xE7C3;" ToolTipService.ToolTip="Explorer" />
-            <FontIcon Glyph="&#xE8A5;" ToolTipService.ToolTip="More" />
-            <FontIcon Glyph="&#xE9CE;" ToolTipService.ToolTip="Settings" />
-            <FontIcon Glyph="&#xE74D;" ToolTipService.ToolTip="Run" />
-            <FontIcon Glyph="&#xE7F8;" ToolTipService.ToolTip="Tag" />
+        <StackPanel Orientation="Horizontal"
+                    Spacing="10"
+                    Padding="8"
+                    VerticalAlignment="Center">
+
+            <!-- Static Glyphs (Grundausstattung) -->
+            <FontIcon Glyph="&#xE7C3;" FontSize="20" ToolTipService.ToolTip="Explorer" />
+            <FontIcon Glyph="&#xE8A5;" FontSize="20" ToolTipService.ToolTip="More" />
+            <FontIcon Glyph="&#xE9CE;" FontSize="20" ToolTipService.ToolTip="Settings" />
+            <FontIcon Glyph="&#xE7F8;" FontSize="20" ToolTipService.ToolTip="Tags" />
+            <FontIcon Glyph="&#xE946;" FontSize="20" ToolTipService.ToolTip="Activity" />
+
+            <!-- Dynamische Launch-Items -->
+            <ItemsRepeater ItemsSource="{x:Bind ViewModel.Items}">
+                <!-- TODO: Uncomment the following lines to enable dynamic item templates for QuickLaunchItems
+                <ItemsRepeater.ItemTemplate>
+                    <DataTemplate x:DataType="local:QuickLaunchItem">
+                        <FontIcon Glyph="{x:Bind Glyph}"
+                                  FontSize="20"
+                                  ToolTipService.ToolTip="{x:Bind DisplayName}" />
+                    </DataTemplate>
+                </ItemsRepeater.ItemTemplate>-->
+            </ItemsRepeater>
+
         </StackPanel>
     </Grid>
 </UserControl>
