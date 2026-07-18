@@ -1,4 +1,5 @@
 using Microsoft.UI.Xaml.Controls;
+using Windows.Foundation;
 
 namespace Jnana.Controls;
 
@@ -9,24 +10,24 @@ public sealed partial class GuruMeditationDialog : ContentDialog
     public string StackTrace { get; set; }
     public string DumpFilePath { get; set; }
 
-    public GuruMeditationDialog(Exception ex, string dumpPath = null)
+    public GuruMeditationDialog(Exception ex, string dumpPath)
     {
-        //this.InitializeComponent();
+        // TODO: this.InitializeComponent();
 
+        DumpFilePath = dumpPath ?? "";
         ErrorCode = $"GURU MEDITATION #{ex.HResult:X8}";
         ErrorMessage = ex.Message;
         StackTrace = ex.ToString();
-        DumpFilePath = dumpPath ?? "";
     }
 
     /// <summary>
-    /// Show the Guru Meditation dialog.
+    /// Show the Guru Meditation dialog asynchronously.
     /// </summary>
-
     public void ShowDialogAsync()
     {
-        this.ShowAsync();
+        IAsyncOperation<ContentDialogResult> asyncOperation = this.ShowAsync();
     }
+
 
     public void CloseDialog()
     {
@@ -35,6 +36,8 @@ public sealed partial class GuruMeditationDialog : ContentDialog
 
     public void SetDumpFilePath(string dumpPath)
     {
+        // Set the dump file path for the dialog
+        // TODO: Use property binding to display the dump file path in the dialog
         DumpFilePath = dumpPath;
     }
 
@@ -42,23 +45,23 @@ public sealed partial class GuruMeditationDialog : ContentDialog
     /// Tie the Guru Meditation dialog to the application to catch unhandled exceptions and display the dialog.
     /// </summary>
     public void AttachToApp()
-    {         // Attach the dialog to the application
-              // TODO:  Application.Current.UnhandledException += (sender, e) =>
-              //        {   this.ErrorCode = $"GURU MEDITATION #{e.Exception.HResult:X8}";
-              //            this.ErrorMessage = e.Exception.Message;
-              //            this.StackTrace = e.Exception.ToString();
-              //            this.ShowDialog(); }
+    {
+        // add. the event hook here...
 
 
 
-        /*
-App.Current.UnhandledException += (sender, e) =>
-{
-    var dialog = new GuruMeditationDialog(e.Exception);
-    _ = dialog.ShowAsync();
-    e.Handled = true;
-};
+        // Attach the dialog to the application
+        // TODO:  Application.Current.UnhandledException += (sender, e) =>
+        //        {   this.ErrorCode = $"GURU MEDITATION #{e.Exception.HResult:X8}";
+        //            this.ErrorMessage = e.Exception.Message;
+        //            this.StackTrace = e.Exception.ToString();
+        //            this.ShowDialog(); }
+        // App.Current.UnhandledException += (sender, e) =>
+        // {
+        //     var dialog = new GuruMeditationDialog(e.Exception);
+        //     _ = dialog.ShowAsync();
+        //     e.Handled = true;
+        // };
          
-         */
     }
 }
