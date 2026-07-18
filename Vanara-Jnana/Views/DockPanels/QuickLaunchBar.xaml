@@ -1,0 +1,18 @@
+<UserControl
+    x:Class="Jnana.Views.DockPanels.QuickLaunchDockPanel"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ui="using:Microsoft.UI.Xaml.Controls"
+    AllowDrop="True">
+
+    <Grid Background="{ThemeResource LayerFillColorDefaultBrush}">
+        <StackPanel Orientation="Horizontal" Spacing="8" Padding="6">
+            <!-- Beispiel-Glyphs -->
+            <FontIcon Glyph="&#xE7C3;" ToolTipService.ToolTip="Explorer" />
+            <FontIcon Glyph="&#xE8A5;" ToolTipService.ToolTip="More" />
+            <FontIcon Glyph="&#xE9CE;" ToolTipService.ToolTip="Settings" />
+            <FontIcon Glyph="&#xE74D;" ToolTipService.ToolTip="Run" />
+            <FontIcon Glyph="&#xE7F8;" ToolTipService.ToolTip="Tag" />
+        </StackPanel>
+    </Grid>
+</UserControl>

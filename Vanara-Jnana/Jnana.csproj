@@ -129,7 +129,6 @@
 		<None Remove="Views\DockPanels\DebugModeFloatingPanel.xaml" />
 		<None Remove="Views\DockPanels\FileWatcherPanel.xaml" />
 		<None Remove="Views\DockPanels\InspectorView.xaml" />
-		<None Remove="Views\DockPanels\QuickLaunchDockPanel.xaml" />
 		<None Remove="Views\ShellPage.xaml" />
 		<None Remove="Views\Tabs\HexEditorTab.xaml" />
 		<None Remove="Views\UtilitiesPage.xaml" />
@@ -146,7 +145,7 @@
 	  </Resource>
 	</ItemGroup>
 	<ItemGroup>
-	  <Page Update="Views\DockPanels\QuickLaunchDockPanel.xaml">
+	  <Page Update="Views\DockPanels\QuickLaunchBar.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </Page>
 	</ItemGroup>
