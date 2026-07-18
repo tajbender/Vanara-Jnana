@@ -129,6 +129,7 @@
 		<None Remove="Views\DockPanels\DebugModeFloatingPanel.xaml" />
 		<None Remove="Views\DockPanels\FileWatcherPanel.xaml" />
 		<None Remove="Views\DockPanels\InspectorView.xaml" />
+		<None Remove="Views\DockPanels\QuickLaunchDockPanel.xaml" />
 		<None Remove="Views\ShellPage.xaml" />
 		<None Remove="Views\Tabs\HexEditorTab.xaml" />
 		<None Remove="Views\UtilitiesPage.xaml" />
@@ -143,6 +144,11 @@
 	  <Resource Include="DOCS\ReadMe.de.md">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </Resource>
+	</ItemGroup>
+	<ItemGroup>
+	  <Page Update="Views\DockPanels\QuickLaunchDockPanel.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
 	</ItemGroup>
 	<ItemGroup>
 	  <Page Update="Views\DockPanels\FileWatcherPanel.xaml">
