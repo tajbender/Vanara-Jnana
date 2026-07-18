@@ -6,16 +6,21 @@ using System.Threading.Tasks;
 
 namespace Jnana.Models;
 
-public interface IFileWatcherService
-{
-}
-
 public enum FileWatchEventType
 {
     Created,
     Deleted,
     Changed,
     Renamed
+}
+
+public interface IFileWatcherService
+{
+    void AddSource(FileWatchSource source);
+    void RemoveSource(FileWatchSource source);
+    void Start();
+    void Pause();
+    event EventHandler<FileWatchEvent> EventReceived;
 }
 
 public class FileWatchSource

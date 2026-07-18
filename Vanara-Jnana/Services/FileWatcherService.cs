@@ -12,6 +12,19 @@ public class FileWatcherService : IFileWatcherService
 
     public event EventHandler<FileWatchEvent>? EventReceived;
 
+    event EventHandler<Models.FileWatchEvent> IFileWatcherService.EventReceived
+    {
+        add
+        {
+            throw new NotImplementedException();
+        }
+
+        remove
+        {
+            throw new NotImplementedException();
+        }
+    }
+
     public void AddSource(FileWatchSource source)
     {
         var watcher = new FileSystemWatcher
@@ -78,6 +91,16 @@ public class FileWatcherService : IFileWatcherService
 
         return w.Path.Equals(Path.GetDirectoryName(src.Path), StringComparison.OrdinalIgnoreCase)
             && w.Filter.Equals(Path.GetFileName(src.Path), StringComparison.OrdinalIgnoreCase);
+    }
+
+    public void AddSource(Models.FileWatchSource source)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void RemoveSource(Models.FileWatchSource source)
+    {
+        throw new NotImplementedException();
     }
 }
 

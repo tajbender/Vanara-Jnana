@@ -1,10 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Jnana.Models;
-using Microsoft.UI.Xaml.Controls;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
-using System.Xml.Linq;
 
 namespace Jnana.ViewModels;
 
@@ -33,7 +31,7 @@ public class FileWatcherViewModel : ObservableObject
     {
         _service = service;
 
-        _service.EventReceived += OnEventReceived;
+        this._service.EventReceived += OnEventReceived;
 
         AddFileCommand = new RelayCommand(AddFile);
         AddFolderCommand = new RelayCommand(AddFolder);
@@ -41,6 +39,11 @@ public class FileWatcherViewModel : ObservableObject
         StartCommand = new RelayCommand(() => _service.Start());
         PauseCommand = new RelayCommand(() => _service.Pause());
         ClearEventsCommand = new RelayCommand(() => Events.Clear());
+    }
+
+    private void OnEventReceived(object? sender, Models.FileWatchEvent e)
+    {
+        throw new NotImplementedException();
     }
 
     private void AddFile()
@@ -65,18 +68,20 @@ public class FileWatcherViewModel : ObservableObject
 
     private void RemoveSource()
     {
-        if (SelectedSource == null) return;
-
-        _service.RemoveSource(SelectedSource);
-        Sources.Remove(SelectedSource);
+//    TODO:
+//        if (SelectedSource == null) return;
+//
+//        _service.RemoveSource(SelectedSource);
+//        Sources.Remove(SelectedSource);
     }
 
     private void OnEventReceived(object? sender, FileWatchEvent e)
     {
-        App.DispatcherQueue.TryEnqueue(() =>
-        {
-            Events.Add(e);
-        });
+        //    TODO:
+        //        App.DispatcherQueue.TryEnqueue(() =>
+        //        {
+        //            Events.Add(e);
+        //        });
     }
 }
 
