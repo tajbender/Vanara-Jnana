@@ -21,9 +21,13 @@
 	</PropertyGroup>
 	<ItemGroup>
 		<Compile Remove="Resources\**" />
+		<Compile Remove="Vanara.WinUI.Extensions\**" />
 		<EmbeddedResource Remove="Resources\**" />
+		<EmbeddedResource Remove="Vanara.WinUI.Extensions\**" />
 		<None Remove="Resources\**" />
+		<None Remove="Vanara.WinUI.Extensions\**" />
 		<Page Remove="Resources\**" />
+		<Page Remove="Vanara.WinUI.Extensions\**" />
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Labs.WinUI.Controls.MarkdownTextBlock" Version="0.1.260529-build.2632" />
@@ -39,8 +43,6 @@
 		<PackageReference Include="CommunityToolkit.WinUI.Media" Version="8.2.251219" />
 		<PackageReference Include="CommunityToolkit.WinUI.Triggers" Version="8.2.251219" />
 		<PackageReference Include="Microsoft.WindowsAppSDK" Version="2.3.1" />
-		<PackageReference Include="NuGet.Common" Version="7.6.0" />
-		<PackageReference Include="NuGet.Protocol" Version="7.6.0" />
 		<PackageReference Include="Vanara.Core" Version="5.0.5" />
 		<PackageReference Include="Vanara.PInvoke.Shell32" Version="5.0.5" />
 		<PackageReference Include="Vanara.PInvoke.User32" Version="5.0.5" />
@@ -50,9 +52,6 @@
 		<Folder Include="DOCS\docs.assets\Screenshots\" />
 		<Folder Include="DOCS\Templates\" />
 		<Folder Include="Styles\Backgrounds\" />
-		<Folder Include="Vanara.WinUI.Extensions\Controls\Shell32\" />
-		<Folder Include="Vanara.WinUI.Extensions\Helpers\" />
-		<Folder Include="Vanara.WinUI.Extensions\Services\" />
 		<Folder Include="Vanara\Controls\Shell32\" />
 	</ItemGroup>
 	<ItemGroup>
@@ -207,5 +206,8 @@
 		<Page Update="Views\UtilitiesPage.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</Page>
+	</ItemGroup>
+	<ItemGroup>
+	  <PRIResource Remove="Vanara.WinUI.Extensions\**" />
 	</ItemGroup>
 </Project>
