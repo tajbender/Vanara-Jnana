@@ -130,7 +130,6 @@
 		<None Remove="Views\DockPanels\FileWatcherPanel.xaml" />
 		<None Remove="Views\DockPanels\InspectorView.xaml" />
 		<None Remove="Views\ShellPage.xaml" />
-		<None Remove="Views\Tabs\HexEditorTab.xaml" />
 		<None Remove="Views\UtilitiesPage.xaml" />
 		<None Remove="Views\VoidPage.xaml" />
 	</ItemGroup>
@@ -165,7 +164,7 @@
 	  </Page>
 	</ItemGroup>
 	<ItemGroup>
-	  <Page Update="Views\Tabs\HexEditorTab.xaml">
+	  <Page Update="Views\Tabs\TextEditorTab.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </Page>
 	</ItemGroup>
