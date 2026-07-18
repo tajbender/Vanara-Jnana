@@ -49,12 +49,15 @@
 		<PackageReference Include="Vanara.Windows.Shell" Version="5.0.5" />
 	</ItemGroup>
 	<ItemGroup>
-		<Folder Include="DOCS\docs.assets\Screenshots\" />
-		<Folder Include="DOCS\Templates\" />
+		<Folder Include="Assets\DOCS.de-DE\" />
+		<Folder Include="Assets\DOCS\DOCS.assets\Screenshots\" />
 		<Folder Include="Styles\Backgrounds\" />
 		<Folder Include="Vanara\Controls\Shell32\" />
 	</ItemGroup>
 	<ItemGroup>
+		<Content Update="Assets\DOCS\DOCS.assets\WinForms Sampler.zip">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
 		<Content Update="Assets\Vanara\Insert_Amiga-Disk.png">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
@@ -93,7 +96,7 @@
 		</Page>
 	</ItemGroup>
 	<ItemGroup>
-		<EmbeddedResource Include="DOCS\docs.assets\WinUi-Sailing.png">
+		<EmbeddedResource Include="Assets\DOCS\DOCS.assets\WinUi-Sailing.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</EmbeddedResource>
 	</ItemGroup>
@@ -121,8 +124,7 @@
 		<PRIResource Remove="Resources\**" />
 	</ItemGroup>
 	<ItemGroup>
-		<None Remove="DOCS\docs.assets\WinForms Sampler.zip" />
-		<None Remove="DOCS\ReadMe.de.md" />
+		<None Remove="Assets\DOCS\DOCS.assets\WinForms Sampler.zip" />
 		<None Remove="Vanara\Controls\NuGetPackageCard.xaml" />
 		<None Remove="Vanara\Controls\Shell32\ShellInfoPanel.xaml" />
 		<None Remove="Views\DockPanels\DebugModeFloatingPanel.xaml" />
@@ -133,12 +135,7 @@
 		<None Remove="Views\VoidPage.xaml" />
 	</ItemGroup>
 	<ItemGroup>
-	  <Content Include="DOCS\docs.assets\WinForms Sampler.zip">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </Content>
-	</ItemGroup>
-	<ItemGroup>
-	  <Resource Include="DOCS\ReadMe.de.md">
+	  <Resource Include="Assets\ReadMe.de.md">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </Resource>
 	</ItemGroup>
