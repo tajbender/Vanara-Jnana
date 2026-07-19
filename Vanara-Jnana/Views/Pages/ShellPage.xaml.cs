@@ -2,12 +2,12 @@ using CommunityToolkit.Mvvm.Input;
 using Jnana.Models;
 using Jnana.Services;
 using Jnana.ViewModels;
-using Jnana.Views.Pages;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Input;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Windows.Input;
+using static Jnana.Models.INavigationService;
 
 namespace Jnana.Views;
 
@@ -19,13 +19,13 @@ public sealed partial class ShellPage : Page
     private NavigationService _navigationService { get; }
     // TODO: Consider making this a user setting that can be persisted across sessions, or determining it based on the last visited area
     // TODO: @dahall this is where you currently set the default navigation target...
-    private readonly INavigationService.Area defaultNavigationTarget = INavigationService.Area.Void;
+    private readonly INavigationService.Area defaultNavigationTarget = Area.Void; // INavigationService.Area.Void;
     private ObservableCollection<TabViewItem> Tabs { get; }
 
     public StandardUICommand NavigateCommand => new(StandardUICommandKind.Open);
     public ICommand OpenNewTabCommand { get; }
-
     public TabViewItem? SelectedTab { get; set; } = null;
+    public Area DefaultNavigationTarget => this.defaultNavigationTarget;
 
     public ShellPage()
     {
@@ -41,7 +41,7 @@ public sealed partial class ShellPage : Page
         // OnLoading: Navigate to the default area (Void) to ensure the main content area
         // is populated with a page, and to establish a consistent starting point for navigation
         // TODO: WARN: This is the initial navigation target, but it should be determined based on user settings or the last visited area to provide a more personalized experience
-        _navigationService.NavigateTo(defaultNavigationTarget);
+        _navigationService.NavigateTo(Jnana.Services.NavigationService.Area.Void);
 
         OpenNewTabCommand = new RelayCommand<string>(OpenNewTab);
         NavigateCommand.ExecuteRequested += NavigateCommand_ExecuteRequested;

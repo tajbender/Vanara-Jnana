@@ -1,15 +1,63 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using Jnana.Models;
 using Jnana.Views;
-using Jnana.Views.Pages;
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.Diagnostics;
 using static Jnana.Models.INavigationService;
 
 namespace Jnana.Services;
 
-public partial class NavigationService : ObservableObject, INavigationService
+
+public static class AreaExtensions
 {
+    public static Type GetPageType(this Area area) =>
+        area switch
+        {
+            Area.Settings => typeof(SettingsPage),
+            Area.Void => typeof(VoidPage),
+            //Area.SysInfo => typeof(SysInfoPage),
+            Area.Utilities => typeof(UtilitiesPage),
+            //Area.Shell => typeof(ShellPage),
+            _ => throw new NotImplementedException()
+        };
+}
+
+
+//public sealed partial class FeatureTile : UserControl
+//{
+//    public Area TargetArea { get; set; }
+//
+//    //    private NavigationService Nav => App.GetService<NavigationService>();
+//
+//    private void OnTileClick(object sender, RoutedEventArgs e)
+//    {
+//        //Nav.Navigate(TargetArea);
+//    }
+//}
+
+
+public partial class NavigationService : ObservableObject /* TODO: INavigationService */
+{
+
+    public enum Area
+    {
+        Settings,
+        Void,
+        SysInfo,
+        Utilities,
+        Shell,
+        Workbench,
+        Disassembler,
+    }
+
+    public interface IAreaPage
+    {
+        Area Area { get; }
+    }
+
+
+
+
     private readonly Frame _frame;
     private readonly Dictionary<Area, Type> _areaPageMap;
 
@@ -19,10 +67,10 @@ public partial class NavigationService : ObservableObject, INavigationService
 
         _areaPageMap = new()
         {
-            { Area.Disassembler, typeof(DisassemblerPage)  },
-            { Area.GitHub, typeof(GitHubPage) },
-            { Area.NuGets, typeof(NuGetsPage) },
-            { Area.Samples, typeof(SamplesPage) },
+            //{ Area.Disassembler, typeof(DisassemblerPage)  },
+            //{ Area.GitHub, typeof(GitHubPage) },
+            //{ Area.NuGets, typeof(NuGetsPage) },
+            //{ Area.Samples, typeof(SamplesPage) },
             { Area.Settings, typeof(SettingsPage) },
             { Area.Utilities, typeof(UtilitiesPage) },
             { Area.Void, typeof(VoidPage) },
@@ -49,4 +97,43 @@ public partial class NavigationService : ObservableObject, INavigationService
             throw;
         }
     }
+
+//    public void Navigate(Area area)
+//    {
+//        if (_frame.Content is not IAreaPage current || current.Area != area)
+//        {
+////            if (_frame.Content is IAreaPage curr)
+////                _historyBack.Push(curr.Area);
+////
+////            _historyForward.Clear();
+////
+////            _frame.Navigate(area.GetPageType());
+////            AreaChanged?.Invoke(this, area);
+//        }
+//    }
+
+//    public bool CanGoBack => _historyBack.Count > 0;
+//    public bool CanGoForward => _historyForward.Count > 0;
+
+//    public void GoBack()
+//    {
+//        if (!CanGoBack) return;
+//
+//        var prev = _historyBack.Pop();
+//        if (_frame.Content is IAreaPage curr)
+//            _historyForward.Push(curr.Area);
+//
+//        _frame.Navigate(prev.GetPageType());
+//        AreaChanged?.Invoke(this, prev);
+
+//    public void GoForward()
+//    {
+//        if (!CanGoForward) return;
+//
+//        var next = _historyForward.Pop();
+//        if (_frame.Content is IAreaPage curr)
+//            _historyBack.Push(curr.Area);
+//
+//        _frame.Navigate(next.GetPageType());
+//        AreaChanged?.Invoke(this, next);
 }
