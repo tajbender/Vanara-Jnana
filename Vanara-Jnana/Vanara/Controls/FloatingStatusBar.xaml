@@ -10,15 +10,15 @@
 
     <FrameworkElement.Height>56</FrameworkElement.Height>
 
-    <Grid Height="36"
-      CornerRadius="6"
-      Padding="12,0"
+    <Grid 
       Background="{ThemeResource LayerFillColorDefaultBrush}"
       BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-      BorderThickness="1"
-      VerticalAlignment="Bottom"
-      HorizontalAlignment="Stretch"
-      Margin="12">
+      BorderThickness="1" HorizontalAlignment="Stretch"
+      CornerRadius="6"
+      Height="Auto"
+      Margin="12"
+      Padding="12,0"
+      VerticalAlignment="Stretch">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />

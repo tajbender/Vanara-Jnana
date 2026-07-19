@@ -48,17 +48,14 @@
                 <TabViewItem Header="File Opus">
                     <TextBlock Text="Content for File Opus" Margin="12"/>
                 </TabViewItem>
-                <TabViewItem Header="Text Editor">
+                <!--<TabViewItem Header="Text Editor">
                     <TextBlock Text="Content for Text Editor" Margin="12"/>
+                </TabViewItem>-->
+                <TabViewItem Header="Editors">
+                    <TextBlock Text="Various file Editors" Margin="12"/>
                 </TabViewItem>
-                <TabViewItem Header="Hex Editor">
-                    <TextBlock Text="Content for Hex Editor" Margin="12"/>
-                </TabViewItem>
-                <TabViewItem Header="Ressource Extractor">
+                <TabViewItem Header="Ressource Extractor &amp; ILSpy Disassembler">
                     <TextBlock Text="Content for Ressource Extractor" Margin="12"/>
-                </TabViewItem>
-                <TabViewItem Header="ILSpy Disassembler">
-                    <TextBlock Text="ILSpy Disassembler" Margin="12"/>
                 </TabViewItem>
                 <TabViewItem x:Name="SysInfoTab" Header="SysInfo">
                     <StackPanel Spacing="12">
@@ -70,7 +67,7 @@
                                 <!--<TextBlock Text="{x:Bind ViewModel.OSDescription}"/>-->
                             </StackPanel>
                         </Expander>
-                        <Expander Header="Runtime">
+                        <Expander Header="Runtime" IsExpanded="True">
                             <StackPanel>
                                 <TextBlock Text="WinAppSDK:" FontWeight="Bold"/>
                                 <TextBlock Text="{x:Bind ViewModel.WinAppSdkVersion}"/>
@@ -78,7 +75,7 @@
                                 <TextBlock Text="{x:Bind ViewModel.WindowsSdkVersion}"/>
                             </StackPanel>
                         </Expander>
-                        <Expander Header="Workbench">
+                        <Expander Header="Workbench" IsExpanded="True">
                             <StackPanel>
                                 <TextBlock Text="Workbench Version:" FontWeight="Bold"/>
                                 <TextBlock Text="{x:Bind ViewModel.WorkbenchVersion}"/>

@@ -26,7 +26,9 @@ public sealed partial class FloatingStatusBar : UserControl,
     public FloatingStatusBar()
     {
         InitializeComponent();
+
         _hideTimer.Tick += (s, e) => { if (_autoHide) Hide(); };
+
         Show("READY.");
 
 //        ResizeGrip.PointerPressed += ResizeGrip_PointerPressed;
@@ -36,6 +38,12 @@ public sealed partial class FloatingStatusBar : UserControl,
             Alternative minimal	    E7C0	„GripperBarHorizontal“ – drei Punkte, subtiler Look
             Symbolisch	            E7C1	„GripperBarVertical“ – vertikale Punkte, wenn du rechts unten eine Spalte andeutest
          */
+    }
+
+    public void Hide()
+    {
+        //        ControlRoot.Opacity = 0;
+        //        ControlRoot.Translation = new System.Numerics.Vector3(0, 20, 0);
     }
 
     private void ResizeGrip_PointerPressed(object sender, Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
@@ -56,11 +64,7 @@ public sealed partial class FloatingStatusBar : UserControl,
         _hideTimer.Stop();
         _hideTimer.Start();
     }
-    public void Hide()
-    {
-//        ControlRoot.Opacity = 0;
-//        ControlRoot.Translation = new System.Numerics.Vector3(0, 20, 0);
-    }
+
     private void OnPropertyChanged([CallerMemberName] string? propertyName = null)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

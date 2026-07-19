@@ -6,6 +6,13 @@ namespace Jnana;
 
 public partial class App : Application
 {
+    public enum AppTheme
+    {
+        Light,
+        Dark,
+        System
+    }
+
     private MainWindow? _mainWindow;
 
     public App()

@@ -1,6 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using Jnana.Views;
-using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.Diagnostics;
 using static Jnana.Models.INavigationService;
@@ -21,19 +20,6 @@ public static class AreaExtensions
             _ => throw new NotImplementedException()
         };
 }
-
-
-//public sealed partial class FeatureTile : UserControl
-//{
-//    public Area TargetArea { get; set; }
-//
-//    //    private NavigationService Nav => App.GetService<NavigationService>();
-//
-//    private void OnTileClick(object sender, RoutedEventArgs e)
-//    {
-//        //Nav.Navigate(TargetArea);
-//    }
-//}
 
 
 public partial class NavigationService : ObservableObject /* TODO: INavigationService */
