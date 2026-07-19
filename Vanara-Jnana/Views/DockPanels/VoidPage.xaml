@@ -9,78 +9,22 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:controls="using:CommunityToolkit.WinUI.Controls"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     d:DataContext="{d:DesignInstance Type=viewmodels:VoidPageViewModel}"
     mc:Ignorable="d">
 
-    <Grid Background="#0FFFFFFF" ColumnSpacing="42" HorizontalAlignment="Stretch" Padding="15" VerticalAlignment="Stretch">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-
-        <ScrollViewer x:Name="NuGetsScrollViewer" Grid.Column="0" BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8">
-            <StackPanel Margin="12" Spacing="8">
-                <StackPanel>
-                    <TextBlock FontSize="32" Style="{StaticResource CaptionTextBlockStyle}" Text="NuGets"/>
-                    <TextBlock FontSize="13" Opacity="0.8" Style="{ThemeResource CaptionTextBlockStyle}" Text="Packages Releases."/>
-                    <TextBlock FontSize="13" Opacity="0.8" Style="{ThemeResource CaptionTextBlockStyle}" Text="Latest Version TODO: Insert latest Version here"/>
-                    <AppBarSeparator Margin="0,8"/>
-                </StackPanel>
-                <!--<Border BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8" Padding="12">-->
-                    <!--<ItemsRepeater ItemsSource="{x:Bind ViewModel.NuGetsViewModel.Packages}" MinHeight="127">
-                        <ItemsRepeater.Layout>
-                            <UniformGridLayout MinItemHeight="42" MinItemWidth="280" Orientation="Vertical"/>
-                        </ItemsRepeater.Layout>
-                    </ItemsRepeater>-->
-                <!--</Border>-->
-                <controls:SettingsCard ActionIconToolTip="Visit official NuGet page in your Web Browser." Description="Visit official NuGets page." Header="Visit NuGet" IsClickEnabled="True" IsEnabled="True"/>
-            </StackPanel>
-        </ScrollViewer>
-
-        <ScrollViewer x:Name="GitHubScrollViewer" Grid.Column="1" BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8">
-            <StackPanel Margin="12" Spacing="8">
-                <TextBlock FontSize="32" Style="{StaticResource CaptionTextBlockStyle}" Text="GitHub"/>
-                <TextBlock FontSize="13" Opacity="0.8" Style="{ThemeResource CaptionTextBlockStyle}" Text="Vanara on GitHub."/>
-                <AppBarSeparator Margin="0,8"/>
-                <controls:SettingsCard ActionIconToolTip="Visit Vanara GitHub in your Web Browser." Description="Visit official GitHub page." Header="Visit Vanara on GitHub" IsClickEnabled="True" IsEnabled="True"/>
-                <controls:SettingsCard ActionIconToolTip="Visit official NuGets page in new Web Browser Window." Header="Issues" IsClickEnabled="True" IsEnabled="True"/>
-                <controls:SettingsCard ActionIconToolTip="Visit official NuGets page in new Web Browser Window." Header="Pull Requests" IsClickEnabled="True" IsEnabled="True"/>
-                <controls:SettingsCard ActionIconToolTip="Visit official NuGets page in new Web Browser Window." Header="Discussions" IsClickEnabled="True" IsEnabled="True"/>
-                <controls:SettingsCard ActionIconToolTip="Visit official NuGets page in new Web Browser Window." Header="Releases" IsClickEnabled="True" IsEnabled="True"/>
-                <controls:SettingsCard ActionIconToolTip="Visit official NuGets page in new Web Browser Window." Header="License" IsClickEnabled="True" IsEnabled="True"/>
-                <controls:SettingsCard ActionIconToolTip="Launch GitHub Desktop." Description="Launch GitHub Desktop application." Header="Launch GitHub Desktop" IsClickEnabled="True" IsEnabled="True"/>
-            </StackPanel>
-        </ScrollViewer>
-
-        <ScrollViewer x:Name="SamplesScrollViewer" Grid.Column="2" BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8">
-            <StackPanel Margin="12" Spacing="8">
-                <TextBlock FontSize="32" Style="{StaticResource CaptionTextBlockStyle}" Text="Samples"/>
-                <TextBlock FontSize="13" Opacity="0.8" Style="{ThemeResource CaptionTextBlockStyle}" Text="Examples and Unit Tests."/>
-                <AppBarSeparator Margin="0,8"/>
-                <TextBlock FontSize="32" Style="{StaticResource CaptionTextBlockStyle}" Text="TODO: Add samples here."/>
-
-                <!--<Grid Background="{ThemeResource LabsBackgroundBrush}">
-                    <StackPanel Padding="20">
-                        <TextBlock Text="Vanara Laboratories" Margin="0,0,0,20" FontSize="28" FontWeight="Bold"/>
-                        --><!-- ItemsSource="{x:Bind ViewModel.LabExperiments}" --><!--
-                        <ItemsRepeater ItemsSource="{x:Bind ViewModel.LabExperiments}">
-                            <ItemsRepeater.ItemTemplate>
-                                --><!-- x:DataType="models:LabExperimentModel" --><!--
-                                <DataTemplate x:DataType="models:LabExperimentModel">
-                                    <Border Margin="0,0,0,10" Padding="10" Background="{ThemeResource CardBackgroundBrush}">
-                                        <StackPanel>
-                                            <TextBlock Text="{x:Bind Title}" FontWeight="SemiBold"/>
-                                            <TextBlock Text="{x:Bind Description}" FontSize="14" Opacity="0.8"/>
-                                        </StackPanel>
-                                    </Border>
-                                </DataTemplate>
-                            </ItemsRepeater.ItemTemplate>
-                        </ItemsRepeater>
-                    </StackPanel>
-                </Grid>-->
-
-            </StackPanel>
+    <Grid BorderThickness="1" Margin="3">
+        <ScrollViewer BorderThickness="1" Margin="3">
+            <!-- TODO: ItemsSource="{x:Bind ColorsCollection, Mode=OneWay}" -->
+            <muxc:ItemsRepeater x:Name="StaggeredRepeater"
+                                ItemTemplate="{StaticResource StaggeredTemplate}">
+                <!--<muxc:ItemsRepeater.Layout>
+                    <controls:StaggeredLayout ColumnSpacing="{x:Bind ColumnSpacing, Mode=OneWay}"
+                                              DesiredColumnWidth="{x:Bind DesiredColumnWidth, Mode=OneWay}"
+                                              ItemsStretch="{x:Bind local:StaggeredLayoutSample.ConvertStringToStaggeredLayoutItemsStretch(ItemsStretchProperty), Mode=OneWay}"
+                                              RowSpacing="{x:Bind RowSpacing, Mode=OneWay}" />
+                </muxc:ItemsRepeater.Layout>-->
+            </muxc:ItemsRepeater>
         </ScrollViewer>
     </Grid>
 </Page>

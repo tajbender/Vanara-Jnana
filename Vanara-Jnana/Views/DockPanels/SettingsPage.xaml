@@ -9,13 +9,13 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
-    <ScrollViewer BorderThickness="3">
+    <ScrollViewer BorderThickness="3" HorizontalAlignment="Stretch">
         <StackPanel Spacing="16" Padding="24" >
             <toolkit:SettingsCard Description="Select the page to navigate to on startup" Header="Startup behavior">
                 <!-- SelectedItem="{x:Bind ViewModel.AppTheme, Mode=TwoWay}" -->
-                <ComboBox >
+                <ComboBox SelectedIndex="0">
+                    <x:String>Navigate to Workbench (default)</x:String>
                     <x:String>Navigate to last used Page</x:String>
-                    <x:String>Navigate to Workbench</x:String>
                     <x:String>Navigate to Utility Page</x:String>
                 </ComboBox>
             </toolkit:SettingsCard>
@@ -23,7 +23,7 @@
             <!-- TODO: Icon -->
             <toolkit:SettingsCard Description="Choose between Light, Dark or System default" Header="Theme">
                 <!-- SelectedItem="{x:Bind ViewModel.AppTheme, Mode=TwoWay}" -->
-                <ComboBox>
+                <ComboBox SelectedIndex="0">
                     <x:String>Use System Setting</x:String>
                     <x:String>Light</x:String>
                     <x:String>Dark</x:String>

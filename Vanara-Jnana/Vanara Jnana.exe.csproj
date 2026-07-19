@@ -7,6 +7,8 @@
 		<TargetFramework>net8.0-windows10.0.19041.0</TargetFramework>
 		<UseWinUI>true</UseWinUI>
 		<ApplicationIcon>Assets\Vanara\MFC-App.ico</ApplicationIcon>
+		<NeutralLanguage>en-US</NeutralLanguage>
+		<AssemblyVersion>5.0.5</AssemblyVersion>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)'=='Release'">
 		<DebugSymbols>false</DebugSymbols>
