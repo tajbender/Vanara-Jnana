@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Page
-    x:Class="Jnana.Views.GitHubPage"
+    x:Class="Jnana.Views.Pages.GitHubPage"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:Jnana.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"

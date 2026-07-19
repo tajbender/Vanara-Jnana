@@ -6,6 +6,6 @@ public sealed partial class GitHubPage : Page
 {
     public GitHubPage(ViewModels.GitHubAreaViewModel gitHubVM)
     {
-        InitializeComponent();
+        //InitializeComponent();
     }
 }
