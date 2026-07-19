@@ -28,11 +28,11 @@
                     <AppBarSeparator Margin="0,8"/>
                 </StackPanel>
                 <!--<Border BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8" Padding="12">-->
-                    <ItemsRepeater ItemsSource="{x:Bind ViewModel.NuGetsViewModel.Packages}" MinHeight="127">
+                    <!--<ItemsRepeater ItemsSource="{x:Bind ViewModel.NuGetsViewModel.Packages}" MinHeight="127">
                         <ItemsRepeater.Layout>
                             <UniformGridLayout MinItemHeight="42" MinItemWidth="280" Orientation="Vertical"/>
                         </ItemsRepeater.Layout>
-                    </ItemsRepeater>
+                    </ItemsRepeater>-->
                 <!--</Border>-->
                 <controls:SettingsCard ActionIconToolTip="Visit official NuGet page in your Web Browser." Description="Visit official NuGets page." Header="Visit NuGet" IsClickEnabled="True" IsEnabled="True"/>
             </StackPanel>

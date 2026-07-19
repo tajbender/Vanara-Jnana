@@ -1,9 +1,7 @@
-using Microsoft.UI.Xaml.Controls;
-using Microsoft.UI.Xaml;
-using NuGet.Common;
-using NuGet.Protocol.Core.Types;
-using System.Diagnostics;
 using Jnana.Models.Contracts;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using System.Diagnostics;
 
 namespace Jnana.Views;
 

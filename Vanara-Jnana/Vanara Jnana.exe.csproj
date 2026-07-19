@@ -56,7 +56,7 @@
 	</ItemGroup>
 	<ItemGroup>
 		<Content Update="Assets\DOCS\DOCS.assets\WinForms Sampler.zip">
-		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
 		<Content Update="Assets\Vanara\Insert_Amiga-Disk.png">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -135,59 +135,59 @@
 		<None Remove="Views\VoidPage.xaml" />
 	</ItemGroup>
 	<ItemGroup>
-	  <Resource Include="Assets\ReadMe.de.md">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </Resource>
+		<Resource Include="Assets\ReadMe.de.md">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
 	</ItemGroup>
 	<ItemGroup>
-	  <Page Update="Controls\GuruMeditationDialog.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </Page>
+		<Page Update="Controls\GuruMeditationDialog.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</Page>
 	</ItemGroup>
 	<ItemGroup>
-	  <Page Update="Views\DockPanels\QuickLaunchBar.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </Page>
+		<Page Update="Views\DockPanels\QuickLaunchBar.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</Page>
 	</ItemGroup>
 	<ItemGroup>
-	  <Page Update="Views\DockPanels\FileWatcherPanel.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </Page>
+		<Page Update="Views\DockPanels\FileWatcherPanel.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</Page>
 	</ItemGroup>
 	<ItemGroup>
-	  <Page Update="Vanara\Controls\Shell32\ShellInfoPanel.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </Page>
+		<Page Update="Vanara\Controls\Shell32\ShellInfoPanel.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</Page>
 	</ItemGroup>
 	<ItemGroup>
-	  <Page Update="Vanara\Controls\NuGetPackageCard.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </Page>
+		<Page Update="Vanara\Controls\NuGetPackageCard.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</Page>
 	</ItemGroup>
 	<ItemGroup>
-	  <Page Update="Views\Tabs\TextEditorTab.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </Page>
+		<Page Update="Views\Tabs\TextEditorTab.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</Page>
 	</ItemGroup>
 	<ItemGroup>
-	  <Page Update="Views\Pages\FileManagementOpus.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </Page>
+		<Page Update="Views\Pages\FileManagementOpus.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</Page>
 	</ItemGroup>
 	<ItemGroup>
-	  <Page Update="Views\DockPanels\DebugModeFloatingPanel.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </Page>
+		<Page Update="Views\DockPanels\DebugModeFloatingPanel.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</Page>
 	</ItemGroup>
 	<ItemGroup>
-	  <Page Update="Views\DockPanels\InspectorView.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </Page>
+		<Page Update="Views\DockPanels\InspectorView.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</Page>
 	</ItemGroup>
 	<ItemGroup>
-	  <Page Update="Views\VoidPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </Page>
+		<Page Update="Views\VoidPage.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</Page>
 	</ItemGroup>
 	<ItemGroup>
 		<Page Update="Views\ShellPage.xaml">
@@ -205,6 +205,6 @@
 		</Page>
 	</ItemGroup>
 	<ItemGroup>
-	  <PRIResource Remove="Vanara.WinUI.Extensions\**" />
+		<PRIResource Remove="Vanara.WinUI.Extensions\**" />
 	</ItemGroup>
 </Project>

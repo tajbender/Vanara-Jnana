@@ -1,8 +1,4 @@
 ﻿//using Microsoft.UI.Xaml.Controls;
-//using NuGet.Common;
-//using NuGet.Frameworks;
-//using NuGet.Packaging.Core;
-//using NuGet.Protocol.Core.Types;
 //using System.Data;
 //using System.IO;
 //using System.Runtime.Versioning;

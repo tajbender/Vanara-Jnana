@@ -10,24 +10,44 @@
 
     <FrameworkElement.Height>56</FrameworkElement.Height>
 
-    <Grid x:Name="ControlRoot"
-          Background="{ThemeResource AcrylicBackgroundFillColorDefaultBrush}"
-          BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-          BorderThickness="3"
-          CornerRadius="8"
-          MinHeight="42"
-          Padding="12,6"
-          Translation="0,20,0">
+    <Grid Height="36"
+      CornerRadius="6"
+      Padding="12,0"
+      Background="{ThemeResource LayerFillColorDefaultBrush}"
+      BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+      BorderThickness="1"
+      VerticalAlignment="Bottom"
+      HorizontalAlignment="Stretch"
+      Margin="12">
 
-        <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Stretch">
-            <TextBlock FontSize="14" Text="Area: Workbench" VerticalAlignment="Center"/>
-            <AppBarSeparator Margin="12,0"/>
-            <FontIcon x:Name="IconElement" Glyph="&#xE946;" VerticalAlignment="Center"/>
-            <TextBlock x:Name="MessageElement" FontSize="14" Text="Ready." HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
-            <!-- TODO: Border.Cursor="SizeNWSE"-->
-            <Border x:Name="ResizeGrip" Background="Transparent" Height="16" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="16">
-                <FontIcon FontFamily="Segoe Fluent Icons" Glyph="&#xE788;" VerticalAlignment="Stretch"/>
-            </Border>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Left: System Live Info -->
+        <StackPanel Orientation="Horizontal" Spacing="16">
+            <TextBlock Text="CPU:" FontWeight="SemiBold"/>
+            <!--<TextBlock Text="{x:Bind ViewModel.CpuLoadPercent}"/>-->
+
+            <TextBlock Text="RAM:" FontWeight="SemiBold" Margin="12,0,0,0"/>
+            <!--<TextBlock Text="{x:Bind ViewModel.MemoryWorkingSetMB}"/>-->
+        </StackPanel>
+
+        <!-- Center: Actions -->
+        <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="12">
+            <Button Content="Snapshot"/>
+            <!--Command="{x:Bind ViewModel.TakeSnapshotCommand}" />-->
+            <Button Content="Refresh"/>
+            <!--Command="{x:Bind ViewModel.RefreshSysInfoCommand}" />-->
+        </StackPanel>
+        <!-- Right: App Info -->
+        <StackPanel Grid.Column="2" Orientation="Horizontal"
+                HorizontalAlignment="Right"
+                Spacing="16">
+            <TextBlock Text="Workbench" FontWeight="SemiBold"/>
+            <!--<TextBlock Text="{x:Bind ViewModel.WorkbenchVersion}"/>-->
         </StackPanel>
     </Grid>
 </UserControl>

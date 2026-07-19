@@ -17,13 +17,19 @@ public sealed partial class FloatingStatusBar : UserControl,
 
     public event PropertyChangedEventHandler? PropertyChanged;
 
+    public object ViewModel
+    {
+        get => DataContext;
+        set => DataContext = value;
+    }
+
     public FloatingStatusBar()
     {
         InitializeComponent();
         _hideTimer.Tick += (s, e) => { if (_autoHide) Hide(); };
         Show("READY.");
 
-        ResizeGrip.PointerPressed += ResizeGrip_PointerPressed;
+//        ResizeGrip.PointerPressed += ResizeGrip_PointerPressed;
 
         /*  TODO: Sizer Glyphs:
             Klassischer Resize‑Grip	E7BF	„GripperResize“ – diagonale Linien, wirkt wie der alte Win32‑Grip
@@ -41,19 +47,19 @@ public sealed partial class FloatingStatusBar : UserControl,
 
     public void Show(string message, string icon = "\uE946")
     {
-        MessageElement.Text = message;
+//        MessageElement.Text = message;
         //IconElement.Glyph = icon;
 
-        ControlRoot.Opacity = 1;
-        ControlRoot.Translation = new System.Numerics.Vector3(0, 0, 0);
+//        ControlRoot.Opacity = 1;
+//        ControlRoot.Translation = new System.Numerics.Vector3(0, 0, 0);
 
         _hideTimer.Stop();
         _hideTimer.Start();
     }
     public void Hide()
     {
-        ControlRoot.Opacity = 0;
-        ControlRoot.Translation = new System.Numerics.Vector3(0, 20, 0);
+//        ControlRoot.Opacity = 0;
+//        ControlRoot.Translation = new System.Numerics.Vector3(0, 20, 0);
     }
     private void OnPropertyChanged([CallerMemberName] string? propertyName = null)
     {
