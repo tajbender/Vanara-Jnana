@@ -51,14 +51,11 @@
                 <!--<TabViewItem Header="Text Editor">
                     <TextBlock Text="Content for Text Editor" Margin="12"/>
                 </TabViewItem>-->
-                <TabViewItem Header="Editors">
-                    <TextBlock Text="Various file Editors" Margin="12"/>
-                </TabViewItem>
-                <TabViewItem Header="Ressource Extractor &amp; ILSpy Disassembler">
-                    <TextBlock Text="Content for Ressource Extractor" Margin="12"/>
+                <TabViewItem Header="Editors and Tools">
+                    <TextBlock Text="Various file Editors, Ressource Extractor &amp; ILSpy Disassembler" Margin="12"/>
                 </TabViewItem>
                 <TabViewItem x:Name="SysInfoTab" Header="SysInfo">
-                    <StackPanel Spacing="12">
+                    <StackPanel Spacing="12" HorizontalAlignment="Stretch">
                         <Expander Header="Identity" IsExpanded="True">
                             <StackPanel>
                                 <TextBlock Text="Machine Name:" FontWeight="Bold"/>
