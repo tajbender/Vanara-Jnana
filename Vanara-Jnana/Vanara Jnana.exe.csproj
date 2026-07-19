@@ -8,7 +8,7 @@
 		<UseWinUI>true</UseWinUI>
 		<ApplicationIcon>Assets\Vanara\MFC-App.ico</ApplicationIcon>
 		<NeutralLanguage>en-US</NeutralLanguage>
-		<AssemblyVersion>5.0.5</AssemblyVersion>
+		<AssemblyVersion>5.0.5.719</AssemblyVersion>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)'=='Release'">
 		<DebugSymbols>false</DebugSymbols>
@@ -218,6 +218,7 @@
 	  <Compile Remove="Views\DockPanels\StartPage.xaml.cs" />
 	</ItemGroup>
 	<ItemGroup>
+	  <Content Remove="assets\Bucket List still to Do.md" />
 	  <Content Remove="Assets\System Buttoms\Dark\Close.png" />
 	  <Content Remove="Assets\System Buttoms\Dark\Maximize.png" />
 	  <Content Remove="assets\system buttoms\dark\Minimize.png" />
