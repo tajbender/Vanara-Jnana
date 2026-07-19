@@ -22,12 +22,17 @@
 		<UseWPF>false</UseWPF>
 	</PropertyGroup>
 	<ItemGroup>
+		<Compile Remove="Assets\DOCS.de-DE\**" />
 		<Compile Remove="Resources\**" />
 		<Compile Remove="Vanara.WinUI.Extensions\**" />
+		<Content Remove="Assets\DOCS.de-DE\**" />
+		<EmbeddedResource Remove="Assets\DOCS.de-DE\**" />
 		<EmbeddedResource Remove="Resources\**" />
 		<EmbeddedResource Remove="Vanara.WinUI.Extensions\**" />
+		<None Remove="Assets\DOCS.de-DE\**" />
 		<None Remove="Resources\**" />
 		<None Remove="Vanara.WinUI.Extensions\**" />
+		<Page Remove="Assets\DOCS.de-DE\**" />
 		<Page Remove="Resources\**" />
 		<Page Remove="Vanara.WinUI.Extensions\**" />
 	</ItemGroup>
@@ -51,8 +56,8 @@
 		<PackageReference Include="Vanara.Windows.Shell" Version="5.0.5" />
 	</ItemGroup>
 	<ItemGroup>
-		<Folder Include="Assets\DOCS.de-DE\" />
 		<Folder Include="Assets\DOCS\DOCS.assets\Screenshots\" />
+		<Folder Include="Assets\DOCS\de-DE\" />
 		<Folder Include="Styles\Backgrounds\" />
 		<Folder Include="Styles\Controls\" />
 		<Folder Include="Vanara\Controls\Shell32\" />
@@ -213,6 +218,19 @@
 	  <Compile Remove="Views\DockPanels\StartPage.xaml.cs" />
 	</ItemGroup>
 	<ItemGroup>
+	  <Content Remove="Assets\System Buttoms\Dark\Close.png" />
+	  <Content Remove="Assets\System Buttoms\Dark\Maximize.png" />
+	  <Content Remove="assets\system buttoms\dark\Minimize.png" />
+	  <Content Remove="Assets\System Buttoms\Dark\Restore.png" />
+	  <Content Remove="Assets\System Buttoms\Light\Close.png" />
+	  <Content Remove="Assets\System Buttoms\Light\Maximize.png" />
+	  <Content Remove="Assets\System Buttoms\Light\Minimize.png" />
+	  <Content Remove="Assets\System Buttoms\Light\Restore.png" />
+	</ItemGroup>
+	<ItemGroup>
 	  <Page Remove="Views\DockPanels\StartPage.xaml" />
+	</ItemGroup>
+	<ItemGroup>
+	  <PRIResource Remove="Assets\DOCS.de-DE\**" />
 	</ItemGroup>
 </Project>

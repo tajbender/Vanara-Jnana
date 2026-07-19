@@ -8,7 +8,7 @@
     d:DataContext="{d:DesignInstance Type=local:FloatingStatusBar}"
     mc:Ignorable="d">
 
-    <FrameworkElement.Height>56</FrameworkElement.Height>
+    <!--<FrameworkElement.MinHeight>80</FrameworkElement.MinHeight>-->
 
     <Grid 
       Background="{ThemeResource LayerFillColorDefaultBrush}"
@@ -27,7 +27,7 @@
         </Grid.ColumnDefinitions>
 
         <!-- Left: System Live Info -->
-        <StackPanel Orientation="Horizontal" Spacing="16">
+        <StackPanel Grid.Column="0" Orientation="Vertical" Spacing="16">
             <TextBlock Text="CPU:" FontWeight="SemiBold"/>
             <!--<TextBlock Text="{x:Bind ViewModel.CpuLoadPercent}"/>-->
 
@@ -42,6 +42,7 @@
             <Button Content="Refresh"/>
             <!--Command="{x:Bind ViewModel.RefreshSysInfoCommand}" />-->
         </StackPanel>
+
         <!-- Right: App Info -->
         <StackPanel Grid.Column="2" Orientation="Horizontal"
                 HorizontalAlignment="Right"
