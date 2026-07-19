@@ -14,7 +14,7 @@ public sealed partial class VoidPage : Page
 
     public VoidPage()
     {
-        InitializeComponent();
+        //InitializeComponent();
 
         // TODO: Consider using dependency injection to provide these view models,
         // especially if they need to maintain state or interact with services
