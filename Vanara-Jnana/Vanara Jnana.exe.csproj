@@ -133,9 +133,8 @@
 		<None Remove="Views\DockPanels\DebugModeFloatingPanel.xaml" />
 		<None Remove="Views\DockPanels\FileWatcherPanel.xaml" />
 		<None Remove="Views\DockPanels\InspectorView.xaml" />
-		<None Remove="Views\ShellPage.xaml" />
+		<None Remove="Views\DockPanels\StartPage.xaml" />
 		<None Remove="Views\UtilitiesPage.xaml" />
-		<None Remove="Views\VoidPage.xaml" />
 	</ItemGroup>
 	<ItemGroup>
 		<Resource Include="Assets\ReadMe.de.md">
@@ -209,5 +208,11 @@
 	</ItemGroup>
 	<ItemGroup>
 		<PRIResource Remove="Vanara.WinUI.Extensions\**" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Compile Remove="Views\DockPanels\StartPage.xaml.cs" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Page Remove="Views\DockPanels\StartPage.xaml" />
 	</ItemGroup>
 </Project>

@@ -38,7 +38,6 @@
         </ScrollViewer>
         <Border x:Name="previousPane" Grid.Column="2" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" CornerRadius="8" Padding="16">
             <StackPanel Spacing="16">
-                
                 <!-- <TextBlock Text="{x:Bind ViewModel.SelectedSample.Title}"/>
                      <TextBlock Text="{x:Bind ViewModel.SelectedSample.Description}" TextWrapping="Wrap"/> -->
                 <!-- <controls:CodeTabs CodeFiles="{x:Bind ViewModel.SelectedSample.CodeFiles}"/>
@@ -46,6 +45,5 @@
                 <!-- <Button Content="Run Sample" Command="{x:Bind ViewModel.RunSelectedSampleCommand}"/> -->
             </StackPanel>
         </Border>
-
     </Grid>
 </Page>
