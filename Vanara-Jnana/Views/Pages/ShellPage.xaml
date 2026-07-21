@@ -96,7 +96,8 @@
                 <!-- TabDragStarting = "" -->
                 <TabView x:Name="MainTabView" 
                          AddTabButtonClick="MainTabView_AddTabButtonClick"
-                         HorizontalAlignment="Stretch" 
+                         HorizontalAlignment="Stretch"
+                         TabWidthMode="SizeToContent"
                          VerticalAlignment="Stretch">
                     <TabView.Resources>
                         <SolidColorBrush x:Key="TabViewBackground" Color="Transparent"/>

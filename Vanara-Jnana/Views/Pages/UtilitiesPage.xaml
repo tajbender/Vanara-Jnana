@@ -44,44 +44,6 @@
                     </Button>
                 </controls:RibbonGroup>
             </controls:Ribbon>
-            <TabView>
-                <TabViewItem Header="File Opus">
-                    <TextBlock Text="Content for File Opus" Margin="12"/>
-                </TabViewItem>
-                <!--<TabViewItem Header="Text Editor">
-                    <TextBlock Text="Content for Text Editor" Margin="12"/>
-                </TabViewItem>-->
-                <TabViewItem Header="Editors and Tools">
-                    <TextBlock Text="Various file Editors, Ressource Extractor &amp; ILSpy Disassembler" Margin="12"/>
-                </TabViewItem>
-                <TabViewItem x:Name="SysInfoTab" Header="SysInfo">
-                    <StackPanel Spacing="12" HorizontalAlignment="Stretch">
-                        <Expander Header="Identity" IsExpanded="True">
-                            <StackPanel>
-                                <TextBlock Text="Machine Name:" FontWeight="Bold"/>
-                                <TextBlock Text="{x:Bind ViewModel.MachineName}"/>
-                                <TextBlock Text="Operating System:" FontWeight="Bold" Margin="0,8,0,0"/>
-                                <!--<TextBlock Text="{x:Bind ViewModel.OSDescription}"/>-->
-                            </StackPanel>
-                        </Expander>
-                        <Expander Header="Runtime" IsExpanded="True">
-                            <StackPanel>
-                                <TextBlock Text="WinAppSDK:" FontWeight="Bold"/>
-                                <TextBlock Text="{x:Bind ViewModel.WinAppSdkVersion}"/>
-                                <TextBlock Text="Windows SDK:" FontWeight="Bold" Margin="0,8,0,0"/>
-                                <TextBlock Text="{x:Bind ViewModel.WindowsSdkVersion}"/>
-                            </StackPanel>
-                        </Expander>
-                        <Expander Header="Workbench" IsExpanded="True">
-                            <StackPanel>
-                                <TextBlock Text="Workbench Version:" FontWeight="Bold"/>
-                                <TextBlock Text="{x:Bind ViewModel.WorkbenchVersion}"/>
-                                <!--<Button Content="Take Snapshot" Command="{x:Bind ViewModel.TakeSnapshotCommand}" Margin="0,12,0,0"/>-->
-                            </StackPanel>
-                        </Expander>
-                    </StackPanel>
-                </TabViewItem>
-            </TabView>
         </StackPanel>
         <!--<Border Grid.Column="1" Background="LightGray" BorderBrush="DarkGray" BorderThickness="1"/>-->
     </Grid>
