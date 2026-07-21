@@ -37,8 +37,8 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <!-- TODO: Add navigate back button -->
-                <Image Grid.Column="0" Grid.Row="0" Height="123" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="/Assets/Vanara/Vanara-64px.png"/>
-                <TextBlock Grid.Column="0" Grid.Row="1" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Vanara Jñāna"/>
+                <TextBlock Grid.Column="0" Grid.Row="0" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Vanara Jñāna"/>
+                <Image Grid.Column="0" Grid.Row="1" Height="123" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="/Assets/Vanara/Vanara-64px.png"/>
             </Grid>
             <!-- Feature Tiles Area -->
             <StackPanel Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" Orientation="Horizontal" Padding="7,0">
