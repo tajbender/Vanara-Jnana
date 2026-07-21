@@ -1,5 +1,4 @@
 using CommunityToolkit.Mvvm.Input;
-using Jnana.Models;
 using Jnana.Services;
 using Jnana.ViewModels;
 using Microsoft.UI.Xaml.Controls;
@@ -7,7 +6,8 @@ using Microsoft.UI.Xaml.Input;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Windows.Input;
-using static Jnana.Models.INavigationService;
+using Vanara_Jnana.exe.Models.Contracts;
+using static Vanara_Jnana.exe.Models.Contracts.INavigationService;
 
 namespace Jnana.Views;
 

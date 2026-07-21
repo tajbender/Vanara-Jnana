@@ -15,4 +15,9 @@ public partial class GitHubAreaViewModel : ObservableObject
     public Url GitHubRepoUrl => gitHubRepoUrl;
     public Url GitHubIssuesUrl => gitHubIssuesUrl; 
     public Url GitHubPullRequestsUrl => gitHubPullRequestsUrl;
+
+    public GitHubAreaViewModel()
+    {
+        // Initialize any necessary data or commands here
+    }
 }

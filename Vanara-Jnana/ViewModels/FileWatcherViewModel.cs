@@ -1,8 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using Jnana.Models;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
+using Vanara_Jnana.exe.Models.Contracts;
 
 namespace Jnana.ViewModels;
 
@@ -41,7 +41,7 @@ public class FileWatcherViewModel : ObservableObject
         ClearEventsCommand = new RelayCommand(() => Events.Clear());
     }
 
-    private void OnEventReceived(object? sender, Models.FileWatchEvent e)
+    private void OnEventReceived(object? sender, Vanara_Jnana.exe.Models.Contracts.FileWatchEvent e)
     {
         throw new NotImplementedException();
     }

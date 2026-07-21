@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Jnana.Models;
+namespace Vanara_Jnana.exe.Models.Contracts;
 
 public enum FileWatchEventType
 {

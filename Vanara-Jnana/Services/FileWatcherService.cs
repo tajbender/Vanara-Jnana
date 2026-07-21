@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using Jnana.Models;
 using Jnana.Services;
+using Vanara_Jnana.exe.Models.Contracts;
 
 namespace Jnana.Services.FileWatcher;
 
@@ -12,7 +12,7 @@ public class FileWatcherService : IFileWatcherService
 
     public event EventHandler<FileWatchEvent>? EventReceived;
 
-    event EventHandler<Models.FileWatchEvent> IFileWatcherService.EventReceived
+    event EventHandler<Vanara_Jnana.exe.Models.Contracts.FileWatchEvent> IFileWatcherService.EventReceived
     {
         add
         {
@@ -93,12 +93,12 @@ public class FileWatcherService : IFileWatcherService
             && w.Filter.Equals(Path.GetFileName(src.Path), StringComparison.OrdinalIgnoreCase);
     }
 
-    public void AddSource(Models.FileWatchSource source)
+    public void AddSource(Vanara_Jnana.exe.Models.Contracts.FileWatchSource source)
     {
         throw new NotImplementedException();
     }
 
-    public void RemoveSource(Models.FileWatchSource source)
+    public void RemoveSource(Vanara_Jnana.exe.Models.Contracts.FileWatchSource source)
     {
         throw new NotImplementedException();
     }

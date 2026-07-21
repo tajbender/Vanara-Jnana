@@ -2,7 +2,7 @@
 using Jnana.Views;
 using Microsoft.UI.Xaml.Controls;
 using System.Diagnostics;
-using static Jnana.Models.INavigationService;
+using static Vanara_Jnana.exe.Models.Contracts.INavigationService;
 
 namespace Jnana.Services;
 

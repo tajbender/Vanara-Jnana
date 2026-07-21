@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Jnana.Models;
+namespace Vanara_Jnana.exe.Models.Contracts;
 
 public interface ISettingsSerializer : INotifyPropertyChanged
 {
