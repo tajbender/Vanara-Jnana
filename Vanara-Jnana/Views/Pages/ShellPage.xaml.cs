@@ -1,6 +1,7 @@
 using CommunityToolkit.Mvvm.Input;
 using Jnana.Services;
 using Jnana.ViewModels;
+using Jnana.Views.Pages;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Input;
 using System.Collections.ObjectModel;
@@ -47,8 +48,13 @@ public sealed partial class ShellPage : Page
         NavigateCommand.ExecuteRequested += NavigateCommand_ExecuteRequested;
 
         //AddNewTab("GitHub: Vanara", new NuGetsPage(NuGetViewModel));  // TODO: The NuGetsPage is currently crashing due to a NullReferenceException in the NuGetViewModel. Investigate and resolve this issue before enabling this tab.
+        //AddNewTab("Samples", new SamplesPage(SamplesVM)); TODO: The SamplesPage is currently crashing due to a NullReferenceException in the SamplesViewModel. Investigate and resolve this issue before enabling this tab.
+        //AddNewTab("NuGets", new NuGetsPage(NuGetViewModel));
+        AddNewTab("Disassembler", new DisassemblerPage());
         AddNewTab("Utilities", new UtilitiesPage());
         AddNewTab("Settings", new SettingsPage());
+        AddNewTab("Void", new VoidPage());
+        AddNewTab("File Opus", new FileManagementPage());
     }
 
     private void AddNewTab(string header, Page page, IconSource? iconSource = null)

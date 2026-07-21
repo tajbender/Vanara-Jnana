@@ -65,7 +65,7 @@
     </Control.Resources-->
 
 
-    <Grid x:Name="Root" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="7" CornerRadius="7" >
+    <Grid x:Name="Root" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="7" CornerRadius="7" MaxWidth="200">
         <!--MinHeight="128" MinWidth="320" Margin="7" Padding="16"-->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>

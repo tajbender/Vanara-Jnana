@@ -177,7 +177,7 @@
 		</Page>
 	</ItemGroup>
 	<ItemGroup>
-		<Page Update="Views\Pages\FileManagementOpus.xaml">
+		<Page Update="Views\Pages\FileManagementPage.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</Page>
 	</ItemGroup>

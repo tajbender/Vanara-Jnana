@@ -8,9 +8,9 @@ namespace Jnana.Views.Pages;
 /// <summary>
 /// An empty page that can be used on its own or navigated to within a Frame.
 /// </summary>
-public sealed partial class FileManagementOpus : Page
+public sealed partial class FileManagementPage : Page
 {
-    public FileManagementOpus()
+    public FileManagementPage()
     {
         //InitializeComponent();
     }
