@@ -9,29 +9,35 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
-    <ScrollViewer BorderThickness="3" HorizontalAlignment="Stretch">
-        <StackPanel Spacing="16" Padding="24" >
-            <toolkit:SettingsCard Description="Select the page to navigate to on startup" Header="Startup behavior">
-                <!-- SelectedItem="{x:Bind ViewModel.AppTheme, Mode=TwoWay}" -->
-                <ComboBox SelectedIndex="0">
-                    <x:String>Navigate to Workbench (default)</x:String>
-                    <x:String>Navigate to last used Page</x:String>
-                    <x:String>Navigate to Utility Page</x:String>
-                </ComboBox>
-            </toolkit:SettingsCard>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
 
-            <!-- TODO: Icon -->
-            <toolkit:SettingsCard Description="Choose between Light, Dark or System default" Header="Theme">
-                <!-- SelectedItem="{x:Bind ViewModel.AppTheme, Mode=TwoWay}" -->
-                <ComboBox SelectedIndex="0">
-                    <x:String>Use System Setting</x:String>
-                    <x:String>Light</x:String>
-                    <x:String>Dark</x:String>
-                    <x:String>High Contrast</x:String>
-                </ComboBox>
-            </toolkit:SettingsCard>
-            
-            <!--<toolkit:SettingsExpander Header="Advanced Examples">
+        <ScrollViewer Grid.Column="0" BorderThickness="3" HorizontalAlignment="Stretch">
+            <StackPanel Spacing="16" Padding="24" >
+                <toolkit:SettingsCard Description="Select the page to navigate to on startup" Header="Startup behavior">
+                    <!-- SelectedItem="{x:Bind ViewModel.AppTheme, Mode=TwoWay}" -->
+                    <ComboBox SelectedIndex="0">
+                        <x:String>Navigate to Workbench (default)</x:String>
+                        <x:String>Navigate to last used Page</x:String>
+                        <x:String>Navigate to Utility Page</x:String>
+                    </ComboBox>
+                </toolkit:SettingsCard>
+
+                <!-- TODO: Icon -->
+                <toolkit:SettingsCard Description="Choose between Light, Dark or System default" Header="Theme">
+                    <!-- SelectedItem="{x:Bind ViewModel.AppTheme, Mode=TwoWay}" -->
+                    <ComboBox SelectedIndex="0">
+                        <x:String>Use System Setting</x:String>
+                        <x:String>Light</x:String>
+                        <x:String>Dark</x:String>
+                        <x:String>High Contrast</x:String>
+                    </ComboBox>
+                </toolkit:SettingsCard>
+
+                <!--<toolkit:SettingsExpander Header="Advanced Examples">
                 <toolkit:SettingsCard Description="Allow anonymous usage data" Header="Telemetry">
                     <ComboBox >
                         <x:String>Navigate to last used Page</x:String>
@@ -40,6 +46,34 @@
                     </ComboBox>
                 </toolkit:SettingsCard>
             </toolkit:SettingsExpander>-->
-        </StackPanel>
-    </ScrollViewer>
+            </StackPanel>
+        </ScrollViewer>
+        <ScrollViewer Grid.Column="1" BorderThickness="3" HorizontalAlignment="Stretch">
+            <StackPanel Spacing="12" HorizontalAlignment="Stretch">
+                <Expander Header="Identity" IsExpanded="True">
+                    <StackPanel>
+                        <TextBlock Text="Machine Name:" FontWeight="Bold"/>
+                        <TextBlock Text="{x:Bind ViewModel.MachineName}"/>
+                        <TextBlock Text="Operating System:" FontWeight="Bold" Margin="0,8,0,0"/>
+                        <!--<TextBlock Text="{x:Bind ViewModel.OSDescription}"/>-->
+                    </StackPanel>
+                </Expander>
+                <Expander Header="Runtime" IsExpanded="True">
+                    <StackPanel>
+                        <TextBlock Text="WinAppSDK:" FontWeight="Bold"/>
+                        <TextBlock Text="{x:Bind ViewModel.WinAppSdkVersion}"/>
+                        <TextBlock Text="Windows SDK:" FontWeight="Bold" Margin="0,8,0,0"/>
+                        <TextBlock Text="{x:Bind ViewModel.WindowsSdkVersion}"/>
+                    </StackPanel>
+                </Expander>
+                <Expander Header="Workbench" IsExpanded="True">
+                    <StackPanel>
+                        <TextBlock Text="Workbench Version:" FontWeight="Bold"/>
+                        <TextBlock Text="{x:Bind ViewModel.WorkbenchVersion}"/>
+                        <!--<Button Content="Take Snapshot" Command="{x:Bind ViewModel.TakeSnapshotCommand}" Margin="0,12,0,0"/>-->
+                    </StackPanel>
+                </Expander>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
 </Page>
