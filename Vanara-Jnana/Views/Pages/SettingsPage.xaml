@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Page
-    x:Class="Jnana.Views.SettingsPage"
+    x:Class="Jnana.Views.Pages.SettingsPage"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="using:Jnana.Views"
+    xmlns:local="using:Jnana.Views.Pages"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:toolkit="using:CommunityToolkit.WinUI.Controls"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -22,14 +22,13 @@
                     <ComboBox SelectedIndex="0">
                         <x:String>Navigate to Workbench (default)</x:String>
                         <x:String>Navigate to last used Page</x:String>
-                        <x:String>Navigate to Utility Page</x:String>
                     </ComboBox>
                 </toolkit:SettingsCard>
                 <!-- TODO: Icon -->
                 <toolkit:SettingsCard Description="Choose between Light, Dark or System default" Header="Theme">
                     <!-- SelectedItem="{x:Bind ViewModel.AppTheme, Mode=TwoWay}" -->
                     <ComboBox SelectedIndex="0">
-                        <x:String>Use System Setting</x:String>
+                        <x:String>Use System Setting (default)</x:String>
                         <x:String>Light</x:String>
                         <x:String>Dark</x:String>
                         <x:String>High Contrast</x:String>

@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using Jnana.Views;
+using Jnana.Views.Pages;
 using Microsoft.UI.Xaml.Controls;
 using System.Diagnostics;
 using static Vanara_Jnana.exe.Models.Contracts.INavigationService;
