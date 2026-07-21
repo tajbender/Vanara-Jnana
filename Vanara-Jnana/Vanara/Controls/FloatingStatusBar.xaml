@@ -22,11 +22,11 @@
       VerticalAlignment="Stretch">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -35,16 +35,16 @@
 
         <TextBlock Grid.Column="0" Grid.Row="0" Text="Area" FontWeight="SemiBold" HorizontalAlignment="Center"/>
         <TextBlock Grid.Column="0" Grid.Row="1" Text="Wokkbench" HorizontalAlignment="Center"/>
-        <TextBlock Grid.Column="1" Grid.Row="0" Text="CPU:" FontWeight="SemiBold"/>
-        <TextBlock Grid.Column="1" Grid.Row="1" Text="RAM:" FontWeight="SemiBold"/>
-        <ProgressBar Grid.Column="2" Grid.Row="0" Width="130" Value="42" />
-        <TextBlock Grid.Column="2" Grid.Row="1" Text="TODO: 99%" />
-        <TextBlock Grid.Column="3" Grid.Row="1" Text="Network:" FontWeight="SemiBold"/>
-        <TextBlock Grid.Column="3" Grid.Row="0" Text="Disk:" FontWeight="SemiBold"/>
-        <ProgressBar Grid.Column="4" Grid.Row="0" Width="130" Value="42" />
-        <TextBlock Grid.Column="4" Grid.Row="1" Text="MBytes / sec." />
-        <Border Grid.Column="5" Grid.RowSpan="2">
-            <TextBlock Grid.Column="4" Grid.Row="1" Text="Status: READY." VerticalAlignment="Center"/>
+        <Border Grid.Column="1" Grid.RowSpan="2">
+            <TextBlock Text="Status: READY." VerticalAlignment="Center"/>
         </Border>
+        <TextBlock Grid.Column="2" Grid.Row="0" Text="CPU:" FontWeight="SemiBold"/>
+        <TextBlock Grid.Column="2" Grid.Row="1" Text="RAM:" FontWeight="SemiBold"/>
+        <ProgressBar Grid.Column="3" Grid.Row="0" Width="130" Value="42" />
+        <TextBlock Grid.Column="3" Grid.Row="1" Text="TODO: 99%" />
+        <TextBlock Grid.Column="4" Grid.Row="1" Text="Network:" FontWeight="SemiBold"/>
+        <TextBlock Grid.Column="4" Grid.Row="0" Text="Disk:" FontWeight="SemiBold"/>
+        <ProgressBar Grid.Column="5" Grid.Row="0" Width="130" Value="42" />
+        <TextBlock Grid.Column="5" Grid.Row="1" Text="MBytes / sec." />
     </Grid>
 </UserControl>

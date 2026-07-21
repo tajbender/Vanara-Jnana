@@ -1,6 +1,6 @@
 using Microsoft.UI.Xaml.Controls;
 
-namespace Jnana.Views;
+namespace Jnana.Views.Pages;
 
 public sealed partial class DisassemblerPage : Page
 {

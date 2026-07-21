@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Page
-    x:Class="Jnana.Views.DisassemblerPage"
+    x:Class="Jnana.Views.Pages.DisassemblerPage"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="using:Jnana.Views"
+    xmlns:local="using:Jnana.Views.Pages"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
