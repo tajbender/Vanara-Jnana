@@ -12,9 +12,14 @@ public sealed partial class HexEditorPage : Page
         InitializeComponent();
         DataContext = ViewModel;
 
-        // Load a default file for demonstration purpose
-        // // Change this to a valid file path on your system
-        OpenFile("C:\\Windows\\System32\\notepad.exe"); 
+        // TODO: Consider using a more robust method to determine the current process's executable path,
+        // especially in scenarios where the application might be running in a different context or environment.
+        // TODO: Move this to App Class Context
+        var filename = Environment.ProcessPath; //Process.GetCurrentProcess().MainModule.FileName;
+        if(filename != null)
+        {
+            OpenFile(filename);
+        }
     }
 
     public void OpenFile(string path)

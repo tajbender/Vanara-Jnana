@@ -28,9 +28,45 @@ public class HexEditorViewModel : INotifyPropertyChanged
     {
         FilePath = path;
 
-        // Stub: später echter Hex-Dump
-        HexDump = "00 11 22 33 44 55 66 77 88 99 AA BB CC DD EE FF\n" +
-                  "Hex-View kommt hier hin...";
+        try
+        {
+            using var stream = File.OpenRead(path);
+            var buffer = new byte[512];
+            int bytesRead = stream.Read(buffer, 0, buffer.Length);
+
+            var sb = new StringBuilder();
+            for (int i = 0; i < bytesRead; i += 16)
+            {
+                // Offset
+                sb.Append(i.ToString("X8")).Append("  ");
+
+                // Hex bytes
+                for (int j = 0; j < 16; j++)
+                {
+                    if (i + j < bytesRead)
+                        sb.Append(buffer[i + j].ToString("X2")).Append(' ');
+                    else
+                        sb.Append("   ");
+                }
+
+                sb.Append("  ");
+
+                // ASCII view
+                for (int j = 0; j < 16 && i + j < bytesRead; j++)
+                {
+                    byte b = buffer[i + j];
+                    sb.Append(b >= 32 && b <= 126 ? (char)b : '.');
+                }
+
+                sb.AppendLine();
+            }
+
+            HexDump = sb.ToString();
+        }
+        catch (Exception ex)
+        {
+            HexDump = $"TODO: GuruMeditation: Can't open file:\n{ex.Message}";
+        }
     }
 
     public event PropertyChangedEventHandler PropertyChanged;
