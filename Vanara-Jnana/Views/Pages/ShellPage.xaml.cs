@@ -8,6 +8,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Windows.Input;
 using Vanara_Jnana.exe.Models.Contracts;
+using Vanara_Jnana.exe.Views.DockPanels;
 using Vanara_Jnana.exe.Views.Pages;
 using static Vanara_Jnana.exe.Models.Contracts.INavigationService;
 
@@ -40,23 +41,25 @@ public sealed partial class ShellPage : Page
 
         _ = NuGetViewModel.SynchronizePackageCacheAsync();
 
+        OpenNewTabCommand = new RelayCommand<string>(OpenNewTab);
+        NavigateCommand.ExecuteRequested += NavigateCommand_ExecuteRequested;
+
         // OnLoading: Navigate to the default area (Void) to ensure the main content area
         // is populated with a page, and to establish a consistent starting point for navigation
         // TODO: WARN: This is the initial navigation target, but it should be determined based on user settings or the last visited area to provide a more personalized experience
-        _navigationService.NavigateTo(Jnana.Services.NavigationService.Area.Void);
+        _navigationService.NavigateTo(NavigationService.Area.Void);
 
-        OpenNewTabCommand = new RelayCommand<string>(OpenNewTab);
-        NavigateCommand.ExecuteRequested += NavigateCommand_ExecuteRequested;
 
         //AddNewTab("GitHub: Vanara", new NuGetsPage(NuGetViewModel));  // TODO: The NuGetsPage is currently crashing due to a NullReferenceException in the NuGetViewModel. Investigate and resolve this issue before enabling this tab.
         //AddNewTab("Samples", new SamplesPage(SamplesVM)); TODO: The SamplesPage is currently crashing due to a NullReferenceException in the SamplesViewModel. Investigate and resolve this issue before enabling this tab.
         //AddNewTab("NuGets", new NuGetsPage(NuGetViewModel));
-        AddNewTab("Handle Inspector", new HandleInspectorPage());
         AddNewTab("Disassembler", new DisassemblerPage());
         AddNewTab("Utilities", new UtilitiesPage());
         AddNewTab("Settings", new SettingsPage());
-        AddNewTab("Void", new VoidPage());
-        AddNewTab("File Opus", new FileManagementPage());
+        AddNewTab("Handle Inspector", new HandleInspectorPage());
+        AddNewTab("Hex Editor", new HexEditorPage());
+        //AddNewTab("Void", new VoidPage());
+        //AddNewTab("File Opus", new FileManagementPage());
     }
 
     private void AddNewTab(string header, Page page, IconSource? iconSource = null)

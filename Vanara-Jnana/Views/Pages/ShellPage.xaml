@@ -102,7 +102,7 @@
                     <TabView.Resources>
                         <SolidColorBrush x:Key="TabViewBackground" Color="Transparent"/>
                     </TabView.Resources>
-                    <TabViewItem Header="Workbench">
+                    <TabViewItem Header="Jñāna Workbench">
                         <Frame x:Name="WorkbenchFrame" CornerRadius="8"/>
                     </TabViewItem>
                 </TabView>
