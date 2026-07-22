@@ -139,6 +139,7 @@
 		<None Remove="Views\DockPanels\FileWatcherPanel.xaml" />
 		<None Remove="Views\DockPanels\InspectorView.xaml" />
 		<None Remove="Views\DockPanels\StartPage.xaml" />
+		<None Remove="Views\Pages\HandleInspectorPage.xaml" />
 		<None Remove="Views\UtilitiesPage.xaml" />
 	</ItemGroup>
 	<ItemGroup>
@@ -233,5 +234,10 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <PRIResource Remove="Assets\DOCS.de-DE\**" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Page Update="Views\Pages\HandleInspectorPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
 	</ItemGroup>
 </Project>

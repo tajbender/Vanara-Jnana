@@ -8,6 +8,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Windows.Input;
 using Vanara_Jnana.exe.Models.Contracts;
+using Vanara_Jnana.exe.Views.Pages;
 using static Vanara_Jnana.exe.Models.Contracts.INavigationService;
 
 namespace Jnana.Views;
@@ -50,6 +51,7 @@ public sealed partial class ShellPage : Page
         //AddNewTab("GitHub: Vanara", new NuGetsPage(NuGetViewModel));  // TODO: The NuGetsPage is currently crashing due to a NullReferenceException in the NuGetViewModel. Investigate and resolve this issue before enabling this tab.
         //AddNewTab("Samples", new SamplesPage(SamplesVM)); TODO: The SamplesPage is currently crashing due to a NullReferenceException in the SamplesViewModel. Investigate and resolve this issue before enabling this tab.
         //AddNewTab("NuGets", new NuGetsPage(NuGetViewModel));
+        AddNewTab("Handle Inspector", new HandleInspectorPage());
         AddNewTab("Disassembler", new DisassemblerPage());
         AddNewTab("Utilities", new UtilitiesPage());
         AddNewTab("Settings", new SettingsPage());

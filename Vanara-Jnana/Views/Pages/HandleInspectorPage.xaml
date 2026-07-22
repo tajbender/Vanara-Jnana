@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Vanara_Jnana.exe.Views.Pages.HandleInspectorPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Vanara_Jnana.exe.Views.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid RowDefinitions="Auto,*" Padding="16">
+        <StackPanel Orientation="Horizontal" Spacing="8">
+            <TextBox PlaceholderText="Enter path..." Text="{Binding QueryPath, Mode=TwoWay}" Width="400"/>
+            <Button Command="{Binding ScanCommand}" Content="Scan..." />
+        </StackPanel>
+
+        <ListView Grid.Row="1" ItemsSource="{Binding Results}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" Spacing="16">
+                        <TextBlock Text="{Binding ProcessName}" Width="150"/>
+                        <TextBlock Text="{Binding ProcessId}" Width="80"/>
+                        <TextBlock Text="{Binding HandleType}" Width="80"/>
+                        <TextBlock Text="{Binding FilePath}" Width="400"/>
+
+                        <!-- TODO:              <Button Content="Kill" Command="{Binding DataContext.KillProcessCommand,
+                                RelativeSource={RelativeSource AncestorType=Page}}"
+                                CommandParameter="{Binding}" />-->
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>
