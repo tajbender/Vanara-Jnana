@@ -61,6 +61,7 @@
 		<Folder Include="Styles\Backgrounds\" />
 		<Folder Include="Styles\Controls\" />
 		<Folder Include="Vanara\Controls\Shell32\" />
+		<Folder Include="Views\Tools\" />
 	</ItemGroup>
 	<ItemGroup>
 		<Content Update="Assets\DOCS\DOCS.assets\WinForms Sampler.zip">

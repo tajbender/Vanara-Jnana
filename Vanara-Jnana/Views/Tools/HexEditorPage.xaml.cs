@@ -1,7 +1,7 @@
 using Microsoft.UI.Xaml.Controls;
 using Vanara_Jnana.exe.ViewModels;
 
-namespace Vanara_Jnana.exe.Views.DockPanels;
+namespace Vanara_Jnana.exe.Views.Tools;
 
 public sealed partial class HexEditorPage : Page
 {

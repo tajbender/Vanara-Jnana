@@ -8,7 +8,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Windows.Input;
 using Vanara_Jnana.exe.Models.Contracts;
-using Vanara_Jnana.exe.Views.DockPanels;
+using Vanara_Jnana.exe.Views.Tools;
 using Vanara_Jnana.exe.Views.Pages;
 using static Vanara_Jnana.exe.Models.Contracts.INavigationService;
 
