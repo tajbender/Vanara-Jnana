@@ -58,6 +58,7 @@ public sealed partial class ShellPage : Page
         AddNewTab("Settings", new SettingsPage());
         AddNewTab("Handle Inspector", new HandleInspectorPage());
         AddNewTab("Hex Editor", new HexEditorPage());
+        AddNewTab("WebView", new WebViewPanel());
         //AddNewTab("Void", new VoidPage());
         //AddNewTab("File Opus", new FileManagementPage());
     }
