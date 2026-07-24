@@ -7,12 +7,19 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:wv2="using:Microsoft.UI.Xaml.Controls"
+    xmlns:tools="using:Vanara_Jnana.exe.ViewModels.Tools" 
+    d:DataContext="{d:DesignInstance Type=tools:WebViewPanelViewModel}"
     mc:Ignorable="d">
 
     <Grid>
-        <wv2:WebView2 x:Name="Browser"
-                      Source="{Binding Url}"
-                      HorizontalAlignment="Stretch"
-                      VerticalAlignment="Stretch"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <TextBlock Grid.Row="0" Text="{Binding StatusMessage}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,30,5,5"/>
+
+
+        <wv2:WebView2 x:Name="Browser" Grid.Row="1" Source="{Binding Url}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
     </Grid>
 </Page>

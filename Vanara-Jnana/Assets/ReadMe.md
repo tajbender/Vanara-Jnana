@@ -84,6 +84,10 @@ dotnet run
 
 [ ] Themed UI (Light/Dark/Mica/Custom)
 
+# Miscellanous Debris
+
+- [Sysinternals Suite](https://learn.microsoft.com/en-us/sysinternals/downloads/microsoft-store?source=docs)
+
 # 🤝 Contributing
 
 Contributions are welcome!
