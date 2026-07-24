@@ -7,64 +7,42 @@ using static Vanara_Jnana.exe.Models.Contracts.INavigationService;
 
 namespace Jnana.Services;
 
-
-public static class AreaExtensions
-{
-    public static Type GetPageType(this Area area) =>
-        area switch
-        {
-            Area.Settings => typeof(SettingsPage),
-            Area.Void => typeof(VoidPage),
-            //Area.SysInfo => typeof(SysInfoPage),
-            Area.Utilities => typeof(UtilitiesPage),
-            //Area.Shell => typeof(ShellPage),
-            _ => throw new NotImplementedException()
-        };
-}
+//public static class AreaExtensions
+//{
+//    public static Type GetPageType(this NavigationArea area) =>
+//        area switch
+//        {
+//            NavigationArea.Settings => typeof(SettingsPage),
+//            NavigationArea.Void => typeof(VoidPage),
+//            //NavigationArea.SysInfo => typeof(SysInfoPage),
+//            NavigationArea.Utilities => typeof(UtilitiesPage),
+//            //NavigationArea.Shell => typeof(ShellPage),
+//            _ => throw new NotImplementedException()
+//        };
+//}
 
 
 public partial class NavigationService : ObservableObject /* TODO: INavigationService */
 {
 
-    public enum Area
-    {
-        Settings,
-        Void,
-        SysInfo,
-        Utilities,
-        Shell,
-        Workbench,
-        Disassembler,
-    }
-
-    public interface IAreaPage
-    {
-        Area Area { get; }
-    }
-
-
-
-
     private readonly Frame _frame;
-    private readonly Dictionary<Area, Type> _areaPageMap;
+    private readonly Dictionary<NavigationArea, Type> _areaPageMap = new()
+    { 
+            //{ NavigationArea.Disassembler, typeof(DisassemblerPage)  },
+            //{ NavigationArea.GitHub, typeof(GitHubPage) },
+            //{ NavigationArea.NuGets, typeof(NuGetsPage) },
+            //{ NavigationArea.Samples, typeof(SamplesPage) },
+            { NavigationArea.Settings, typeof(SettingsPage) },
+            { NavigationArea.Utilities, typeof(UtilitiesPage) },
+            { NavigationArea.Void, typeof(VoidPage) },
+    };
 
     public NavigationService(Frame frame)
     {
         _frame = frame ?? throw new ArgumentNullException(nameof(frame));
-
-        _areaPageMap = new()
-        {
-            //{ Area.Disassembler, typeof(DisassemblerPage)  },
-            //{ Area.GitHub, typeof(GitHubPage) },
-            //{ Area.NuGets, typeof(NuGetsPage) },
-            //{ Area.Samples, typeof(SamplesPage) },
-            { Area.Settings, typeof(SettingsPage) },
-            { Area.Utilities, typeof(UtilitiesPage) },
-            { Area.Void, typeof(VoidPage) },
-        };
     }
 
-    public void NavigateTo(Area area)
+    public void NavigateTo(NavigationArea area)
     {
         try
         {
@@ -84,13 +62,28 @@ public partial class NavigationService : ObservableObject /* TODO: INavigationSe
             throw;
         }
     }
+}
 
-//    public void Navigate(Area area)
+public sealed class NavigationStack
+{
+    private readonly Stack<NavigationState> _back = new();
+    private readonly Stack<NavigationState> _forward = new();
+
+    public NavigationState Current { get; private set; }
+
+    public void Navigate(NavigationState state) { }
+    public bool CanGoBack => _back.Count > 0;
+    public bool CanGoForward => _forward.Count > 0;
+    public NavigationState GoBack() { return _back.Pop(); }
+    public NavigationState GoForward() { _back.Push(Current); return Current; }
+}
+
+//    public void Navigate(NavigationArea area)
 //    {
-//        if (_frame.Content is not IAreaPage current || current.Area != area)
+//        if (_frame.Content is not IAreaPage current || current.NavigationArea != area)
 //        {
 ////            if (_frame.Content is IAreaPage curr)
-////                _historyBack.Push(curr.Area);
+////                _historyBack.Push(curr.NavigationArea);
 ////
 ////            _historyForward.Clear();
 ////
@@ -108,7 +101,7 @@ public partial class NavigationService : ObservableObject /* TODO: INavigationSe
 //
 //        var prev = _historyBack.Pop();
 //        if (_frame.Content is IAreaPage curr)
-//            _historyForward.Push(curr.Area);
+//            _historyForward.Push(curr.NavigationArea);
 //
 //        _frame.Navigate(prev.GetPageType());
 //        AreaChanged?.Invoke(this, prev);
@@ -119,8 +112,7 @@ public partial class NavigationService : ObservableObject /* TODO: INavigationSe
 //
 //        var next = _historyForward.Pop();
 //        if (_frame.Content is IAreaPage curr)
-//            _historyBack.Push(curr.Area);
+//            _historyBack.Push(curr.NavigationArea);
 //
 //        _frame.Navigate(next.GetPageType());
-//        AreaChanged?.Invoke(this, next);
-}
+//        AreaChanged?.Invoke(this, next); }

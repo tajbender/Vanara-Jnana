@@ -8,7 +8,7 @@ namespace Vanara_Jnana.exe.Models.Contracts;
 
 public interface INavigationService
 {
-    public enum Area
+    public enum NavigationArea
     {
         Void,
         NuGets,
@@ -16,8 +16,20 @@ public interface INavigationService
         Samples,
         Disassembler,
         Utilities,
-        Settings
+        Settings,
+        SysInfo,
+        Shell,
+        Workbench,
     }
 
-    void NavigateTo(Area area);
+
+    public sealed record NavigationState(
+        Type PageType,
+        object? Parameter,
+        Guid? TabId,
+        string? Title,
+        DateTime Timestamp);
+
+
+    void NavigateTo(NavigationArea area);
 }
