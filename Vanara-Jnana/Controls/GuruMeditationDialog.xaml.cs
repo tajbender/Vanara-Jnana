@@ -65,3 +65,11 @@ public sealed partial class GuruMeditationDialog : ContentDialog
          
     }
 }
+
+
+/*
+ ICE CREAM! ICE CREAM!
+A delightful malfunction has occurred.
+Meditation recommended.
+
+ */
