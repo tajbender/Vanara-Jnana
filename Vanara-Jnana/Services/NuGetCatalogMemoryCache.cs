@@ -4,7 +4,8 @@ using NuGet.Packaging;
 using NuGet.Protocol;
 using NuGet.Protocol.Core.Types;
 using NuGet.Versioning;
-namespace Vanara.WinUI.Extensions.Services.NuGet;
+
+namespace Jnana.Services;
 
 public sealed class NuGetCatalogMemoryCache : INuGetCatalogService
 {
