@@ -1,4 +1,9 @@
-﻿namespace Jnana.ViewModels;
+﻿using Jnana.Services;
+using Jnana.Views.Pages;
+using Microsoft.UI.Xaml.Controls;
+using Vanara_Jnana.exe.Models.Contracts;
+
+namespace Jnana.ViewModels;
 
 internal class SettingsAreaViewModel
 {

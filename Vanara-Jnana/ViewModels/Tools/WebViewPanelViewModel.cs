@@ -1,4 +1,8 @@
-﻿using System.ComponentModel;
+﻿using Jnana.Services;
+using Microsoft.UI.Xaml.Controls;
+using System.ComponentModel;
+using Vanara_Jnana.exe.Models.Contracts;
+using Vanara_Jnana.exe.Views.Tools;
 using static Vanara.PInvoke.User32;
 
 namespace Vanara_Jnana.exe.ViewModels.Tools;
@@ -21,9 +25,9 @@ public class WebViewPanelViewModel : INotifyPropertyChanged
         set { _statusMessage = value; OnPropertyChanged(nameof(StatusMessage)); }
     }
 
-    public WebViewPanelViewModel()
+    public WebViewPanelViewModel(string url = "https://www.example.com")
     {
-        Url = "https://www.example.com";
+        Url = url;
         StatusMessage = "Ready";
     }
 
@@ -46,5 +50,22 @@ public class WebViewPanelViewModel : INotifyPropertyChanged
         {
             StatusMessage = $"Failed to navigate to {url}";
         }
+    }
+}
+
+public sealed class WebViewProvider : INavigationProvider
+{
+    public bool CanHandle(string provider) => provider.Equals("webview", StringComparison.OrdinalIgnoreCase);
+
+    public Task<NavigationNode> ResolveAsync(NamespaceAddress address)
+    {
+        return Task.FromResult(new NavigationNode
+        {
+            Title = address.Path,
+            Icon = new SymbolIconSource { Symbol = Symbol.Globe },
+            PageType = typeof(WebViewPanel),
+            ViewModel = new WebViewPanelViewModel(),
+            IsPanel = false
+        });
     }
 }

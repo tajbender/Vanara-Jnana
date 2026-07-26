@@ -8,9 +8,11 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Windows.Input;
 using Vanara_Jnana.exe.Models.Contracts;
-using Vanara_Jnana.exe.Views.Tools;
+using Vanara_Jnana.exe.Services.Navigation.Providers;
 using Vanara_Jnana.exe.Views.Pages;
+using Vanara_Jnana.exe.Views.Tools;
 using static Vanara_Jnana.exe.Models.Contracts.INavigationService;
+
 
 namespace Jnana.Views;
 
@@ -37,7 +39,12 @@ public sealed partial class ShellPage : Page
         NuGetViewModel = new NuGetsAreaViewModel();
         GitHubVM = new GitHubAreaViewModel();
         SamplesVM = new SamplesAreaViewModel();
-        _navigationService = new NavigationService(WorkbenchFrame); // TODO: Use dependency injection to provide the NavigationService instance, and consider making it a singleton if it doesn't need to maintain any state
+
+        _navigationService = new NavigationService(WorkbenchFrame);
+        _navigationService.RegisterProvider(new SettingsProvider());
+        // TODO: _navigationService.RegisterProvider(new WorkbenchProvider());
+        // TODO:_navigationService.RegisterProvider(new WebViewProvider());
+
 
         _ = NuGetViewModel.SynchronizePackageCacheAsync();
 

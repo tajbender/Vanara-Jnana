@@ -1,10 +1,19 @@
-﻿using System;
+﻿using Jnana.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Vanara_Jnana.exe.Models.Contracts;
+
+
+public interface INavigationProvider
+{
+    bool CanHandle(string provider);
+    Task<NavigationNode> ResolveAsync(NamespaceAddress address);
+}
+
 
 public interface INavigationService
 {
