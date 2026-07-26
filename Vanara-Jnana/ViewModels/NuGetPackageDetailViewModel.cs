@@ -1,8 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using Jnana.Helpers;
-using Jnana.Services;
 using Microsoft.UI.Xaml.Media.Imaging;
 using NuGet.Versioning;
+using Vanara_Jnana.exe.Models.Contracts;
 
 namespace Jnana.ViewModels;
 

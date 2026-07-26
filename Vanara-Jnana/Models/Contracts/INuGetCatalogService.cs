@@ -1,12 +1,7 @@
 ﻿using Microsoft.UI.Xaml.Media.Imaging;
 using NuGet.Versioning;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Jnana.Services;
+namespace Vanara_Jnana.exe.Models.Contracts;
 
 public record PackageId(string Id);
 

@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System;
 using Jnana.Views.Pages;
 
-namespace Jnana.Services;
+namespace Vanara_Jnana.exe.Services.Navigation;
 
 public static class TabNavigationService
 {

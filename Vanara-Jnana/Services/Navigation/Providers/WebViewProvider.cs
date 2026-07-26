@@ -1,13 +1,9 @@
 ﻿using Jnana.Services;
 using Microsoft.UI.Xaml.Controls;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Vanara_Jnana.exe.Models.Contracts;
 using Vanara_Jnana.exe.Views.Tools;
 using Vanara_Jnana.exe.ViewModels.Tools;
+
 namespace Vanara_Jnana.exe.Services.Navigation.Providers;
 
 public sealed class WebViewProvider : INavigationProvider

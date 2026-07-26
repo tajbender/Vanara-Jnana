@@ -4,6 +4,7 @@ using NuGet.Packaging;
 using NuGet.Protocol;
 using NuGet.Protocol.Core.Types;
 using NuGet.Versioning;
+using Vanara_Jnana.exe.Models.Contracts;
 
 namespace Jnana.Services;
 

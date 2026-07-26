@@ -41,9 +41,16 @@ public sealed partial class ShellPage : Page
         SamplesVM = new SamplesAreaViewModel();
 
         _navigationService = new NavigationService(WorkbenchFrame);
+        _navigationService.RegisterProvider(new WebViewProvider());
         _navigationService.RegisterProvider(new SettingsProvider());
         // TODO: _navigationService.RegisterProvider(new WorkbenchProvider());
         // TODO:_navigationService.RegisterProvider(new WebViewProvider());
+
+        _navigationService.Navigated += (node) =>
+        {
+            Debug.WriteLine($"ShellPage.Navigated() to: {node.Title} ({node.PageType.Name})");
+            Frame.Navigate(node.PageType, node.ViewModel);
+        };
 
 
         _ = NuGetViewModel.SynchronizePackageCacheAsync();
@@ -60,12 +67,12 @@ public sealed partial class ShellPage : Page
         //AddNewTab("GitHub: Vanara", new NuGetsPage(NuGetViewModel));  // TODO: The NuGetsPage is currently crashing due to a NullReferenceException in the NuGetViewModel. Investigate and resolve this issue before enabling this tab.
         //AddNewTab("Samples", new SamplesPage(SamplesVM)); TODO: The SamplesPage is currently crashing due to a NullReferenceException in the SamplesViewModel. Investigate and resolve this issue before enabling this tab.
         //AddNewTab("NuGets", new NuGetsPage(NuGetViewModel));
-        AddNewTab("Disassembler", new DisassemblerPage());
-        AddNewTab("Utilities", new UtilitiesPage());
-        AddNewTab("Handle Inspector", new HandleInspectorPage());
-        AddNewTab("Hex Editor", new HexEditorPage());
-        AddNewTab("WebView", new WebViewPanel());
-        AddNewTab("Settings", new SettingsPage());
+        //AddNewTab("Disassembler", new DisassemblerPage());
+        //AddNewTab("Utilities", new UtilitiesPage());
+        //AddNewTab("Handle Inspector", new HandleInspectorPage());
+        //AddNewTab("Hex Editor", new HexEditorPage());
+        //AddNewTab("WebView", new WebViewPanel());
+        //AddNewTab("Settings", new SettingsPage());
         //AddNewTab("Void", new VoidPage());
         //AddNewTab("File Opus", new FileManagementPage());
     }
