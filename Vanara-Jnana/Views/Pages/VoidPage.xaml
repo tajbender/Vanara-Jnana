@@ -14,10 +14,20 @@
     mc:Ignorable="d">
 
     <Grid BorderThickness="1" Margin="3">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="This is a Void Page. It is intentionally left blank." 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Center" 
+                   FontSize="24" 
+                   Foreground="Gray"/>
         <ScrollViewer BorderThickness="1" Margin="3">
-            <!-- TODO: ItemsSource="{x:Bind ColorsCollection, Mode=OneWay}" -->
+            <!-- TODO: ItemsSource="{x:Bind ColorsCollection, Mode=OneWay}" 
+                       ItemTemplate="{StaticResource StaggeredTemplate}"-->
             <muxc:ItemsRepeater x:Name="StaggeredRepeater"
-                                ItemTemplate="{StaticResource StaggeredTemplate}">
+                                >
                 <!--<muxc:ItemsRepeater.Layout>
                     <controls:StaggeredLayout ColumnSpacing="{x:Bind ColumnSpacing, Mode=OneWay}"
                                               DesiredColumnWidth="{x:Bind DesiredColumnWidth, Mode=OneWay}"

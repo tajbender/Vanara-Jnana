@@ -1,11 +1,8 @@
-﻿using Jnana.Views;
-using Microsoft.UI.Xaml.Controls;
-using System.Collections.ObjectModel;
-using System;
-using Jnana.Views.Pages;
+﻿using Microsoft.UI.Xaml.Controls;
 
 namespace Vanara_Jnana.exe.Services.Navigation;
 
+[Obsolete("This class is obsolete. Use the new NavigationService instead.")]
 public static class TabNavigationService
 {
     private static TabView _tabView;
