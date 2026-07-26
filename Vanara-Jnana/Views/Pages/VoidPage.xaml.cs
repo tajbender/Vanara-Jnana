@@ -12,14 +12,14 @@ public sealed partial class VoidPage : Page
     private VanaraScienceLaboratoriesViewModel VanaraScienceLaboratoriesViewModel => ViewModel.VanaraScienceLaboratoriesViewModel;
 
 
-    public VoidPage()
+    public VoidPage(NuGetsAreaViewModel nuGetsViewModel)
     {
         InitializeComponent();
 
         // TODO: Consider using dependency injection to provide these view models,
         // especially if they need to maintain state or interact with services
         ViewModel = new VoidPageViewModel(
-            new NuGetsAreaViewModel(),
+            nuGetsViewModel,
             new GitHubAreaViewModel(),
             new SamplesAreaViewModel(),
             new VanaraScienceLaboratoriesViewModel());

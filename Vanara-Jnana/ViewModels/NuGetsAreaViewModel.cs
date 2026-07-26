@@ -20,28 +20,34 @@ public partial class NuGetsAreaViewModel : ObservableObject
     private readonly NuGetCatalogMemoryCache nuGetCatalogMemoryCache;
     private readonly NuGetCatalogDiskCache nuGetCatalogDiskCache;
 
+    private readonly ILogger? logger;
+    private readonly string nuGetIndexUrl = "https://api.nuget.org/v3/index.json";
+
     /// <summary>Get the current INuGetCatalogService that is in use.</summary>
     //    public INuGetCatalogService NuGetCatalogService => nuGetCatalogDiskCache;
 
-    //    public ObservableCollection<PackageVersionInfo> Packages { get; } = new();
+    public ObservableCollection<PackageVersionInfo> Packages { get; } = new();
 
     public NuGetPackageDetailViewModel PackageDetailViewModel { get; }
 
     public ICommand SelectVersionCommand { get; }
 
-        public NuGetsAreaViewModel(ILogger? logger = null)
-      {
-          nuGetCatalogService = new NuGetCatalogService("https://api.nuget.org/v3/index.json", logger);
-          nuGetCatalogMemoryCache = new NuGetCatalogMemoryCache(nuGetCatalogService);
-    
-          var cachePath = Path.Combine(
-              Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Jnana", "nuget-cache.json");
-    
-          nuGetCatalogDiskCache = new NuGetCatalogDiskCache(nuGetCatalogMemoryCache, cachePath);
-          PackageDetailViewModel = new NuGetPackageDetailViewModel(nuGetCatalogDiskCache);
-    
-          SelectVersionCommand = new RelayCommand<PackageVersionInfo?>(OnVersionSelected);
-      }
+    public NuGetsAreaViewModel(ILogger? logger = null)
+    {
+        nuGetCatalogService = new NuGetCatalogService(nuGetIndexUrl, logger);
+        nuGetCatalogMemoryCache = new NuGetCatalogMemoryCache(nuGetCatalogService);
+
+        var cachePath = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Jnana", "nuget-cache.json");
+
+        nuGetCatalogDiskCache = new NuGetCatalogDiskCache(nuGetCatalogMemoryCache, cachePath);
+        PackageDetailViewModel = new NuGetPackageDetailViewModel(nuGetCatalogDiskCache);
+
+        SelectVersionCommand = new RelayCommand<PackageVersionInfo?>(OnVersionSelected);
+
+        // TODO: Remove this hardcoded package for testing purposes. In the future, we will dynamically load packages from the NuGet catalog.
+        Packages.Add(new PackageVersionInfo("Vanara.PInvoke.Kernel32", "1.0.0", null, "Vanara PInvoke for Kernel32.dll", "Vanara PInvoke for Kernel32.dll", null));
+    }
 
     public async Task SynchronizePackageCacheAsync()
     {

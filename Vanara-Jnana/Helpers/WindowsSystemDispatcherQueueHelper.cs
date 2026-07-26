@@ -12,7 +12,7 @@ public class WindowsSystemDispatcherQueueHelper
         public int apartmentType;
     }
 
-    [DllImport("CoreMessaging.dll")]
+    [DllImport("CoreMessaging.dll")]        // TODO: Consider using Vanara's PInvoke for this instead of manually defining it.
     private static extern int CreateDispatcherQueueController(
         DispatcherQueueOptions options,
         out IntPtr dispatcherQueueController);

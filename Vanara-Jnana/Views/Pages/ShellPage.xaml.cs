@@ -1,24 +1,21 @@
 using CommunityToolkit.Mvvm.Input;
 using Jnana.Services;
 using Jnana.ViewModels;
-using Jnana.Views.Pages;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Input;
+using Microsoft.UI.Xaml.Navigation;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Windows.Input;
 using Vanara_Jnana.exe.Models.Contracts;
 using Vanara_Jnana.exe.Services.Navigation.Providers;
-using Vanara_Jnana.exe.Views.Pages;
-using Vanara_Jnana.exe.Views.Tools;
 using static Vanara_Jnana.exe.Models.Contracts.INavigationService;
-
 
 namespace Jnana.Views;
 
 public sealed partial class ShellPage : Page
 {
-    private NuGetsAreaViewModel NuGetViewModel { get; }
+    private NuGetsAreaViewModel NuGetsViewModel { get; }
     private GitHubAreaViewModel GitHubVM { get; }
     private SamplesAreaViewModel SamplesVM { get; }
     private NavigationService _navigationService { get; }
@@ -36,7 +33,7 @@ public sealed partial class ShellPage : Page
     {
         InitializeComponent();
         Tabs = new ObservableCollection<TabViewItem>();
-        NuGetViewModel = new NuGetsAreaViewModel();
+        NuGetsViewModel = new NuGetsAreaViewModel();
         GitHubVM = new GitHubAreaViewModel();
         SamplesVM = new SamplesAreaViewModel();
 
@@ -48,12 +45,13 @@ public sealed partial class ShellPage : Page
 
         _navigationService.Navigated += (node) =>
         {
+            ArgumentNullException.ThrowIfNull(node);
             Debug.WriteLine($"ShellPage.Navigated() to: {node.Title} ({node.PageType.Name})");
             Frame.Navigate(node.PageType, node.ViewModel);
         };
 
 
-        _ = NuGetViewModel.SynchronizePackageCacheAsync();
+        _ = NuGetsViewModel.SynchronizePackageCacheAsync();
 
         OpenNewTabCommand = new RelayCommand<string>(OpenNewTab);
         NavigateCommand.ExecuteRequested += NavigateCommand_ExecuteRequested;
@@ -61,19 +59,19 @@ public sealed partial class ShellPage : Page
         // OnLoading: Navigate to the default area (Void) to ensure the main content area
         // is populated with a page, and to establish a consistent starting point for navigation
         // TODO: WARN: This is the initial navigation target, but it should be determined based on user settings or the last visited area to provide a more personalized experience
-        _navigationService.NavigateTo(NavigationArea.Void);
+        // _navigationService.NavigateTo(NavigationArea.Void);
 
 
-        //AddNewTab("GitHub: Vanara", new NuGetsPage(NuGetViewModel));  // TODO: The NuGetsPage is currently crashing due to a NullReferenceException in the NuGetViewModel. Investigate and resolve this issue before enabling this tab.
+        //AddNewTab("GitHub: Vanara", new NuGetsPage(NuGetsViewModel));  // TODO: The NuGetsPage is currently crashing due to a NullReferenceException in the NuGetsViewModel. Investigate and resolve this issue before enabling this tab.
         //AddNewTab("Samples", new SamplesPage(SamplesVM)); TODO: The SamplesPage is currently crashing due to a NullReferenceException in the SamplesViewModel. Investigate and resolve this issue before enabling this tab.
-        //AddNewTab("NuGets", new NuGetsPage(NuGetViewModel));
+        //AddNewTab("NuGets", new NuGetsPage(NuGetsViewModel));
         //AddNewTab("Disassembler", new DisassemblerPage());
         //AddNewTab("Utilities", new UtilitiesPage());
         //AddNewTab("Handle Inspector", new HandleInspectorPage());
         //AddNewTab("Hex Editor", new HexEditorPage());
         //AddNewTab("WebView", new WebViewPanel());
         //AddNewTab("Settings", new SettingsPage());
-        //AddNewTab("Void", new VoidPage());
+        //AddNewTab("Void", new VoidPage(NuGetsViewModel));
         //AddNewTab("File Opus", new FileManagementPage());
     }
 
@@ -91,8 +89,31 @@ public sealed partial class ShellPage : Page
                 IconSource = tabViewIconSource,
             };
 
+            if(page.GetType() == typeof(VoidPage))
+            {
+                Debug.WriteLine("Navigating to VoidPage with NuGetsViewModel.");
+                var navOptions = new FrameNavigationOptions
+                {
+                    IsNavigationStackEnabled = true,
+                    //TransitionInfoOverride = new Windows.UI.Xaml.Media.Animation.SuppressNavigationTransitionInfo()
+                };
+
+                ((Frame)newTab.Content).NavigateToType(page.GetType(), NuGetsViewModel, navOptions);
+            }
+            else
+            {
+                Debug.WriteLine($"Navigating to {page.GetType().Name} without ViewModel.");
+                ((Frame)newTab.Content).Navigate(page.GetType());
+            }
+
+
+
             // Navigate the new tab's frame to the specified page
-            ((Frame)newTab.Content).Navigate(page.GetType());
+            //((Frame)newTab.Content).Navigate(page.GetType());
+            //
+            //((Frame)newTab.Content).NavigateToType(page.GetType(), 
+            //    page.ViewModel, 
+            //    FrameNavigationOptions.None);
 
             // Add new tab and select it
             MainTabView.TabItems.Add(newTab);
@@ -125,8 +146,8 @@ public sealed partial class ShellPage : Page
 
     private void MainTabView_AddTabButtonClick(TabView sender, object args)
     {
-        Debug.WriteLine($"MainTabView_AddTabButtonClick({args}) Breadcrumb item clicked.");
-        AddNewTab("Void", new VoidPage());
+        Debug.WriteLine($"MainTabView_AddTabButtonClick({args}) clicked. Adding new void tab.");
+        AddNewTab("Void", new VoidPage(NuGetsViewModel));
     }
 
     private void NavBreadcrumb_ItemClicked(object sender, BreadcrumbBarItemClickedEventArgs args)
