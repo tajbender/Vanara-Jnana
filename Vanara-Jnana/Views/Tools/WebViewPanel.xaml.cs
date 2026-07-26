@@ -18,6 +18,7 @@ public sealed partial class WebViewPanel : Page
             try
             {
                 await Browser.EnsureCoreWebView2Async();
+
                 if (Browser.CoreWebView2 != null)
                 {
                     Browser.CoreWebView2.Settings.AreDevToolsEnabled = true;
@@ -25,6 +26,11 @@ public sealed partial class WebViewPanel : Page
                     Browser.CoreWebView2.Settings.AreDefaultContextMenusEnabled = false;
 
                     Debug.WriteLine("WebView2 Runtime is available. Initializer completed.");
+                }
+                else
+                {
+                    Debug.WriteLine("WebView2 Runtime is not available. CoreWebView2 is null.");
+                    throw new InvalidOperationException("WebView2 Runtime is not available. Please install it to use this feature.");
                 }
             }
             catch (COMException ex)

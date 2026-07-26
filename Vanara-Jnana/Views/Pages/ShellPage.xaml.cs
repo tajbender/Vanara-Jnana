@@ -55,10 +55,10 @@ public sealed partial class ShellPage : Page
         //AddNewTab("NuGets", new NuGetsPage(NuGetViewModel));
         AddNewTab("Disassembler", new DisassemblerPage());
         AddNewTab("Utilities", new UtilitiesPage());
-        AddNewTab("Settings", new SettingsPage());
         AddNewTab("Handle Inspector", new HandleInspectorPage());
         AddNewTab("Hex Editor", new HexEditorPage());
         AddNewTab("WebView", new WebViewPanel());
+        AddNewTab("Settings", new SettingsPage());
         //AddNewTab("Void", new VoidPage());
         //AddNewTab("File Opus", new FileManagementPage());
     }
