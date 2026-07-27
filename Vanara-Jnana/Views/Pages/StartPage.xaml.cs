@@ -3,12 +3,13 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.Diagnostics;
 
-namespace Jnana.Views;
+namespace Jnana.Deprecated.Views;
 
 /// <summary><completionlist cref="StartPage"></completionlist>
 /// StartPage is the main page that is shown when the app is launched
 /// and serves as a navigation hub for the various Views in the app.
 /// </summary>
+[Obsolete("StartPage is deprecated. Use ShellPage instead.")]
 public sealed partial class StartPage : Page,
     INavigationAware
 {

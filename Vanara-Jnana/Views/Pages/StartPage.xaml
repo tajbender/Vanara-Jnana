@@ -1,5 +1,5 @@
 <Page
-    x:Class="Jnana.Views.StartPage"
+    x:Class="Jnana.Deprecated.Views.StartPage"
     xmlns:controls="using:Jnana.Vanara.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:Jnana.Views"
