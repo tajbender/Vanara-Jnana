@@ -12,7 +12,8 @@
             <Setter Property="Height" Value="126"/>
             <Setter Property="Margin" Value="6,0"/>
 
-            --><!-- TODO: Add those properties to the control and set them here as defaults, allowing overrides on individual tiles.
+            -->
+    <!-- TODO: Add those properties to the control and set them here as defaults, allowing overrides on individual tiles.
             <Setter Property="Padding" Value="12,8"/>
             <Setter Property="CornerRadius" Value="6"/>
             <Setter Property="Background" Value="#F3F3F3"/>
@@ -21,7 +22,8 @@
             <Setter Property="IconSize" Value="24"/>
             <Setter Property="TitleFontSize" Value="16"/>
             <Setter Property="SubtitleFontSize" Value="11"/>
-            <Setter Property="SubtitleOpacity" Value="0.65"/> --><!--
+            <Setter Property="SubtitleOpacity" Value="0.65"/> -->
+    <!--
 
             <Setter Property="Template">
                 <Setter.Value>
@@ -38,13 +40,17 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
 
-                            --><!-- ICON --><!--
+                            -->
+    <!-- ICON -->
+    <!--
                             <FontIcon Glyph="{TemplateBinding Icon}"
                                   FontSize="{TemplateBinding IconSize}"
                                   VerticalAlignment="Center"
                                   Margin="0,0,12,0"/>
 
-                            --><!-- TEXT --><!--
+                            -->
+    <!-- TEXT -->
+    <!--
                             <StackPanel Grid.Column="1"
                                     VerticalAlignment="Center"
                                     Spacing="2">
@@ -78,7 +84,12 @@
         <Grid.RenderTransform>
             <ScaleTransform x:Name="ScaleTransform" ScaleX="1" ScaleY="1"/>
         </Grid.RenderTransform>
-        <FontIcon x:Name="IconElement" Grid.Row="0" Grid.Column="0" Glyph="&#xE8A5;" />
+        <IconSourceElement Grid.Row="0" Grid.Column="0" Width="36" Height="36">
+            <IconSourceElement.IconSource>
+                <!-- TODO: Use document icon as default -->
+                <FontIconSource Glyph="&#xE7B8;" FontFamily="Segoe Fluent Icons" Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
+            </IconSourceElement.IconSource>
+        </IconSourceElement>
         <TextBlock x:Name="TitleElement" Grid.Row="0" Grid.Column="1" FontSize="18" FontWeight="SemiBold" Text="Title" Padding="7" VerticalAlignment="Bottom"/>
         <TextBlock x:Name="SubtitleElement" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" FontSize="12" Opacity="0.6" Text="Subtitle" TextWrapping="WrapWholeWords" VerticalAlignment="Top"/>
     </Grid>

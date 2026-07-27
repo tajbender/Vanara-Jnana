@@ -22,11 +22,11 @@ public sealed partial class FeatureTile : UserControl
                 ((FeatureTile)d).SubtitleElement.Text = (string)e.NewValue;
             }));
 
-    public static readonly DependencyProperty IconProperty =
-        DependencyProperty.Register(nameof(Icon), typeof(string), typeof(FeatureTile),
-            new PropertyMetadata(string.Empty, (d, e) =>
+    public static readonly DependencyProperty IconSourceProperty =
+        DependencyProperty.Register(nameof(IconSource), typeof(IconSource), typeof(FeatureTile),
+            new PropertyMetadata(null, (d, e) =>
             {
-                ((FeatureTile)d).IconElement.Glyph = (string)e.NewValue;
+                ((FeatureTile)d).IconSource = (IconSource)e.NewValue;
             }));
 
     public static readonly DependencyProperty CommandProperty =
@@ -42,10 +42,10 @@ public sealed partial class FeatureTile : UserControl
         get => (StandardUICommand)GetValue(CommandProperty);
         set => SetValue(CommandProperty, value);
     }
-    public string Icon
+    public IconSource IconSource
     {
-        get => (string)GetValue(IconProperty);
-        set => SetValue(IconProperty, value);
+        get => (IconSource)GetValue(IconSourceProperty);
+        set => SetValue(IconSourceProperty, value);
     }
     public string Subtitle
     {
@@ -114,14 +114,47 @@ public static class FeatureTileExtensions
         return featureTile.Command;
     }
 
-    public static void SetCommand(this FeatureTile featureTile, StandardUICommand command)
+    public static FeatureTile SetCommand(this FeatureTile featureTile, StandardUICommand command)
     {
-        if (featureTile is FeatureTile && command is StandardUICommand newCommand)
-        {
-            featureTile.Command = newCommand;
-            return;
-        }
+        Debug.Assert(featureTile != null, "FeatureTileExtensions.SetCommand: featureTile is null.");
+        Debug.Assert(command != null, "FeatureTileExtensions.SetCommand: command is null.");
+        Debug.Assert(command is StandardUICommand, "FeatureTileExtensions.SetCommand: command is not a StandardUICommand.");
 
-        Debug.Fail($"FeatureTileExtensions.SetCommand: Invalid parameters. featureTile is null or command is not a StandardUICommand.");
+        featureTile.Command = command;
+
+        return featureTile;
+    }
+
+    public static FeatureTile SetIconSource(this FeatureTile featureTile, IconSource icon)
+    {
+        Debug.Assert(featureTile != null, "FeatureTileExtensions.SetIcon: featureTile is null.");
+        Debug.Assert(icon != null, "FeatureTileExtensions.SetIcon: icon is null.");
+        Debug.Assert(icon is IconSource, "FeatureTileExtensions.SetIcon: icon is not a IconSource.");
+
+        featureTile.IconSource = icon;
+
+        return featureTile;
+    }
+
+    public static FeatureTile SetTitle(this FeatureTile featureTile, string title)
+    {
+        Debug.Assert(featureTile != null, "FeatureTileExtensions.SetTitle: featureTile is null.");
+        Debug.Assert(!string.IsNullOrEmpty(title), "FeatureTileExtensions.SetTitle: title is null or empty.");
+        Debug.Assert(title is string, "FeatureTileExtensions.SetTitle: title is not a string.");
+
+        featureTile.Title = title;
+
+        return featureTile;
+    }
+
+    public static FeatureTile SetSubtitle(this FeatureTile featureTile, string subtitle)
+    {
+        Debug.Assert(featureTile != null, "FeatureTileExtensions.SetSubtitle: featureTile is null.");
+        Debug.Assert(!string.IsNullOrEmpty(subtitle), "FeatureTileExtensions.SetSubtitle: subtitle is null or empty.");
+        Debug.Assert(subtitle is string, "FeatureTileExtensions.SetSubtitle: subtitle is not a string.");
+
+        featureTile.Subtitle = subtitle;
+
+        return featureTile;
     }
 }

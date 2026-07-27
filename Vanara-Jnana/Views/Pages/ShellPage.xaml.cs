@@ -64,12 +64,14 @@ public sealed partial class ShellPage : Page
         OpenNewTabCommand = new RelayCommand<string>(OpenNewTab);
         NavigateCommand.ExecuteRequested += NavigateCommand_ExecuteRequested;
 
-        FeatureTiles.Add(new FeatureTile());
-        FeatureTiles.Add(new FeatureTile());
-        FeatureTiles.Add(new FeatureTile());
-        FeatureTiles.Add(new FeatureTile());
-        FeatureTiles.Add(new FeatureTile());
-        FeatureTiles.Add(new FeatureTile());
+        // TODO: Set icon source e.g. <FontIconSource Glyph="&#xE7B8;" FontFamily="Segoe Fluent Icons" Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
+
+        FeatureTiles.Add(new FeatureTile().SetCommand(NavigateCommand).SetTitle("NuGets").SetSubtitle("Official Package Releases. Latest Release: 5.0.5"));
+        FeatureTiles.Add(new FeatureTile().SetCommand(NavigateCommand).SetTitle("GitHub").SetSubtitle("Vanara on GitHub."));
+        FeatureTiles.Add(new FeatureTile().SetCommand(NavigateCommand).SetTitle("Samples").SetSubtitle("Vanara Science Laboratory, Examples and Unit Tests."));
+        FeatureTiles.Add(new FeatureTile().SetCommand(NavigateCommand).SetTitle("Assemblies").SetSubtitle("Explore Types, Members and Interfaces."));
+        FeatureTiles.Add(new FeatureTile().SetCommand(NavigateCommand).SetTitle("Utilities").SetSubtitle("Tools, Helpers and Generators. Dump extended System Info."));
+        FeatureTiles.Add(new FeatureTile().SetCommand(NavigateCommand).SetTitle("Settings").SetSubtitle("Settings, Version Info and Search for Help."));
 
         //                < controls:FeatureTile Command = "{x:Bind NavigateCommand}" Icon = "&#xE7B8;" Title = "NuGets" Subtitle = "Official Package Releases. Latest Release: 5.0.5" />
         //                < controls:FeatureTile Command = "{x:Bind NavigateCommand}" Icon = "&#xE9D5;" Title = "GitHub" Subtitle = "Vanara on GitHub." />
@@ -124,6 +126,7 @@ public sealed partial class ShellPage : Page
                     //TransitionInfoOverride = new Windows.UI.Xaml.Media.Animation.SuppressNavigationTransitionInfo()
                 };
 
+                // TODO: THis crashes. However, navigate to the New Tab created
                 ((Frame)newTab.Content).NavigateToType(page.GetType(), NuGetsViewModel, navOptions);
             }
             else
