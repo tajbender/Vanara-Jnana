@@ -102,3 +102,26 @@ public sealed partial class FeatureTile : UserControl
         };
     }
 }
+
+/// <summary>
+/// Provides extension methods for the <see cref="FeatureTile"/> class, 
+/// allowing for easier access and manipulation of its properties.
+/// </summary>
+public static class FeatureTileExtensions
+{
+    public static StandardUICommand GetCommand(this FeatureTile featureTile)
+    {
+        return featureTile.Command;
+    }
+
+    public static void SetCommand(this FeatureTile featureTile, StandardUICommand command)
+    {
+        if (featureTile is FeatureTile && command is StandardUICommand newCommand)
+        {
+            featureTile.Command = newCommand;
+            return;
+        }
+
+        Debug.Fail($"FeatureTileExtensions.SetCommand: Invalid parameters. featureTile is null or command is not a StandardUICommand.");
+    }
+}

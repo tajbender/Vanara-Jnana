@@ -1,5 +1,6 @@
 using CommunityToolkit.Mvvm.Input;
 using Jnana.Services;
+using Jnana.Vanara.Controls;
 using Jnana.ViewModels;
 using Jnana.Views.Pages;
 using Microsoft.UI.Xaml.Controls;
@@ -7,9 +8,11 @@ using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Navigation;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Drawing;
 using System.Windows.Input;
 using Vanara_Jnana.exe.Models.Contracts;
 using Vanara_Jnana.exe.Services.Navigation.Providers;
+using Vanara_Jnana.exe.Views.Pages;
 using Vanara_Jnana.exe.Views.Tools;
 using static Vanara_Jnana.exe.Models.Contracts.INavigationService;
 
@@ -31,6 +34,8 @@ public sealed partial class ShellPage : Page
     public TabViewItem? SelectedTab { get; set; } = null;
     public NavigationArea DefaultNavigationTarget => this.defaultNavigationTarget;
 
+    public ObservableCollection<FeatureTile> FeatureTiles { get; }
+
     public ShellPage()
     {
         InitializeComponent();
@@ -38,6 +43,7 @@ public sealed partial class ShellPage : Page
         NuGetsViewModel = new NuGetsAreaViewModel();
         GitHubVM = new GitHubAreaViewModel();
         SamplesVM = new SamplesAreaViewModel();
+        FeatureTiles = new ObservableCollection<FeatureTile>();
 
         _navigationService = new NavigationService(WorkbenchFrame);
         _navigationService.RegisterProvider(new WebViewProvider());
@@ -58,6 +64,24 @@ public sealed partial class ShellPage : Page
         OpenNewTabCommand = new RelayCommand<string>(OpenNewTab);
         NavigateCommand.ExecuteRequested += NavigateCommand_ExecuteRequested;
 
+        FeatureTiles.Add(new FeatureTile());
+        FeatureTiles.Add(new FeatureTile());
+        FeatureTiles.Add(new FeatureTile());
+        FeatureTiles.Add(new FeatureTile());
+        FeatureTiles.Add(new FeatureTile());
+        FeatureTiles.Add(new FeatureTile());
+
+        //                < controls:FeatureTile Command = "{x:Bind NavigateCommand}" Icon = "&#xE7B8;" Title = "NuGets" Subtitle = "Official Package Releases. Latest Release: 5.0.5" />
+        //                < controls:FeatureTile Command = "{x:Bind NavigateCommand}" Icon = "&#xE9D5;" Title = "GitHub" Subtitle = "Vanara on GitHub." />
+        //                < controls:FeatureTile Command = "{x:Bind NavigateCommand}" Icon = "&#xE8F1;" Title = "Samples" Subtitle = "Vanara Science Laboratory, Examples and Unit Tests." />
+        //                < AppBarSeparator Margin = "4,0" />
+        //                < controls:FeatureTile Command = "{x:Bind NavigateCommand}" Icon = "&#xEA86;" Title = "Assemblies" Subtitle = "Explore Types, Members and Interfaces." />
+        //                < controls:FeatureTile Command = "{x:Bind NavigateCommand}" Icon = "&#xE90F;" Title = "Utilities" Subtitle = "Tools, Helpers and Generators. Dump extended System Info." />
+        //                < AppBarSeparator Margin = "4,0" />
+        //                < controls:FeatureTile Command = "{x:Bind NavigateCommand}" Icon = "&#xE713;" Title = "Settings" Subtitle = "Settings, Version Info and Search for Help." />
+
+
+
         // OnLoading: Navigate to the default area (Void) to ensure the main content area
         // is populated with a page, and to establish a consistent starting point for navigation
         // TODO: WARN: This is the initial navigation target, but it should be determined based on user settings or the last visited area to provide a more personalized experience
@@ -69,12 +93,12 @@ public sealed partial class ShellPage : Page
         //AddNewTab("NuGets", new NuGetsPage(NuGetsViewModel));
         //AddNewTab("Disassembler", new DisassemblerPage());
         //AddNewTab("Utilities", new UtilitiesPage());
-        //AddNewTab("Handle Inspector", new HandleInspectorPage());
+        AddNewTab("File Opus", new FileManagementPage());
+        AddNewTab("Handle Inspector", new HandleInspectorPage());
         AddNewTab("Hex Editor", new HexEditorPage());
         //AddNewTab("WebView", new WebViewPanel());
-        //AddNewTab("Settings", new SettingsPage());
         //AddNewTab("Void", new VoidPage(NuGetsViewModel));
-        AddNewTab("File Opus", new FileManagementPage());
+        AddNewTab("Settings", new SettingsPage());
     }
 
     private void AddNewTab(string header, Page page, IconSource? iconSource = null)
@@ -91,7 +115,7 @@ public sealed partial class ShellPage : Page
                 IconSource = tabViewIconSource,
             };
 
-            if(page.GetType() == typeof(VoidPage))
+            if (page.GetType() == typeof(VoidPage))
             {
                 Debug.WriteLine("Navigating to VoidPage with NuGetsViewModel.");
                 var navOptions = new FrameNavigationOptions
