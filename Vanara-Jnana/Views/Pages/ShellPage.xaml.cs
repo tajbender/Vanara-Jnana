@@ -1,6 +1,7 @@
 using CommunityToolkit.Mvvm.Input;
 using Jnana.Services;
 using Jnana.ViewModels;
+using Jnana.Views.Pages;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Navigation;
@@ -9,6 +10,7 @@ using System.Diagnostics;
 using System.Windows.Input;
 using Vanara_Jnana.exe.Models.Contracts;
 using Vanara_Jnana.exe.Services.Navigation.Providers;
+using Vanara_Jnana.exe.Views.Tools;
 using static Vanara_Jnana.exe.Models.Contracts.INavigationService;
 
 namespace Jnana.Views;
@@ -68,11 +70,11 @@ public sealed partial class ShellPage : Page
         //AddNewTab("Disassembler", new DisassemblerPage());
         //AddNewTab("Utilities", new UtilitiesPage());
         //AddNewTab("Handle Inspector", new HandleInspectorPage());
-        //AddNewTab("Hex Editor", new HexEditorPage());
+        AddNewTab("Hex Editor", new HexEditorPage());
         //AddNewTab("WebView", new WebViewPanel());
         //AddNewTab("Settings", new SettingsPage());
         //AddNewTab("Void", new VoidPage(NuGetsViewModel));
-        //AddNewTab("File Opus", new FileManagementPage());
+        AddNewTab("File Opus", new FileManagementPage());
     }
 
     private void AddNewTab(string header, Page page, IconSource? iconSource = null)
