@@ -6,7 +6,7 @@
 		<OutputType>WinExe</OutputType>
 		<TargetFramework>net8.0-windows10.0.19041.0</TargetFramework>
 		<UseWinUI>true</UseWinUI>
-		<ApplicationIcon>Assets\Vanara\MFC-App.ico</ApplicationIcon>
+		<ApplicationIcon>Assets\Vanara Jnana App-Icon.ico</ApplicationIcon>
 		<NeutralLanguage>en-US</NeutralLanguage>
 		<AssemblyVersion>5.0.5.719</AssemblyVersion>
 	</PropertyGroup>
