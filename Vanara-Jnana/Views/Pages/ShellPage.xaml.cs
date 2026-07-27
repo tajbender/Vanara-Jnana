@@ -27,29 +27,28 @@ public sealed partial class ShellPage : Page
     // TODO: Consider making this a user setting that can be persisted across sessions, or determining it based on the last visited area
     // TODO: @dahall this is where you currently set the default navigation target...
     private readonly INavigationService.NavigationArea defaultNavigationTarget = NavigationArea.Void; // INavigationService.NavigationArea.Void;
-    private ObservableCollection<TabViewItem> Tabs { get; }
+    private ObservableCollection<TabViewItem> Tabs { get; } = [];
 
     public StandardUICommand NavigateCommand => new(StandardUICommandKind.Open);
     public ICommand OpenNewTabCommand { get; }
     public TabViewItem? SelectedTab { get; set; } = null;
     public NavigationArea DefaultNavigationTarget => this.defaultNavigationTarget;
 
-    public ObservableCollection<FeatureTile> FeatureTiles { get; }
+    public ObservableCollection<FeatureTile> FeatureTiles { get; } = [];
+
+    // TODO:  public int MaxFeatureTilesPerRow { get; } = 6;
 
     public ShellPage()
     {
         InitializeComponent();
-        Tabs = new ObservableCollection<TabViewItem>();
         NuGetsViewModel = new NuGetsAreaViewModel();
         GitHubVM = new GitHubAreaViewModel();
         SamplesVM = new SamplesAreaViewModel();
-        FeatureTiles = new ObservableCollection<FeatureTile>();
 
         _navigationService = new NavigationService(WorkbenchFrame);
         _navigationService.RegisterProvider(new WebViewProvider());
         _navigationService.RegisterProvider(new SettingsProvider());
         // TODO: _navigationService.RegisterProvider(new WorkbenchProvider());
-        // TODO:_navigationService.RegisterProvider(new WebViewProvider());
 
         _navigationService.Navigated += (node) =>
         {
@@ -65,7 +64,6 @@ public sealed partial class ShellPage : Page
         NavigateCommand.ExecuteRequested += NavigateCommand_ExecuteRequested;
 
         // TODO: Set icon source e.g. <FontIconSource Glyph="&#xE7B8;" FontFamily="Segoe Fluent Icons" Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
-
         FeatureTiles.Add(new FeatureTile().SetCommand(NavigateCommand).SetTitle("NuGets").SetSubtitle("Official Package Releases. Latest Release: 5.0.5"));
         FeatureTiles.Add(new FeatureTile().SetCommand(NavigateCommand).SetTitle("GitHub").SetSubtitle("Vanara on GitHub."));
         FeatureTiles.Add(new FeatureTile().SetCommand(NavigateCommand).SetTitle("Samples").SetSubtitle("Vanara Science Laboratory, Examples and Unit Tests."));
@@ -103,18 +101,17 @@ public sealed partial class ShellPage : Page
         AddNewTab("Settings", new SettingsPage());
     }
 
-    private void AddNewTab(string header, Page page, IconSource? iconSource = null)
+    private void AddNewTab(string header, Page page, IconSource? iconSource = null) /* TODO: IconSourceElement here? */
     {
         Debug.Print($"Adding new tab with header: {header}, page: {page.GetType().Name}, icon: {(iconSource != null ? iconSource.GetType().Name : "null")}");
 
         try
         {
-            var tabViewIconSource = iconSource ?? new SymbolIconSource { Symbol = Symbol.Document };
             var newTab = new TabViewItem
             {
                 Content = new Frame(),
                 Header = header,
-                IconSource = tabViewIconSource,
+                IconSource = iconSource ?? new SymbolIconSource { Symbol = Symbol.Document },
             };
 
             if (page.GetType() == typeof(VoidPage))
@@ -150,6 +147,7 @@ public sealed partial class ShellPage : Page
         }
         catch (Exception ex)
         {
+            // Fire Frame.NavigationFailed event
             Debug.Fail($"Failed to to create new tab {header}: {ex}");
         }
     }

@@ -12,8 +12,7 @@
             <Setter Property="Height" Value="126"/>
             <Setter Property="Margin" Value="6,0"/>
 
-            -->
-    <!-- TODO: Add those properties to the control and set them here as defaults, allowing overrides on individual tiles.
+    TODO: Add those properties to the control and set them here as defaults, allowing overrides on individual tiles.
             <Setter Property="Padding" Value="12,8"/>
             <Setter Property="CornerRadius" Value="6"/>
             <Setter Property="Background" Value="#F3F3F3"/>
@@ -22,9 +21,8 @@
             <Setter Property="IconSize" Value="24"/>
             <Setter Property="TitleFontSize" Value="16"/>
             <Setter Property="SubtitleFontSize" Value="11"/>
-            <Setter Property="SubtitleOpacity" Value="0.65"/> -->
-    <!--
-
+            <Setter Property="SubtitleOpacity" Value="0.65"/>
+    
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="FeatureTile">
@@ -34,35 +32,24 @@
                           BorderThickness="{TemplateBinding BorderThickness}"
                           CornerRadius="{TemplateBinding CornerRadius}"
                           Padding="{TemplateBinding Padding}">
-
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-
-                            -->
-    <!-- ICON -->
-    <!--
                             <FontIcon Glyph="{TemplateBinding Icon}"
                                   FontSize="{TemplateBinding IconSize}"
                                   VerticalAlignment="Center"
                                   Margin="0,0,12,0"/>
-
-                            -->
-    <!-- TEXT -->
-    <!--
                             <StackPanel Grid.Column="1"
                                     VerticalAlignment="Center"
                                     Spacing="2">
                                 <TextBlock Text="{TemplateBinding Title}"
                                        FontSize="{TemplateBinding TitleFontSize}"
                                        FontWeight="SemiBold"/>
-
                                 <TextBlock Text="{TemplateBinding Subtitle}"
                                        FontSize="{TemplateBinding SubtitleFontSize}"
                                        Opacity="{TemplateBinding SubtitleOpacity}"/>
                             </StackPanel>
-
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
@@ -71,7 +58,7 @@
     </Control.Resources-->
 
 
-    <Grid x:Name="Root" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="7" CornerRadius="7" MaxWidth="200">
+    <Grid x:Name="Root" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="7" CornerRadius="7">
         <!--MinHeight="128" MinWidth="320" Margin="7" Padding="16"-->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>

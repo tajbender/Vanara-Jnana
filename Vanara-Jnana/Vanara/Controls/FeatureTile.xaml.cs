@@ -42,6 +42,12 @@ public sealed partial class FeatureTile : UserControl
         get => (StandardUICommand)GetValue(CommandProperty);
         set => SetValue(CommandProperty, value);
     }
+
+    /// <summary>
+    /// Gets or sets the icon source for the FeatureTile, which is displayed as the tile's icon.
+    /// Allowed types include <see cref="BitmapIconSource"/>, <see cref="FontIconSource"/>,
+    /// <see cref="SymbolIconSource"/>, and <see cref="PathIconSource"/>.
+    /// </summary>
     public IconSource IconSource
     {
         get => (IconSource)GetValue(IconSourceProperty);
