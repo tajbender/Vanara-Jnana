@@ -8,7 +8,7 @@ namespace Vanara_Jnana.ViewModels;
 
 public class PerfMonViewModel : ObservableObject
 {
-    public ObservableCollection<string> Categories { get; } = new();
+    public ObservableCollection<string> Categories { get; init; }
     public ObservableCollection<CounterInfo> Counters { get; } = new();
 
     private CounterInfo _selectedCounter;
@@ -26,7 +26,10 @@ public class PerfMonViewModel : ObservableObject
     {
         PinToStatusbarCommand = new RelayCommand(PinToStatusbar);
 
-        LoadCategories();
+        Categories = new ObservableCollection<string>(
+            PerformanceCounterCategory.GetCategories()
+                                      .Select(c => c.CategoryName)
+                                      .OrderBy(name => name));
 
         _timer = new DispatcherTimer
         {
@@ -36,13 +39,6 @@ public class PerfMonViewModel : ObservableObject
         _timer.Start();
     }
 
-    private void LoadCategories()
-    {
-        foreach (var cat in PerformanceCounterCategory.GetCategories())
-        {
-            Categories.Add(cat.CategoryName);
-        }
-    }
     public void LoadCounters(string categoryName)
     {
         Counters.Clear();
