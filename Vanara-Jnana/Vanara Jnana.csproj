@@ -61,6 +61,7 @@
 	<ItemGroup>
 		<Folder Include="Assets\DOCS\DOCS.assets\Screenshots\" />
 		<Folder Include="Assets\DOCS\de-DE\" />
+		<Folder Include="Assets\Fonts\JetBrainsMono\" />
 		<Folder Include="Styles\Backgrounds\" />
 		<Folder Include="Styles\Controls\" />
 		<Folder Include="Vanara\Controls\Shell32\" />
