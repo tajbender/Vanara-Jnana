@@ -14,6 +14,7 @@ using Vanara_Jnana.exe.Models.Contracts;
 using Vanara_Jnana.exe.Services.Navigation.Providers;
 using Vanara_Jnana.exe.Views.Pages;
 using Vanara_Jnana.exe.Views.Tools;
+using Vanara_Jnana.Views.Pages;
 using static Vanara_Jnana.exe.Models.Contracts.INavigationService;
 
 namespace Jnana.Views;
@@ -96,6 +97,7 @@ public sealed partial class ShellPage : Page
         AddNewTab("File Opus", new FileManagementPage());
         AddNewTab("Handle Inspector", new HandleInspectorPage());
         AddNewTab("Hex Editor", new HexEditorPage());
+        AddNewTab("Performance Monitor++", new PerfMonPlusPlusPage());
         //AddNewTab("WebView", new WebViewPanel());
         //AddNewTab("Void", new VoidPage(NuGetsViewModel));
         AddNewTab("Settings", new SettingsPage());
