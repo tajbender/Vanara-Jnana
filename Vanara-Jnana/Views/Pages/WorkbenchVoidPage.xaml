@@ -6,6 +6,38 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+    <!--<Page.Resources>
+        <Style x:Key="QuickLaunchButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="4"/>
+            <Setter Property="CornerRadius" Value="4"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="{ThemeResource SystemControlForegroundBaseHighBrush}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            --><!-- Hover --><!--
+            <Setter Property="Background" Value="Transparent"/>
+            --><!-- TODO: <Style.Triggers>
+                <Trigger Property="IsPointerOver" Value="True">
+                    <Setter Property="Background"
+                        Value="{ThemeResource SystemControlHighlightAccentBrush}"/>
+                    <Setter Property="Foreground"
+                        Value="{ThemeResource SystemControlForegroundBaseHighBrush}"/>
+                </Trigger>
+            </Style.Triggers>--><!--
+        </Style>
+    </Page.Resources>-->
 
     <Grid RowDefinitions="Auto,*,Auto">
 
@@ -72,33 +104,38 @@
                         VerticalAlignment="Center"
                         Spacing="24">
 
-                <!-- Beispiel-Icons -->
-                <Button Style="{StaticResource QuickLaunchButtonStyle}"
+                <!-- Style="{StaticResource QuickLaunchButtonStyle}" -->
+                <Button 
                         Command="{x:Bind ViewModel.NavigateNuGetCommand}">
                     <FontIcon Glyph="&#xE71D;"/>
                 </Button>
 
-                <Button Style="{StaticResource QuickLaunchButtonStyle}"
+                <!-- Style="{StaticResource QuickLaunchButtonStyle}" -->
+                <Button 
                         Command="{x:Bind ViewModel.NavigateGitHubCommand}">
                     <FontIcon Glyph="&#xE8A7;"/>
                 </Button>
 
-                <Button Style="{StaticResource QuickLaunchButtonStyle}"
+                <!-- Style="{StaticResource QuickLaunchButtonStyle}" -->
+                <Button 
                         Command="{x:Bind ViewModel.NavigateSamplesCommand}">
                     <FontIcon Glyph="&#xE8B5;"/>
                 </Button>
 
-                <Button Style="{StaticResource QuickLaunchButtonStyle}"
+                <!-- Style="{StaticResource QuickLaunchButtonStyle}" -->
+                <Button 
                         Command="{x:Bind ViewModel.NavigateToolsCommand}">
                     <FontIcon Glyph="&#xE7F8;"/>
                 </Button>
 
-                <Button Style="{StaticResource QuickLaunchButtonStyle}"
+                <!-- Style="{StaticResource QuickLaunchButtonStyle}" -->
+                <Button 
                         Command="{x:Bind ViewModel.NavigateSysInfoCommand}">
                     <FontIcon Glyph="&#xE9D9;"/>
                 </Button>
 
-                <Button Style="{StaticResource QuickLaunchButtonStyle}"
+                <!-- Style="{StaticResource QuickLaunchButtonStyle}" -->
+                <Button 
                         Command="{x:Bind ViewModel.NavigateSettingsCommand}">
                     <FontIcon Glyph="&#xE713;"/>
                 </Button>

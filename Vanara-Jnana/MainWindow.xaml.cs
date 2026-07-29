@@ -49,7 +49,7 @@ public sealed partial class MainWindow : Window
     /// TODO: Move to Vanara.WinUI3.Interop and make it an extension method for Window.
     /// </summary>
     /// <param name="windowHandleTargetObject"></param>
-    /// <param name="uFlags"></param>
+    /// <param name="uFlags">TODO</param>
     /// <param name="bGetSystemMenuRevert">The action to be taken. If this parameter is FALSE, GetSystemMenu returns a handle to the copy of the window menu currently in use.
     /// The copy is initially identical to the window menu, but it can be modified. If this parameter is TRUE, GetSystemMenu resets the window menu back to the default state.
     /// The previous window menu, if  any, is destroyed.</param>
