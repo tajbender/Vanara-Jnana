@@ -12,20 +12,29 @@ namespace Jnana.ViewModels;
 
 public partial class VoidPageViewModel : ObservableObject
 {
-    public NuGetsAreaViewModel NuGetsViewModel { get; }
-    public GitHubAreaViewModel GitHubViewModel { get; }
-    public SamplesAreaViewModel SamplesViewModel { get; }
-    public VanaraScienceLaboratoriesViewModel VanaraScienceLaboratoriesViewModel { get; }
+    public required NuGetsAreaViewModel NuGetsViewModel { get; init;  }
+    public required GitHubAreaViewModel GitHubViewModel { get; init; }
+    public required SamplesAreaViewModel SamplesViewModel { get; init; }
+    public required VanaraScienceLaboratoriesViewModel VanaraScienceLaboratoriesViewModel { get; init; }
 
-    public VoidPageViewModel(
-        NuGetsAreaViewModel nuget,
-        GitHubAreaViewModel github,
-        SamplesAreaViewModel samples,
-        VanaraScienceLaboratoriesViewModel vanaraScienceLaboratories)
+    public RelayCommand NavigateGitHubCommand;
+    public RelayCommand NavigateNuGetCommand;
+    public RelayCommand NavigateSamplesCommand;
+    public RelayCommand NavigateSettingsCommand;
+    public RelayCommand NavigateSysInfoCommand;
+    public RelayCommand NavigateToolsCommand;
+    public RelayCommand NavigateVanaraScienceLaboratoriesCommand;
+
+
+    public VoidPageViewModel()
+//        NuGetsAreaViewModel nuget,
+//        GitHubAreaViewModel github,
+//        SamplesAreaViewModel samples,
+//        VanaraScienceLaboratoriesViewModel vanaraScienceLaboratories)
     {
-        NuGetsViewModel = nuget;
-        GitHubViewModel = github;
-        SamplesViewModel = samples;
-        VanaraScienceLaboratoriesViewModel = vanaraScienceLaboratories;
+        NuGetsViewModel = new NuGetsAreaViewModel();
+        GitHubViewModel = new GitHubAreaViewModel();
+        SamplesViewModel = new SamplesAreaViewModel();
+        VanaraScienceLaboratoriesViewModel = new VanaraScienceLaboratoriesViewModel();
     }
 }

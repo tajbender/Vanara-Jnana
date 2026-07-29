@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Jnana.Views.WorkbenchVoidPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid RowDefinitions="Auto,*,Auto">
+
+        <!-- HEADER optional -->
+        <TextBlock Text="Workbench"
+                   FontSize="24"
+                   Margin="12"
+                   Opacity="0.7"/>
+
+        <!-- MAIN AREA -->
+        <Grid Grid.Row="1"
+              ColumnDefinitions="*,*"
+              RowDefinitions="*,*"
+              Margin="12">
+
+            <!-- NuGets oben links -->
+            <StackPanel Grid.Row="0" Grid.Column="0" Margin="8">
+                <TextBlock Text="NuGet Packages"
+                           FontSize="18"
+                           Margin="0,0,0,8"/>
+                <ItemsRepeater ItemsSource="{x:Bind ViewModel.NuGetsViewModel}">
+                    <ItemsRepeater.Layout>
+                        <StackLayout Orientation="Vertical"/>
+                    </ItemsRepeater.Layout>
+                </ItemsRepeater>
+            </StackPanel>
+
+            <!-- GitHub oben rechts -->
+            <StackPanel Grid.Row="0" Grid.Column="1" Margin="8">
+                <TextBlock Text="GitHub Repositories"
+                           FontSize="18"
+                           Margin="0,0,0,8"/>
+                <ItemsRepeater ItemsSource="{x:Bind ViewModel.GitHubViewModel}">
+                    <ItemsRepeater.Layout>
+                        <StackLayout Orientation="Vertical"/>
+                    </ItemsRepeater.Layout>
+                </ItemsRepeater>
+            </StackPanel>
+
+            <!-- Samples unten mittig -->
+            <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Margin="8">
+                <TextBlock Text="Samples"
+                           FontSize="18"
+                           Margin="0,0,0,8"
+                           HorizontalAlignment="Center"/>
+                <ItemsRepeater ItemsSource="{x:Bind ViewModel.SamplesViewModel}">
+                    <ItemsRepeater.Layout>
+                        <StackLayout Orientation="Horizontal"/>
+                    </ItemsRepeater.Layout>
+                </ItemsRepeater>
+            </StackPanel>
+
+        </Grid>
+
+        <!-- QUICKLAUNCH BAR -->
+        <Grid Grid.Row="2"
+              Height="40"
+              Background="{ThemeResource SystemFillColorSolidNeutralBackgroundBrush}"
+              BorderBrush="{ThemeResource SystemControlForegroundBaseLowBrush}"
+              BorderThickness="0,1,0,0">
+
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Spacing="24">
+
+                <!-- Beispiel-Icons -->
+                <Button Style="{StaticResource QuickLaunchButtonStyle}"
+                        Command="{x:Bind ViewModel.NavigateNuGetCommand}">
+                    <FontIcon Glyph="&#xE71D;"/>
+                </Button>
+
+                <Button Style="{StaticResource QuickLaunchButtonStyle}"
+                        Command="{x:Bind ViewModel.NavigateGitHubCommand}">
+                    <FontIcon Glyph="&#xE8A7;"/>
+                </Button>
+
+                <Button Style="{StaticResource QuickLaunchButtonStyle}"
+                        Command="{x:Bind ViewModel.NavigateSamplesCommand}">
+                    <FontIcon Glyph="&#xE8B5;"/>
+                </Button>
+
+                <Button Style="{StaticResource QuickLaunchButtonStyle}"
+                        Command="{x:Bind ViewModel.NavigateToolsCommand}">
+                    <FontIcon Glyph="&#xE7F8;"/>
+                </Button>
+
+                <Button Style="{StaticResource QuickLaunchButtonStyle}"
+                        Command="{x:Bind ViewModel.NavigateSysInfoCommand}">
+                    <FontIcon Glyph="&#xE9D9;"/>
+                </Button>
+
+                <Button Style="{StaticResource QuickLaunchButtonStyle}"
+                        Command="{x:Bind ViewModel.NavigateSettingsCommand}">
+                    <FontIcon Glyph="&#xE713;"/>
+                </Button>
+
+            </StackPanel>
+
+        </Grid>
+
+    </Grid>
+</Page>

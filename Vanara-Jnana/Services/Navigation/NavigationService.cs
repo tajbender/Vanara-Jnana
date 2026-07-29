@@ -117,7 +117,7 @@ public partial class NavigationService : ObservableObject /* TODO: INavigationSe
             //{ NavigationArea.Samples, typeof(SamplesPage) },
             { NavigationArea.Settings, typeof(SettingsPage) },
             { NavigationArea.Utilities, typeof(UtilitiesPage) },
-            { NavigationArea.Void, typeof(VoidPage) },
+            { NavigationArea.Void, typeof(WorkbenchVoidPage) },
     };
 
     public NavigationService(Frame frame)

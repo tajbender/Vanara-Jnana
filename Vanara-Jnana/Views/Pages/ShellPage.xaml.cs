@@ -116,9 +116,9 @@ public sealed partial class ShellPage : Page
                 IconSource = iconSource ?? new SymbolIconSource { Symbol = Symbol.Document },
             };
 
-            if (page.GetType() == typeof(VoidPage))
+            if (page.GetType() == typeof(WorkbenchVoidPage))
             {
-                Debug.WriteLine("Navigating to VoidPage with NuGetsViewModel.");
+                Debug.WriteLine("Navigating to WorkbenchVoidPage with NuGetsViewModel.");
                 var navOptions = new FrameNavigationOptions
                 {
                     IsNavigationStackEnabled = true,
@@ -162,7 +162,7 @@ public sealed partial class ShellPage : Page
             Content = new Frame()
         };
 
-        ((Frame)tab.Content).Navigate(typeof(VoidPage));
+        ((Frame)tab.Content).Navigate(typeof(WorkbenchVoidPage));
 
         Tabs.Add(tab);
         SelectedTab = tab;
@@ -176,7 +176,7 @@ public sealed partial class ShellPage : Page
     private void MainTabView_AddTabButtonClick(TabView sender, object args)
     {
         Debug.WriteLine($"MainTabView_AddTabButtonClick({args}) clicked. Adding new void tab.");
-        AddNewTab("Void", new VoidPage(NuGetsViewModel));
+        AddNewTab("Void", new WorkbenchVoidPage(NuGetsViewModel));
     }
 
     private void NavBreadcrumb_ItemClicked(object sender, BreadcrumbBarItemClickedEventArgs args)
