@@ -31,6 +31,8 @@ public class PerfMonViewModel : ObservableObject
                                       .Select(c => c.CategoryName)
                                       .OrderBy(name => name));
 
+        // TODO: select default category and load counters for it
+
         _timer = new DispatcherTimer
         {
             Interval = TimeSpan.FromSeconds(1)
@@ -58,7 +60,7 @@ public class PerfMonViewModel : ObservableObject
         }
     }
 
-    private void UpdateCounters(object sender, object e)
+    private void UpdateCounters(object? sender, object e)
     {
         foreach (var c in Counters)
         {

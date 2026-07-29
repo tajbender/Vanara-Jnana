@@ -16,7 +16,7 @@ public sealed partial class PerfMonPlusPlusPage : Page
 
     private void CategoryList_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        Debug.WriteLine("CategoryList_SelectionChanged called");
+        Debug.WriteLine($"CategoryList_SelectionChanged({string.Join(", ", ((ListView)sender).SelectedItems)})");
         //TODO: ViewModel.UpdateSelectedCategories();
     }
 }

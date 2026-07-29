@@ -19,7 +19,7 @@ public class SysInfoViewModel : INotifyPropertyChanged
     public float MemoryUsagePercent { get; private set; }
     /// <summary>Gets the network usage in KB/s.</summary>
     public float NetworkUsage { get; private set; }
-
+    /// <summary>Occurs when a property value changes.</summary>
     public event PropertyChangedEventHandler? PropertyChanged;
 
     public SysInfoViewModel()
@@ -50,7 +50,7 @@ public class SysInfoViewModel : INotifyPropertyChanged
     private static float GetDiskUsage()
     {
         var drive = DriveInfo.GetDrives().FirstOrDefault(d => d.IsReady);
-        return drive != null ? 100.0f * (1 - (float)drive.AvailableFreeSpace / drive.TotalSize) : 0;
+        return (float)(drive != null ? 100.0 * (1 - ((double)drive.AvailableFreeSpace / drive.TotalSize)) : 0);
     }
 
     public static string GetPrimaryNetworkInterface()
