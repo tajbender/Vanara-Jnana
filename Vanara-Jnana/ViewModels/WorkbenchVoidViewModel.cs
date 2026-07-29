@@ -1,16 +1,10 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.UI.Xaml.Controls;   // INFO: `ContentPresenter` here
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
 
 namespace Jnana.ViewModels;
 
-public partial class VoidPageViewModel : ObservableObject
+public partial class WorkbenchVoidViewModel : ObservableObject
 {
     public required NuGetsAreaViewModel NuGetsViewModel { get; init;  }
     public required GitHubAreaViewModel GitHubViewModel { get; init; }
@@ -26,11 +20,7 @@ public partial class VoidPageViewModel : ObservableObject
     public RelayCommand NavigateVanaraScienceLaboratoriesCommand;
 
 
-    public VoidPageViewModel()
-//        NuGetsAreaViewModel nuget,
-//        GitHubAreaViewModel github,
-//        SamplesAreaViewModel samples,
-//        VanaraScienceLaboratoriesViewModel vanaraScienceLaboratories)
+    public WorkbenchVoidViewModel()
     {
         NuGetsViewModel = new NuGetsAreaViewModel();
         GitHubViewModel = new GitHubAreaViewModel();

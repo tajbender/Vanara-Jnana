@@ -6,7 +6,7 @@ namespace Jnana.Views;
 
 public sealed partial class WorkbenchVoidPage : Page
 {
-    private VoidPageViewModel ViewModel { get; }
+    private WorkbenchVoidViewModel ViewModel { get; }
     private NuGetsAreaViewModel NuGetsViewModel => ViewModel.NuGetsViewModel;
     private GitHubAreaViewModel GitHubViewModel => ViewModel.GitHubViewModel;
     private SamplesAreaViewModel SamplesViewModel => ViewModel.SamplesViewModel;
@@ -17,7 +17,7 @@ public sealed partial class WorkbenchVoidPage : Page
     {
         InitializeComponent();
 
-        ViewModel = new VoidPageViewModel()
+        ViewModel = new WorkbenchVoidViewModel()
         {
             NuGetsViewModel = nuGetsViewModel,
             GitHubViewModel = new GitHubAreaViewModel(),
