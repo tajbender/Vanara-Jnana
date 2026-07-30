@@ -63,6 +63,13 @@ public partial class App : Application
             _mainWindow = this.GetOrCreateMainWindow(allowInitialCreation: true);
             _mainWindow?.Activate();
 
+            // TODO INFO WARN: This doesn't work because the window is not yet activated, so the XamlRoot is null. We need to wait until the window is activated before we can show a message box.
+            //            var result = await MessageBox.ShowAsync(
+            //                "This program cannot be run in DOS mode – Initialization failed.",
+            //                "Jnana Workbench OS",
+            //                MessageBoxType.Error,
+            //                _mainWindow.Content.XamlRoot);
+
             // = //new Windows.Graphics.SizeInt32(1200, 800);
             //_Window.AppWindow.Size...
             // TODO: AppWindowTitleBar.SetIcon("Assets/VanaraMonkey.png");
@@ -73,15 +80,18 @@ public partial class App : Application
         {
             Debug.Fail("App.OnLaunched(): Failed to initialize the application.");
 
+            // TODO INFO WARN: This doesn't work because the window is not yet activated, so the XamlRoot is null. We need to wait until the window is activated before we can show a message box.
+
             var fallbackWindow = new Window();
-            fallbackWindow.Content = new Grid(); // Guaranteed XamlRoot
-            fallbackWindow.Activate();
+            var fallBackGrid = new TextBox();
+            fallbackWindow.Content = fallBackGrid; // Guaranteed XamlRoot
+            // fallbackWindow.Activate();
 
             var result = await MessageBox.ShowAsync(
                 "This program cannot be run in DOS mode – Initialization failed.",
                 "Jnana Workbench OS",
                 MessageBoxType.Error,
-                fallbackWindow.Content.XamlRoot);
+                fallBackGrid.XamlRoot);
         }
     }
 }
