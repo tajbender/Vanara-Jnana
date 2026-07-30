@@ -14,28 +14,28 @@ using Vanara_Jnana.exe.Models.Contracts;
 using Vanara_Jnana.exe.Services.Navigation.Providers;
 using Vanara_Jnana.exe.Views.Pages;
 using Vanara_Jnana.exe.Views.Tools;
+using Vanara_Jnana.Models.Contracts;
 using Vanara_Jnana.Views.Pages;
 using static Vanara_Jnana.exe.Models.Contracts.INavigationService;
 
 namespace Jnana.Views;
 
-public sealed partial class ShellPage : Page
+public sealed partial class ShellPage : Page, INavigablePage
 {
     private NuGetsAreaViewModel NuGetsViewModel { get; }
     private GitHubAreaViewModel GitHubVM { get; }
     private SamplesAreaViewModel SamplesVM { get; }
     private NavigationService _navigationService { get; }
+
     // TODO: Consider making this a user setting that can be persisted across sessions, or determining it based on the last visited area
-    // TODO: @dahall this is where you currently set the default navigation target...
     private readonly INavigationService.NavigationArea defaultNavigationTarget = NavigationArea.Void; // INavigationService.NavigationArea.Void;
     private ObservableCollection<TabViewItem> Tabs { get; } = [];
-
+    public NavigationArea DefaultNavigationTarget => this.defaultNavigationTarget;
+    public NavigationService NavigationService => this._navigationService;
+    public ObservableCollection<FeatureTile> FeatureTiles { get; } = [];
     public StandardUICommand NavigateCommand => new(StandardUICommandKind.Open);
     public ICommand OpenNewTabCommand { get; }
     public TabViewItem? SelectedTab { get; set; } = null;
-    public NavigationArea DefaultNavigationTarget => this.defaultNavigationTarget;
-
-    public ObservableCollection<FeatureTile> FeatureTiles { get; } = [];
 
     // TODO:  public int MaxFeatureTilesPerRow { get; } = 6;
 
@@ -51,12 +51,12 @@ public sealed partial class ShellPage : Page
         _navigationService.RegisterProvider(new SettingsProvider());
         // TODO: _navigationService.RegisterProvider(new WorkbenchProvider());
 
-        _navigationService.Navigated += (node) =>
-        {
-            ArgumentNullException.ThrowIfNull(node);
-            Debug.WriteLine($"ShellPage.Navigated() to: {node.Title} ({node.PageType.Name})");
-            Frame.Navigate(node.PageType, node.ViewModel);
-        };
+//        _navigationService.Navigated += (node) =>
+//        {
+//            ArgumentNullException.ThrowIfNull(node);
+//            Debug.WriteLine($"ShellPage.Navigated() to: {node.Title} ({node.PageType.Name})");
+//            Frame.Navigate(node.PageType, node.ViewModel);
+//        };
 
 
         _ = NuGetsViewModel.SynchronizePackageCacheAsync();
@@ -199,5 +199,15 @@ public sealed partial class ShellPage : Page
         {
             sender.ItemsSource = new List<string> { "ShellItem", "ShellFolder", "IShellItem", "ExplorerBrowser" };
         }
+    }
+
+    public void OnNavigatedTo()
+    {
+        Debug.Write("ShellPage.OnNavigatedTo()");
+    }
+
+    public void OnNavigatedFrom()
+    {
+        Debug.Write("ShellPage.OnNavigatedFrom()");
     }
 }

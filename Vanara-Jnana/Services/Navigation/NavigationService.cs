@@ -47,17 +47,38 @@ public sealed class NavigationNode
     public bool OpenInNewTab { get; init; }
 }
 
+public sealed class NavigationStack
+{
+    private readonly Stack<NavigationState> _back = new();
+    private readonly Stack<NavigationState> _forward = new();
 
+    public NavigationState Current { get; private set; }
+
+    public void Navigate(NavigationState state) { }
+    public bool CanGoBack => _back.Count > 0;
+    public bool CanGoForward => _forward.Count > 0;
+    public NavigationState GoBack() { return _back.Pop(); }
+    public NavigationState GoForward() { _back.Push(Current); return Current; }
+}
 
 public partial class NavigationService : ObservableObject /* TODO: INavigationService */
 {
+    public event EventHandler<Type>? Navigated;
+    public Type? CurrentPage { get; private set; }
 
+
+
+
+
+
+
+
+    // TODO: OLD STUFF BELOW HERE, NEEDS TO BE REPLACED WITH THE NEW NAVIGATION SERVICE
     private readonly Dictionary<string, INavigationProvider> _providers = new();
     private readonly List<NavigationNode> _history = new();
     private int _historyIndex = -1;
 
     public NavigationNode CurrentNode { get; private set; }
-    public event Action<NavigationNode> Navigated;
 
     public void RegisterProvider(INavigationProvider provider)
     {
@@ -74,7 +95,7 @@ public partial class NavigationService : ObservableObject /* TODO: INavigationSe
         var node = await provider.ResolveAsync(ns);
 
         CurrentNode = node;
-        Navigated?.Invoke(node);
+        Navigated?.Invoke(this, node.PageType);
 
         // History aktualisieren
         if (_historyIndex < _history.Count - 1)
@@ -92,7 +113,7 @@ public partial class NavigationService : ObservableObject /* TODO: INavigationSe
         if (!CanGoBack) return;
         _historyIndex--;
         CurrentNode = _history[_historyIndex];
-        Navigated?.Invoke(CurrentNode);
+        Navigated?.Invoke(this, CurrentNode.PageType);
     }
 
     public void GoForward()
@@ -100,7 +121,7 @@ public partial class NavigationService : ObservableObject /* TODO: INavigationSe
         if (!CanGoForward) return;
         _historyIndex++;
         CurrentNode = _history[_historyIndex];
-        Navigated?.Invoke(CurrentNode);
+        Navigated?.Invoke(this, CurrentNode.PageType);
     }
 
 
@@ -147,19 +168,7 @@ public partial class NavigationService : ObservableObject /* TODO: INavigationSe
     }
 }
 
-public sealed class NavigationStack
-{
-    private readonly Stack<NavigationState> _back = new();
-    private readonly Stack<NavigationState> _forward = new();
 
-    public NavigationState Current { get; private set; }
-
-    public void Navigate(NavigationState state) { }
-    public bool CanGoBack => _back.Count > 0;
-    public bool CanGoForward => _forward.Count > 0;
-    public NavigationState GoBack() { return _back.Pop(); }
-    public NavigationState GoForward() { _back.Push(Current); return Current; }
-}
 
 //    public void Navigate(NavigationArea area)
 //    {
