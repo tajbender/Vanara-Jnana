@@ -17,6 +17,10 @@ public partial class App : Application
     private bool extendsContentIntoTitleBar = false;
     private AppWindowTitleBar? _appTitleBar;
 
+    /// <summary>Get the current instance of our <see cref="App"/>.
+    /// <remarks> <see cref="Application.Current"/> will always be the one single App-Instance
+    /// ever created during lifetime. Casting to our <see cref="App"/> will always work.</remarks></summary>
+    public static new App Current => (App)Application.Current;
 
     public NavigationService Navigation { get; } = new();
     public SettingsAreaViewModel Settings { get; } = new();
@@ -32,16 +36,12 @@ public partial class App : Application
         InitializeComponent();
 
         this.UnhandledException += App_UnhandledException;
-
-
-        Navigation.RegisterProvider(new WebViewProvider());
-        Navigation.RegisterProvider(new SettingsProvider());
-
     }
 
     private void App_UnhandledException(object sender, Microsoft.UI.Xaml.UnhandledExceptionEventArgs e)
     {
-        Debug.Fail($"App.UnhandledException: {e.Message}\n{e.Exception}");
+        // TODO: Add `\n` line break to every exception for better logfile visibility
+        Debug.Fail($"App.App_UnhandledException: {e.Message}.\n{e.Exception}");
     }
 
     private MainWindow? GetOrCreateMainWindow(bool allowInitialCreation = false)
@@ -83,9 +83,9 @@ public partial class App : Application
             // TODO: AppWindowTitleBar.SetDragRegion(new Rect(0, 0, 100, 32));
             // TODO: CoreWebView2Environment.CreateAsync(null, "C:\\temp\\wv2logs", null);
         }
-        catch
+        catch(Exception ex)
         {
-            Debug.Fail("App.OnLaunched(): Failed to initialize the application.");
+            Debug.Fail($"App.OnLaunched(): Failed to initialize the application.\n{ex}");
 
             // TODO INFO WARN: This doesn't work because the window is not yet activated, so the XamlRoot is null. We need to wait until the window is activated before we can show a message box.
 

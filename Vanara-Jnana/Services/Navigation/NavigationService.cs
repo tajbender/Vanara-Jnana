@@ -1,9 +1,10 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using Jnana.Views;
 using Jnana.Views.Pages;
+using Jnana.Views;
 using Microsoft.UI.Xaml.Controls;
 using System.Diagnostics;
 using Vanara_Jnana.exe.Models.Contracts;
+using Vanara_Jnana.exe.Services.Navigation.Providers;
 using static Vanara_Jnana.exe.Models.Contracts.INavigationService;
 
 namespace Jnana.Services;
@@ -68,25 +69,36 @@ public partial class NavigationService : ObservableObject /* TODO: INavigationSe
 
     private Frame? _frame { get; set; }
 
+
     public NavigationService()
     { 
         CurrentPage = null;
 
+        RegisterProvider(new WebViewProvider());
+        RegisterProvider(new SettingsProvider());
     }
 
-//    public NavigationService(Frame frame)
-//    {
-//        _frame = frame ?? throw new ArgumentNullException(nameof(frame));
-//    }
-
-    public void Navigate(Type pageType)
+    public void Navigate<TPage>(object parameter = null)
+    where TPage : Page
     {
-        if (pageType == CurrentPage)
-            return;
-
-        CurrentPage = pageType;
-        Navigated?.Invoke(this, pageType);
+//TODO:        var frame = _rootFrame;
+//TODO:        frame.Navigate(typeof(TPage), parameter);
     }
+
+
+    //    public NavigationService(Frame frame)
+    //    {
+    //        _frame = frame ?? throw new ArgumentNullException(nameof(frame));
+    //    }
+
+//    public void Navigate(Type pageType)
+//    {
+//        if (pageType == CurrentPage)
+//            return;
+//
+//        CurrentPage = pageType;
+//        Navigated?.Invoke(this, pageType);
+//    }
 
 
 
@@ -164,27 +176,27 @@ public partial class NavigationService : ObservableObject /* TODO: INavigationSe
     };
 
 
-    [Obsolete("TODO: Don't use this, this is old stuff")]
-    public void NavigateTo(NavigationArea area)
-    {
-        try
-        {
-            if (_areaPageMap.TryGetValue(area, out var pageType))
-            {
-                Debug.Print($"Navigating to `{area}` page.");
-                _frame.Navigate(pageType);
-            }
-            else
-            {
-                Debug.Print($"Failed to get page for `{area}` from PageMap.");
-            }
-        }
-        catch (Exception ex)
-        {
-            Debug.Fail(ex.ToString());
-            throw;
-        }
-    }
+//    [Obsolete("TODO: Don't use this, this is old stuff")]
+//    public void NavigateTo(NavigationArea area)
+//    {
+//        try
+//        {
+//            if (_areaPageMap.TryGetValue(area, out var pageType))
+//            {
+//                Debug.Print($"Navigating to `{area}` page.");
+//                _frame.Navigate(pageType);
+//            }
+//            else
+//            {
+//                Debug.Print($"Failed to get page for `{area}` from PageMap.");
+//            }
+//        }
+//        catch (Exception ex)
+//        {
+//            Debug.Fail(ex.ToString());
+//            throw;
+//        }
+//    }
 }
 
 
