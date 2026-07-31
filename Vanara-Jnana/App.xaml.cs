@@ -1,8 +1,11 @@
+using Jnana.Services;
+using Jnana.ViewModels;
 using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.Diagnostics;
 using Vanara.WinUI.Extensions.Helpers;
+using Vanara_Jnana.exe.Services.Navigation.Providers;
 
 //using LaunchActivatedEventArgs = Windows.ApplicationModel.Activation.LaunchActivatedEventArgs;
 
@@ -10,26 +13,30 @@ namespace Jnana;
 
 public partial class App : Application
 {
-    public enum AppTheme
-    {
-        Light,
-        Dark,
-        System
-    }
-
     private MainWindow? _mainWindow;
     private bool extendsContentIntoTitleBar = false;
     private AppWindowTitleBar? _appTitleBar;
-    //private AppTheme _theme;
-    //private bool _isDarkMode;
-    //private bool _isLightMode;
 
+
+    public NavigationService Navigation { get; } = new();
+    public SettingsAreaViewModel Settings { get; } = new();
+    public GitHubAreaViewModel GitHub { get; } = new();
+    public NuGetsAreaViewModel NuGet { get; } = new();
+    public SamplesAreaViewModel Samples { get; } = new();
+    public WorkbenchVoidViewModel WorkbenchState { get; } = new();
+    
+    public VanaraScienceLaboratoriesViewModel VanaraScienceLaboratoriesViewModel { get; init; }
 
     public App()
     {
         InitializeComponent();
 
         this.UnhandledException += App_UnhandledException;
+
+
+        Navigation.RegisterProvider(new WebViewProvider());
+        Navigation.RegisterProvider(new SettingsProvider());
+
     }
 
     private void App_UnhandledException(object sender, Microsoft.UI.Xaml.UnhandledExceptionEventArgs e)

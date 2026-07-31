@@ -9,6 +9,13 @@ using static Jnana.App;
 
 namespace Vanara_Jnana.exe.Services;
 
+public enum AppTheme
+{
+    Light,
+    Dark,
+    System
+}
+
 public class ThemeService
 {
     public AppTheme CurrentTheme { get; private set; } = AppTheme.System;

@@ -5,7 +5,7 @@ using Vanara_Jnana.exe.Models.Contracts;
 
 namespace Jnana.ViewModels;
 
-internal class SettingsAreaViewModel
+public class SettingsAreaViewModel
 {
     public string MachineName { get; set; } = "{ Unknown }";
     public string WinAppSdkVersion { get; set; } = "Unknown";

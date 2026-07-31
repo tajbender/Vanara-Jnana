@@ -66,6 +66,28 @@ public partial class NavigationService : ObservableObject /* TODO: INavigationSe
     public event EventHandler<Type>? Navigated;
     public Type? CurrentPage { get; private set; }
 
+    private Frame? _frame { get; set; }
+
+    public NavigationService()
+    { 
+        CurrentPage = null;
+
+    }
+
+//    public NavigationService(Frame frame)
+//    {
+//        _frame = frame ?? throw new ArgumentNullException(nameof(frame));
+//    }
+
+    public void Navigate(Type pageType)
+    {
+        if (pageType == CurrentPage)
+            return;
+
+        CurrentPage = pageType;
+        Navigated?.Invoke(this, pageType);
+    }
+
 
 
 
@@ -85,6 +107,7 @@ public partial class NavigationService : ObservableObject /* TODO: INavigationSe
         _providers[provider.GetType().Name.Replace("Provider", "").ToLower()] = provider;
     }
 
+    [Obsolete("TODO: Don't use this, this is old stuff")]
     public async Task NavigateAsync(string address)
     {
         var ns = new NamespaceAddress(address);
@@ -129,23 +152,19 @@ public partial class NavigationService : ObservableObject /* TODO: INavigationSe
     /// <summary>
     /// TODO: OLD STUFF BELOW HERE, NEEDS TO BE REPLACED WITH THE NEW NAVIGATION SERVICE
     /// </summary>
-    private readonly Frame _frame;
     private readonly Dictionary<NavigationArea, Type> _areaPageMap = new()
     { 
-            //{ NavigationArea.Disassembler, typeof(DisassemblerPage)  },
+            { NavigationArea.Disassembler, typeof(DisassemblerPage)  },
             //{ NavigationArea.GitHub, typeof(GitHubPage) },
-            //{ NavigationArea.NuGets, typeof(NuGetsPage) },
-            //{ NavigationArea.Samples, typeof(SamplesPage) },
+            { NavigationArea.NuGets, typeof(NuGetsPage) },
+            { NavigationArea.Samples, typeof(SamplesPage) },
             { NavigationArea.Settings, typeof(SettingsPage) },
             { NavigationArea.Utilities, typeof(UtilitiesPage) },
             { NavigationArea.Void, typeof(WorkbenchVoidPage) },
     };
 
-    public NavigationService(Frame frame)
-    {
-        _frame = frame ?? throw new ArgumentNullException(nameof(frame));
-    }
 
+    [Obsolete("TODO: Don't use this, this is old stuff")]
     public void NavigateTo(NavigationArea area)
     {
         try

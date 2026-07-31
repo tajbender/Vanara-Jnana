@@ -58,7 +58,8 @@
                 <TextBlock Text="NuGet Packages"
                            FontSize="18"
                            Margin="0,0,0,8"/>
-                <ItemsRepeater ItemsSource="{x:Bind ViewModel.NuGetsViewModel}">
+                <!-- TODO: ItemsSource="{x:Bind ViewModel.NuGetsViewModel}" -->
+                <ItemsRepeater >
                     <ItemsRepeater.Layout>
                         <StackLayout Orientation="Vertical"/>
                     </ItemsRepeater.Layout>
@@ -70,7 +71,8 @@
                 <TextBlock Text="GitHub Repositories"
                            FontSize="18"
                            Margin="0,0,0,8"/>
-                <ItemsRepeater ItemsSource="{x:Bind ViewModel.GitHubViewModel}">
+                <!-- TODO: ItemsSource="{x:Bind ViewModel.GitHubViewModel}" -->
+                <ItemsRepeater >
                     <ItemsRepeater.Layout>
                         <StackLayout Orientation="Vertical"/>
                     </ItemsRepeater.Layout>
@@ -83,13 +85,13 @@
                            FontSize="18"
                            Margin="0,0,0,8"
                            HorizontalAlignment="Center"/>
-                <ItemsRepeater ItemsSource="{x:Bind ViewModel.SamplesViewModel}">
+                <!-- TODO: ItemsSource="{x:Bind ViewModel.SamplesViewModel}" -->
+                <ItemsRepeater >
                     <ItemsRepeater.Layout>
                         <StackLayout Orientation="Horizontal"/>
                     </ItemsRepeater.Layout>
                 </ItemsRepeater>
             </StackPanel>
-
         </Grid>
 
         <!-- QUICKLAUNCH BAR -->

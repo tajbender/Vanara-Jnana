@@ -23,8 +23,6 @@ namespace Jnana.Views;
 public sealed partial class ShellPage : Page, INavigablePage
 {
     private NuGetsAreaViewModel NuGetsViewModel { get; }
-    private GitHubAreaViewModel GitHubVM { get; }
-    private SamplesAreaViewModel SamplesVM { get; }
     private NavigationService _navigationService { get; }
 
     // TODO: Consider making this a user setting that can be persisted across sessions, or determining it based on the last visited area
@@ -42,13 +40,13 @@ public sealed partial class ShellPage : Page, INavigablePage
     public ShellPage()
     {
         InitializeComponent();
-        NuGetsViewModel = new NuGetsAreaViewModel();
-        GitHubVM = new GitHubAreaViewModel();
-        SamplesVM = new SamplesAreaViewModel();
+        
 
-        _navigationService = new NavigationService(WorkbenchFrame);
-        _navigationService.RegisterProvider(new WebViewProvider());
-        _navigationService.RegisterProvider(new SettingsProvider());
+//_navigationService = App.Current.NavigationService;
+//_navigationService.RegisterProvider(new WebViewProvider());
+//_navigationService.RegisterProvider(new SettingsProvider());
+
+
         // TODO: _navigationService.RegisterProvider(new WorkbenchProvider());
 
 //        _navigationService.Navigated += (node) =>
@@ -59,7 +57,7 @@ public sealed partial class ShellPage : Page, INavigablePage
 //        };
 
 
-        _ = NuGetsViewModel.SynchronizePackageCacheAsync();
+//        _ = NuGetsViewModel.SynchronizePackageCacheAsync();
 
         OpenNewTabCommand = new RelayCommand<string>(OpenNewTab);
         NavigateCommand.ExecuteRequested += NavigateCommand_ExecuteRequested;
@@ -126,7 +124,7 @@ public sealed partial class ShellPage : Page, INavigablePage
                 };
 
                 // TODO: THis crashes. However, navigate to the New Tab created
-                ((Frame)newTab.Content).NavigateToType(page.GetType(), NuGetsViewModel, navOptions);
+// TODO:                ((Frame)newTab.Content).NavigateToType(page.GetType(), NuGetsViewModel, navOptions);
             }
             else
             {
@@ -176,7 +174,7 @@ public sealed partial class ShellPage : Page, INavigablePage
     private void MainTabView_AddTabButtonClick(TabView sender, object args)
     {
         Debug.WriteLine($"MainTabView_AddTabButtonClick({args}) clicked. Adding new void tab.");
-        AddNewTab("Void", new WorkbenchVoidPage(NuGetsViewModel));
+        // TODO: add new tab
     }
 
     private void NavBreadcrumb_ItemClicked(object sender, BreadcrumbBarItemClickedEventArgs args)
