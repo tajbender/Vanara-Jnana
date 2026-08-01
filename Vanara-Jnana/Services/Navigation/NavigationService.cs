@@ -71,39 +71,45 @@ public partial class NavigationService : ObservableObject /* TODO: INavigationSe
 
 
     public NavigationService()
-    { 
+    {
         CurrentPage = null;
+        _frame = null;
 
         RegisterProvider(new WebViewProvider());
         RegisterProvider(new SettingsProvider());
     }
 
-    public void Navigate<TPage>(object parameter = null)
-    where TPage : Page
+    public void InitializeFrame(Frame targetFrame)
     {
-//TODO:        var frame = _rootFrame;
-//TODO:        frame.Navigate(typeof(TPage), parameter);
+        _frame = targetFrame ?? throw new ArgumentNullException(nameof(targetFrame));
+    }
+
+    public void Navigate<TPage>()
+        where TPage : Page => this.Navigate<TPage>(null);
+
+    public void Navigate<TPage>(object? parameter = null)
+        where TPage : Page
+    {
+        if (_frame != null)
+        {
+            _frame.Navigate(typeof(TPage), parameter);
+        }
+        else
+        {
+            throw new InvalidOperationException("NavigationService.Navigate(): Frame is not initialized. Call InitializeFrame() before navigating.");
+        }
     }
 
 
-    //    public NavigationService(Frame frame)
+
+    //    public void Navigate(Type pageType)
     //    {
-    //        _frame = frame ?? throw new ArgumentNullException(nameof(frame));
+    //        if (pageType == CurrentPage)
+    //            return;
+    //
+    //        CurrentPage = pageType;
+    //        Navigated?.Invoke(this, pageType);
     //    }
-
-//    public void Navigate(Type pageType)
-//    {
-//        if (pageType == CurrentPage)
-//            return;
-//
-//        CurrentPage = pageType;
-//        Navigated?.Invoke(this, pageType);
-//    }
-
-
-
-
-
 
 
 
@@ -119,26 +125,26 @@ public partial class NavigationService : ObservableObject /* TODO: INavigationSe
         _providers[provider.GetType().Name.Replace("Provider", "").ToLower()] = provider;
     }
 
-    [Obsolete("TODO: Don't use this, this is old stuff")]
-    public async Task NavigateAsync(string address)
-    {
-        var ns = new NamespaceAddress(address);
-
-        if (!_providers.TryGetValue(ns.Provider.ToLower(), out var provider))
-            throw new InvalidOperationException($"No provider for '{ns.Provider}'");
-
-        var node = await provider.ResolveAsync(ns);
-
-        CurrentNode = node;
-        Navigated?.Invoke(this, node.PageType);
-
-        // History aktualisieren
-        if (_historyIndex < _history.Count - 1)
-            _history.RemoveRange(_historyIndex + 1, _history.Count - _historyIndex - 1);
-
-        _history.Add(node);
-        _historyIndex = _history.Count - 1;
-    }
+//    [Obsolete("TODO: Don't use this, this is old stuff")]
+//    public async Task NavigateAsync(string address)
+//    {
+//        var ns = new NamespaceAddress(address);
+//
+//        if (!_providers.TryGetValue(ns.Provider.ToLower(), out var provider))
+//            throw new InvalidOperationException($"No provider for '{ns.Provider}'");
+//
+//        var node = await provider.ResolveAsync(ns);
+//
+//        CurrentNode = node;
+//        Navigated?.Invoke(this, node.PageType);
+//
+//        // History aktualisieren
+//        if (_historyIndex < _history.Count - 1)
+//            _history.RemoveRange(_historyIndex + 1, _history.Count - _historyIndex - 1);
+//
+//        _history.Add(node);
+//        _historyIndex = _history.Count - 1;
+//    }
 
     public bool CanGoBack => _historyIndex > 0;
     public bool CanGoForward => _historyIndex < _history.Count - 1;
@@ -165,7 +171,7 @@ public partial class NavigationService : ObservableObject /* TODO: INavigationSe
     /// TODO: OLD STUFF BELOW HERE, NEEDS TO BE REPLACED WITH THE NEW NAVIGATION SERVICE
     /// </summary>
     private readonly Dictionary<NavigationArea, Type> _areaPageMap = new()
-    { 
+    {
             { NavigationArea.Disassembler, typeof(DisassemblerPage)  },
             //{ NavigationArea.GitHub, typeof(GitHubPage) },
             { NavigationArea.NuGets, typeof(NuGetsPage) },
@@ -176,27 +182,27 @@ public partial class NavigationService : ObservableObject /* TODO: INavigationSe
     };
 
 
-//    [Obsolete("TODO: Don't use this, this is old stuff")]
-//    public void NavigateTo(NavigationArea area)
-//    {
-//        try
-//        {
-//            if (_areaPageMap.TryGetValue(area, out var pageType))
-//            {
-//                Debug.Print($"Navigating to `{area}` page.");
-//                _frame.Navigate(pageType);
-//            }
-//            else
-//            {
-//                Debug.Print($"Failed to get page for `{area}` from PageMap.");
-//            }
-//        }
-//        catch (Exception ex)
-//        {
-//            Debug.Fail(ex.ToString());
-//            throw;
-//        }
-//    }
+    //    [Obsolete("TODO: Don't use this, this is old stuff")]
+    //    public void NavigateTo(NavigationArea area)
+    //    {
+    //        try
+    //        {
+    //            if (_areaPageMap.TryGetValue(area, out var pageType))
+    //            {
+    //                Debug.Print($"Navigating to `{area}` page.");
+    //                _frame.Navigate(pageType);
+    //            }
+    //            else
+    //            {
+    //                Debug.Print($"Failed to get page for `{area}` from PageMap.");
+    //            }
+    //        }
+    //        catch (Exception ex)
+    //        {
+    //            Debug.Fail(ex.ToString());
+    //            throw;
+    //        }
+    //    }
 }
 
 

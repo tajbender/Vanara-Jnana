@@ -40,24 +40,28 @@ public sealed partial class ShellPage : Page, INavigablePage
     public ShellPage()
     {
         InitializeComponent();
-        
+        this.DataContext = this;
 
-//_navigationService = App.Current.NavigationService;
-//_navigationService.RegisterProvider(new WebViewProvider());
-//_navigationService.RegisterProvider(new SettingsProvider());
+        this._navigationService = App.Current.Navigation;
+        this._navigationService.InitializeFrame(this.WorkbenchFrame);
+
+
+        //_navigationService = App.Current.NavigationService;
+        //_navigationService.RegisterProvider(new WebViewProvider());
+        //_navigationService.RegisterProvider(new SettingsProvider());
 
 
         // TODO: _navigationService.RegisterProvider(new WorkbenchProvider());
 
-//        _navigationService.Navigated += (node) =>
-//        {
-//            ArgumentNullException.ThrowIfNull(node);
-//            Debug.WriteLine($"ShellPage.Navigated() to: {node.Title} ({node.PageType.Name})");
-//            Frame.Navigate(node.PageType, node.ViewModel);
-//        };
+        //        _navigationService.Navigated += (node) =>
+        //        {
+        //            ArgumentNullException.ThrowIfNull(node);
+        //            Debug.WriteLine($"ShellPage.Navigated() to: {node.Title} ({node.PageType.Name})");
+        //            Frame.Navigate(node.PageType, node.ViewModel);
+        //        };
 
 
-//        _ = NuGetsViewModel.SynchronizePackageCacheAsync();
+        //        _ = NuGetsViewModel.SynchronizePackageCacheAsync();
 
         OpenNewTabCommand = new RelayCommand<string>(OpenNewTab);
         NavigateCommand.ExecuteRequested += NavigateCommand_ExecuteRequested;
@@ -152,6 +156,13 @@ public sealed partial class ShellPage : Page, INavigablePage
         }
     }
 
+    public void Navigate<TPage>(object? parameter = null)
+        where TPage : Page
+    {
+        _navigationService.Navigate<TPage>(parameter);
+    }
+
+
     private void OpenNewTab(string? header)
     {
         var tab = new TabViewItem
@@ -174,7 +185,7 @@ public sealed partial class ShellPage : Page, INavigablePage
     private void MainTabView_AddTabButtonClick(TabView sender, object args)
     {
         Debug.WriteLine($"MainTabView_AddTabButtonClick({args}) clicked. Adding new void tab.");
-        // TODO: add new tab
+        this.AddNewTab("New Tab", new WorkbenchVoidPage(NuGetsViewModel));
     }
 
     private void NavBreadcrumb_ItemClicked(object sender, BreadcrumbBarItemClickedEventArgs args)

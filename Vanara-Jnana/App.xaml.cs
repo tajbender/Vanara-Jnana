@@ -18,7 +18,7 @@ public partial class App : Application
     private AppWindowTitleBar? _appTitleBar;
 
     /// <summary>Get the current instance of our <see cref="App"/>.
-    /// <remarks> <see cref="Application.Current"/> will always be the one single App-Instance
+    /// <remarks><see cref="Application.Current"/> will always be the one single App-Instance
     /// ever created during lifetime. Casting to our <see cref="App"/> will always work.</remarks></summary>
     public static new App Current => (App)Application.Current;
 
@@ -28,7 +28,7 @@ public partial class App : Application
     public NuGetsAreaViewModel NuGet { get; } = new();
     public SamplesAreaViewModel Samples { get; } = new();
     public WorkbenchVoidViewModel WorkbenchState { get; } = new();
-    
+
     public VanaraScienceLaboratoriesViewModel VanaraScienceLaboratoriesViewModel { get; init; }
 
     public App()
@@ -83,7 +83,7 @@ public partial class App : Application
             // TODO: AppWindowTitleBar.SetDragRegion(new Rect(0, 0, 100, 32));
             // TODO: CoreWebView2Environment.CreateAsync(null, "C:\\temp\\wv2logs", null);
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             Debug.Fail($"App.OnLaunched(): Failed to initialize the application.\n{ex}");
 
