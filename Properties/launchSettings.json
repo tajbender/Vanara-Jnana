@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Vanara Jnana (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Vanara Jnana (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
