@@ -39,6 +39,14 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.28000.2526" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="2.3.1" />
+    <PackageReference Include="Vanara.Core" Version="5.0.5" />
+    <PackageReference Include="Vanara.PInvoke.Shared" Version="5.0.0" />
+    <PackageReference Include="Vanara.PInvoke.Shell32" Version="5.0.5" />
+    <PackageReference Include="Vanara.PInvoke.User32" Version="5.0.5" />
+    <PackageReference Include="Vanara.Windows.Shell" Version="5.0.5" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Core\" />
   </ItemGroup>
 
   <!--
