@@ -91,7 +91,7 @@ public sealed partial class NuGetTreeViewModel : ObservableObject
     public NuGetTreeViewModel(INuGetDependencyGraphService graphService)
     {
         _graphService = graphService;
-        RootNodes = new ObservableCollection<TreeNode>();
+        RootNodes = [];
     }
 
     // -----------------------------
@@ -109,7 +109,7 @@ public sealed partial class NuGetTreeViewModel : ObservableObject
     // Commands
     // -----------------------------
     [RelayCommand]
-    private async Task LoadAsync(string projectPath)
+    public async Task LoadAsync(string projectPath)
     {
         try
         {
@@ -132,7 +132,7 @@ public sealed partial class NuGetTreeViewModel : ObservableObject
     // -----------------------------
     // Tree Builder
     // -----------------------------
-    private static NuGetTreeRoot BuildTree(DependencyGraphResult graph)
+    public static NuGetTreeRoot BuildTree(DependencyGraphResult graph)
     {
         var root = new NuGetTreeRoot();
 
@@ -154,7 +154,7 @@ public sealed partial class NuGetTreeViewModel : ObservableObject
 
 public sealed partial class NuGetTreeView : UserControl
 {
-    private NuGetDependencyGraphService _dependencyGraphService = new NuGetDependencyGraphService();
+    private NuGetDependencyGraphService _dependencyGraphService = new();
     private NuGetTreeViewModel _viewModel;
 
     public ObservableCollection<TreeNode> RootNodes => _viewModel.RootNodes;
