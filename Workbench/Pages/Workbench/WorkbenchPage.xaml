@@ -6,13 +6,26 @@
     xmlns:local="using:Jnana.Workbench.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:comp="using:Jnana.Workbench.Components"
     mc:Ignorable="d">
 
     <Grid>
-        <TextBlock Text="Workbench"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   FontSize="32"
-                   FontWeight="SemiBold" />
-    </Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- QuickLaunchBar -->
+        <comp:QuickLaunchBar x:Name="LaunchBar" />
+
+        <!-- Workbench Content -->
+        <Grid Grid.Row="1"
+              x:Name="WorkbenchContent"
+              Background="Transparent">
+            <TextBlock Text="Workbench"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="32"
+                       FontWeight="SemiBold" />
+        </Grid>    </Grid>
 </Page>

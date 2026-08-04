@@ -8,8 +8,24 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <StackPanel Orientation="Horizontal">
-        <TextBlock Text="QuickLaunchBar" />
-    </StackPanel>
+    <StackPanel Orientation="Horizontal"
+                Spacing="8"
+                Padding="8">
 
+        <Button Content="Workbench"
+                Click="OnWorkbenchClick" />
+
+        <Button Content="GitHub"
+                Click="OnGitHubClick" />
+
+        <Button Content="NuGets"
+                Click="OnNuGetsClick" />
+
+        <Button Content="Samples"
+                Click="OnSamplesClick" />
+
+        <Button Content="SysInfo"
+                Click="OnSysInfoClick" />
+
+    </StackPanel>
 </UserControl>

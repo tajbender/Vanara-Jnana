@@ -14,11 +14,8 @@ public sealed partial class MainWindow : Window
 
         _navigation = new NavigationService();
 
-        // Minimal: Workbench direkt anzeigen
-        var page = new WorkbenchPage();
-        Host.ShowPage(page);
-
-        // Optional: NavigationService merken
+        var workbench = new WorkbenchPage();
+        Host.ShowPage(workbench);
         _navigation.Navigate(typeof(WorkbenchPage));
     }
 }
