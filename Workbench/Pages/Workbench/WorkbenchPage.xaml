@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Page
-    x:Class="Jnana.Workbench.Pages.WorkbenchPage"
+    x:Class="Jnana.Workbench.Pages.Workbench.WorkbenchPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Jnana.Workbench.Pages"
@@ -9,6 +9,10 @@
     mc:Ignorable="d">
 
     <Grid>
-        <TextBlock Text="Workbench" />
+        <TextBlock Text="Workbench"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontSize="32"
+                   FontWeight="SemiBold" />
     </Grid>
 </Page>

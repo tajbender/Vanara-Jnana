@@ -6,6 +6,7 @@
     xmlns:local="using:Jnana"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:nav="using:Jnana.Core.Navigation"
     mc:Ignorable="d"
     Title="Vanara Jnana">
 
@@ -14,6 +15,6 @@
     </Window.SystemBackdrop>
 
     <Grid>
-
+        <nav:NavigationHost x:Name="Host" />
     </Grid>
 </Window>
