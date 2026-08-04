@@ -1,6 +1,10 @@
-﻿namespace Jnana.Workbench.Pages.SysInfo;
+﻿using Microsoft.WindowsAppSDK;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
-public class SysInfoViewModel
+namespace Jnana.Workbench.Pages.SysInfo;
+
+public class SysInfoViewModel : INotifyPropertyChanged
 {
     // Identity
     public string OSVersion { get; set; } = "";
@@ -23,4 +27,8 @@ public class SysInfoViewModel
     // Diagnostics
     public string Uptime { get; set; } = "";
     public int ProcessId { get; set; }
+
+    public event PropertyChangedEventHandler? PropertyChanged;
+    private void OnPropertyChanged([CallerMemberName] string? name = null)
+        => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
 }

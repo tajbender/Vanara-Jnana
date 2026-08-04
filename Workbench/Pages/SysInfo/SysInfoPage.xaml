@@ -17,41 +17,40 @@
 
             <Expander Header="Identity">
                 <StackPanel Spacing="4">
-                    <TextBlock Text="OS Version:" />
-                    <TextBlock Text="WinAppSDK Version:" />
-                    <TextBlock Text="Machine Name:" />
+                    <TextBlock Text="{x:Bind ViewModel.OSVersion, Mode=OneWay}" />
+                    <TextBlock Text="{x:Bind ViewModel.WinAppSdkVersion, Mode=OneWay}" />
+                    <TextBlock Text="{x:Bind ViewModel.MachineName, Mode=OneWay}" />
                 </StackPanel>
             </Expander>
 
             <Expander Header="Hardware">
                 <StackPanel Spacing="4">
-                    <TextBlock Text="CPU:" />
-                    <TextBlock Text="RAM:" />
-                    <TextBlock Text="GPU:" />
+                    <TextBlock Text="{x:Bind ViewModel.CPU, Mode=OneWay}" />
+                    <TextBlock Text="{x:Bind ViewModel.RAM, Mode=OneWay}" />
+                    <TextBlock Text="{x:Bind ViewModel.GPU, Mode=OneWay}" />
                 </StackPanel>
             </Expander>
 
             <Expander Header="Runtime">
                 <StackPanel Spacing="4">
-                    <TextBlock Text="Threads:" />
-                    <TextBlock Text="Handles:" />
+                    <TextBlock Text="{x:Bind ViewModel.ThreadCount, Mode=OneWay}" />
+                    <TextBlock Text="{x:Bind ViewModel.HandleCount, Mode=OneWay}" />
                 </StackPanel>
             </Expander>
 
             <Expander Header="Environment">
                 <StackPanel Spacing="4">
-                    <TextBlock Text="PATH:" />
-                    <TextBlock Text="User:" />
+                    <TextBlock Text="{x:Bind ViewModel.Path, Mode=OneWay}" />
+                    <TextBlock Text="{x:Bind ViewModel.User, Mode=OneWay}" />
                 </StackPanel>
             </Expander>
 
             <Expander Header="Diagnostics">
                 <StackPanel Spacing="4">
-                    <TextBlock Text="Uptime:" />
-                    <TextBlock Text="Process ID:" />
+                    <TextBlock Text="{x:Bind ViewModel.Uptime, Mode=OneWay}" />
+                    <TextBlock Text="{x:Bind ViewModel.ProcessId, Mode=OneWay}" />
                 </StackPanel>
             </Expander>
-
         </StackPanel>
     </ScrollViewer>
 </Page>

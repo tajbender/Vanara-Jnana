@@ -16,6 +16,6 @@ public sealed partial class GitHubPage : Page
         await GitHubView.EnsureCoreWebView2Async();
 
         // TODO: Add settings, disable context menus, inject CSS, etc.
-        GitHubView.Source = new Uri("https://github.com/vanara");
+        GitHubView.Source = new Uri("https://github.com/dahall/vanara");
     }
 }
