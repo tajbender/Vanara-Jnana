@@ -19,6 +19,8 @@
     <None Remove="Workbench\Pages\GitHub\GitHubPage.xaml" />
     <None Remove="Workbench\Pages\NuGets\NuGetPackageCard.xaml" />
     <None Remove="Workbench\Pages\NuGets\NuGetsPage.xaml" />
+    <None Remove="Workbench\Pages\Samples\SampleCard.xaml" />
+    <None Remove="Workbench\Pages\Samples\SamplesPage.xaml" />
     <None Remove="Workbench\Pages\VoidPage.xaml" />
     <None Remove="Workbench\Pages\WorkbenchPage.xaml" />
   </ItemGroup>
@@ -53,6 +55,16 @@
     <PackageReference Include="Vanara.PInvoke.Shell32" Version="5.0.5" />
     <PackageReference Include="Vanara.PInvoke.User32" Version="5.0.5" />
     <PackageReference Include="Vanara.Windows.Shell" Version="5.0.5" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Workbench\Pages\Samples\SampleCard.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Workbench\Pages\Samples\SamplesPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Workbench\Pages\NuGets\NuGetPackageCard.xaml">

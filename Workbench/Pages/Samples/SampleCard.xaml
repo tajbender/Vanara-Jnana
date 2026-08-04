@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UserControl
+    x:Class="Jnana.Workbench.Pages.Samples.SampleCard"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Jnana.Workbench.Pages.Samples"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Border Padding="12"
+            CornerRadius="8"
+            BorderThickness="1"
+            BorderBrush="Gray">
+
+        <StackPanel Spacing="4">
+            <TextBlock x:Name="TitleBlock"
+                       FontSize="16"
+                       FontWeight="SemiBold"
+                       Text="Sample Title" />
+
+            <TextBlock x:Name="DescriptionBlock"
+                       Text="Sample description..."
+                       TextWrapping="Wrap" />
+
+            <Button Content="Open Sample" />
+        </StackPanel>
+
+    </Border>
+</UserControl>
