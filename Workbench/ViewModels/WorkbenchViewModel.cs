@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Jnana.Workbench.ViewModels;
 
-namespace Jnana.Workbench.ViewModels;
-
-internal class WorkbenchViewModel
+public class WorkbenchViewModel
 {
 }
