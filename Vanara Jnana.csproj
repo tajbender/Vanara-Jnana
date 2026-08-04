@@ -14,8 +14,15 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Workbench\Controls\NuGetsTreeView\**" />
+    <EmbeddedResource Remove="Workbench\Controls\NuGetsTreeView\**" />
+    <None Remove="Workbench\Controls\NuGetsTreeView\**" />
+    <Page Remove="Workbench\Controls\NuGetsTreeView\**" />
+  </ItemGroup>
+  <ItemGroup>
     <None Remove="Core\Navigation\NavigationHost.xaml" />
     <None Remove="Workbench\Components\QuickLaunchBar.xaml" />
+    <None Remove="Workbench\Controls\NuGetTreeView.xaml" />
     <None Remove="Workbench\Pages\GitHub\GitHubPage.xaml" />
     <None Remove="Workbench\Pages\NuGets\NuGetPackageCard.xaml" />
     <None Remove="Workbench\Pages\NuGets\NuGetsPage.xaml" />
@@ -49,8 +56,12 @@
     <ProjectCapability Include="Msix" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.28000.2526" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="2.3.1" />
+    <PackageReference Include="NuGet.Common" Version="7.6.0" />
+    <PackageReference Include="NuGet.Configuration" Version="7.6.0" />
+    <PackageReference Include="NuGet.ProjectModel" Version="7.6.0" />
     <PackageReference Include="Vanara.Core" Version="5.0.5" />
     <PackageReference Include="Vanara.PInvoke.Shared" Version="5.0.0" />
     <PackageReference Include="Vanara.PInvoke.Shell32" Version="5.0.5" />
@@ -110,6 +121,11 @@
   <ItemGroup>
     <Folder Include="Workbench\Pages\Workbench\" />
   </ItemGroup>
+  <ItemGroup>
+    <Page Update="Workbench\Controls\NuGetTreeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
 
   <!--
     Defining the "HasPackageAndPublishMenuAddedByProject" property here allows the Solution
@@ -127,4 +143,7 @@
     <PublishTrimmed Condition="'$(Configuration)' == 'Debug'">False</PublishTrimmed>
     <PublishTrimmed Condition="'$(Configuration)' != 'Debug'">True</PublishTrimmed>
   </PropertyGroup>
+  <ItemGroup>
+    <PRIResource Remove="Workbench\Controls\NuGetsTreeView\**" />
+  </ItemGroup>
 </Project>
