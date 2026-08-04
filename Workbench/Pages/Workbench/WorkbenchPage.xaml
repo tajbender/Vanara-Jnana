@@ -27,5 +27,12 @@
                        VerticalAlignment="Center"
                        FontSize="32"
                        FontWeight="SemiBold" />
-        </Grid>    </Grid>
+
+            <ItemsRepeater ItemsSource="{x:Bind Tiles}">
+                <ItemsRepeater.Layout>
+                    <UniformGridLayout MaximumRowsOrColumns="2"/>
+                </ItemsRepeater.Layout>
+            </ItemsRepeater>
+        </Grid>
+    </Grid>
 </Page>

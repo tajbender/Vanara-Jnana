@@ -1,11 +1,19 @@
+using Jnana.Views.Tiles;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System;
+using System.Collections.ObjectModel;
 
 namespace Jnana.Workbench.Pages.Workbench;
 
 public sealed partial class WorkbenchPage : Page
 {
+    public ObservableCollection<UserControl> Tiles { get; } =
+    [
+        new WorkbenchTile(),
+        new NuGetTile()
+    ];
+
     public WorkbenchPage()
     {
         InitializeComponent();
