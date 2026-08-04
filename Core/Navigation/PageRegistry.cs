@@ -15,7 +15,7 @@ public enum PageKeys
 
 public static class PageRegistry
 {
-    private static readonly Dictionary<PageKeys, Type> _pages = new();
+    private static readonly Dictionary<PageKeys, Type> _pages = [];
 
     public static void Register(PageKeys key, Type pageType)
     {

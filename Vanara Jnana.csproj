@@ -15,6 +15,9 @@
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Core\Navigation\NavigationHost.xaml" />
+    <None Remove="Workbench\Components\QuickLaunchBar.xaml" />
+    <None Remove="Workbench\Pages\VoidPage.xaml" />
+    <None Remove="Workbench\Pages\WorkbenchPage.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -47,6 +50,21 @@
     <PackageReference Include="Vanara.PInvoke.Shell32" Version="5.0.5" />
     <PackageReference Include="Vanara.PInvoke.User32" Version="5.0.5" />
     <PackageReference Include="Vanara.Windows.Shell" Version="5.0.5" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Workbench\Pages\VoidPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Workbench\Components\QuickLaunchBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Workbench\Pages\WorkbenchPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Core\Navigation\NavigationHost.xaml">
