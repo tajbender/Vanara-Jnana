@@ -1,13 +1,14 @@
-# Jñāna — Clean Architecture Workspace
+# Vanara Jñāna 
+
+![Vanara GitHub Repo](https://img.shields.io/badge/Code-Vanara-blue?style=flat&logo=github)
+![GitHub Repo](https://img.shields.io/badge/Code-Jñāna-blue?style=flat&logo=github)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat&logo=github)
 
 ## A Vanara Companion Workbench
 
-![GitHub Repo](https://img.shields.io/badge/Code-Jñāna-blue?style=flat&logo=github)
 ![WinUI 3](https://img.shields.io/badge/UI-WinUI%203-0078D4?style=flat&logo=windows)
 ![Architecture](https://img.shields.io/badge/Style-Clean%20Architecture-orange?style=flat)
 ![Status](https://img.shields.io/badge/State-Active%20Development-brightgreen?style=flat)
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat&logo=github)
-
 
 Jñāna is a modular WinUI 3 workspace designed around clarity, structure, and predictable UI behavior. The current iteration focuses on a clean foundation: a unified navigation service, a consistent window model, and a lightweight shell that keeps complexity out of the core.
 
@@ -21,7 +22,7 @@ The theme system provides consistent colors, glyphs, and system button styling. 
 
 Jñāna is currently in active development, with the Workbench transformation, Markdown editor integration, and virtual shell concepts progressing. The project aims to become a cohesive environment for tools, diagnostics, and creative workflows.
 
----
+----
 
 # Jñāna — Clean Architecture Workspace
 
@@ -36,7 +37,7 @@ Jñāna is currently in active development, with the Workbench transformation, M
 | 🎨 | **Theme & Branding** | JetBrains‑style system buttons, glyph consistency | 🟢 Refining |
 | 🧠 | **Future Concepts** | Virtual shell, Markdown editor integration | 🔜 Planned |
 
----
+----
 
 # Jñāna — Milestones
 
@@ -48,3 +49,4 @@ Jñāna is currently in active development, with the Workbench transformation, M
 | 🧰 | Diagnostics Tools | PerfMon++, RAM bar, EMA smoothing | 🔜 Planned |
 | 🎨 | Theme Refinement | System buttons, JetBrains‑style polish | 🟢 Refining |
 
+----
