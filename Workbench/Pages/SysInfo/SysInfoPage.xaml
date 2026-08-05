@@ -15,38 +15,38 @@
                        FontSize="24"
                        FontWeight="SemiBold" />
 
-            <Expander Header="Identity" IsExpanded="True">
-                <StackPanel Spacing="4">
+            <Expander Header="Identity" HorizontalAlignment="Left" IsExpanded="True">
+                <StackPanel Spacing="4" HorizontalAlignment="Left">
                     <TextBlock Text="{x:Bind ViewModel.OSVersion, Mode=OneWay}" />
                     <TextBlock Text="{x:Bind ViewModel.WinAppSdkVersion, Mode=OneWay}" />
                     <TextBlock Text="{x:Bind ViewModel.MachineName, Mode=OneWay}" />
                 </StackPanel>
             </Expander>
 
-            <Expander Header="Hardware" IsExpanded="True">
-                <StackPanel Spacing="4">
+            <Expander Header="Hardware" HorizontalAlignment="Left" IsExpanded="True">
+                <StackPanel Spacing="4" HorizontalAlignment="Left">
                     <TextBlock Text="{x:Bind ViewModel.CPU, Mode=OneWay}" />
                     <TextBlock Text="{x:Bind ViewModel.RAM, Mode=OneWay}" />
                     <TextBlock Text="{x:Bind ViewModel.GPU, Mode=OneWay}" />
                 </StackPanel>
             </Expander>
 
-            <Expander Header="Runtime" IsExpanded="True">
-                <StackPanel Spacing="4">
+            <Expander Header="Runtime" HorizontalAlignment="Left" IsExpanded="True">
+                <StackPanel Spacing="4" HorizontalAlignment="Left">
                     <TextBlock Text="{x:Bind ViewModel.ThreadCount, Mode=OneWay}" />
                     <TextBlock Text="{x:Bind ViewModel.HandleCount, Mode=OneWay}" />
                 </StackPanel>
             </Expander>
 
-            <Expander Header="Environment" IsExpanded="True">
-                <StackPanel Spacing="4">
-                    <TextBlock Text="{x:Bind ViewModel.Path, Mode=OneWay}" />
+            <Expander Header="Environment" HorizontalAlignment="Left" IsExpanded="True">
+                <StackPanel Spacing="4" HorizontalAlignment="Left">
                     <TextBlock Text="{x:Bind ViewModel.User, Mode=OneWay}" />
+                    <TextBlock Text="{x:Bind ViewModel.Path, Mode=OneWay}" />
                 </StackPanel>
             </Expander>
 
-            <Expander Header="Diagnostics" IsExpanded="True">
-                <StackPanel Spacing="4">
+            <Expander Header="Diagnostics" HorizontalAlignment="Left" IsExpanded="True">
+                <StackPanel Spacing="4" HorizontalAlignment="Left">
                     <TextBlock Text="{x:Bind ViewModel.Uptime, Mode=OneWay}" />
                     <TextBlock Text="{x:Bind ViewModel.ProcessId, Mode=OneWay}" />
                 </StackPanel>
