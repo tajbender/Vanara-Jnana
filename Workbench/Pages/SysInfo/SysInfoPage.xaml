@@ -15,7 +15,7 @@
                        FontSize="24"
                        FontWeight="SemiBold" />
 
-            <Expander Header="Identity">
+            <Expander Header="Identity" IsExpanded="True">
                 <StackPanel Spacing="4">
                     <TextBlock Text="{x:Bind ViewModel.OSVersion, Mode=OneWay}" />
                     <TextBlock Text="{x:Bind ViewModel.WinAppSdkVersion, Mode=OneWay}" />
@@ -23,7 +23,7 @@
                 </StackPanel>
             </Expander>
 
-            <Expander Header="Hardware">
+            <Expander Header="Hardware" IsExpanded="True">
                 <StackPanel Spacing="4">
                     <TextBlock Text="{x:Bind ViewModel.CPU, Mode=OneWay}" />
                     <TextBlock Text="{x:Bind ViewModel.RAM, Mode=OneWay}" />
@@ -31,21 +31,21 @@
                 </StackPanel>
             </Expander>
 
-            <Expander Header="Runtime">
+            <Expander Header="Runtime" IsExpanded="True">
                 <StackPanel Spacing="4">
                     <TextBlock Text="{x:Bind ViewModel.ThreadCount, Mode=OneWay}" />
                     <TextBlock Text="{x:Bind ViewModel.HandleCount, Mode=OneWay}" />
                 </StackPanel>
             </Expander>
 
-            <Expander Header="Environment">
+            <Expander Header="Environment" IsExpanded="True">
                 <StackPanel Spacing="4">
                     <TextBlock Text="{x:Bind ViewModel.Path, Mode=OneWay}" />
                     <TextBlock Text="{x:Bind ViewModel.User, Mode=OneWay}" />
                 </StackPanel>
             </Expander>
 
-            <Expander Header="Diagnostics">
+            <Expander Header="Diagnostics" IsExpanded="True">
                 <StackPanel Spacing="4">
                     <TextBlock Text="{x:Bind ViewModel.Uptime, Mode=OneWay}" />
                     <TextBlock Text="{x:Bind ViewModel.ProcessId, Mode=OneWay}" />

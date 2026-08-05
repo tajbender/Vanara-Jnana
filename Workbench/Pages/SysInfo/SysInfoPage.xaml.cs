@@ -23,7 +23,7 @@ public sealed partial class SysInfoPage : Page
         ViewModel.RAM = "TODO: RAM Info";
         ViewModel.GPU = "TODO: GPU Info";
         ViewModel.ThreadCount = Environment.ProcessorCount;
-        ViewModel.HandleCount = 0; // später über PerformanceCounter
+        ViewModel.HandleCount = 0; // TODO: bind to an PerformanceCounter
         ViewModel.Path = Environment.GetEnvironmentVariable("PATH") ?? "";
         ViewModel.User = Environment.UserName;
         ViewModel.Uptime = $"{Environment.TickCount64 / 1000 / 60} min";
