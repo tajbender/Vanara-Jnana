@@ -1,7 +1,6 @@
 # Jñāna — Clean Architecture Workspace
-## A Vanara Companion Workbench
 
-# Jñāna — Clean Architecture Workspace
+## A Vanara Companion Workbench
 
 ![GitHub Repo](https://img.shields.io/badge/Code-Jñāna-blue?style=flat&logo=github)
 ![WinUI 3](https://img.shields.io/badge/UI-WinUI%203-0078D4?style=flat&logo=windows)
@@ -20,3 +19,31 @@ The QuickLaunchBar introduces a minimal docking panel for fast access to tools. 
 The theme system provides consistent colors, glyphs, and system button styling. It ensures that every part of the UI feels like one product rather than a collection of unrelated pages. Branding elements follow the JetBrains‑inspired direction established earlier.
 
 Jñāna is currently in active development, with the Workbench transformation, Markdown editor integration, and virtual shell concepts progressing. The project aims to become a cohesive environment for tools, diagnostics, and creative workflows.
+
+---
+
+# Jñāna — Clean Architecture Workspace
+
+| Glyph | Module / Feature | Description | Status |
+| --- | --- | --- | --- |
+| ⚙️ | **Core Services** | NavigationHost, PageRegistry, AppServiceHost | ✅ Implemented |
+| 🧭 | **Navigation System** | Unified navigation, keyboard shortcuts, feature tiles | ✅ Active |
+| 🧱 | **Workbench Framework** | Page skeletons, QuickLaunchBar, VoidPage | 🟢 In progress |
+| 📦 | **NuGet Tools** | Catalog service, dependency graph, caching | 🟢 In progress |
+| 💻 | **SysInfo Page** | Hardware info providers, ViewModel expansion | 🟢 In progress |
+| 🧩 | **Samples & GitHub Pages** | ItemsRepeater, WebView2 integration | 🟡 Prototype |
+| 🎨 | **Theme & Branding** | JetBrains‑style system buttons, glyph consistency | 🟢 Refining |
+| 🧠 | **Future Concepts** | Virtual shell, Markdown editor integration | 🔜 Planned |
+
+---
+
+# Jñāna — Milestones
+
+| Glyph | Milestone | Target | Status |
+| --- | --- | --- | --- |
+| 🚀 | Workbench Transformation | Full modular docking | 🟢 In progress |
+| 🧩 | Markdown Editor Integration | Inline editing & preview | 🟢 In progress |
+| 🧠 | Virtual Shell | Unified workspace abstraction | 🔜 Planned |
+| 🧰 | Diagnostics Tools | PerfMon++, RAM bar, EMA smoothing | 🔜 Planned |
+| 🎨 | Theme Refinement | System buttons, JetBrains‑style polish | 🟢 Refining |
+
