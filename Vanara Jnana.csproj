@@ -24,6 +24,7 @@
     <None Remove="Views\Tiles\NuGetTile.xaml" />
     <None Remove="Views\Tiles\WorkbenchTile.xaml" />
     <None Remove="Workbench\Components\QuickLaunchBar.xaml" />
+    <None Remove="Workbench\Controls\FloatingStatusBar.xaml" />
     <None Remove="Workbench\Controls\NuGetTreeView.xaml" />
     <None Remove="Workbench\Pages\GitHub\GitHubPage.xaml" />
     <None Remove="Workbench\Pages\NuGets\NuGetPackageCard.xaml" />
@@ -130,6 +131,9 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <WebView2DispatchAdapterNamespace>jnana.vanara</WebView2DispatchAdapterNamespace>
+  </PropertyGroup>
 
   <!--
     Defining the "HasPackageAndPublishMenuAddedByProject" property here allows the Solution
@@ -150,6 +154,11 @@
   </PropertyGroup>
   <ItemGroup>
     <PRIResource Remove="Workbench\Controls\NuGetsTreeView\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Workbench\Controls\FloatingStatusBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Views\Tiles\NuGetTile.xaml">

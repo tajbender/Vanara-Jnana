@@ -27,6 +27,6 @@ public sealed partial class WorkbenchPage : Page
 
         // WorkbenchContent wird ersetzt
         WorkbenchContent.Children.Clear();
-        WorkbenchContent.Children.Add((UIElement)page);
+        WorkbenchContent.Children.Add(item: page as UIElement);
     }
 }
