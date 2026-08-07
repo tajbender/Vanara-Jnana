@@ -17,8 +17,6 @@ public sealed partial class QuickLaunchBar : UserControl
         InitializeComponent();
     }
 
-    private void OnWorkbenchClick(object sender, RoutedEventArgs e)
-        => RaisePageRequested(typeof(WorkbenchPage));
 
     private void OnGitHubClick(object sender, RoutedEventArgs e)
         => RaisePageRequested(typeof(GitHubPage));
@@ -34,6 +32,12 @@ public sealed partial class QuickLaunchBar : UserControl
 
     private void OnSysInfoClick(object sender, RoutedEventArgs e)
         => RaisePageRequested(typeof(SysInfoPage));
+
+    private void OnToolsClick(object sender, RoutedEventArgs e)
+        => RaisePageRequested(typeof(ToolsAndUtilitiesPage));
+
+    private void OnWorkbenchClick(object sender, RoutedEventArgs e)
+        => RaisePageRequested(typeof(WorkbenchPage));
 
     public event Action<Type>? PageRequested;
 
