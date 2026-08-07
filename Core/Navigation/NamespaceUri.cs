@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Jnana.Workbench.Pages.Workbench;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -52,6 +53,22 @@ public sealed class NamespaceUri
         public object TargetObject { get; init; }
         public object Payload { get; init; }
     }
+
+    // NamespaceNode.Void is a special value indicating that there is no specific target object for the page.
+    /// <summary>
+    /// Gets the void namespace node.
+    /// </summary>
+    /// 
+
+    public static readonly NamespaceNode Void = new()
+    {
+        PageType = typeof(WorkbenchPage),
+        TargetObject = null,
+        Payload = null
+    };
+
+
+    //public static readonly NamespaceNode VoidNsNode = new(PageType: typeof(WorkbenchPage), TargetObject: null, Payload: null);
 
 }
 

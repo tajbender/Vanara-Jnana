@@ -1,3 +1,4 @@
+using Jnana.Workbench.Pages;
 using Jnana.Workbench.Pages.GitHub;
 using Jnana.Workbench.Pages.NuGets;
 using Jnana.Workbench.Pages.Samples;
@@ -27,6 +28,9 @@ public sealed partial class QuickLaunchBar : UserControl
 
     private void OnSamplesClick(object sender, RoutedEventArgs e)
         => RaisePageRequested(typeof(SamplesPage));
+
+    private void OnToolsAndUtilitiesClick(object sender, RoutedEventArgs e)
+        => RaisePageRequested(typeof(ToolsAndUtilitiesPage));
 
     private void OnSysInfoClick(object sender, RoutedEventArgs e)
         => RaisePageRequested(typeof(SysInfoPage));

@@ -24,6 +24,9 @@
         <Button Content="Samples"
                 Click="OnSamplesClick" />
 
+        <Button Content="Tools &amp; Utilities"
+                Click="OnToolsAndUtilitiesClick" />
+
         <Button Content="SysInfo"
                 Click="OnSysInfoClick" />
 

@@ -32,8 +32,10 @@
     <None Remove="Workbench\Pages\Samples\SampleCard.xaml" />
     <None Remove="Workbench\Pages\Samples\SamplesPage.xaml" />
     <None Remove="Workbench\Pages\SysInfo\SysInfoPage.xaml" />
+    <None Remove="Workbench\Pages\ToolsAndUtilitiesPage.xaml" />
     <None Remove="Workbench\Pages\VoidPage.xaml" />
     <None Remove="Workbench\Pages\WorkbenchPage.xaml" />
+    <None Remove="Workbench\Pages\Workbench\TugorPage.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -124,9 +126,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Workbench\Pages\Workbench\" />
-  </ItemGroup>
-  <ItemGroup>
     <Page Update="Workbench\Controls\NuGetTreeView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -154,6 +153,16 @@
   </PropertyGroup>
   <ItemGroup>
     <PRIResource Remove="Workbench\Controls\NuGetsTreeView\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Workbench\Pages\ToolsAndUtilitiesPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Workbench\Pages\Workbench\TugorPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Workbench\Controls\FloatingStatusBar.xaml">
