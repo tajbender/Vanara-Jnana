@@ -155,6 +155,9 @@
     <PRIResource Remove="Workbench\Controls\NuGetsTreeView\**" />
   </ItemGroup>
   <ItemGroup>
+    <Content Remove="Assets\i18n.cs" />
+  </ItemGroup>
+  <ItemGroup>
     <Page Update="Workbench\Pages\ToolsAndUtilitiesPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
