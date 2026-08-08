@@ -20,7 +20,14 @@
         <Button Click="OnGitHubClick" CornerRadius="6">
             <StackPanel Orientation="Horizontal">
                 <FontIcon Glyph="&#xEC7A;" />
-                <TextBlock Text="GitHub"/>
+                <TextBlock Text="Shell"/>
+            </StackPanel>
+        </Button>
+
+        <Button Click="OnSamplesClick" CornerRadius="6">
+            <StackPanel Orientation="Horizontal">
+                <FontIcon Glyph="&#xEC7A;" />
+                <TextBlock Text="Web"/>
             </StackPanel>
         </Button>
 
@@ -36,13 +43,6 @@
             <StackPanel Orientation="Horizontal">
                 <FontIcon Glyph="&#xEC7A;" />
                 <TextBlock Text="NuGets"/>
-            </StackPanel>
-        </Button>
-
-        <Button Click="OnSamplesClick" CornerRadius="6">
-            <StackPanel Orientation="Horizontal">
-                <FontIcon Glyph="&#xEC7A;" />
-                <TextBlock Text="Samples"/>
             </StackPanel>
         </Button>
 
