@@ -1,7 +1,9 @@
-# Vanara Jñāna 
+# Vanara Jñāna
 
-![Vanara GitHub Repo](https://img.shields.io/badge/Code-Vanara-blue?style=flat&logo=github)
-![GitHub Repo](https://img.shields.io/badge/Code-Jñāna-blue?style=flat&logo=github)
+![Vanara GitHub](https://img.shields.io/badge/Code-Vanara-blue?style=flat&logo=github)
+TODO Vanara-version. NuGet packages
+![Jñāna GitHub](https://img.shields.io/badge/Code-Jñāna-blue?style=flat&logo=github)
+TODO Jñāna Vanara-version. download
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat&logo=github)
 
 ## A Vanara Companion Workbench
