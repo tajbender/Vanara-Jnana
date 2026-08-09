@@ -14,13 +14,20 @@ public sealed partial class MainWindow : Window
     {
         InitializeComponent();
 
-        var workbench = new WorkbenchPage();
         _PrimaryNavigation = new NavigationService(MainWindowHost);
         _SecondaryNavigation = new NavigationService(SecondaryWindowHost);
         _SidebarNavigation = new NavigationService(SecondaryRightSidebarHost);
 
+
+
         //        _PrimaryNavigation.Navigate(typeof(WorkbenchPage));
         //        //_PrimaryNavigation.ShowPage(workbench);
         //        //MainGridHost.ShowPage(workbench);
+    }
+
+    private void OnLoaded(object sender, RoutedEventArgs e)
+    {
+        // Navigate to the initial page when the window is loaded
+        _PrimaryNavigation.Navigate(typeof(WorkbenchPage));
     }
 }

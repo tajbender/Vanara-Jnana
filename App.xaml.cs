@@ -10,7 +10,7 @@ public partial class App : Application
 {
     private Window? _window;
 
-    public static AppServiceHost Services { get; private set; }
+    public static AppServiceHost Services { get; private set; } = new AppServiceHost();
 
     /// <summary>
     /// Initializes the singleton application object.  This is the first line of authored code
@@ -19,7 +19,6 @@ public partial class App : Application
     public App()
     {
         InitializeComponent();
-        Services = new AppServiceHost();
     }
 
     /// <summary>
@@ -28,9 +27,10 @@ public partial class App : Application
     /// <param name="args">Details about the launch request and process.</param>
     protected override async void OnLaunched(LaunchActivatedEventArgs args)
     {
-        // TODO: await Services.InitializeAsync(@"C:\Dev\MyProject\MyProject.csproj");
-
         _window = new MainWindow();
         _window.Activate();
+
+        // navigate initially or from command line arguments
+        // TODO: await Services.InitializeAsync(@"C:\Dev\MyProject\MyProject.csproj");
     }
 }

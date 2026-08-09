@@ -9,10 +9,6 @@
     xmlns:vm="using:Jnana.Workbench.ViewModels"
     mc:Ignorable="d">
 
-    <UserControl.DataContext>
-        <vm:StatusBarViewModel />
-    </UserControl.DataContext>
-
     <Grid Background="{ThemeResource JnanaStatusBarBackground}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>

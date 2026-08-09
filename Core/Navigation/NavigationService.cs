@@ -17,7 +17,7 @@ public class NavigationService : INavigationService
     {
         _host = host;
         _frame = frame;
-
+        _host.ShowPage(this._frame);
         // pageInstance
         //_PrimaryNavigation = new NavigationService(MainGridHost);
 
@@ -33,7 +33,7 @@ public class NavigationService : INavigationService
         try
         {
             var page = Activator.CreateInstance(pageType);
-            CurrentPage = pageType;
+            this.CurrentPage = pageType;
 
             // TODO: Implement navigation logic:
             //ShowPage(page);
@@ -42,7 +42,7 @@ public class NavigationService : INavigationService
         }
         catch
         {
-            CurrentPage = null;
+            this.CurrentPage = null;
         }
     }
 
@@ -71,10 +71,12 @@ public class NavigationService : INavigationService
     // TODO: Implement back navigation
     public void GoBack()
     {
-        if (CurrentPage != null)
+        if (this.CurrentPage != null)
         {
             if (_frame.CanGoBack)
                 _frame.GoBack();
+
+            //this.CurrentPage = null;
             Navigated?.Invoke(this, EventArgs.Empty);
         }
     }
