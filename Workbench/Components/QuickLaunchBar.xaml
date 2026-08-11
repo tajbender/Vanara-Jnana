@@ -10,27 +10,12 @@
 
     <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
 
-        <Button Click="OnToolsClick" CornerRadius="6">
+        <Button Click="OnWorkbenchClick" CornerRadius="6">
             <StackPanel Orientation="Horizontal">
                 <FontIcon Glyph="&#xEC7A;" />
                 <TextBlock Text="Workbench"/>
             </StackPanel>
         </Button>
-
-        <Button Click="OnGitHubClick" CornerRadius="6">
-            <StackPanel Orientation="Horizontal">
-                <FontIcon Glyph="&#xEC7A;" />
-                <TextBlock Text="GitHub"/>
-            </StackPanel>
-        </Button>
-
-        <Button Click="OnGitHubClick" CornerRadius="6">
-            <StackPanel Orientation="Horizontal">
-                <FontIcon Glyph="&#xEC7A;" />
-                <TextBlock Text="GitHub"/>
-            </StackPanel>
-        </Button>
-
 
         <Button Click="OnNuGetsClick" CornerRadius="6">
             <StackPanel Orientation="Horizontal">
@@ -38,6 +23,20 @@
                 <TextBlock Text="NuGets"/>
             </StackPanel>
         </Button>
+
+        <Button Click="OnGitHubClick" CornerRadius="6">
+            <StackPanel Orientation="Horizontal">
+                <FontIcon Glyph="&#xEC7A;" />
+                <TextBlock Text="GitHub"/>
+            </StackPanel>
+        </Button>
+
+        <!-- TODO: <Button Click="OnDisassemblyClick" CornerRadius="6">
+            <StackPanel Orientation="Horizontal">
+                <FontIcon Glyph="&#xEC7A;" />
+                <TextBlock Text="GitHub"/>
+            </StackPanel>
+        </Button>-->
 
         <Button Click="OnSamplesClick" CornerRadius="6">
             <StackPanel Orientation="Horizontal">
