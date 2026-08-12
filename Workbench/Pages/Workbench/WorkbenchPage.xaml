@@ -15,9 +15,40 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
+        <Grid x:Name="TitleBarHost" Grid.Row="0"
+      Height="32"
+      Background="{ThemeResource AcrylicBackgroundFillColorDefaultBrush}"
+      CornerRadius="4"
+      HorizontalAlignment="Right"
+      VerticalAlignment="Top"
+      Padding="4,0,4,0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <!-- Minimize -->
+                <Button x:Name="BtnMinimize"
+                Style="{StaticResource LonghornTitleBarButtonStyle}"
+                Tag="Minimize">
+                    <Path Data="M0,0 L10,0" StrokeThickness="2"/>
+                </Button>
+
+                <!-- Maximize -->
+                <Button x:Name="BtnMaximize"
+                Style="{StaticResource LonghornTitleBarButtonStyle}"
+                Tag="Maximize">
+                    <Path Data="M0,0 L10,0 L10,10 L0,10 Z" StrokeThickness="2"/>
+                </Button>
+
+                <!-- Close -->
+                <Button x:Name="BtnClose"
+                Style="{StaticResource LonghornTitleBarButtonStyle}"
+                Tag="Close">
+                    <Path Data="M0,0 L10,10 M10,0 L0,10" StrokeThickness="2"/>
+                </Button>
+            </StackPanel>
+        </Grid>
 
         <!--
         TitleBar                         
@@ -28,10 +59,10 @@
         see also: TitleBarExtensions Class - `CommunityToolkit.WinUI.UI v7.0.3`
         -->
         <!--AnimatedIcon.State=""-->
-        <TitleBar IsBackButtonVisible="{x:Bind ShowBackButtonSetting, Mode=OneWay}"
+        <TitleBar Grid.Row="1" IsBackButtonVisible="{x:Bind ShowBackButtonSetting, Mode=OneWay}"
                   Subtitle="{x:Bind SubtitleText, Mode=OneWay}" Title="{x:Bind TitleText, Mode=OneWay}" >
-        <!-- TODO: IconSource=""-->
-        <!-- TODO:  AutoConfigureCustomTitleBar="False"
+            <!-- TODO: IconSource=""-->
+            <!-- TODO:  AutoConfigureCustomTitleBar="False"
                         IsBackButtonVisible="{x:Bind ShowBackButtonSetting, Mode=OneWay}"
                         IsPaneButtonVisible="{x:Bind ShowPaneButtonSetting, Mode=OneWay}"
                         Subtitle="{x:Bind SubtitleText, Mode=OneWay}" -->
@@ -39,10 +70,10 @@
         </TitleBar>
 
         <!-- QuickLaunchBar -->
-        <comp:QuickLaunchBar x:Name="LaunchBar" Grid.Row="1"/>
+        <comp:QuickLaunchBar x:Name="LaunchBar" Grid.Row="2"/>
 
         <!-- Workbench Content -->
-        <Grid x:Name="WorkbenchContent" Grid.Row="2" Background="Transparent">
+        <Grid x:Name="WorkbenchContent" Grid.Row="3" Background="Transparent">
             <TextBlock Text="Workbench"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"

@@ -20,6 +20,7 @@
     <Page Remove="Workbench\Controls\NuGetsTreeView\**" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="Assets\Styles\LonghornTitleBar.xaml" />
     <None Remove="Core\Navigation\NavigationHost.xaml" />
     <None Remove="Views\Tiles\NuGetTile.xaml" />
     <None Remove="Views\Tiles\WorkbenchTile.xaml" />
@@ -155,6 +156,9 @@
     <PRIResource Remove="Workbench\Controls\NuGetsTreeView\**" />
   </ItemGroup>
   <ItemGroup>
+    <Content Remove="Assets\Styles\LonghornTitleBar.xaml" />
+  </ItemGroup>
+  <ItemGroup>
     <Page Update="Workbench\Pages\ToolsAndUtilitiesPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -176,6 +180,11 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="Views\Tiles\WorkbenchTile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Assets\Styles\LonghornTitleBar.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
