@@ -29,18 +29,18 @@
               HorizontalAlignment="Right"
               Padding="4,0,4,0"
               VerticalAlignment="Top">
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Right">
                 <!-- Minimize Style="{StaticResource LonghornTitleBarButtonStyle}" -->
                 <Button x:Name="BtnMinimize" Tag="Minimize">
-                    <Path Data="M0,0 L10,0" StrokeThickness="5"/>
+                    <Glyphs FontUri="ms-appx:///Assets/Fonts/SegoeMDL2.ttf" FontRenderingEmSize="10" Fill="Black" />
                 </Button>
                 <!-- Maximize Style="{StaticResource LonghornTitleBarButtonStyle}" -->
                 <Button x:Name="BtnMaximize" Tag="Maximize">
-                    <Path Data="M0,0 L10,0 L10,10 L0,10 Z" StrokeThickness="5"/>
+                    <Glyphs FontUri="ms-appx:///Assets/Fonts/SegoeMDL2.ttf" FontRenderingEmSize="10" Fill="Black" />
                 </Button>
                 <!-- Close Style="{StaticResource LonghornTitleBarButtonStyle}" -->
                 <Button x:Name="BtnClose" Tag="Close">
-                    <Path Data="M0,0 L10,10 M10,0 L0,10" StrokeThickness="5"/>
+                    <Glyphs FontUri="ms-appx:///Assets/Fonts/SegoeMDL2.ttf" FontRenderingEmSize="10" Fill="Black" />
                 </Button>
             </StackPanel>
         </Grid>
