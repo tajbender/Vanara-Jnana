@@ -12,6 +12,10 @@
     mc:Ignorable="d">
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -20,13 +24,13 @@
         </Grid.RowDefinitions>
 
         <Grid x:Name="TitleBarHost" Grid.Row="0"
-      Height="32"
-      Background="{ThemeResource AcrylicBackgroundFillColorDefaultBrush}"
-      CornerRadius="4"
-      HorizontalAlignment="Right"
-      VerticalAlignment="Top"
-      Padding="4,0,4,0">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+              Background="{ThemeResource AcrylicBackgroundFillColorDefaultBrush}"
+              CornerRadius="4"
+              Height="32"
+              HorizontalAlignment="Right"
+              Padding="4,0,4,0"
+              VerticalAlignment="Top">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
                 <!-- Minimize Style="{StaticResource LonghornTitleBarButtonStyle}" -->
                 <Button x:Name="BtnMinimize" Tag="Minimize">
                     <Path Data="M0,0 L10,0" StrokeThickness="2"/>
@@ -67,12 +71,12 @@
         <comp:QuickLaunchBar x:Name="LaunchBar" Grid.Row="2"/>
 
         <!-- Workbench Content -->
-        <Grid x:Name="WorkbenchContent" Grid.Row="3" Background="Transparent">
+        <Grid x:Name="WorkbenchContent" Grid.Column="1" Background="Transparent">
             <TextBlock Text="Workbench"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Center"
                        FontSize="32"
-                       FontWeight="SemiBold" />
+                       FontWeight="SemiBold"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center" />
 
             <ItemsRepeater ItemsSource="{x:Bind Tiles}">
                 <ItemsRepeater.Layout>

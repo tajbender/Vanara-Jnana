@@ -8,45 +8,45 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
+    <StackPanel Orientation="Vertical" Padding="8" Spacing="8">
 
         <Button Click="OnWorkbenchClick" CornerRadius="6">
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Vertical">
                 <FontIcon Glyph="&#xEC7A;" />
                 <TextBlock Text="Workbench"/>
             </StackPanel>
         </Button>
 
         <Button Click="OnNuGetsClick" CornerRadius="6">
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Vertical">
                 <FontIcon Glyph="&#xEC7A;" />
                 <TextBlock Text="NuGets"/>
             </StackPanel>
         </Button>
 
         <Button Click="OnGitHubClick" CornerRadius="6">
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Vertical">
                 <FontIcon Glyph="&#xEC7A;" />
                 <TextBlock Text="GitHub"/>
             </StackPanel>
         </Button>
 
         <!-- TODO: <Button Click="OnDisassemblyClick" CornerRadius="6">
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Vertical">
                 <FontIcon Glyph="&#xEC7A;" />
                 <TextBlock Text="GitHub"/>
             </StackPanel>
         </Button>-->
 
         <Button Click="OnSamplesClick" CornerRadius="6">
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Vertical">
                 <FontIcon Glyph="&#xEC7A;" />
                 <TextBlock Text="Samples"/>
             </StackPanel>
         </Button>
 
         <Button Click="OnToolsAndUtilitiesClick" CornerRadius="6">
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Vertical">
                 <FontIcon Glyph="&#xEC7A;" />
                 <!-- Toolbox -->
                 <TextBlock Text="Tools &amp; Utilities"/>
@@ -54,7 +54,7 @@
         </Button>
 
         <Button Click="OnSysInfoClick" CornerRadius="6">
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Vertical">
                 <FontIcon Glyph="&#xEC7A;" />
                 <TextBlock Text="SysInfo"/>
             </StackPanel>
@@ -63,12 +63,14 @@
         <Grid x:Name="FloatingBar"
               Background="{ThemeResource SolidBackgroundFillColorBaseBrush}"
               CornerRadius="8"
-              Padding="12,6"
-              HorizontalAlignment="Right"
-              VerticalAlignment="Top"
+              HorizontalAlignment="Left"
               Margin="0,8,8,0"
-              Opacity="0.95">
-            <StackPanel Orientation="Horizontal" Spacing="12">
+              Opacity="0.95"
+              Padding="12,6"
+              VerticalAlignment="Bottom"
+              
+              >
+            <StackPanel Orientation="Vertical" Spacing="12">
                 <FontIcon Glyph="&#xE7F8;" />
                 <!-- GPU -->
                 <!--<TextBlock Text="{x:Bind ViewModel.GpuName}" />
