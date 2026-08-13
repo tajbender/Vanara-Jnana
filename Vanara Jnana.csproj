@@ -159,14 +159,16 @@
     <PublishTrimmed Condition="'$(Configuration)' == 'Debug'">False</PublishTrimmed>
     <PublishTrimmed Condition="'$(Configuration)' != 'Debug'">True</PublishTrimmed>
     <StartupObject>Jnana.Program</StartupObject>
-    <ApplicationIcon>Assets\Icons\Vamara Icon.ico</ApplicationIcon>
+    <ApplicationIcon>Assets\Icons\vanara.icon.ico</ApplicationIcon>
     <IncludeSymbols>True</IncludeSymbols>
     <PackageIcon>Vamara Icon.ico</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageReleaseNotes>debug build - do not use in productive environment</PackageReleaseNotes>
-    <AssemblyVersion>1.268.1.0</AssemblyVersion>
-    <FileVersion>1.268.1.0</FileVersion>
+    <AssemblyVersion>1.268.506.1</AssemblyVersion>
+    <FileVersion>1.268.506.1</FileVersion>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PublishAot>True</PublishAot>
+    <Version>1.268.506.1</Version>
   </PropertyGroup>
   <ItemGroup>
     <PRIResource Remove="Workbench\Controls\NuGetsTreeView\**" />
