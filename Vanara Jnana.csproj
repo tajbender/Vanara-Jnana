@@ -37,6 +37,7 @@
     <None Remove="Workbench\Pages\ToolsAndUtilitiesPage.xaml" />
     <None Remove="Workbench\Pages\VoidPage.xaml" />
     <None Remove="Workbench\Pages\WorkbenchPage.xaml" />
+    <None Remove="Workbench\Pages\Workbench\DisassemblyPage.xaml" />
     <None Remove="Workbench\Pages\Workbench\TugorPage.xaml" />
   </ItemGroup>
 
@@ -159,6 +160,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Remove="Assets\Styles\LonghornTitleBar.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Workbench\Pages\Workbench\DisassemblyPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Controls\MarkdownPane.xaml">

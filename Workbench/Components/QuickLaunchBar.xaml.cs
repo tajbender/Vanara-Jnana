@@ -18,6 +18,9 @@ public sealed partial class QuickLaunchBar : UserControl
     }
 
 
+    private void OnDisassemblyClick(object sender, RoutedEventArgs e)
+        => RaisePageRequested(typeof(DisassemblyPage));
+
     private void OnGitHubClick(object sender, RoutedEventArgs e)
         => RaisePageRequested(typeof(GitHubPage));
 

@@ -22,7 +22,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Grid x:Name="TitleBarHost" Grid.Row="0"
+        <Grid x:Name="TitleBarHost" Grid.Row="0" Grid.ColumnSpan="2"
               Background="{ThemeResource AcrylicBackgroundFillColorDefaultBrush}"
               CornerRadius="4"
               Height="32"
@@ -34,12 +34,10 @@
                 <Button x:Name="BtnMinimize" Tag="Minimize">
                     <Path Data="M0,0 L10,0" StrokeThickness="5"/>
                 </Button>
-
                 <!-- Maximize Style="{StaticResource LonghornTitleBarButtonStyle}" -->
                 <Button x:Name="BtnMaximize" Tag="Maximize">
                     <Path Data="M0,0 L10,0 L10,10 L0,10 Z" StrokeThickness="5"/>
                 </Button>
-
                 <!-- Close Style="{StaticResource LonghornTitleBarButtonStyle}" -->
                 <Button x:Name="BtnClose" Tag="Close">
                     <Path Data="M0,0 L10,10 M10,0 L0,10" StrokeThickness="5"/>
@@ -55,10 +53,9 @@
         
         see also: TitleBarExtensions Class - `CommunityToolkit.WinUI.UI v7.0.3`
         -->
-        <!--AnimatedIcon.State=""-->
-
         <TitleBar Grid.Row="1" IsBackButtonVisible="{x:Bind ShowBackButtonSetting, Mode=OneWay}"
                   Subtitle="{x:Bind SubtitleText, Mode=OneWay}" Title="{x:Bind TitleText, Mode=OneWay}" >
+            <!-- TODO:  See AnimatedIcon.State=""-->
             <!-- TODO:  AutoConfigureCustomTitleBar="False" 
                         IconSource=""
                         IsBackButtonVisible="{x:Bind ShowBackButtonSetting, Mode=OneWay}"
@@ -71,12 +68,12 @@
         <comp:QuickLaunchBar x:Name="LaunchBar" Grid.Row="2"/>
 
         <!-- Workbench Content -->
-        <Grid x:Name="WorkbenchContent" Grid.Column="1" Background="Transparent">
+        <Grid x:Name="WorkbenchContent" Grid.Column="1" Grid.RowSpan="4" Background="Transparent">
             <TextBlock Text="Workbench"
                        FontSize="32"
                        FontWeight="SemiBold"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Center" />
+                       HorizontalAlignment="Stretch"
+                       VerticalAlignment="Stretch" />
             <ItemsRepeater ItemsSource="{x:Bind Tiles}">
                 <ItemsRepeater.Layout>
                     <UniformGridLayout MaximumRowsOrColumns="2"/>
