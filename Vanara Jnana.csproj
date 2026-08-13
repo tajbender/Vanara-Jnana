@@ -67,7 +67,6 @@
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
     <PackageReference Include="CommunityToolkit.WinUI.UI.Controls.Markdown" Version="7.1.2" />
-    <PackageReference Include="CurlDotNet" Version="9.6.0" />
     <PackageReference Include="fuselibs-desktop-fonts" Version="1.0.0" />
     <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="10.0.11" />
     <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="10.0.11" />
@@ -160,22 +159,27 @@
     <PublishTrimmed Condition="'$(Configuration)' == 'Debug'">False</PublishTrimmed>
     <PublishTrimmed Condition="'$(Configuration)' != 'Debug'">True</PublishTrimmed>
     <StartupObject>Jnana.Program</StartupObject>
-    <ApplicationIcon>Assets\Icons\vanara.icon.ico</ApplicationIcon>
+    <ApplicationIcon>Assets\Icons\default vanara-icon.ico</ApplicationIcon>
     <IncludeSymbols>True</IncludeSymbols>
-    <PackageIcon>Vamara Icon.ico</PackageIcon>
+    <PackageIcon>vanara icon (hq).ico</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageReleaseNotes>debug build - do not use in productive environment</PackageReleaseNotes>
     <AssemblyVersion>1.268.506.1</AssemblyVersion>
     <FileVersion>1.268.506.1</FileVersion>
-    <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PublishAot>True</PublishAot>
     <Version>1.268.506.1</Version>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
   <ItemGroup>
     <PRIResource Remove="Workbench\Controls\NuGetsTreeView\**" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="Assets\Styles\LonghornTitleBar.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\Icons\default vanara-icon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
@@ -191,7 +195,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Update="Assets\Icons\Vamara Icon.ico">
+    <None Update="Assets\Icons\vanara icon (hq).ico">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
@@ -246,5 +250,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\Fonts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Update="Assets\Icons\vanara.icon.ifx">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 </Project>
