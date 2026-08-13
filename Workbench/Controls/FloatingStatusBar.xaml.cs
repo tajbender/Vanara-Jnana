@@ -28,16 +28,15 @@ public sealed partial class FloatingStatusBar : UserControl, IStatusService
 
     //public static FloatingStatusBar Instance { get; private set; }
 
-    private float _opacity = 1.0f;
-    private string _cpuUsage = "0%";
-    private string _netUsage;
-    private string _ramUsage;
-    private string _diskUsage;
+    private string _cpuUsage = "calculating...";
+    private string _netUsage = "calculating...";
+    private string _ramUsage = "calculating...";
+    private string _diskUsage = "calculating...";
 
-    public float Opacity
+    public new double Opacity
     {
-        get => this._opacity;
-        set => this._opacity = value;
+        get => ((UserControl)this).Opacity;
+        set => ((UserControl)this).Opacity = value;
     }
 
     public string CPUUsage
