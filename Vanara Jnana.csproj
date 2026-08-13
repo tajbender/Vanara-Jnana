@@ -23,6 +23,7 @@
     <None Remove="Assets\Styles\LonghornTitleBar.xaml" />
     <None Remove="Controls\MarkdownPane.xaml" />
     <None Remove="Core\Navigation\NavigationHost.xaml" />
+    <None Remove="Vanara Jnana.csproj.Backup.tmp" />
     <None Remove="Views\Tiles\NuGetTile.xaml" />
     <None Remove="Views\Tiles\WorkbenchTile.xaml" />
     <None Remove="Workbench\Components\QuickLaunchBar.xaml" />
