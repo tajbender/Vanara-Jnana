@@ -15,7 +15,7 @@
                         <!--<Ellipse x:Name="Glow" Opacity="0" Fill="{TemplateBinding Foreground}"/>-->
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
-<!--TODO: <ControlTemplate.Triggers>
+                        <!--TODO: <ControlTemplate.Triggers>
                         <Trigger Property="IsPointerOver" Value="True">
                             <Setter TargetName="Glow" Property="Opacity" Value="0.3"/>
                         </Trigger>

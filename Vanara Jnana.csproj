@@ -21,6 +21,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="Assets\Styles\LonghornTitleBar.xaml" />
+    <None Remove="Controls\MarkdownPane.xaml" />
     <None Remove="Core\Navigation\NavigationHost.xaml" />
     <None Remove="Views\Tiles\NuGetTile.xaml" />
     <None Remove="Views\Tiles\WorkbenchTile.xaml" />
@@ -63,13 +64,14 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
-    <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="10.0.10" />
-    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="10.0.10" />
+    <PackageReference Include="CommunityToolkit.WinUI.UI.Controls.Markdown" Version="7.1.2" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="10.0.11" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="10.0.11" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.28000.2526" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="2.3.1" />
-    <PackageReference Include="NuGet.Common" Version="7.6.0" />
-    <PackageReference Include="NuGet.Configuration" Version="7.6.0" />
-    <PackageReference Include="NuGet.ProjectModel" Version="7.6.0" />
+    <PackageReference Include="NuGet.Common" Version="7.9.0" />
+    <PackageReference Include="NuGet.Configuration" Version="7.9.0" />
+    <PackageReference Include="NuGet.ProjectModel" Version="7.9.0" />
     <PackageReference Include="Vanara.Core" Version="5.0.5" />
     <PackageReference Include="Vanara.PInvoke.Shared" Version="5.0.0" />
     <PackageReference Include="Vanara.PInvoke.Shell32" Version="5.0.5" />
@@ -157,6 +159,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Remove="Assets\Styles\LonghornTitleBar.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Controls\MarkdownPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Workbench\Pages\ToolsAndUtilitiesPage.xaml">

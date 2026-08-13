@@ -27,24 +27,18 @@
       VerticalAlignment="Top"
       Padding="4,0,4,0">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <!-- Minimize -->
-                <Button x:Name="BtnMinimize"
-                Style="{StaticResource LonghornTitleBarButtonStyle}"
-                Tag="Minimize">
+                <!-- Minimize Style="{StaticResource LonghornTitleBarButtonStyle}" -->
+                <Button x:Name="BtnMinimize" Tag="Minimize">
                     <Path Data="M0,0 L10,0" StrokeThickness="2"/>
                 </Button>
 
-                <!-- Maximize -->
-                <Button x:Name="BtnMaximize"
-                Style="{StaticResource LonghornTitleBarButtonStyle}"
-                Tag="Maximize">
+                <!-- Maximize Style="{StaticResource LonghornTitleBarButtonStyle}" -->
+                <Button x:Name="BtnMaximize" Tag="Maximize">
                     <Path Data="M0,0 L10,0 L10,10 L0,10 Z" StrokeThickness="2"/>
                 </Button>
 
-                <!-- Close -->
-                <Button x:Name="BtnClose"
-                Style="{StaticResource LonghornTitleBarButtonStyle}"
-                Tag="Close">
+                <!-- Close Style="{StaticResource LonghornTitleBarButtonStyle}" -->
+                <Button x:Name="BtnClose" Tag="Close">
                     <Path Data="M0,0 L10,10 M10,0 L0,10" StrokeThickness="2"/>
                 </Button>
             </StackPanel>
