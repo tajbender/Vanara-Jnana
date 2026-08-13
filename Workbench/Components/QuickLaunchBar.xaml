@@ -56,7 +56,7 @@
         <Button Click="OnSysInfoClick" CornerRadius="6">
             <StackPanel Orientation="Vertical">
                 <FontIcon Glyph="&#xEC7A;" />
-                <TextBlock Text="SysInfo"/>
+                <TextBlock Text="System Information Summary"/>
             </StackPanel>
         </Button>
 

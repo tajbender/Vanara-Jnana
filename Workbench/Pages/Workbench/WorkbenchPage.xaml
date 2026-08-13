@@ -8,7 +8,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:comp="using:Jnana.Workbench.Components"
-
     mc:Ignorable="d">
 
     <Grid>
@@ -33,17 +32,17 @@
             <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
                 <!-- Minimize Style="{StaticResource LonghornTitleBarButtonStyle}" -->
                 <Button x:Name="BtnMinimize" Tag="Minimize">
-                    <Path Data="M0,0 L10,0" StrokeThickness="2"/>
+                    <Path Data="M0,0 L10,0" StrokeThickness="5"/>
                 </Button>
 
                 <!-- Maximize Style="{StaticResource LonghornTitleBarButtonStyle}" -->
                 <Button x:Name="BtnMaximize" Tag="Maximize">
-                    <Path Data="M0,0 L10,0 L10,10 L0,10 Z" StrokeThickness="2"/>
+                    <Path Data="M0,0 L10,0 L10,10 L0,10 Z" StrokeThickness="5"/>
                 </Button>
 
                 <!-- Close Style="{StaticResource LonghornTitleBarButtonStyle}" -->
                 <Button x:Name="BtnClose" Tag="Close">
-                    <Path Data="M0,0 L10,10 M10,0 L0,10" StrokeThickness="2"/>
+                    <Path Data="M0,0 L10,10 M10,0 L0,10" StrokeThickness="5"/>
                 </Button>
             </StackPanel>
         </Grid>
@@ -57,10 +56,11 @@
         see also: TitleBarExtensions Class - `CommunityToolkit.WinUI.UI v7.0.3`
         -->
         <!--AnimatedIcon.State=""-->
+
         <TitleBar Grid.Row="1" IsBackButtonVisible="{x:Bind ShowBackButtonSetting, Mode=OneWay}"
                   Subtitle="{x:Bind SubtitleText, Mode=OneWay}" Title="{x:Bind TitleText, Mode=OneWay}" >
-            <!-- TODO: IconSource=""-->
-            <!-- TODO:  AutoConfigureCustomTitleBar="False"
+            <!-- TODO:  AutoConfigureCustomTitleBar="False" 
+                        IconSource=""
                         IsBackButtonVisible="{x:Bind ShowBackButtonSetting, Mode=OneWay}"
                         IsPaneButtonVisible="{x:Bind ShowPaneButtonSetting, Mode=OneWay}"
                         Subtitle="{x:Bind SubtitleText, Mode=OneWay}" -->
@@ -77,7 +77,6 @@
                        FontWeight="SemiBold"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center" />
-
             <ItemsRepeater ItemsSource="{x:Bind Tiles}">
                 <ItemsRepeater.Layout>
                     <UniformGridLayout MaximumRowsOrColumns="2"/>
