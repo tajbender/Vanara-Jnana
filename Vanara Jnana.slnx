@@ -4,7 +4,6 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="../Vanara.Jnana.elevator/Vanara.Jnana.elevator.csproj" Id="1240a35c-bd10-42f3-83bb-4135ff1edffa" />
   <Project Path="Vanara Jnana.csproj">
     <Platform Solution="*|ARM64" Project="ARM64" />
     <Platform Solution="*|x64" Project="x64" />
