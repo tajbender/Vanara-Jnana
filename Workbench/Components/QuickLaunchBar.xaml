@@ -13,14 +13,14 @@
 		<Button Click="OnWorkbenchClick" CornerRadius="6" Width="128">
 			<StackPanel Orientation="Vertical">
 				<FontIcon Glyph="&#xEC7A;" />
-				<TextBlock Text="Workbench" HorizontalTextAlignment="Center" TextWrapping="WrapWholeWords"/>
+				<TextBlock Text="Workbench" HorizontalTextAlignment="Left" TextWrapping="WrapWholeWords"/>
 			</StackPanel>
 		</Button>
 
 		<Button Click="OnNuGetsClick" CornerRadius="6" Width="128">
 			<StackPanel Orientation="Vertical">
 				<FontIcon Glyph="&#xEC7A;" />
-				<TextBlock Text="NuGets" HorizontalTextAlignment="Center" TextWrapping="WrapWholeWords"/>
+				<TextBlock Text="NuGets" HorizontalTextAlignment="Left" TextWrapping="WrapWholeWords"/>
 			</StackPanel>
 		</Button>
 
@@ -77,9 +77,9 @@
 			<FontIcon Grid.Column="1" Glyph="&#xE9D9;"/>
 			<FontIcon Grid.Column="2" Glyph="&#xE9D9;"/>
 
-			<TextBlock Grid.Column="0" Grid.ColumnSpan="3" Text="CPU Usage" />
-			<TextBlock Grid.Column="0" Grid.ColumnSpan="3" Text="Gfx Acceleration" />
-			<TextBlock Grid.Column="0" Grid.ColumnSpan="3" Text="RAM Usage" />
+			<TextBlock Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" Text="CPU Usage" />
+			<TextBlock Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" Text="Gfx Acceleration" />
+			<TextBlock Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="3" Text="RAM Usage" />
 
 			<!-- GPU -->
 			<!--<TextBlock Text="{x:Bind ViewModel.GpuName}" />
