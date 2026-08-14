@@ -8,7 +8,7 @@ public sealed partial class WorkbenchVoidPage : Page
 {
     private WorkbenchVoidViewModel ViewModel { get; }
 
-    public WorkbenchVoidPage(NuGetsAreaViewModel nuGetsViewModel)
+    public WorkbenchVoidPage(NuGetsAreaViewModel? nuGetsViewModel)
     {
         InitializeComponent();
 
