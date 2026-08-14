@@ -25,6 +25,9 @@ public sealed partial class ShellPage : Page
     private readonly INavigationService.Area defaultNavigationTarget = Area.Void; // INavigationService.Area.Void;
     private ObservableCollection<TabViewItem> Tabs { get; }
 
+    public ObservableCollection<TabViewItem> FeatureTiles { get; }
+
+
     public StandardUICommand NavigateCommand => new(StandardUICommandKind.Open);
     public ICommand OpenNewTabCommand { get; }
     public TabViewItem? SelectedTab { get; set; } = null;
