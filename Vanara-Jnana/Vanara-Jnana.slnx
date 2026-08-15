@@ -1,10 +1,13 @@
 <Solution>
   <Configurations>
+    <Platform Name="AnyCPU" />
     <Platform Name="ARM64" />
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
   <Project Path="Vanara Jnana.csproj">
-    <Deploy />
+    <Deploy Solution="*|ARM64" />
+    <Deploy Solution="*|x64" />
+    <Deploy Solution="*|x86" />
   </Project>
 </Solution>
