@@ -14,24 +14,31 @@ public sealed partial class WorkbenchPage : Page
         new NuGetTile()
     ];
 
-    public string TitleText { get; set; } = "Vanara jñāna";
+    public ViewModels.WorkbenchViewModel ViewModel => 
+        (ViewModels.WorkbenchViewModel)DataContext;
+
     public string SubtitleText { get; set; } = "Workbench";
-    public bool IsPaneButtonVisible { get; set; } = true;
-    public bool ShowBackButtonSetting { get; set; } = true;
+    public string TitleText { get; set; } = "Vanara jñāna";
 
     public WorkbenchPage()
     {
         InitializeComponent();
-        LaunchBar.PageRequested += OnPageRequested;
+        this.DataContext = new ViewModels.WorkbenchViewModel();
+
+        // old stuff: LaunchBar.PageRequested += OnPageRequested;
+//        LeftTreeView.GotFocus += (_, __) => ViewModel.IsLeftPaneActive = true;
+//        LeftListView.GotFocus += (_, __) => ViewModel.IsLeftActive = true;
+//        RightTreeView.GotFocus += (_, __) => ViewModel.IsRightPaneActive = false;
+//        RightListView.GotFocus += (_, __) => ViewModel.IsLeftActive = false;
     }
 
-    private void OnPageRequested(Type pageType)
-    {
-        // Minimal: direkte Transformation
-        var page = Activator.CreateInstance(pageType);
-
-        // WorkbenchContent wird ersetzt
-        WorkbenchContent.Children.Clear();
-        WorkbenchContent.Children.Add(item: page as UIElement);
-    }
+    //    private void OnPageRequested(Type pageType)
+    //    {
+    //        // Minimal: direkte Transformation
+    //        var page = Activator.CreateInstance(pageType);
+    //
+    //        // WorkbenchContent wird ersetzt
+    //        WorkbenchContent.Children.Clear();
+    //        WorkbenchContent.Children.Add(item: page as UIElement);
+    //    }
 }

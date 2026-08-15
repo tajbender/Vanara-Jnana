@@ -10,7 +10,42 @@
     xmlns:comp="using:Jnana.Workbench.Components"
     mc:Ignorable="d">
 
-    <Grid>
+
+    <Grid ColumnDefinitions="Auto,5,*,5,Auto,5,*">
+       <TreeView x:Name="LeftTreeView" Grid.Column="0" IsHitTestVisible="{x:Bind ViewModel.IsLeftPaneActive}" Opacity="{x:Bind ViewModel.LeftPaneOpacity}" />
+        <!--<muxc:GridSplitter x:Name="LeftTreeViewSplitter" Grid.Column="1" Grid.Column="1"
+                   Width="5"
+                   ResizeBehavior="PreviousAndNext"
+                   Background="Transparent" />-->
+        <TextBlock Grid.Column="1" Text="S" FontSize="32" FontWeight="SemiBold" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+        <ListView x:Name="LeftListView" Grid.Column="2" />
+        <TextBlock Grid.Column="3" FontSize="32" FontWeight="SemiBold" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+        <!--<ItemsRepeater ItemsSource="{x:Bind Tiles}">
+            <ItemsRepeater.Layout>
+                <UniformGridLayout MaximumRowsOrColumns="2"/>
+            </ItemsRepeater.Layout>
+        </ItemsRepeater>-->
+
+        <TreeView x:Name="RightTreeView" Grid.Column="4" IsHitTestVisible="{x:Bind ViewModel.IsRightPaneActive}" Opacity="{x:Bind ViewModel.RightPaneOpacity}" />
+        <!--<muxc:GridSplitter x:Name="RightListViewSplitter" Grid.Column="5"
+                   Width="5"
+                   ResizeBehavior="PreviousAndNext"
+                   Background="Transparent" />-->
+        <TextBlock Grid.Column="5" Text="Workbench"
+                       FontSize="32"
+                       FontWeight="SemiBold"
+                       HorizontalAlignment="Stretch"
+                       VerticalAlignment="Stretch" />
+        <!--<ItemsRepeater ItemsSource="{x:Bind Tiles}">
+            <ItemsRepeater.Layout>
+                <UniformGridLayout MaximumRowsOrColumns="2"/>
+            </ItemsRepeater.Layout>
+        </ItemsRepeater>-->
+        <ListView x:Name="RightListView" Grid.Column="6" />
+    </Grid>
+
+
+    <!--<Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
@@ -30,22 +65,22 @@
               Padding="4,0,4,0"
               VerticalAlignment="Top">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Right">
-                <!-- Minimize Style="{StaticResource LonghornTitleBarButtonStyle}" -->
+                --><!-- Minimize Style="{StaticResource LonghornTitleBarButtonStyle}" --><!--
                 <Button x:Name="BtnMinimize" Tag="Minimize">
                     <Glyphs FontUri="ms-appx:///Assets/Fonts/SegoeMDL2.ttf" FontRenderingEmSize="10" Fill="Black" />
                 </Button>
-                <!-- Maximize Style="{StaticResource LonghornTitleBarButtonStyle}" -->
+                --><!-- Maximize Style="{StaticResource LonghornTitleBarButtonStyle}" --><!--
                 <Button x:Name="BtnMaximize" Tag="Maximize">
                     <Glyphs FontUri="ms-appx:///Assets/Fonts/SegoeMDL2.ttf" FontRenderingEmSize="10" Fill="Black" />
                 </Button>
-                <!-- Close Style="{StaticResource LonghornTitleBarButtonStyle}" -->
+                --><!-- Close Style="{StaticResource LonghornTitleBarButtonStyle}" --><!--
                 <Button x:Name="BtnClose" Tag="Close">
                     <Glyphs FontUri="ms-appx:///Assets/Fonts/SegoeMDL2.ttf" FontRenderingEmSize="10" Fill="Black" />
                 </Button>
             </StackPanel>
         </Grid>
 
-        <!--
+        --><!--
         TitleBar                         
         
         https://github.com/CommunityToolkit/Labs-Windows/discussions/454 
@@ -53,22 +88,22 @@
         
         see also: TitleBarExtensions Class - `CommunityToolkit.WinUI.UI v7.0.3`
         -->
-        <TitleBar Grid.Row="1" IsBackButtonVisible="{x:Bind ShowBackButtonSetting, Mode=OneWay}"
+        <!--<TitleBar Grid.Row="1" IsBackButtonVisible="{x:Bind ShowBackButtonSetting, Mode=OneWay}"
                   Subtitle="{x:Bind SubtitleText, Mode=OneWay}" Title="{x:Bind TitleText, Mode=OneWay}" >
-            <!-- TODO:  See AnimatedIcon.State=""-->
+            --><!-- TODO:  See AnimatedIcon.State=""-->
             <!-- TODO:  AutoConfigureCustomTitleBar="False" 
                         IconSource=""
                         IsBackButtonVisible="{x:Bind ShowBackButtonSetting, Mode=OneWay}"
                         IsPaneButtonVisible="{x:Bind ShowPaneButtonSetting, Mode=OneWay}"
                         Subtitle="{x:Bind SubtitleText, Mode=OneWay}" -->
-            <!--<TitleBar.Icon> <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/AppTitleBarIcon.png" /> </TitleBar.Icon>-->
-        </TitleBar>
+            <!--<TitleBar.Icon> <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/AppTitleBarIcon.png" /> </TitleBar.Icon>--><!--
+        </TitleBar>-->
 
         <!-- QuickLaunchBar -->
-        <comp:QuickLaunchBar x:Name="LaunchBar" Grid.Row="2"/>
+        <!--<comp:QuickLaunchBar x:Name="LaunchBar" Grid.Row="2"/>-->
 
         <!-- Workbench Content -->
-        <Grid x:Name="WorkbenchContent" Grid.Column="1" Grid.RowSpan="4" Background="Transparent">
+        <!--<Grid x:Name="WorkbenchContent" Grid.Column="1" Grid.RowSpan="4" Background="Transparent">
             <TextBlock Text="Workbench"
                        FontSize="32"
                        FontWeight="SemiBold"
@@ -79,6 +114,8 @@
                     <UniformGridLayout MaximumRowsOrColumns="2"/>
                 </ItemsRepeater.Layout>
             </ItemsRepeater>
-        </Grid>
-    </Grid>
+        </Grid>--><!--
+    </Grid>-->
+    
+    
 </Page>
