@@ -10,14 +10,14 @@
 
   <Identity
     Name="c229a373-b1aa-45e1-b68b-fe545ef0a2c5"
-    Publisher="CN=tajbe"
-    Version="1.0.0.0" />
+    Publisher="CN=tajbender"
+    Version="1.26.816.0" />
 
   <mp:PhoneIdentity PhoneProductId="c229a373-b1aa-45e1-b68b-fe545ef0a2c5" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>Vanara Jnana</DisplayName>
-    <PublisherDisplayName>tajbe</PublisherDisplayName>
+    <PublisherDisplayName>tajbender</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 

@@ -4,8 +4,8 @@ namespace Jnana.Workbench.Pages.Workbench;
 
 public sealed partial class DisassemblyPage : Page
 {
-    public DisassemblyPage()
-    {
-        InitializeComponent();
-    }
+//    public DisassemblyPage()
+//    {
+//        InitializeComponent();
+//    }
 }

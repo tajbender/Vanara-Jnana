@@ -4,8 +4,8 @@ namespace Jnana.Workbench.Pages.Samples;
 
 public sealed partial class SampleCard : UserControl
 {
-    public SampleCard()
-    {
-        InitializeComponent();
-    }
+//    public SampleCard()
+//    {
+//        InitializeComponent();
+//    }
 }
