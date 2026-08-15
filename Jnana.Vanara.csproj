@@ -21,6 +21,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="Assets\Styles\LonghornTitleBar.xaml" />
+    <None Remove="Controls\GaugeControl.xaml" />
     <None Remove="Controls\MarkdownPane.xaml" />
     <None Remove="Core\Navigation\NavigationHost.xaml" />
     <None Remove="Vanara Jnana.csproj.Backup.tmp" />
@@ -192,6 +193,9 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
+    <Page Update="Controls\GaugeControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <None Update="LICENSE">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
