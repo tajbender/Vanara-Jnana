@@ -191,6 +191,14 @@
     <Page Update="Controls\GaugeControl.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <None Update="LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Workbench\Pages\Workbench\DisassemblyPage.xaml">
@@ -237,18 +245,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include=".docs\.gitkeep" />
-    <None Include=".docs\LICENSE">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-    <None Include=".docs\README.de.md">
-      <PackagePath>\</PackagePath>
-      <Pack>True</Pack>
-    </None>
-    <None Include=".docs\README.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
     <None Include=".docs\Release-History.md" />
     <None Include=".docs\Roadmap.md" />
     <None Include=".tests\.gitkeep" />
