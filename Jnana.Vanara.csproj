@@ -248,4 +248,10 @@
   <ItemGroup>
     <Folder Include="Assets\Fonts\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include=".docs\.gitkeep" />
+    <None Include=".docs\Release-History.md" />
+    <None Include=".docs\Roadmap.md" />
+    <None Include=".tests\.gitkeep" />
+  </ItemGroup>
 </Project>
