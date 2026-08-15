@@ -7,6 +7,7 @@ using Jnana.Workbench.Pages.Workbench;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System;
+using System.Diagnostics;
 
 namespace Jnana.Workbench.Components;
 
@@ -46,4 +47,12 @@ public sealed partial class QuickLaunchBar : UserControl
 
     private void RaisePageRequested(Type pageType)
         => PageRequested?.Invoke(pageType);
+
+    private void StackPanel_HorizontalSnapPointsChanged(object sender, object e)
+    {
+        // Reaktion auf Layoutänderungen oder neue SnapPoints
+        Debug.WriteLine("Horizontal snap points recalculated: {0}: {1}",
+            sender.ToString(), e.ToString());
+        //(sender as StackPanel)?.HorizontalSnapPoints.Count ?? 0);
+    }
 }

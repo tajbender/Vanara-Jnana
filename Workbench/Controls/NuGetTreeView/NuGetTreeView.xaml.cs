@@ -102,8 +102,10 @@ public sealed partial class NuGetTreeViewModel : ObservableObject
     // -----------------------------
     // Loading State
     // -----------------------------
+    //private bool _isLoading = true;
+
     [ObservableProperty]
-    private bool isLoading;
+    public bool _isLoading;
 
     // -----------------------------
     // Commands

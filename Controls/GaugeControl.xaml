@@ -8,7 +8,25 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid>
+    <Grid Width="200" Height="200">
+        <!-- Hintergrundbogen -->
+        <Path Stroke="#333" StrokeThickness="20"
+          Data="M 20,100 A 80,80 0 1 1 180,100" />
 
+        <!-- Fortschrittsbogen -->
+        <Path Stroke="#4CAF50" StrokeThickness="20"
+          Data="{Binding ProgressArc}" />
+
+        <!-- Zeiger -->
+        <Line x:Name="Needle"
+          X1="100" Y1="100"
+          X2="100" Y2="30"
+          Stroke="Red" StrokeThickness="4"
+          RenderTransformOrigin="0.5,0.5">
+            <Line.RenderTransform>
+                <RotateTransform Angle="{Binding NeedleAngle}" />
+            </Line.RenderTransform>
+        </Line>
     </Grid>
+
 </UserControl>
