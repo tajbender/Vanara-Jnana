@@ -1,4 +1,4 @@
-﻿namespace Jnana.Views.Pages.Samples;
+﻿namespace Jnana.Workbench.Pages.Samples;
 
 internal class SampleModel
 {

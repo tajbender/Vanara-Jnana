@@ -1,4 +1,4 @@
-﻿namespace Jnana.Views.Pages.GitHub;
+﻿namespace Jnana.Workbench.Pages.GitHub;
 
 public class GitHubViewModel
 {

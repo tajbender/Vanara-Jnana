@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Jnana.Views.Pages.GitHub;
+namespace Jnana.Workbench.Pages.GitHub;
 
 public class GitHubLoader
 {

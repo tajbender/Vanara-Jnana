@@ -1,6 +1,6 @@
 ﻿using Microsoft.WindowsAppSDK;
 
-namespace Jnana.Views.Pages.SysInfo;
+namespace Jnana.Workbench.Pages.SysInfo;
 
 public static class SysInfoLoader
 {

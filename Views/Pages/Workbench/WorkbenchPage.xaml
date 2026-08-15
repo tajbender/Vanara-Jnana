@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Jnana.Workbench.Pages.Workbench.WorkbenchPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Jnana.Workbench.Pages"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:comp="using:Jnana.Workbench.Components"
+    mc:Ignorable="d">
+
+
+    <Grid ColumnDefinitions="Auto,5,*,5,Auto,5,*">
+       <TreeView x:Name="LeftTreeView" Grid.Column="0" IsHitTestVisible="{x:Bind ViewModel.IsLeftPaneActive}" Opacity="{x:Bind ViewModel.LeftPaneOpacity}" />
+        <!--<muxc:GridSplitter x:Name="LeftTreeViewSplitter" Grid.Column="1" Grid.Column="1"
+                   Width="5"
+                   ResizeBehavior="PreviousAndNext"
+                   Background="Transparent" />-->
+        <TextBlock Grid.Column="1" Text="S" FontSize="32" FontWeight="SemiBold" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+        <ListView x:Name="LeftListView" Grid.Column="2" />
+        <TextBlock Grid.Column="3" FontSize="32" FontWeight="SemiBold" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+        <!--<ItemsRepeater ItemsSource="{x:Bind Tiles}">
+            <ItemsRepeater.Layout>
+                <UniformGridLayout MaximumRowsOrColumns="2"/>
+            </ItemsRepeater.Layout>
+        </ItemsRepeater>-->
+
+        <TreeView x:Name="RightTreeView" Grid.Column="4" IsHitTestVisible="{x:Bind ViewModel.IsRightPaneActive}" Opacity="{x:Bind ViewModel.RightPaneOpacity}" />
+        <!--<muxc:GridSplitter x:Name="RightListViewSplitter" Grid.Column="5"
+                   Width="5"
+                   ResizeBehavior="PreviousAndNext"
+                   Background="Transparent" />-->
+        <TextBlock Grid.Column="5" Text="Workbench"
+                       FontSize="32"
+                       FontWeight="SemiBold"
+                       HorizontalAlignment="Stretch"
+                       VerticalAlignment="Stretch" />
+        <!--<ItemsRepeater ItemsSource="{x:Bind Tiles}">
+            <ItemsRepeater.Layout>
+                <UniformGridLayout MaximumRowsOrColumns="2"/>
+            </ItemsRepeater.Layout>
+        </ItemsRepeater>-->
+        <ListView x:Name="RightListView" Grid.Column="6" />
+    </Grid>
+
+
+    <!--<Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="TitleBarHost" Grid.Row="0" Grid.ColumnSpan="2"
+              Background="{ThemeResource AcrylicBackgroundFillColorDefaultBrush}"
+              CornerRadius="4"
+              Height="32"
+              HorizontalAlignment="Right"
+              Padding="4,0,4,0"
+              VerticalAlignment="Top">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Right">
+                --><!-- Minimize Style="{StaticResource LonghornTitleBarButtonStyle}" --><!--
+                <Button x:Name="BtnMinimize" Tag="Minimize">
+                    <Glyphs FontUri="ms-appx:///Assets/Fonts/SegoeMDL2.ttf" FontRenderingEmSize="10" Fill="Black" />
+                </Button>
+                --><!-- Maximize Style="{StaticResource LonghornTitleBarButtonStyle}" --><!--
+                <Button x:Name="BtnMaximize" Tag="Maximize">
+                    <Glyphs FontUri="ms-appx:///Assets/Fonts/SegoeMDL2.ttf" FontRenderingEmSize="10" Fill="Black" />
+                </Button>
+                --><!-- Close Style="{StaticResource LonghornTitleBarButtonStyle}" --><!--
+                <Button x:Name="BtnClose" Tag="Close">
+                    <Glyphs FontUri="ms-appx:///Assets/Fonts/SegoeMDL2.ttf" FontRenderingEmSize="10" Fill="Black" />
+                </Button>
+            </StackPanel>
+        </Grid>
+
+        --><!--
+        TitleBar                         
+        
+        https://github.com/CommunityToolkit/Labs-Windows/discussions/454 
+        https://learn.microsoft.com/en-us/dotnet/api/communitytoolkit.winui.ui.titlebarextensions?view=win-comm-toolkit-dotnet-7.0
+        
+        see also: TitleBarExtensions Class - `CommunityToolkit.WinUI.UI v7.0.3`
+        -->
+        <!--<TitleBar Grid.Row="1" IsBackButtonVisible="{x:Bind ShowBackButtonSetting, Mode=OneWay}"
+                  Subtitle="{x:Bind SubtitleText, Mode=OneWay}" Title="{x:Bind TitleText, Mode=OneWay}" >
+            --><!-- TODO:  See AnimatedIcon.State=""-->
+            <!-- TODO:  AutoConfigureCustomTitleBar="False" 
+                        IconSource=""
+                        IsBackButtonVisible="{x:Bind ShowBackButtonSetting, Mode=OneWay}"
+                        IsPaneButtonVisible="{x:Bind ShowPaneButtonSetting, Mode=OneWay}"
+                        Subtitle="{x:Bind SubtitleText, Mode=OneWay}" -->
+            <!--<TitleBar.Icon> <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/AppTitleBarIcon.png" /> </TitleBar.Icon>--><!--
+        </TitleBar>-->
+
+        <!-- QuickLaunchBar -->
+        <!--<comp:QuickLaunchBar x:Name="LaunchBar" Grid.Row="2"/>-->
+
+        <!-- Workbench Content -->
+        <!--<Grid x:Name="WorkbenchContent" Grid.Column="1" Grid.RowSpan="4" Background="Transparent">
+            <TextBlock Text="Workbench"
+                       FontSize="32"
+                       FontWeight="SemiBold"
+                       HorizontalAlignment="Stretch"
+                       VerticalAlignment="Stretch" />
+            <ItemsRepeater ItemsSource="{x:Bind Tiles}">
+                <ItemsRepeater.Layout>
+                    <UniformGridLayout MaximumRowsOrColumns="2"/>
+                </ItemsRepeater.Layout>
+            </ItemsRepeater>
+        </Grid>--><!--
+    </Grid>-->
+    
+    
+</Page>

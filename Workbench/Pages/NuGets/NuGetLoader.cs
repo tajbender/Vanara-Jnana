@@ -1,4 +1,4 @@
-﻿namespace Jnana.Workbench.Pages.NuGets;
+﻿namespace Jnana.Views.Pages.NuGets;
 
 public static class NuGetLoader
 {

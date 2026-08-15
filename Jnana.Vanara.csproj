@@ -30,17 +30,17 @@
     <None Remove="Workbench\Components\QuickLaunchBar.xaml" />
     <None Remove="Workbench\Controls\FloatingStatusBar.xaml" />
     <None Remove="Workbench\Controls\NuGetTreeView.xaml" />
-    <None Remove="Workbench\Pages\GitHub\GitHubPage.xaml" />
-    <None Remove="Workbench\Pages\NuGets\NuGetPackageCard.xaml" />
-    <None Remove="Workbench\Pages\NuGets\NuGetsPage.xaml" />
-    <None Remove="Workbench\Pages\Samples\SampleCard.xaml" />
-    <None Remove="Workbench\Pages\Samples\SamplesPage.xaml" />
-    <None Remove="Workbench\Pages\SysInfo\SysInfoPage.xaml" />
-    <None Remove="Workbench\Pages\ToolsAndUtilitiesPage.xaml" />
-    <None Remove="Workbench\Pages\VoidPage.xaml" />
-    <None Remove="Workbench\Pages\WorkbenchPage.xaml" />
-    <None Remove="Workbench\Pages\Workbench\DisassemblyPage.xaml" />
-    <None Remove="Workbench\Pages\Workbench\TugorPage.xaml" />
+    <None Remove="Views\Pages\GitHub\GitHubPage.xaml" />
+    <None Remove="Views\Pages\NuGets\NuGetPackageCard.xaml" />
+    <None Remove="Views\Pages\NuGets\NuGetsPage.xaml" />
+    <None Remove="Views\Pages\Samples\SampleCard.xaml" />
+    <None Remove="Views\Pages\Samples\SamplesPage.xaml" />
+    <None Remove="Views\Pages\SysInfo\SysInfoPage.xaml" />
+    <None Remove="Views\Pages\ToolsAndUtilitiesPage.xaml" />
+    <None Remove="Views\Pages\VoidPage.xaml" />
+    <None Remove="Views\Pages\WorkbenchPage.xaml" />
+    <None Remove="Views\Pages\Workbench\DisassemblyPage.xaml" />
+    <None Remove="Views\Pages\Workbench\TugorPage.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -112,11 +112,6 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="Workbench\Pages\GitHub\GitHubPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Update="Workbench\Pages\VoidPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>

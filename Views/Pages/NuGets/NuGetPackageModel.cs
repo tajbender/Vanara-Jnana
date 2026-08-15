@@ -1,4 +1,4 @@
-﻿namespace Jnana.Views.Pages.NuGets;
+﻿namespace Jnana.Workbench.Pages.NuGets;
 
 public class NuGetPackageModel
 {
