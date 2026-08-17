@@ -40,6 +40,7 @@
     <None Remove="Workbench\Pages\VoidPage.xaml" />
     <None Remove="Workbench\Pages\WorkbenchPage.xaml" />
     <None Remove="Workbench\Pages\Workbench\DisassemblyPage.xaml" />
+    <None Remove="Workbench\Pages\Workbench\SettingsPage.xaml" />
     <None Remove="Workbench\Pages\Workbench\TugorPage.xaml" />
   </ItemGroup>
 
@@ -193,6 +194,9 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
+    <Page Update="Workbench\Pages\Workbench\SettingsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Update="Controls\GaugeControl.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>

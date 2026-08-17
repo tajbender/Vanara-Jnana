@@ -2,6 +2,7 @@
 using Microsoft.WindowsAppSDK;
 using Microsoft.WindowsAppSDK.Runtime;
 using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using static Vanara.PInvoke.AdvApi32.INSTALLSPEC;
@@ -68,12 +69,17 @@ public partial class SysInfoViewModel : INotifyPropertyChanged
     public int HandleCount { get; set; }
 
     // Environment
-    public string Path { get; set; } = "";
+
+
+    // GetEnvironmentVariable
+    public string EnvironmentPathVariable = "";
+    public ObservableCollection<string> PathCollection;
     public string User { get; set; } = "";
 
     // Diagnostics
     public string Uptime { get; set; } = "";
     public int ProcessId { get; set; }
+    public string ProcessName { get; set; } = "";
 
     public string SdkVersion => $"{Release.Major}.{Release.Minor}.{Release.Patch}";
     public string SdkChannel => Release.Channel;

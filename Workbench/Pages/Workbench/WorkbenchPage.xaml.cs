@@ -11,13 +11,13 @@ public sealed partial class WorkbenchPage : Page
     public ObservableCollection<UserControl> Tiles { get; } =
     [
         new WorkbenchTile(),
-        new NuGetTile()
+        new NuGetTile(),
     ];
 
     public string TitleText { get; set; } = "Vanara jñāna";
     public string SubtitleText { get; set; } = "Workbench";
-    public bool IsPaneButtonVisible { get; set; } = true;
-    public bool ShowBackButtonSetting { get; set; } = true;
+    public bool IsBackButtonVisible { get; set; } = true;
+    public bool IsBackButtonEnabled { get; set; } = false;
 
     public WorkbenchPage()
     {

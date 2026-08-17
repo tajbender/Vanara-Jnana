@@ -17,12 +17,10 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Grid x:Name="TitleBarHost" Grid.Row="0" Grid.ColumnSpan="2"
+        <!--<Grid x:Name="TitleBarHost" Grid.Row="0" Grid.ColumnSpan="2"
               Background="{ThemeResource AcrylicBackgroundFillColorDefaultBrush}"
               CornerRadius="4"
               Height="32"
@@ -30,20 +28,20 @@
               Padding="4,0,4,0"
               VerticalAlignment="Top">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Right">
-                <!-- Minimize Style="{StaticResource LonghornTitleBarButtonStyle}" -->
+                --><!-- Minimize Style="{StaticResource LonghornTitleBarButtonStyle}" --><!--
                 <Button x:Name="BtnMinimize" Tag="Minimize">
                     <Glyphs FontUri="ms-appx:///Assets/Fonts/SegoeMDL2.ttf" FontRenderingEmSize="10" Fill="Black" />
                 </Button>
-                <!-- Maximize Style="{StaticResource LonghornTitleBarButtonStyle}" -->
+                --><!-- Maximize Style="{StaticResource LonghornTitleBarButtonStyle}" --><!--
                 <Button x:Name="BtnMaximize" Tag="Maximize">
                     <Glyphs FontUri="ms-appx:///Assets/Fonts/SegoeMDL2.ttf" FontRenderingEmSize="10" Fill="Black" />
                 </Button>
-                <!-- Close Style="{StaticResource LonghornTitleBarButtonStyle}" -->
+                --><!-- Close Style="{StaticResource LonghornTitleBarButtonStyle}" --><!--
                 <Button x:Name="BtnClose" Tag="Close">
                     <Glyphs FontUri="ms-appx:///Assets/Fonts/SegoeMDL2.ttf" FontRenderingEmSize="10" Fill="Black" />
                 </Button>
             </StackPanel>
-        </Grid>
+        </Grid>-->
 
         <!--
         TitleBar                         
@@ -53,8 +51,11 @@
         
         see also: TitleBarExtensions Class - `CommunityToolkit.WinUI.UI v7.0.3`
         -->
-        <TitleBar Grid.Row="1" IsBackButtonVisible="{x:Bind ShowBackButtonSetting, Mode=OneWay}"
-                  Subtitle="{x:Bind SubtitleText, Mode=OneWay}" Title="{x:Bind TitleText, Mode=OneWay}" >
+        <TitleBar Grid.Row="0" Grid.ColumnSpan="2" 
+                  IsBackButtonVisible="{x:Bind IsBackButtonVisible, Mode=OneWay}"
+                  IsBackButtonEnabled="{x:Bind IsBackButtonEnabled, Mode=OneWay}"
+                  Subtitle="{x:Bind SubtitleText, Mode=OneWay}" 
+                  Title="{x:Bind TitleText, Mode=OneWay}" >
             <!-- TODO:  See AnimatedIcon.State=""-->
             <!-- TODO:  AutoConfigureCustomTitleBar="False" 
                         IconSource=""
@@ -65,10 +66,10 @@
         </TitleBar>
 
         <!-- QuickLaunchBar -->
-        <comp:QuickLaunchBar x:Name="LaunchBar" Grid.Row="2"/>
+        <comp:QuickLaunchBar x:Name="LaunchBar" Grid.Column="0" Grid.Row="1" VerticalAlignment="Stretch"/>
 
         <!-- Workbench Content -->
-        <Grid x:Name="WorkbenchContent" Grid.Column="1" Grid.RowSpan="4" Background="Transparent">
+        <Grid x:Name="WorkbenchContent" Grid.Column="1" Grid.Row="1" Background="Transparent">
             <TextBlock Text="Workbench"
                        FontSize="32"
                        FontWeight="SemiBold"
