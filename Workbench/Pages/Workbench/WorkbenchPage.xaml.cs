@@ -8,14 +8,8 @@ namespace Jnana.Workbench.Pages.Workbench;
 
 public sealed partial class WorkbenchPage : Page
 {
-    public ObservableCollection<UserControl> Tiles { get; } =
-    [
-        new WorkbenchTile(),
-        new NuGetTile(),
-    ];
-
-    public string TitleText { get; set; } = "Vanara jñāna";
-    public string SubtitleText { get; set; } = "Workbench";
+    public string TitleText { get; set; } = "vanara jñāna";
+    public string SubtitleText { get; set; } = "workbench";
     public bool IsBackButtonVisible { get; set; } = true;
     public bool IsBackButtonEnabled { get; set; } = false;
 

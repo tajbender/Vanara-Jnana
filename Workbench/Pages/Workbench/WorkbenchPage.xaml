@@ -20,49 +20,18 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!--<Grid x:Name="TitleBarHost" Grid.Row="0" Grid.ColumnSpan="2"
-              Background="{ThemeResource AcrylicBackgroundFillColorDefaultBrush}"
-              CornerRadius="4"
-              Height="32"
-              HorizontalAlignment="Right"
-              Padding="4,0,4,0"
-              VerticalAlignment="Top">
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Right">
-                --><!-- Minimize Style="{StaticResource LonghornTitleBarButtonStyle}" --><!--
-                <Button x:Name="BtnMinimize" Tag="Minimize">
-                    <Glyphs FontUri="ms-appx:///Assets/Fonts/SegoeMDL2.ttf" FontRenderingEmSize="10" Fill="Black" />
-                </Button>
-                --><!-- Maximize Style="{StaticResource LonghornTitleBarButtonStyle}" --><!--
-                <Button x:Name="BtnMaximize" Tag="Maximize">
-                    <Glyphs FontUri="ms-appx:///Assets/Fonts/SegoeMDL2.ttf" FontRenderingEmSize="10" Fill="Black" />
-                </Button>
-                --><!-- Close Style="{StaticResource LonghornTitleBarButtonStyle}" --><!--
-                <Button x:Name="BtnClose" Tag="Close">
-                    <Glyphs FontUri="ms-appx:///Assets/Fonts/SegoeMDL2.ttf" FontRenderingEmSize="10" Fill="Black" />
-                </Button>
-            </StackPanel>
-        </Grid>-->
-
-        <!--
-        TitleBar                         
-        
-        https://github.com/CommunityToolkit/Labs-Windows/discussions/454 
-        https://learn.microsoft.com/en-us/dotnet/api/communitytoolkit.winui.ui.titlebarextensions?view=win-comm-toolkit-dotnet-7.0
-        
-        see also: TitleBarExtensions Class - `CommunityToolkit.WinUI.UI v7.0.3`
-        -->
-        <TitleBar Grid.Row="0" Grid.ColumnSpan="2" 
+        <!-- TitleBar                         
+               https://github.com/CommunityToolkit/Labs-Windows/discussions/454 
+               https://learn.microsoft.com/en-us/dotnet/api/communitytoolkit.winui.ui.titlebarextensions?view=win-comm-toolkit-dotnet-7.0
+        see also: TitleBarExtensions Class - `CommunityToolkit.WinUI.UI v7.0.3` -->
+        <TitleBar Grid.Row="0" Grid.ColumnSpan="2"
                   IsBackButtonVisible="{x:Bind IsBackButtonVisible, Mode=OneWay}"
                   IsBackButtonEnabled="{x:Bind IsBackButtonEnabled, Mode=OneWay}"
                   Subtitle="{x:Bind SubtitleText, Mode=OneWay}" 
                   Title="{x:Bind TitleText, Mode=OneWay}" >
-            <!-- TODO:  See AnimatedIcon.State=""-->
-            <!-- TODO:  AutoConfigureCustomTitleBar="False" 
-                        IconSource=""
-                        IsBackButtonVisible="{x:Bind ShowBackButtonSetting, Mode=OneWay}"
-                        IsPaneButtonVisible="{x:Bind ShowPaneButtonSetting, Mode=OneWay}"
-                        Subtitle="{x:Bind SubtitleText, Mode=OneWay}" -->
-            <!--<TitleBar.Icon> <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/AppTitleBarIcon.png" /> </TitleBar.Icon>-->
+            <TitleBar.IconSource>
+                <ImageIconSource ImageSource="/Assets/Icons/vanara.icon.ico" />
+            </TitleBar.IconSource>
         </TitleBar>
 
         <!-- QuickLaunchBar -->
@@ -70,16 +39,35 @@
 
         <!-- Workbench Content -->
         <Grid x:Name="WorkbenchContent" Grid.Column="1" Grid.Row="1" Background="Transparent">
-            <TextBlock Text="Workbench"
+            <StackPanel>
+                <TextBlock Text="Workbench"
                        FontSize="32"
                        FontWeight="SemiBold"
                        HorizontalAlignment="Stretch"
                        VerticalAlignment="Stretch" />
-            <ItemsRepeater ItemsSource="{x:Bind Tiles}">
-                <ItemsRepeater.Layout>
-                    <UniformGridLayout MaximumRowsOrColumns="2"/>
-                </ItemsRepeater.Layout>
-            </ItemsRepeater>
+                <Border BorderThickness="3">
+                    <TextBlock Text="Workbench Content"
+                           FontSize="24"
+                           FontWeight="SemiBold"
+                           HorizontalAlignment="Stretch"
+                           VerticalAlignment="Stretch" />
+                    <!--<TreeView x:Name="WorkbenchTreeView"
+                          ItemsSource="{x:Bind NugetItems}"
+                          SelectionMode="Single"
+                          HorizontalAlignment="Stretch"
+                          VerticalAlignment="Stretch">
+                    -->
+                    <!--<TreeView.ItemTemplate>
+                        <DataTemplate x:DataType="local:WorkbenchItem">
+                            <StackPanel Orientation="Horizontal" Spacing="8">
+                                <TextBlock Text="{x:Bind Name}" FontSize="16" FontWeight="SemiBold"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </TreeView.ItemTemplate>-->
+                    <!--
+                </TreeView>-->
+                </Border>
+            </StackPanel>
         </Grid>
     </Grid>
 </Page>
