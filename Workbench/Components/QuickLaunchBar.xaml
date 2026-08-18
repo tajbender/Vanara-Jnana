@@ -31,7 +31,7 @@
         <Button Click="OnGitHubClick" CornerRadius="6" HorizontalAlignment="Stretch" >
             <StackPanel Orientation="Vertical" Padding="8" Spacing="8">
                 <FontIcon Glyph="&#xEC7A;"/>
-                <TextBlock Text="GitHub Portal" HorizontalTextAlignment="Center" TextWrapping="WrapWholeWords"/>
+                <TextBlock Text="GitHub Browser" HorizontalTextAlignment="Center" TextWrapping="WrapWholeWords"/>
             </StackPanel>
         </Button>
 
