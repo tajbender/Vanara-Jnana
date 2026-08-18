@@ -8,53 +8,57 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <!--<TextBlock Text="System Information" FontSize="24" FontWeight="SemiBold"/>-->
+    <Grid Padding="12">
+        <StackPanel Spacing="12" Orientation="Horizontal">
+            <TextBlock Text="System Information"
+                       FontSize="24"
+                       FontWeight="SemiBold" />
 
-    <StackPanel Spacing="12" Orientation="Horizontal">
-        <ScrollViewer Padding="12">
-            <StackPanel Spacing="12">
-                <Expander Header="Identity" HorizontalAlignment="Left" IsExpanded="True">
-                    <StackPanel Spacing="4" HorizontalAlignment="Left">
-                        <TextBlock Text="{x:Bind ViewModel.OSVersion, Mode=OneWay}" />
-                        <TextBlock Text="{x:Bind ViewModel.WinAppSdkVersion, Mode=OneWay}" />
-                        <TextBlock Text="{x:Bind ViewModel.MachineName, Mode=OneWay}" />
-                    </StackPanel>
-                </Expander>
-                <Expander Header="Hardware" HorizontalAlignment="Left" IsExpanded="True">
-                    <StackPanel Spacing="4" HorizontalAlignment="Left">
-                        <TextBlock Text="{x:Bind ViewModel.CPU, Mode=OneWay}" />
-                        <TextBlock Text="{x:Bind ViewModel.RAM, Mode=OneWay}" />
-                        <TextBlock Text="{x:Bind ViewModel.GPU, Mode=OneWay}" />
-                    </StackPanel>
-                </Expander>
-                <Expander Header="Runtime" HorizontalAlignment="Left" IsExpanded="True">
-                    <StackPanel Spacing="4" HorizontalAlignment="Left">
-                        <TextBlock Text="{x:Bind ViewModel.ThreadCount, Mode=OneWay}" />
-                        <TextBlock Text="{x:Bind ViewModel.HandleCount, Mode=OneWay}" />
-                    </StackPanel>
-                </Expander>
-                <Expander Header="Diagnostics" HorizontalAlignment="Left" IsExpanded="True">
-                    <StackPanel Spacing="4" HorizontalAlignment="Left">
-                        <TextBlock Text="{x:Bind ViewModel.Uptime, Mode=OneWay}" />
-                        <TextBlock Text="{x:Bind ViewModel.ProcessId, Mode=OneWay}" />
-                    </StackPanel>
-                </Expander>
-            </StackPanel>
-        </ScrollViewer>
+            <ScrollViewer Padding="12">
+                <StackPanel Spacing="12">
+                    <Expander Header="Identity" HorizontalAlignment="Left" IsExpanded="True">
+                        <StackPanel Spacing="4" HorizontalAlignment="Left">
+                            <TextBlock Text="{x:Bind ViewModel.OSVersion, Mode=OneWay}" />
+                            <TextBlock Text="{x:Bind ViewModel.WinAppSdkVersion, Mode=OneWay}" />
+                            <TextBlock Text="{x:Bind ViewModel.MachineName, Mode=OneWay}" />
+                        </StackPanel>
+                    </Expander>
+                    <Expander Header="Hardware" HorizontalAlignment="Left" IsExpanded="True">
+                        <StackPanel Spacing="4" HorizontalAlignment="Left">
+                            <TextBlock Text="{x:Bind ViewModel.CPU, Mode=OneWay}" />
+                            <TextBlock Text="{x:Bind ViewModel.RAM, Mode=OneWay}" />
+                            <TextBlock Text="{x:Bind ViewModel.GPU, Mode=OneWay}" />
+                        </StackPanel>
+                    </Expander>
+                    <Expander Header="Runtime" HorizontalAlignment="Left" IsExpanded="True">
+                        <StackPanel Spacing="4" HorizontalAlignment="Left">
+                            <TextBlock Text="{x:Bind ViewModel.ThreadCount, Mode=OneWay}" />
+                            <TextBlock Text="{x:Bind ViewModel.HandleCount, Mode=OneWay}" />
+                        </StackPanel>
+                    </Expander>
+                    <Expander Header="Diagnostics" HorizontalAlignment="Left" IsExpanded="True">
+                        <StackPanel Spacing="4" HorizontalAlignment="Left">
+                            <TextBlock Text="{x:Bind ViewModel.Uptime, Mode=OneWay}" />
+                            <TextBlock Text="{x:Bind ViewModel.ProcessId, Mode=OneWay}" />
+                        </StackPanel>
+                    </Expander>
+                </StackPanel>
+            </ScrollViewer>
 
-        <ScrollViewer Padding="12">
-            <StackPanel Spacing="12">
-                <Expander Header="User" HorizontalAlignment="Left" IsExpanded="True">
-                    <StackPanel Spacing="4" HorizontalAlignment="Left">
-                        <TextBlock Text="{x:Bind ViewModel.User, Mode=OneWay}" />
-                    </StackPanel>
-                </Expander>
-                <Expander Header="Path Environment" HorizontalAlignment="Left" IsExpanded="True">
-                    <StackPanel Spacing="4" HorizontalAlignment="Left">
-                        <TextBlock Text="{x:Bind ViewModel.EnvironmentPathVariable, Mode=OneWay}" />
-                    </StackPanel>
-                </Expander>
-            </StackPanel>
-        </ScrollViewer>
-    </StackPanel>
+            <ScrollViewer Padding="12">
+                <StackPanel Spacing="12">
+                    <Expander Header="User" HorizontalAlignment="Left" IsExpanded="True">
+                        <StackPanel Spacing="4" HorizontalAlignment="Left">
+                            <TextBlock Text="{x:Bind ViewModel.User, Mode=OneWay}" />
+                        </StackPanel>
+                    </Expander>
+                    <Expander Header="Path Environment" HorizontalAlignment="Left" IsExpanded="True">
+                        <StackPanel Spacing="4" HorizontalAlignment="Left">
+                            <TextBlock Text="{x:Bind ViewModel.EnvironmentPathVariable, Mode=OneWay}" />
+                        </StackPanel>
+                    </Expander>
+                </StackPanel>
+            </ScrollViewer>
+        </StackPanel>
+    </Grid>
 </Page>

@@ -9,9 +9,13 @@
     xmlns:wv2="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d">
 
-    <Grid>
-        <wv2:WebView2 x:Name="GitHubView"
+    <Grid Padding="12">
+            <!--<TextBlock Text="Web Browser: Vanara on GitHub"
+                       FontSize="24"
+                       FontWeight="SemiBold"/>-->
+
+            <wv2:WebView2 x:Name="GitHubView"
                       HorizontalAlignment="Stretch"
-                      VerticalAlignment="Stretch" />
+                      VerticalAlignment="Stretch"/>
     </Grid>
 </Page>

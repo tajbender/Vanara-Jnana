@@ -11,6 +11,9 @@
 
     <Grid Padding="12">
         <StackPanel Spacing="12">
+            <TextBlock Text="NuGet Packages"
+                       FontSize="24"
+                       FontWeight="SemiBold" />
 
             <!-- Search Bar -->
             <TextBox x:Name="SearchBox"
@@ -20,7 +23,6 @@
             <ScrollViewer>
                 <controls:NuGetTreeView/>
             </ScrollViewer>
-
         </StackPanel>
     </Grid>
 </Page>
