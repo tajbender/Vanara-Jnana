@@ -40,17 +40,12 @@
         <!-- Workbench Content -->
         <Grid x:Name="WorkbenchContent" Grid.Column="1" Grid.Row="1" Background="Transparent">
             <StackPanel>
-                <TextBlock Text="Workbench"
+                <TextBlock Text="Vanara Jnana Workbench"
                        FontSize="32"
                        FontWeight="SemiBold"
                        HorizontalAlignment="Stretch"
                        VerticalAlignment="Stretch" />
                 <Border BorderThickness="3">
-                    <TextBlock Text="Workbench Content"
-                           FontSize="24"
-                           FontWeight="SemiBold"
-                           HorizontalAlignment="Stretch"
-                           VerticalAlignment="Stretch" />
                     <!--<TreeView x:Name="WorkbenchTreeView"
                           ItemsSource="{x:Bind NugetItems}"
                           SelectionMode="Single"
