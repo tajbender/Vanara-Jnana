@@ -8,10 +8,19 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <!--<TextBlock Text="System Information" FontSize="24" FontWeight="SemiBold"/>-->
+    <Grid Padding="12">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock Grid.ColumnSpan="2" Grid.Row="0"
+                       FontSize="24" FontWeight="SemiBold" Text="System Information"/>
 
-    <StackPanel Spacing="12" Orientation="Horizontal">
-        <ScrollViewer Padding="12">
+        <ScrollViewer Grid.Column="0" Grid.Row="1" Padding="12">
             <StackPanel Spacing="12">
                 <Expander Header="Identity" HorizontalAlignment="Left" IsExpanded="True">
                     <StackPanel Spacing="4" HorizontalAlignment="Left">
@@ -42,7 +51,7 @@
             </StackPanel>
         </ScrollViewer>
 
-        <ScrollViewer Padding="12">
+        <ScrollViewer Grid.Column="1" Grid.Row="1" Padding="12">
             <StackPanel Spacing="12">
                 <Expander Header="User" HorizontalAlignment="Left" IsExpanded="True">
                     <StackPanel Spacing="4" HorizontalAlignment="Left">
@@ -56,5 +65,5 @@
                 </Expander>
             </StackPanel>
         </ScrollViewer>
-    </StackPanel>
+    </Grid>
 </Page>
