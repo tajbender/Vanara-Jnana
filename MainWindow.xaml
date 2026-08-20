@@ -8,7 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:nav="using:Jnana.Core.Navigation"
     mc:Ignorable="d"
-    Title="Vanara Jnana">
+    Title="Vanara Jñāna">
 
     <Window.SystemBackdrop>
         <MicaBackdrop />

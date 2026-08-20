@@ -8,80 +8,68 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <StackPanel Orientation="Vertical" Padding="8" Spacing="8"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch" 
-                HorizontalSnapPointsChanged="StackPanel_HorizontalSnapPointsChanged">
+    <Grid VerticalAlignment="Stretch">
+        <StackPanel HorizontalAlignment="Stretch" HorizontalSnapPointsChanged="StackPanel_HorizontalSnapPointsChanged" 
+                    Orientation="Vertical" Padding="8" Spacing="8" VerticalAlignment="Stretch">
+            <Button Click="OnWorkbenchClick" CornerRadius="6" HorizontalAlignment="Stretch" >
+                <StackPanel Orientation="Vertical" Padding="8" Spacing="8">
+                    <FontIcon Glyph="&#xEC7A;"/>
+                    <TextBlock Text="Workbench" HorizontalTextAlignment="Left" TextWrapping="WrapWholeWords"/>
+                </StackPanel>
+            </Button>
+            <AppBarSeparator/>
+            <Button Click="OnNuGetsClick" CornerRadius="6" HorizontalAlignment="Stretch" >
+                <StackPanel Orientation="Vertical" Padding="8" Spacing="8">
+                    <FontIcon Glyph="&#xEC7A;"/>
+                    <TextBlock Text="NuGets" HorizontalTextAlignment="Left" TextWrapping="WrapWholeWords"/>
+                </StackPanel>
+            </Button>
+            <Button Click="OnGitHubClick" CornerRadius="6" HorizontalAlignment="Stretch" >
+                <StackPanel Orientation="Vertical" Padding="8" Spacing="8">
+                    <FontIcon Glyph="&#xEC7A;"/>
+                    <TextBlock Text="GitHub Browser" HorizontalTextAlignment="Center" TextWrapping="WrapWholeWords"/>
+                </StackPanel>
+            </Button>
+            <AppBarSeparator/>
+            <Button Click="OnSamplesClick" CornerRadius="6" HorizontalAlignment="Stretch">
+                <StackPanel Orientation="Vertical" Padding="8" Spacing="8">
+                    <FontIcon Glyph="&#xEC7A;" />
+                    <TextBlock Text="Samples and Science Labs" HorizontalTextAlignment="Center" TextWrapping="WrapWholeWords"/>
+                </StackPanel>
+            </Button>
+            <AppBarSeparator/>
+            <Button Click="OnToolsAndUtilitiesClick" CornerRadius="6" HorizontalAlignment="Stretch" >
+                <StackPanel Orientation="Vertical" Padding="8" Spacing="8">
+                    <FontIcon Glyph="&#xEC7A;" />
+                    <TextBlock Text="Utilities" HorizontalTextAlignment="Center" TextWrapping="WrapWholeWords" />
+                </StackPanel>
+            </Button>
 
-        <Button Click="OnWorkbenchClick" CornerRadius="6" HorizontalAlignment="Stretch" >
-            <StackPanel Orientation="Vertical" Padding="8" Spacing="8">
-                <FontIcon Glyph="&#xEC7A;"/>
-                <TextBlock Text="Workbench" HorizontalTextAlignment="Left" TextWrapping="WrapWholeWords"/>
-            </StackPanel>
-        </Button>
+            <Grid VerticalAlignment="Stretch"/>
 
-        <AppBarSeparator/>
-
-        <Button Click="OnNuGetsClick" CornerRadius="6" HorizontalAlignment="Stretch" >
-            <StackPanel Orientation="Vertical" Padding="8" Spacing="8">
-                <FontIcon Glyph="&#xEC7A;"/>
-                <TextBlock Text="NuGets" HorizontalTextAlignment="Left" TextWrapping="WrapWholeWords"/>
-            </StackPanel>
-        </Button>
-        <Button Click="OnGitHubClick" CornerRadius="6" HorizontalAlignment="Stretch" >
-            <StackPanel Orientation="Vertical" Padding="8" Spacing="8">
-                <FontIcon Glyph="&#xEC7A;"/>
-                <TextBlock Text="GitHub Browser" HorizontalTextAlignment="Center" TextWrapping="WrapWholeWords"/>
-            </StackPanel>
-        </Button>
-
-        <AppBarSeparator/>
-
-        <Button Click="OnSamplesClick" CornerRadius="6" HorizontalAlignment="Stretch">
-            <StackPanel Orientation="Vertical" Padding="8" Spacing="8">
-                <FontIcon Glyph="&#xEC7A;" />
-                <TextBlock Text="Samples and Science Labs" HorizontalTextAlignment="Center" TextWrapping="WrapWholeWords"/>
-            </StackPanel>
-        </Button>
-
-        <AppBarSeparator/>
-
-        <Button Click="OnToolsAndUtilitiesClick" CornerRadius="6" HorizontalAlignment="Stretch" >
-            <StackPanel Orientation="Vertical" Padding="8" Spacing="8">
-                <FontIcon Glyph="&#xEC7A;" />
-                <TextBlock Text="Utilities" HorizontalTextAlignment="Center" TextWrapping="WrapWholeWords" />
-            </StackPanel>
-        </Button>
-
-
-        <Grid VerticalAlignment="Stretch"/>
-
-        <!-- TODO: This is a rough draft -->
-        <Grid x:Name="FloatingBar" 
-              Background="{ThemeResource SolidBackgroundFillColorBaseBrush}"
-              CornerRadius="8" HorizontalAlignment="Stretch" 
-              Margin="0,8,8,0" Opacity="0.95" Padding="12,6" VerticalAlignment="Bottom">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <FontIcon Grid.Column="0" Glyph="&#xE7F8;"/>
-            <FontIcon Grid.Column="1" Glyph="&#xE9D9;"/>
-            <FontIcon Grid.Column="2" Glyph="&#xE9D9;"/>
-        </Grid>
-
-        <Button Click="OnSysInfoClick" CornerRadius="6" HorizontalAlignment="Stretch" >
-            <StackPanel Orientation="Vertical" Padding="8" Spacing="8">
-                <FontIcon Glyph="&#xEC7A;" />
-                <TextBlock Text="System Information" HorizontalTextAlignment="Center" TextWrapping="WrapWholeWords"/>
-            </StackPanel>
-        </Button>
-        <Button Click="OnSettingsClick" CornerRadius="6" HorizontalAlignment="Stretch" >
-            <StackPanel Orientation="Vertical" Padding="8" Spacing="8">
-                <FontIcon Glyph="&#xEC7A;" />
-                <TextBlock Text="Settings and Preferences" HorizontalTextAlignment="Center" TextWrapping="WrapWholeWords"/>
-            </StackPanel>
-        </Button>
-    </StackPanel>
+            <Grid x:Name="FloatingBar" Background="{ThemeResource SolidBackgroundFillColorBaseBrush}" CornerRadius="8"
+                  HorizontalAlignment="Stretch" Margin="0,8,8,0" Opacity="0.95" Padding="12,6" VerticalAlignment="Bottom">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <FontIcon Grid.Column="0" Glyph="&#xE7F8;"/> <!-- TODO: Replace with SysInfo -->
+                <FontIcon Grid.Column="1" Glyph="&#xE9D9;"/>
+                <FontIcon Grid.Column="2" Glyph="&#xE9D9;"/>
+            </Grid>
+            <Button Click="OnSysInfoClick" CornerRadius="6" HorizontalAlignment="Stretch" >
+                <StackPanel Orientation="Vertical" Padding="8" Spacing="8">
+                    <FontIcon Glyph="&#xEC7A;" />
+                    <TextBlock Text="System Information" HorizontalTextAlignment="Center" TextWrapping="WrapWholeWords"/>
+                </StackPanel>
+            </Button>
+            <Button Click="OnSettingsClick" CornerRadius="6" HorizontalAlignment="Stretch" >
+                <StackPanel Orientation="Vertical" Padding="8" Spacing="8">
+                    <FontIcon Glyph="&#xEC7A;" />
+                    <TextBlock Text="Settings and Preferences" HorizontalTextAlignment="Center" TextWrapping="WrapWholeWords"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+    </Grid>
 </UserControl>

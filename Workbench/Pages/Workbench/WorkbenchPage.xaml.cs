@@ -1,15 +1,14 @@
-using Jnana.Views.Tiles;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System;
-using System.Collections.ObjectModel;
+using System.Diagnostics;
 
 namespace Jnana.Workbench.Pages.Workbench;
 
 public sealed partial class WorkbenchPage : Page
 {
-    public string TitleText { get; set; } = "vanara jñāna";
-    public string SubtitleText { get; set; } = "workbench";
+    public string TitleText { get; set; } = "Vanara Jñāna";
+    public string SubtitleText { get; set; } = "Workbench";
     public bool IsBackButtonVisible { get; set; } = true;
     public bool IsBackButtonEnabled { get; set; } = false;
 
@@ -21,11 +20,18 @@ public sealed partial class WorkbenchPage : Page
 
     private void OnPageRequested(Type pageType)
     {
-        // Minimal: direkte Transformation
-        var page = Activator.CreateInstance(pageType);
+        try
+        {
+            // Minimal: direkte Transformation
+            var page = Activator.CreateInstance(pageType);
 
-        // WorkbenchContent wird ersetzt
-        WorkbenchContent.Children.Clear();
-        WorkbenchContent.Children.Add(item: page as UIElement);
+            // WorkbenchContent wird ersetzt
+            WorkbenchContent.Children.Clear();
+            WorkbenchContent.Children.Add(item: page as UIElement);
+        }
+        catch
+        {
+            Debug.WriteLine($"Failed to create page of type {pageType.FullName}");
+        }
     }
 }

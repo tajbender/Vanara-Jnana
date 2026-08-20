@@ -1,6 +1,6 @@
 using Microsoft.UI.Xaml.Controls;
+using Microsoft.WindowsAppSDK;
 using System;
-using System.Collections.ObjectModel;
 
 namespace Jnana.Workbench.Pages.SysInfo;
 
@@ -29,7 +29,13 @@ public sealed partial class SysInfoPage : Page
         ViewModel.ThreadCount = Environment.ProcessorCount;
         ViewModel.Uptime = $"{Environment.TickCount64 / 1000 / 60} min";
         ViewModel.User = Environment.UserName;
+        // TODO: This ist the Assembly version of the App, not the WinAppSdk version. Consider using Microsoft.WindowsAppSDK.Release instead.
         ViewModel.WinAppSdkVersion = typeof(App).Assembly.GetName().Version?.ToString() ?? "unknown";
+        //ViewModel.WinAppSdkVersion = Microsoft.WindowsAppSDK.Version;
+        // TODO: The following line is commented out because it may not provide the correct WinAppSdk version. Consider using Microsoft.WindowsAppSDK.Release instead.
+        //public static Microsoft.WindowsAppSDK.Release Release => GetWinAppSdkVersion();
+        //public static Microsoft.WindowsAppSDK.Release GetWinAppSdkVersion() => Microsoft.WindowsAppSDK.Release;
+
 
         // Calculated values: Split PATH environment variable
         ViewModel.PathCollection = new();
