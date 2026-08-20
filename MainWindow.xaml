@@ -7,6 +7,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:nav="using:Jnana.Core.Navigation"
+    xmlns:ctrls="using:Jnana.Workbench.Controls"
     mc:Ignorable="d"
     Title="Vanara Jñāna">
 
@@ -15,6 +16,35 @@
     </Window.SystemBackdrop>
 
     <Grid>
-        <nav:NavigationHost x:Name="Host" />
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+        <!-- TitleBar                         
+               https://github.com/CommunityToolkit/Labs-Windows/discussions/454 
+               https://learn.microsoft.com/en-us/dotnet/api/communitytoolkit.winui.ui.titlebarextensions?view=win-comm-toolkit-dotnet-7.0
+        see also: TitleBarExtensions Class - `CommunityToolkit.WinUI.UI v7.0.3` -->
+        <TitleBar Grid.Row="0" Grid.ColumnSpan="2"
+                  IsBackButtonVisible="{x:Bind IsBackButtonVisible, Mode=OneWay}"
+                  IsBackButtonEnabled="{x:Bind IsBackButtonEnabled, Mode=OneWay}"
+                  Subtitle="{x:Bind SubtitleText, Mode=OneWay}" 
+                  Title="{x:Bind TitleText, Mode=OneWay}" >
+            <TitleBar.IconSource>
+                <ImageIconSource ImageSource="/Assets/Icons/vanara.icon.ico" />
+            </TitleBar.IconSource>
+        </TitleBar>
+
+        <!-- QuickLaunchBar -->
+        <ctrls:QuickLaunchBar x:Name="QuickLaunchBar" Grid.Column="0" Grid.Row="1" Grid.RowSpan="2"
+                              VerticalAlignment="Stretch"/>
+
+        <!-- Navigation Host -->
+        <nav:NavigationHost x:Name="NavigationHost" Grid.Column="1" Grid.Row="1" VerticalAlignment="Stretch"/>
     </Grid>
 </Window>

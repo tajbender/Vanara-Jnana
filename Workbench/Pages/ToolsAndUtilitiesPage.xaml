@@ -15,11 +15,11 @@
                        FontWeight="SemiBold" />
 
             <!-- Search Bar -->
-            <TextBox x:Name="SearchBox"
-                     PlaceholderText="Search Tools and Utilities..." />
+            <TextBox x:Name="SearchBox" PlaceholderText="Search Tools and Utilities..." />
 
             <!-- Package Tree -->
             <ScrollViewer>
+
             </ScrollViewer>
         </StackPanel>
     </Grid>

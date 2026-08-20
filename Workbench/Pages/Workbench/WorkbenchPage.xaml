@@ -7,7 +7,7 @@
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:comp="using:Jnana.Workbench.Controls"
+    xmlns:ctrls="using:Jnana.Workbench.Controls"
     mc:Ignorable="d">
 
     <Grid>
@@ -15,52 +15,17 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-
-        <!-- TitleBar                         
-               https://github.com/CommunityToolkit/Labs-Windows/discussions/454 
-               https://learn.microsoft.com/en-us/dotnet/api/communitytoolkit.winui.ui.titlebarextensions?view=win-comm-toolkit-dotnet-7.0
-        see also: TitleBarExtensions Class - `CommunityToolkit.WinUI.UI v7.0.3` -->
-        <TitleBar Grid.Row="0" Grid.ColumnSpan="2"
-                  IsBackButtonVisible="{x:Bind IsBackButtonVisible, Mode=OneWay}"
-                  IsBackButtonEnabled="{x:Bind IsBackButtonEnabled, Mode=OneWay}"
-                  Subtitle="{x:Bind SubtitleText, Mode=OneWay}" 
-                  Title="{x:Bind TitleText, Mode=OneWay}" >
-            <TitleBar.IconSource>
-                <ImageIconSource ImageSource="/Assets/Icons/vanara.icon.ico" />
-            </TitleBar.IconSource>
-        </TitleBar>
-
-        <!-- QuickLaunchBar -->
-        <comp:QuickLaunchBar x:Name="LaunchBar" Grid.Column="0" Grid.Row="1" VerticalAlignment="Stretch"/>
 
         <!-- Workbench Content -->
-        <Grid x:Name="WorkbenchContent" Grid.Column="1" Grid.Row="1" Background="Transparent">
-            <StackPanel>
-                <TextBlock Text="Vanara Jnana Workbench"
+        <Grid x:Name="WorkbenchContent" Background="Transparent">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Vanara Jñāna Workbench"
                        FontSize="32"
                        FontWeight="SemiBold"
                        HorizontalAlignment="Stretch"
                        VerticalAlignment="Stretch" />
                 <Border BorderThickness="3">
-                    <!--<TreeView x:Name="WorkbenchTreeView"
-                          ItemsSource="{x:Bind NugetItems}"
-                          SelectionMode="Single"
-                          HorizontalAlignment="Stretch"
-                          VerticalAlignment="Stretch">
-                    -->
-                    <!--<TreeView.ItemTemplate>
-                        <DataTemplate x:DataType="local:WorkbenchItem">
-                            <StackPanel Orientation="Horizontal" Spacing="8">
-                                <TextBlock Text="{x:Bind Name}" FontSize="16" FontWeight="SemiBold"/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </TreeView.ItemTemplate>-->
-                    <!--
-                </TreeView>-->
+                    <ctrls:VanaraReleasePanel />
                 </Border>
             </StackPanel>
         </Grid>

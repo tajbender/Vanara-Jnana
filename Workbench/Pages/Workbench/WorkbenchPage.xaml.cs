@@ -7,15 +7,11 @@ namespace Jnana.Workbench.Pages.Workbench;
 
 public sealed partial class WorkbenchPage : Page
 {
-    public string TitleText { get; set; } = "Vanara Jñāna";
-    public string SubtitleText { get; set; } = "Workbench";
-    public bool IsBackButtonVisible { get; set; } = true;
-    public bool IsBackButtonEnabled { get; set; } = false;
-
     public WorkbenchPage()
     {
         InitializeComponent();
-        LaunchBar.PageRequested += OnPageRequested;
+        
+        //LaunchBar.PageRequested += OnPageRequested;
     }
 
     private void OnPageRequested(Type pageType)
