@@ -10,6 +10,19 @@ public class VanaraReleaseViewModel : INotifyPropertyChanged
 {
     public ObservableCollection<ReleaseInfo> Releases { get; } = new();
 
+    public event EventHandler LoadFailed;
+    public event PropertyChangedEventHandler PropertyChanged;
+    protected void OnPropertyChanged(string name)
+        => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+
+    public VanaraReleaseViewModel()
+    {
+        LoadFailed += (s, e) => { /* Handle load failure */ };
+        PropertyChanged += static (s, e) => { };
+        _ = LoadAsync();
+    }
+
+
     public async Task LoadAsync()
     {
         try
@@ -26,11 +39,6 @@ public class VanaraReleaseViewModel : INotifyPropertyChanged
             LoadFailed?.Invoke(this, EventArgs.Empty);
         }
     }
-
-    public event EventHandler LoadFailed;
-    public event PropertyChangedEventHandler PropertyChanged;
-    protected void OnPropertyChanged(string name)
-        => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
 }
 
 public class ReleaseInfo
