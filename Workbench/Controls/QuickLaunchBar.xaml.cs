@@ -9,7 +9,7 @@ using Microsoft.UI.Xaml.Controls;
 using System;
 using System.Diagnostics;
 
-namespace Jnana.Workbench.Components;
+namespace Jnana.Workbench.Controls;
 
 public sealed partial class QuickLaunchBar : UserControl
 {

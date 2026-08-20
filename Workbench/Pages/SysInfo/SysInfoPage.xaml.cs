@@ -38,7 +38,7 @@ public sealed partial class SysInfoPage : Page
 
 
         // Calculated values: Split PATH environment variable
-        ViewModel.PathCollection = new();
+        ViewModel.PathCollection = [];
         string[]? pathEnvironment = Environment.GetEnvironmentVariable("PATH")?.Split(';');
         if ((pathEnvironment is not null) && (pathEnvironment.Length > 0))
         {

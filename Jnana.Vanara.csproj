@@ -27,7 +27,7 @@
     <None Remove="Vanara Jnana.csproj.Backup.tmp" />
     <None Remove="Views\Tiles\NuGetTile.xaml" />
     <None Remove="Views\Tiles\WorkbenchTile.xaml" />
-    <None Remove="Workbench\Components\QuickLaunchBar.xaml" />
+    <None Remove="Workbench\Controls\QuickLaunchBar.xaml" />
     <None Remove="Workbench\Controls\FloatingStatusBar.xaml" />
     <None Remove="Workbench\Controls\NuGetTreeView.xaml" />
     <None Remove="Workbench\Pages\GitHub\GitHubPage.xaml" />
@@ -123,7 +123,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Workbench\Components\QuickLaunchBar.xaml">
+    <Page Update="Workbench\Controls\QuickLaunchBar.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>

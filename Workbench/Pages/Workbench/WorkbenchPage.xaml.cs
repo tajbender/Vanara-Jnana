@@ -32,6 +32,7 @@ public sealed partial class WorkbenchPage : Page
         catch
         {
             Debug.WriteLine($"Failed to create page of type {pageType.FullName}");
+            throw;
         }
     }
 }
