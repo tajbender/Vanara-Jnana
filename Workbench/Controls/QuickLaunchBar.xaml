@@ -8,6 +8,7 @@
     mc:Ignorable="d">
 
     <Grid VerticalAlignment="Stretch">
+        <Image Source="/Assets/StoreLogo.png" MaxWidth="100"/>
         <StackPanel HorizontalAlignment="Stretch" HorizontalSnapPointsChanged="StackPanel_HorizontalSnapPointsChanged" 
                     Orientation="Vertical" Padding="8" Spacing="8" VerticalAlignment="Stretch">
             <Button Click="OnWorkbenchClick" CornerRadius="6" HorizontalAlignment="Stretch" >
