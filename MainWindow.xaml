@@ -36,13 +36,12 @@
                   Subtitle="{x:Bind SubtitleText, Mode=OneWay}" 
                   Title="{x:Bind TitleText, Mode=OneWay}" >
             <TitleBar.IconSource>
-                <ImageIconSource ImageSource="/Assets/Icons/vanara.icon.ico" />
+                <ImageIconSource ImageSource="/Assets/Square44x44Logo.png" />
             </TitleBar.IconSource>
         </TitleBar>
 
         <!-- QuickLaunchBar -->
-        <ctrls:QuickLaunchBar x:Name="QuickLaunchBar" Grid.Column="0" Grid.Row="1" Grid.RowSpan="2"
-                              VerticalAlignment="Stretch"/>
+        <ctrls:QuickLaunchBar x:Name="QuickLaunchBar" Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" VerticalAlignment="Stretch"/>
 
         <!-- Navigation Host -->
         <nav:NavigationHost x:Name="NavigationHost" Grid.Column="1" Grid.Row="1" VerticalAlignment="Stretch"/>
