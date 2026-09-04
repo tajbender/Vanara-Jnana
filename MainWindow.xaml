@@ -26,10 +26,11 @@
         </Grid.RowDefinitions>
 
 
-        <!-- TitleBar                         
-               https://github.com/CommunityToolkit/Labs-Windows/discussions/454 
-               https://learn.microsoft.com/en-us/dotnet/api/communitytoolkit.winui.ui.titlebarextensions?view=win-comm-toolkit-dotnet-7.0
-        see also: TitleBarExtensions Class - `CommunityToolkit.WinUI.UI v7.0.3` -->
+        <!-- INFO: TitleBar
+               - https://github.com/CommunityToolkit/Labs-Windows/discussions/454 
+               - https://learn.microsoft.com/en-us/dotnet/api/communitytoolkit.winui.ui.titlebarextensions?view=win-comm-toolkit-dotnet-7.0
+        see also:
+               TitleBarExtensions Class - `CommunityToolkit.WinUI.UI v7.0.3` -->
         <TitleBar Grid.Row="0" Grid.ColumnSpan="2"
                   IsBackButtonVisible="{x:Bind IsBackButtonVisible, Mode=OneWay}"
                   IsBackButtonEnabled="{x:Bind IsBackButtonEnabled, Mode=OneWay}"

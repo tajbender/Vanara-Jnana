@@ -186,58 +186,58 @@
     <PRIResource Remove="Workbench\Controls\NuGetsTreeView\**" />
   </ItemGroup>
   <ItemGroup>
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\AUTHORS.txt" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\OFL.txt" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMono-Bold.ttf" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMono-BoldItalic.ttf" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMono-ExtraBold.ttf" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMono-ExtraBoldItalic.ttf" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMono-ExtraLight.ttf" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMono-ExtraLightItalic.ttf" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMono-Italic.ttf" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMono-Light.ttf" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMono-LightItalic.ttf" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMono-Medium.ttf" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMono-MediumItalic.ttf" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMono-Regular.ttf" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMono-SemiBold.ttf" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMono-SemiBoldItalic.ttf" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMono-Thin.ttf" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMono-ThinItalic.ttf" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMonoNL-Bold.ttf" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMonoNL-BoldItalic.ttf" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMonoNL-ExtraBold.ttf" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMonoNL-ExtraBoldItalic.ttf" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMonoNL-ExtraLight.ttf" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMonoNL-ExtraLightItalic.ttf" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMonoNL-Italic.ttf" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMonoNL-Light.ttf" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMonoNL-LightItalic.ttf" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMonoNL-Medium.ttf" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMonoNL-MediumItalic.ttf" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMonoNL-Regular.ttf" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMonoNL-SemiBold.ttf" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMonoNL-SemiBoldItalic.ttf" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMonoNL-Thin.ttf" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMonoNL-ThinItalic.ttf" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\variable\JetBrainsMono-Italic[wght].ttf" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\variable\JetBrainsMono[wght].ttf" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\webfonts\JetBrainsMono-Bold.woff2" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\webfonts\JetBrainsMono-BoldItalic.woff2" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\webfonts\JetBrainsMono-ExtraBold.woff2" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\webfonts\JetBrainsMono-ExtraBoldItalic.woff2" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\webfonts\JetBrainsMono-ExtraLight.woff2" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\webfonts\JetBrainsMono-ExtraLightItalic.woff2" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\webfonts\JetBrainsMono-Italic.woff2" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\webfonts\JetBrainsMono-Light.woff2" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\webfonts\JetBrainsMono-LightItalic.woff2" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\webfonts\JetBrainsMono-Medium.woff2" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\webfonts\JetBrainsMono-MediumItalic.woff2" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\webfonts\JetBrainsMono-Regular.woff2" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\webfonts\JetBrainsMono-SemiBold.woff2" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\webfonts\JetBrainsMono-SemiBoldItalic.woff2" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\webfonts\JetBrainsMono-Thin.woff2" />
-    <Content Remove="Assets\3rd Parties\JetBrains Mono Font\webfonts\JetBrainsMono-ThinItalic.woff2" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\AUTHORS.txt" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\OFL.txt" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMono-Bold.ttf" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMono-BoldItalic.ttf" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMono-ExtraBold.ttf" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMono-ExtraBoldItalic.ttf" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMono-ExtraLight.ttf" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMono-ExtraLightItalic.ttf" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMono-Italic.ttf" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMono-Light.ttf" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMono-LightItalic.ttf" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMono-Medium.ttf" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMono-MediumItalic.ttf" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMono-Regular.ttf" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMono-SemiBold.ttf" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMono-SemiBoldItalic.ttf" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMono-Thin.ttf" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMono-ThinItalic.ttf" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMonoNL-Bold.ttf" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMonoNL-BoldItalic.ttf" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMonoNL-ExtraBold.ttf" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMonoNL-ExtraBoldItalic.ttf" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMonoNL-ExtraLight.ttf" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMonoNL-ExtraLightItalic.ttf" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMonoNL-Italic.ttf" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMonoNL-Light.ttf" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMonoNL-LightItalic.ttf" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMonoNL-Medium.ttf" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMonoNL-MediumItalic.ttf" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMonoNL-Regular.ttf" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMonoNL-SemiBold.ttf" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMonoNL-SemiBoldItalic.ttf" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMonoNL-Thin.ttf" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMonoNL-ThinItalic.ttf" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\variable\JetBrainsMono-Italic[wght].ttf" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\variable\JetBrainsMono[wght].ttf" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\webfonts\JetBrainsMono-Bold.woff2" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\webfonts\JetBrainsMono-BoldItalic.woff2" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\webfonts\JetBrainsMono-ExtraBold.woff2" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\webfonts\JetBrainsMono-ExtraBoldItalic.woff2" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\webfonts\JetBrainsMono-ExtraLight.woff2" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\webfonts\JetBrainsMono-ExtraLightItalic.woff2" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\webfonts\JetBrainsMono-Italic.woff2" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\webfonts\JetBrainsMono-Light.woff2" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\webfonts\JetBrainsMono-LightItalic.woff2" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\webfonts\JetBrainsMono-Medium.woff2" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\webfonts\JetBrainsMono-MediumItalic.woff2" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\webfonts\JetBrainsMono-Regular.woff2" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\webfonts\JetBrainsMono-SemiBold.woff2" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\webfonts\JetBrainsMono-SemiBoldItalic.woff2" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\webfonts\JetBrainsMono-Thin.woff2" />
+    <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\webfonts\JetBrainsMono-ThinItalic.woff2" />
     <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\advanced-settings-icon.png" />
     <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\aspnet.png" />
     <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\azure-app-service.png" />
@@ -358,160 +358,160 @@
     <Content Remove="Assets\Styles\LonghornTitleBar.xaml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\AUTHORS.txt">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\AUTHORS.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\OFL.txt">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\OFL.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMono-Bold.ttf">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMono-Bold.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMono-BoldItalic.ttf">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMono-BoldItalic.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMono-ExtraBold.ttf">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMono-ExtraBold.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMono-ExtraBoldItalic.ttf">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMono-ExtraBoldItalic.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMono-ExtraLight.ttf">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMono-ExtraLight.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMono-ExtraLightItalic.ttf">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMono-ExtraLightItalic.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMono-Italic.ttf">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMono-Italic.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMono-Light.ttf">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMono-Light.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMono-LightItalic.ttf">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMono-LightItalic.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMono-Medium.ttf">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMono-Medium.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMono-MediumItalic.ttf">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMono-MediumItalic.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMono-Regular.ttf">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMono-Regular.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMono-SemiBold.ttf">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMono-SemiBold.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMono-SemiBoldItalic.ttf">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMono-SemiBoldItalic.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMono-Thin.ttf">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMono-Thin.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMono-ThinItalic.ttf">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMono-ThinItalic.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMonoNL-Bold.ttf">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMonoNL-Bold.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMonoNL-BoldItalic.ttf">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMonoNL-BoldItalic.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMonoNL-ExtraBold.ttf">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMonoNL-ExtraBold.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMonoNL-ExtraBoldItalic.ttf">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMonoNL-ExtraBoldItalic.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMonoNL-ExtraLight.ttf">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMonoNL-ExtraLight.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMonoNL-ExtraLightItalic.ttf">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMonoNL-ExtraLightItalic.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMonoNL-Italic.ttf">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMonoNL-Italic.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMonoNL-Light.ttf">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMonoNL-Light.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMonoNL-LightItalic.ttf">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMonoNL-LightItalic.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMonoNL-Medium.ttf">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMonoNL-Medium.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMonoNL-MediumItalic.ttf">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMonoNL-MediumItalic.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMonoNL-Regular.ttf">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMonoNL-Regular.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMonoNL-SemiBold.ttf">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMonoNL-SemiBold.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMonoNL-SemiBoldItalic.ttf">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMonoNL-SemiBoldItalic.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMonoNL-Thin.ttf">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMonoNL-Thin.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\ttf\JetBrainsMonoNL-ThinItalic.ttf">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMonoNL-ThinItalic.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\variable\JetBrainsMono-Italic[wght].ttf">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\variable\JetBrainsMono-Italic[wght].ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\variable\JetBrainsMono[wght].ttf">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\variable\JetBrainsMono[wght].ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\webfonts\JetBrainsMono-Bold.woff2">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\webfonts\JetBrainsMono-Bold.woff2">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\webfonts\JetBrainsMono-BoldItalic.woff2">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\webfonts\JetBrainsMono-BoldItalic.woff2">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\webfonts\JetBrainsMono-ExtraBold.woff2">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\webfonts\JetBrainsMono-ExtraBold.woff2">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\webfonts\JetBrainsMono-ExtraBoldItalic.woff2">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\webfonts\JetBrainsMono-ExtraBoldItalic.woff2">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\webfonts\JetBrainsMono-ExtraLight.woff2">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\webfonts\JetBrainsMono-ExtraLight.woff2">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\webfonts\JetBrainsMono-ExtraLightItalic.woff2">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\webfonts\JetBrainsMono-ExtraLightItalic.woff2">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\webfonts\JetBrainsMono-Italic.woff2">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\webfonts\JetBrainsMono-Italic.woff2">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\webfonts\JetBrainsMono-Light.woff2">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\webfonts\JetBrainsMono-Light.woff2">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\webfonts\JetBrainsMono-LightItalic.woff2">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\webfonts\JetBrainsMono-LightItalic.woff2">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\webfonts\JetBrainsMono-Medium.woff2">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\webfonts\JetBrainsMono-Medium.woff2">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\webfonts\JetBrainsMono-MediumItalic.woff2">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\webfonts\JetBrainsMono-MediumItalic.woff2">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\webfonts\JetBrainsMono-Regular.woff2">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\webfonts\JetBrainsMono-Regular.woff2">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\webfonts\JetBrainsMono-SemiBold.woff2">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\webfonts\JetBrainsMono-SemiBold.woff2">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\webfonts\JetBrainsMono-SemiBoldItalic.woff2">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\webfonts\JetBrainsMono-SemiBoldItalic.woff2">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\webfonts\JetBrainsMono-Thin.woff2">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\webfonts\JetBrainsMono-Thin.woff2">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Font\webfonts\JetBrainsMono-ThinItalic.woff2">
+    <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\webfonts\JetBrainsMono-ThinItalic.woff2">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\advanced-settings-icon.png" />
