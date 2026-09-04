@@ -169,7 +169,7 @@ public sealed partial class NuGetTreeView : UserControl
         _viewModel = new NuGetTreeViewModel(_dependencyGraphService);
         NuGetTreeViewControl.ItemsSource = _viewModel.RootNodes;
     }
- 
+
     public static NuGetTreeRoot BuildTree(DependencyGraphResult graph)
     {
         var root = new NuGetTreeRoot();

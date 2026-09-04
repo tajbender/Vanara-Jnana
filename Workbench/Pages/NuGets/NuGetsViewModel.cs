@@ -27,9 +27,9 @@ namespace Jnana.Workbench.NuGet
         public async Task LoadAsync()
         {
             Packages.Clear();
-// TODO:            var results = await _catalogService.SearchAsync(searchQuery);
-// TODO:            foreach (var pkg in results)
-// TODO:                Packages.Add(pkg);
+            // TODO:            var results = await _catalogService.SearchAsync(searchQuery);
+            // TODO:            foreach (var pkg in results)
+            // TODO:                Packages.Add(pkg);
         }
 
         [RelayCommand]
