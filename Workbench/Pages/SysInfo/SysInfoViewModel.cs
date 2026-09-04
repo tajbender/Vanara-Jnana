@@ -1,11 +1,9 @@
 ﻿using Microsoft.UI.Xaml;
 using Microsoft.WindowsAppSDK;
-using Microsoft.WindowsAppSDK.Runtime;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using static Vanara.PInvoke.AdvApi32.INSTALLSPEC;
 
 namespace Jnana.Workbench.Pages.SysInfo;
 

@@ -1,5 +1,4 @@
 using Microsoft.UI.Xaml.Controls;
-using Microsoft.WindowsAppSDK;
 using System;
 
 namespace Jnana.Workbench.Pages.SysInfo;

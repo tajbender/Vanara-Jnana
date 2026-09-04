@@ -1,6 +1,4 @@
-using Jnana.Core.Navigation;
 using Jnana.ViewModels;
-using Jnana.Workbench.Pages.Workbench;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Input;
 

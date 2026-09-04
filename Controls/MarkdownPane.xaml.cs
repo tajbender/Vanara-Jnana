@@ -3,8 +3,6 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.Windows.Input;
 
-using CommunityToolkit.WinUI.UI.Controls;
-
 namespace Jnana.Controls;
 
 public sealed partial class MarkdownPane : UserControl
