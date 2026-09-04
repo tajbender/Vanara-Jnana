@@ -176,6 +176,7 @@
     <PRIResource Remove="Workbench\Controls\NuGetsTreeView\**" />
   </ItemGroup>
   <ItemGroup>
+    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\LICENSE.md" />
     <Content Remove="Assets\Styles\LonghornTitleBar.xaml" />
   </ItemGroup>
   <ItemGroup>
