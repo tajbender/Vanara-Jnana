@@ -47,6 +47,12 @@
 
             <Grid VerticalAlignment="Stretch"/>
 
+            <AppBarSeparator/>
+
+            <Image Source="/Assets/StoreLogo.png" MaxWidth="100" HorizontalAlignment="Center"/>
+
+            <AppBarSeparator/>
+
             <Grid x:Name="FloatingBar" Background="{ThemeResource SolidBackgroundFillColorBaseBrush}" CornerRadius="8"
                   HorizontalAlignment="Stretch" Margin="0,8,8,0" Opacity="0.95" Padding="12,6" VerticalAlignment="Bottom">
                 <Grid.ColumnDefinitions>
