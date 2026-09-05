@@ -169,18 +169,35 @@
     <PackageIcon>Vamara Icon.ico</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageReleaseNotes>debug build - do not use in productive environment</PackageReleaseNotes>
-    <AssemblyVersion>1.268.1.0</AssemblyVersion>
-    <FileVersion>1.268.1.0</FileVersion>
+    <AssemblyVersion>1.269.1.0</AssemblyVersion>
+    <FileVersion>1.269.1.0</FileVersion>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <Title>Vanara Jñāna</Title>
+    <PackageTags>Jnana;UWP;Vanara;Shell32;Win32;WindowsForms;WinUI</PackageTags>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
     <Optimize>False</Optimize>
+    <FileAlignment>2048</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Optimize>False</Optimize>
+    <FileAlignment>2048</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
     <Optimize>False</Optimize>
+    <FileAlignment>2048</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
+    <Optimize>False</Optimize>
+    <FileAlignment>2048</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Optimize>False</Optimize>
+    <FileAlignment>2048</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
+    <Optimize>False</Optimize>
+    <FileAlignment>2048</FileAlignment>
   </PropertyGroup>
   <ItemGroup>
     <PRIResource Remove="Workbench\Controls\NuGetsTreeView\**" />
