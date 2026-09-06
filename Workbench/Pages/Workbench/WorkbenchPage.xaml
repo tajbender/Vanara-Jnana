@@ -17,7 +17,7 @@
         <!-- Workbench Content -->
         <Grid x:Name="WorkbenchContent" Background="Transparent">
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Vanara Jñāna Workbench" FontSize="32" FontWeight="SemiBold" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBlock Text="Jñāna workbench" FontSize="32" FontWeight="SemiBold" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
                 <Border BorderThickness="3">
                     <ctrls:VanaraReleasePanel />
                 </Border>

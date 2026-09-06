@@ -11,60 +11,64 @@
         <Border Grid.Column="0" Grid.RowSpan="3" CornerRadius="32" BorderBrush="{ThemeResource SystemControlTransparentRevealBorderBrush}" BorderThickness="3">
             <StackPanel HorizontalAlignment="Stretch" HorizontalSnapPointsChanged="StackPanel_HorizontalSnapPointsChanged" 
                         Orientation="{x:Bind Orientation}" Padding="8" Spacing="8" VerticalAlignment="Stretch">
-                <Grid MaxHeight="256">
+                <Grid MaxHeight="256" Padding="23">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
-                    <Image Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" Margin="12,12,12,24" MaxHeight="76" Source="/Assets/StoreLogo.png" VerticalAlignment="Stretch"/>
-                    <TextBlock Grid.Column="0" Grid.Row="1" FontWeight="SemiBold" HorizontalAlignment="Center" Margin="8,0,0,0" Text="Vanara Jñāna" VerticalAlignment="Top"/>
-                    <TextBlock Grid.Column="0" Grid.Row="2" FontWeight="SemiBold" HorizontalAlignment="Center" Margin="8,0,0,0" Text="v1.269 (debug)" VerticalAlignment="Top"/>
+                    <TextBlock Grid.Column="0" Grid.Row="0" FontWeight="SemiBold" HorizontalAlignment="Center" Text="Vanara Jñāna" VerticalAlignment="Top"/>
+                    <Image Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch" Source="/Assets/StoreLogo.png" VerticalAlignment="Stretch"/>
+                    <TextBlock Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" Margin="8,0,0,0" Text="v1.269 (debug)"/>
+                    <TextBlock Grid.Column="0" Grid.Row="3" FontStyle="Oblique" HorizontalAlignment="Center" Margin="8,0,0,0" Text="septa hombres"/>
 
-                    <Border Grid.Column="1" Grid.Row="0" CornerRadius="20" BorderBrush="{ThemeResource AccentFillColorDefaultBrush}" BorderThickness="3">
-                        <TextBlock FontWeight="SemiBold" Margin="8,0,0,0" Text="{x:Bind UserDisplayName}" VerticalAlignment="Center"/>
+                    <Border Grid.Column="1" Grid.Row="1" CornerRadius="7" BorderThickness="3">
+                        <TextBlock FontWeight="SemiBold" Margin="7" Text="{x:Bind UserDisplayName}" VerticalAlignment="Bottom"/>
                     </Border>
-                    <Border Grid.Column="1" Grid.Row="1" CornerRadius="20" BorderBrush="{ThemeResource AccentFillColorDefaultBrush}" BorderThickness="3">
-                        <TextBlock Foreground="{ThemeResource AccentFillColorDefaultBrush}" Margin="6,0,0,0" Text="{x:Bind NetworkStatus}" VerticalAlignment="Center"/>
+                    <Border Grid.Column="1" Grid.Row="2" CornerRadius="7" BorderThickness="3">
+                        <TextBlock Text="{x:Bind NetworkStatus}" VerticalAlignment="Center"/>
                     </Border>
-                    <Border Grid.Column="1" Grid.Row="2" CornerRadius="20" BorderBrush="{ThemeResource AccentFillColorDefaultBrush}" BorderThickness="3">
-                        <TextBlock Foreground="{ThemeResource AccentFillColorDefaultBrush}" Margin="6,0,0,0" Text="{x:Bind GitHubUserStatus}" VerticalAlignment="Center"/>
+                    <Border Grid.Column="1" Grid.Row="3" CornerRadius="7" BorderThickness="3">
+                        <TextBlock Text="{x:Bind GitHubUserStatus}" VerticalAlignment="Center"/>
                     </Border>
                 </Grid>
-                <Button Click="OnWorkbenchClick" CornerRadius="6" HorizontalAlignment="Stretch" >
-                    <StackPanel Orientation="Vertical" Padding="8" Spacing="8">
+                <Button Click="OnWorkbenchClick" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
+                    <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
                         <FontIcon Glyph="&#xEC7A;"/>
                         <TextBlock Text="Workbench" HorizontalTextAlignment="Left" TextWrapping="WrapWholeWords"/>
                     </StackPanel>
                 </Button>
                 <AppBarSeparator/>
-                <Button Click="OnNuGetsClick" CornerRadius="6" HorizontalAlignment="Stretch" >
-                    <StackPanel Orientation="Vertical" Padding="8" Spacing="8">
+                <Button Click="OnNuGetsClick" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
+                    <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
                         <FontIcon Glyph="&#xEC7A;"/>
                         <TextBlock Text="NuGets" HorizontalTextAlignment="Left" TextWrapping="WrapWholeWords"/>
                     </StackPanel>
                 </Button>
-                <Button Click="OnGitHubBrowserClick" CornerRadius="6" HorizontalAlignment="Stretch" >
-                    <StackPanel Orientation="Vertical" Padding="8" Spacing="8">
+                <Button Click="OnGitHubBrowserClick" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
+                    <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
                         <FontIcon Glyph="&#xEC7A;"/>
-                        <TextBlock Text="GitHub Browser" HorizontalTextAlignment="Center" TextWrapping="WrapWholeWords"/>
+                        <ComboBox></ComboBox>
+                        <!--<FontIcon Glyph="&#xEC7A;"/>
+                        <TextBlock Text="GitHub Browser" HorizontalTextAlignment="Left" TextWrapping="WrapWholeWords"/>-->
                     </StackPanel>
                 </Button>
-                <Button Click="OnSamplesClick" CornerRadius="6" HorizontalAlignment="Stretch">
-                    <StackPanel Orientation="Vertical" Padding="8" Spacing="8">
+                <Button Click="OnSamplesClick" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
+                    <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
                         <FontIcon Glyph="&#xEC7A;" />
-                        <TextBlock Text="Samples and Science Labs" HorizontalTextAlignment="Center" TextWrapping="WrapWholeWords"/>
+                        <TextBlock Text="Samples and Science Labs" HorizontalTextAlignment="Left" TextWrapping="WrapWholeWords"/>
                     </StackPanel>
                 </Button>
                 <AppBarSeparator/>
-                <Button Click="OnToolsAndUtilitiesClick" CornerRadius="6" HorizontalAlignment="Stretch" >
-                    <StackPanel Orientation="Vertical" Padding="8" Spacing="8">
+                <Button Click="OnToolsAndUtilitiesClick" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
+                    <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
                         <FontIcon Glyph="&#xEC7A;" />
-                        <TextBlock Text="Utilities" HorizontalTextAlignment="Center" TextWrapping="WrapWholeWords" />
+                        <TextBlock Text="Tools and Utilities" HorizontalTextAlignment="Left" TextWrapping="WrapWholeWords" />
                     </StackPanel>
                 </Button>
                 <Grid x:Name="FloatingBar" Background="{ThemeResource SolidBackgroundFillColorBaseBrush}" CornerRadius="8"
@@ -85,14 +89,14 @@
                     <FontIcon Grid.Column="0" Grid.Row="2" Glyph="&#xE7F8;"/>
                     <FontIcon Grid.Column="1" Grid.Row="2" Glyph="&#xE9D9;"/>
                 </Grid>
-                <Button Click="OnSysInfoClick" CornerRadius="6" HorizontalAlignment="Stretch" >
-                    <StackPanel Orientation="Vertical" Padding="8" Spacing="8">
+                <Button Click="OnSysInfoClick" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
+                    <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
                         <FontIcon Glyph="&#xEC7A;" />
                         <TextBlock Text="System Information" HorizontalTextAlignment="Center" TextWrapping="WrapWholeWords"/>
                     </StackPanel>
                 </Button>
-                <Button Click="OnSettingsClick" CornerRadius="6" HorizontalAlignment="Stretch" >
-                    <StackPanel Orientation="Vertical" Padding="8" Spacing="8">
+                <Button Click="OnSettingsClick" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
+                    <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
                         <FontIcon Glyph="&#xEC7A;" />
                         <TextBlock Text="Settings and Preferences" HorizontalTextAlignment="Center" TextWrapping="WrapWholeWords"/>
                     </StackPanel>

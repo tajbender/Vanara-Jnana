@@ -6,6 +6,7 @@ using NuGet.Protocol.Core.Types;
 using NuGet.Versioning;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
@@ -37,6 +38,7 @@ public sealed class NuGetCatalogService : INuGetCatalogService
     public async Task<IReadOnlyList<NuGetPackageInfo>> SearchPackagesAsync(string query)
     {
         var search = await this._repo.GetResourceAsync<PackageSearchResource>();
+        Debug.Assert(search != null, nameof(search) + " != null");
         var results = await search.SearchAsync(query, new SearchFilter(true), 0, 50, NullLogger.Instance, CancellationToken.None);
 
         return results.Select(r => new NuGetPackageInfo
@@ -51,6 +53,7 @@ public sealed class NuGetCatalogService : INuGetCatalogService
     public async Task<NuGetPackageInfo?> GetPackageMetadataAsync(string packageId)
     {
         var meta = await this._repo.GetResourceAsync<PackageMetadataResource>();
+        Debug.Assert(meta != null, nameof(meta) + " != null");
 
         var results = await meta.GetMetadataAsync(
             packageId,
@@ -80,6 +83,7 @@ public sealed class NuGetCatalogService : INuGetCatalogService
     public async Task<Stream?> DownloadPackageAsync(string packageId, string version)
     {
         var download = await this._repo.GetResourceAsync<DownloadResource>();
+        Debug.Assert(download != null, nameof(download) + " != null");
         var result = await download.GetDownloadResourceResultAsync(
             new PackageIdentity(packageId, NuGetVersion.Parse(version)),
             new PackageDownloadContext(new SourceCacheContext()),
@@ -92,7 +96,7 @@ public sealed class NuGetCatalogService : INuGetCatalogService
 
     public async Task<string?> GetReadmeMarkdownAsync(string packageId, string version)
     {
-        using var pkg = await this.DownloadPackageAsync(packageId, version);
+        await using var pkg = await this.DownloadPackageAsync(packageId, version);
         if (pkg == null)
             return null;
 
