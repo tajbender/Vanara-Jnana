@@ -10,21 +10,36 @@
     <Grid VerticalAlignment="Stretch">
         <StackPanel HorizontalAlignment="Stretch" HorizontalSnapPointsChanged="StackPanel_HorizontalSnapPointsChanged" 
                     Orientation="Vertical" Padding="8" Spacing="8" VerticalAlignment="Stretch">
-
-            <StackPanel Orientation="Horizontal" Margin="12,8,0,0">
-                <Border Width="40" Height="40" CornerRadius="20">
-                    <Image Source="/Assets/StoreLogo.png"/>
-                    <!--<Image Source="{x:Bind UserAvatarImageUri}" Stretch="UniformToFill"/>-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Border Grid.Column="0" Grid.RowSpan="3" CornerRadius="32" BorderBrush="{ThemeResource AccentFillColorDefaultBrush}" BorderThickness="3">
+                    <Image Height="128"
+                           HorizontalAlignment="Center"
+                           Margin="0,12,0,24"
+                           Source="/Assets/StoreLogo.png"
+                           Stretch="UniformToFill"
+                           VerticalAlignment="Top"/>
                 </Border>
-                <TextBlock Text="{x:Bind UserDisplayName}" 
-                           FontWeight="SemiBold" 
-                           VerticalAlignment="Center" 
-                           Margin="8,0,0,0"/>
-                <TextBlock Text="{x:Bind GitHubStatus}" 
-                           Foreground="{ThemeResource AccentFillColorDefaultBrush}" 
-                           VerticalAlignment="Center" 
-                           Margin="6,0,0,0"/>
-            </StackPanel>
+                <Border Grid.Column="1" Grid.Row="0" CornerRadius="20" BorderBrush="{ThemeResource AccentFillColorDefaultBrush}" BorderThickness="3">
+                    <TextBlock FontWeight="SemiBold" Margin="8,0,0,0" 
+                               Text="{x:Bind UserDisplayName}" VerticalAlignment="Center"/>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="1" CornerRadius="20" BorderBrush="{ThemeResource AccentFillColorDefaultBrush}" BorderThickness="3">
+                    <TextBlock Foreground="{ThemeResource AccentFillColorDefaultBrush}" Margin="6,0,0,0"
+                               Text="{x:Bind GitHubUserStatus}" VerticalAlignment="Center"/></Border>
+                <Border Grid.Column="1" Grid.Row="2" CornerRadius="20" BorderBrush="{ThemeResource AccentFillColorDefaultBrush}" BorderThickness="3">
+                    <TextBlock Foreground="{ThemeResource AccentFillColorDefaultBrush}" Margin="6,0,0,0"
+                               Text="{x:Bind GitHubUserStatus}" VerticalAlignment="Center"/>
+                </Border>
+            </Grid>
 
             <Button Click="OnWorkbenchClick" CornerRadius="6" HorizontalAlignment="Stretch" >
                 <StackPanel Orientation="Vertical" Padding="8" Spacing="8">

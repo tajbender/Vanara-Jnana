@@ -14,6 +14,21 @@ namespace Jnana.Workbench.Controls;
 public sealed partial class QuickLaunchBar : UserControl
 {
     /// <summary>
+    /// Gets or sets the GitHub user status.
+    /// </summary>
+    public string GitHubUserStatus
+    {
+        get => (string)this.GetValue(GitHubUserStatusProperty);
+        set => this.SetValue(GitHubUserStatusProperty, value);
+    }
+    public static readonly DependencyProperty GitHubUserStatusProperty =
+        DependencyProperty.Register(
+            nameof(GitHubUserStatus),
+            typeof(string),
+            typeof(QuickLaunchBar),
+            new PropertyMetadata(string.Empty));
+
+    /// <summary>
     /// Gets or sets the URI of the user's avatar image.
     /// </summary>
     public string UserAvatarImageUri
@@ -43,44 +58,67 @@ public sealed partial class QuickLaunchBar : UserControl
             typeof(QuickLaunchBar),
             new PropertyMetadata(string.Empty));
 
-    /// <summary>
-    /// Gets or sets the GitHub status.
-    /// </summary>
-    public string GitHubStatus
-    {
-        get => (string)this.GetValue(GitHubStatusProperty);
-        set => this.SetValue(GitHubStatusProperty, value);
-    }
-    public static readonly DependencyProperty GitHubStatusProperty =
-        DependencyProperty.Register(
-            nameof(GitHubStatus),
-            typeof(string),
-            typeof(QuickLaunchBar),
-            new PropertyMetadata(string.Empty));
-
     public event Action<Type>? PageRequested;
 
     public QuickLaunchBar()
     {
         this.InitializeComponent();
-
-        UserAvatarImageUri= "ms-appx:///Assets/Images/DefaultAvatar.png";
-        this.UserDisplayName = Environment.UserName;
-        this.GitHubStatus = "GitHub Status: Offline";
+        this.UserAvatarImageUri = "ms-appx:///Assets/Images/DefaultAvatar.png";
+        this.UserDisplayName = $"Windows User: {Environment.UserName}";
+        this.GitHubUserStatus = "GitHub Status: Offline";
     }
 
+    /// <summary>
+    /// Handles the click event for the GitHub button.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void OnGitHubClick(object sender, RoutedEventArgs e)
         => this.RaisePageRequested(typeof(GitHubPage));
+
+    /// <summary>
+    /// Handles the click event for the NuGets button.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void OnNuGetsClick(object sender, RoutedEventArgs e)
         => this.RaisePageRequested(typeof(NuGetsPage));
+
+    /// <summary>
+    /// Handles the click event for the Samples button.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void OnSamplesClick(object sender, RoutedEventArgs e)
         => this.RaisePageRequested(typeof(SamplesPage));
+    /// <summary>
+    /// Handles the click event for the System Information button.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void OnSysInfoClick(object sender, RoutedEventArgs e)
         => this.RaisePageRequested(typeof(SysInfoPage));
+    /// <summary>
+    /// Handles the click event for the Tools and Utilities button.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void OnToolsAndUtilitiesClick(object sender, RoutedEventArgs e)
         => this.RaisePageRequested(typeof(ToolsAndUtilitiesPage));
+
+    /// <summary>
+    /// Handles the click event for the Workbench button.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void OnWorkbenchClick(object sender, RoutedEventArgs e)
         => this.RaisePageRequested(typeof(WorkbenchPage));
+
+    /// <summary>
+    /// Handles the click event for the Settings button.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void OnSettingsClick(object sender, RoutedEventArgs e)
         => this.RaisePageRequested(typeof(SettingsPage));
 
