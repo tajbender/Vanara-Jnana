@@ -8,9 +8,9 @@
     mc:Ignorable="d">
 
     <Grid VerticalAlignment="Stretch">
-        <Border Grid.Column="0" Grid.RowSpan="3" CornerRadius="32" BorderBrush="{ThemeResource AccentFillColorDefaultBrush}" BorderThickness="3">
+        <Border Grid.Column="0" Grid.RowSpan="3" CornerRadius="32" BorderBrush="{ThemeResource SystemControlTransparentRevealBorderBrush}" BorderThickness="3">
             <StackPanel HorizontalAlignment="Stretch" HorizontalSnapPointsChanged="StackPanel_HorizontalSnapPointsChanged" 
-                        Orientation="Vertical" Padding="8" Spacing="8" VerticalAlignment="Stretch">
+                        Orientation="{x:Bind Orientation}" Padding="8" Spacing="8" VerticalAlignment="Stretch">
                 <Grid MaxHeight="256">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
@@ -23,25 +23,18 @@
                     </Grid.RowDefinitions>
                     <Border Grid.Column="0" Grid.RowSpan="3" CornerRadius="32" BorderBrush="{ThemeResource AccentFillColorDefaultBrush}" BorderThickness="3">
                         <StackPanel Orientation="Vertical">
-                            <Image HorizontalAlignment="Center" Margin="12,12,12,24" MaxHeight="200" MaxWidth="320"
-                               Source="/Assets/StoreLogo.png" Stretch="Uniform" VerticalAlignment="Stretch"/>
-                            <TextBlock FontWeight="SemiBold" Margin="8,0,0,0"
-                                   Text="Vanara Jnana" VerticalAlignment="Center"/>
-                            <TextBlock FontWeight="SemiBold" Margin="8,0,0,0"
-                                   Text="TODO: {x:Bind versionInfo}" VerticalAlignment="Center"/>
+                            <Image HorizontalAlignment="Center" Margin="12,12,12,24" MaxHeight="200" Source="/Assets/StoreLogo.png" Stretch="Uniform" VerticalAlignment="Stretch"/>
+                            <TextBlock FontWeight="SemiBold" Margin="8,0,0,0" Text="Vanara Jnana {x:Bind versionInfo}" VerticalAlignment="Center"/>
                         </StackPanel>
                     </Border>
                     <Border Grid.Column="1" Grid.Row="0" CornerRadius="20" BorderBrush="{ThemeResource AccentFillColorDefaultBrush}" BorderThickness="3">
-                        <TextBlock FontWeight="SemiBold" Margin="8,0,0,0"
-                               Text="{x:Bind UserDisplayName}" VerticalAlignment="Center"/>
+                        <TextBlock FontWeight="SemiBold" Margin="8,0,0,0" Text="{x:Bind UserDisplayName}" VerticalAlignment="Center"/>
                     </Border>
                     <Border Grid.Column="1" Grid.Row="1" CornerRadius="20" BorderBrush="{ThemeResource AccentFillColorDefaultBrush}" BorderThickness="3">
-                        <TextBlock Foreground="{ThemeResource AccentFillColorDefaultBrush}" Margin="6,0,0,0"
-                               Text="{x:Bind NetworkStatus}" VerticalAlignment="Center"/>
+                        <TextBlock Foreground="{ThemeResource AccentFillColorDefaultBrush}" Margin="6,0,0,0" Text="{x:Bind NetworkStatus}" VerticalAlignment="Center"/>
                     </Border>
                     <Border Grid.Column="1" Grid.Row="2" CornerRadius="20" BorderBrush="{ThemeResource AccentFillColorDefaultBrush}" BorderThickness="3">
-                        <TextBlock Foreground="{ThemeResource AccentFillColorDefaultBrush}" Margin="6,0,0,0"
-                               Text="{x:Bind GitHubUserStatus}" VerticalAlignment="Center"/>
+                        <TextBlock Foreground="{ThemeResource AccentFillColorDefaultBrush}" Margin="6,0,0,0" Text="{x:Bind GitHubUserStatus}" VerticalAlignment="Center"/>
                     </Border>
                 </Grid>
                 <Button Click="OnWorkbenchClick" CornerRadius="6" HorizontalAlignment="Stretch" >
@@ -57,7 +50,7 @@
                         <TextBlock Text="NuGets" HorizontalTextAlignment="Left" TextWrapping="WrapWholeWords"/>
                     </StackPanel>
                 </Button>
-                <Button Click="OnGitHubClick" CornerRadius="6" HorizontalAlignment="Stretch" >
+                <Button Click="OnGitHubBrowserClick" CornerRadius="6" HorizontalAlignment="Stretch" >
                     <StackPanel Orientation="Vertical" Padding="8" Spacing="8">
                         <FontIcon Glyph="&#xEC7A;"/>
                         <TextBlock Text="GitHub Browser" HorizontalTextAlignment="Center" TextWrapping="WrapWholeWords"/>

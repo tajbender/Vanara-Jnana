@@ -29,7 +29,7 @@ public sealed partial class QuickLaunchBar : UserControl
             nameof(GitHubUserStatus),
             typeof(string),
             typeof(QuickLaunchBar),
-            new PropertyMetadata("GitHub Status: Offline"));
+            new PropertyMetadata("GitHub status: checking..."));
 
     /// <summary>
     /// Gets or sets the network status.
@@ -46,6 +46,20 @@ public sealed partial class QuickLaunchBar : UserControl
             typeof(QuickLaunchBar),
             new PropertyMetadata("Network status: pending..."));
 
+    public string Orientation
+    {
+        get => (string)this.GetValue(OrientationDependencyProperty);
+        set => this.SetValue(OrientationDependencyProperty, value);
+    }
+
+    public static readonly DependencyProperty OrientationDependencyProperty =
+        DependencyProperty.Register(
+            nameof(Orientation),
+            typeof(string),
+            typeof(QuickLaunchBar),
+            new PropertyMetadata("Vertical"));
+
+
     /// <summary>
     /// Gets or sets the URI of the user's avatar image.
     /// </summary>
@@ -59,7 +73,7 @@ public sealed partial class QuickLaunchBar : UserControl
             nameof(UserAvatarImageUriProperty),
             typeof(string),
             typeof(QuickLaunchBar),
-            new PropertyMetadata(string.Empty));
+            new PropertyMetadata("ms-appx:///Assets/Images/DefaultAvatar.png"));
 
     /// <summary>
     /// Gets or sets the user's display name.
@@ -78,27 +92,31 @@ public sealed partial class QuickLaunchBar : UserControl
 
     public event Action<Type>? PageRequested;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="QuickLaunchBar"/> class. This is the `Vanara Jñāna Workbench` `Quick Launch Bar control`,
+    /// which provides quick access to various pages and displays user and network status information.
+    /// </summary>
     public QuickLaunchBar()
     {
         this.InitializeComponent();
-        this.UserAvatarImageUri = "ms-appx:///Assets/Images/DefaultAvatar.png";
-        this.UserDisplayName = $"Windows User: `{Environment.UserName}`";
+//        this.UserAvatarImageUri = "ms-appx:///Assets/Images/DefaultAvatar.png";
 
-        // Vanara Jñāna
+        _ = this.InitializeStatusAsync();
     }
 
     private async Task InitializeStatusAsync()
     {
-        NetworkStatus = "pending...";
-        GitHubUserStatus = "checking...";
+        this.UserDisplayName = $"Windows User: `{Environment.UserName}`";
+        this.NetworkStatus = "Network status pending...";
+        this.GitHubUserStatus = "Checking GitHub User...";
 
-        // Netzwerk prüfen
-        bool networkOk = await CheckNetworkAsync();
-        NetworkStatus = networkOk ? "Online" : "Offline";
+        // Network status
+        var networkOk = await CheckNetworkAsync();
+        this.NetworkStatus = networkOk ? "Network status: Online" : "Network status: Offline";
 
-        // GitHub prüfen
-        bool githubOk = await CheckGitHubAsync();
-        GitHubUserStatus = githubOk ? "Online" : "Offline";
+        // GitHub user status
+        var githubOk = await CheckGitHubAsync();
+        this.GitHubUserStatus = githubOk ? "GitHub status: Online" : "GitHub status: Offline";
     }
 
     private async Task<bool> CheckNetworkAsync()
@@ -109,7 +127,11 @@ public sealed partial class QuickLaunchBar : UserControl
             var reply = await ping.SendPingAsync("8.8.8.8", 2000);
             return reply.Status == IPStatus.Success;
         }
-        catch { return false; }
+        catch
+        {
+            Debug.Fail("Failed to check network connectivity.");
+            return false;
+        }
     }
 
     private async Task<bool> CheckGitHubAsync()
@@ -121,7 +143,11 @@ public sealed partial class QuickLaunchBar : UserControl
             var response = await client.GetAsync("https://api.github.com/");
             return response.IsSuccessStatusCode;
         }
-        catch { return false; }
+        catch
+        {
+            Debug.Fail("Failed to check GitHub connectivity.");
+            return false;
+        }
     }
 
     /// <summary>
@@ -129,7 +155,7 @@ public sealed partial class QuickLaunchBar : UserControl
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e"></param>
-    private void OnGitHubClick(object sender, RoutedEventArgs e)
+    private void OnGitHubBrowserClick(object sender, RoutedEventArgs e)
         => this.RaisePageRequested(typeof(GitHubPage));
 
     /// <summary>
