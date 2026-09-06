@@ -7,18 +7,18 @@ public sealed partial class GaugeControl : UserControl
 {
     public GaugeControl()
     {
-        InitializeComponent();
+        this.InitializeComponent();
         this.DataContext = new GaugeControlViewModel();
     }
 }
 
 public class GaugeControlViewModel
 {
-    public Point ArcEndPoint => CalculateArcPoint(Percent * 1.8 - 90);
-    public bool IsLargeArc => Percent > 50;
+    public Point ArcEndPoint => this.CalculateArcPoint(this.Percent * 1.8 - 90);
+    public bool IsLargeArc => this.Percent > 50;
     public double Minimum { get; set; } = 0;
     public double Maximum { get; set; } = 100;
-    public double NeedleAngle => Percent * 1.8 - 90; // 0% = -90° (links), 100% = +90° (rechts)
+    public double NeedleAngle => this.Percent * 1.8 - 90; // 0% = -90° (links), 100% = +90° (rechts)
     public double Percent { get; set; } // 0–100
     public double Value { get; set; }
 

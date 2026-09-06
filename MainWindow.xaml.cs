@@ -21,31 +21,31 @@ public sealed partial class MainWindow : Window
 
     public MainWindow(MicaController micaController, SystemBackdropConfiguration configuration)
     {
-        _micaController = micaController;
-        _configuration = configuration;
-        InitializeComponent();
-        TrySetMicaBackdrop();
+        this._micaController = micaController;
+        this._configuration = configuration;
+        this.InitializeComponent();
+        this.TrySetMicaBackdrop();
 
-        _navigationService = new NavigationService();
+        this._navigationService = new NavigationService();
         // TODO: Restore Navigation handling when NavigationService is implemented
         //_navigationService.OnPageNavigated += (sender, e) => NavigationHost.ShowPage(e.PageInstance);
 
         var workbench = new WorkbenchPage();
-        NavigationHost.ShowPage(workbench);
-        _navigationService.Navigate(typeof(WorkbenchPage));
+        this.NavigationHost.ShowPage(workbench);
+        this._navigationService.Navigate(typeof(WorkbenchPage));
     }
 
     private void TrySetMicaBackdrop()
     {
-        _configuration = new SystemBackdropConfiguration
+        this._configuration = new SystemBackdropConfiguration
         {
             IsInputActive = true,
             Theme = SystemBackdropTheme.Default
         };
 
-        _micaController = new MicaController();
+        this._micaController = new MicaController();
         // Todo: this fails:
         //   _micaController.AddSystemBackdropTarget(this.As<Microsoft.UI.Composition.ICompositionSupportsSystemBackdrop>());
-        _micaController.SetSystemBackdropConfiguration(_configuration);
+        this._micaController.SetSystemBackdropConfiguration(this._configuration);
     }
 }

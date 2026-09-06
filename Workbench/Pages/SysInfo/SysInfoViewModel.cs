@@ -21,32 +21,32 @@ public partial class SysInfoViewModel : INotifyPropertyChanged
 
     public double CpuUsage
     {
-        get => _cpuUsage;
-        private set { _cpuUsage = value; OnPropertyChanged(nameof(CpuUsage)); }
+        get => this._cpuUsage;
+        private set { this._cpuUsage = value; this.OnPropertyChanged(nameof(this.CpuUsage)); }
     }
 
     public double RamUsed
     {
-        get => _ramUsed;
-        private set { _ramUsed = value; OnPropertyChanged(nameof(RamUsed)); }
+        get => this._ramUsed;
+        private set { this._ramUsed = value; this.OnPropertyChanged(nameof(this.RamUsed)); }
     }
 
     public double RamTotal
     {
-        get => _ramTotal;
-        private set { _ramTotal = value; OnPropertyChanged(nameof(RamTotal)); }
+        get => this._ramTotal;
+        private set { this._ramTotal = value; this.OnPropertyChanged(nameof(this.RamTotal)); }
     }
 
     public string GpuName
     {
-        get => _gpuName;
-        private set { _gpuName = value; OnPropertyChanged(nameof(GpuName)); }
+        get => this._gpuName;
+        private set { this._gpuName = value; this.OnPropertyChanged(nameof(this.GpuName)); }
     }
 
     public double GpuVram
     {
-        get => _gpuVram;
-        private set { _gpuVram = value; OnPropertyChanged(nameof(GpuVram)); }
+        get => this._gpuVram;
+        private set { this._gpuVram = value; this.OnPropertyChanged(nameof(this.GpuVram)); }
     }
 
     private void OnPropertyChanged([CallerMemberName] string? name = null)
@@ -91,8 +91,8 @@ public partial class SysInfoViewModel : INotifyPropertyChanged
 
     public SysInfoViewModel()
     {
-        OSVersion = Environment.OSVersion.ToString();
-        MachineName = Environment.MachineName;
+        this.OSVersion = Environment.OSVersion.ToString();
+        this.MachineName = Environment.MachineName;
         this.WinAppSdkVersion = typeof(App).Assembly.GetName().Version?.ToString() ?? "unknown";
 
         // WinAppSdkVersion = Microsoft.WindowsAppSDK.Version;
@@ -112,12 +112,12 @@ public partial class SysInfoViewModel : INotifyPropertyChanged
         //        GpuName = gpu.name;
         //        GpuVram = gpu.vramGb;
 
-        _timer = new DispatcherTimer
+        this._timer = new DispatcherTimer
         {
             Interval = TimeSpan.FromSeconds(1)
         };
-        _timer.Tick += Update;
-        _timer.Start();
+        this._timer.Tick += this.Update;
+        this._timer.Start();
     }
 
     private void Update(object sender, object e)

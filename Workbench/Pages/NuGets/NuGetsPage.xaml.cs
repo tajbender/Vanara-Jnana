@@ -6,8 +6,8 @@ public sealed partial class NuGetsPage : Page
 {
     public NuGetsPage()
     {
-        InitializeComponent();
-        Initialize();
+        this.InitializeComponent();
+        this.Initialize();
     }
 
     private void Initialize()

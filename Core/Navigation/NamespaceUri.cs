@@ -33,10 +33,10 @@ public sealed class NamespaceUri
     private NamespaceUri(string scheme, string path,
         IReadOnlyDictionary<string, string> parameters, string fragment)
     {
-        Scheme = scheme;
-        Path = path;
-        Parameters = parameters;
-        Fragment = fragment;
+        this.Scheme = scheme;
+        this.Path = path;
+        this.Parameters = parameters;
+        this.Fragment = fragment;
     }
 
     // TODO: Implement the Resolve method to find the appropriate provider and resolve the URI to a NamespaceNode

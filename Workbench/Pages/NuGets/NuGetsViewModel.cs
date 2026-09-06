@@ -20,13 +20,13 @@ namespace Jnana.Workbench.NuGet
 
         public NuGetsViewModel(INuGetCatalogService catalogService)
         {
-            _catalogService = catalogService;
+            this._catalogService = catalogService;
         }
 
         [RelayCommand]
         public async Task LoadAsync()
         {
-            Packages.Clear();
+            this.Packages.Clear();
             // TODO:            var results = await _catalogService.SearchAsync(searchQuery);
             // TODO:            foreach (var pkg in results)
             // TODO:                Packages.Add(pkg);
@@ -35,7 +35,7 @@ namespace Jnana.Workbench.NuGet
         [RelayCommand]
         public void NavigateToPackage(NuGetPackageInfo package)
         {
-            selectedPackage = package;
+            this.selectedPackage = package;
 
             // Workbench-Morphing:
             // NavigationService.MorphTo("nuget://" + package.Id);

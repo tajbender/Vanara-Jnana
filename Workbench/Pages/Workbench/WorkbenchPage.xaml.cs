@@ -9,7 +9,7 @@ public sealed partial class WorkbenchPage : Page
 {
     public WorkbenchPage()
     {
-        InitializeComponent();
+        this.InitializeComponent();
 
         //LaunchBar.PageRequested += OnPageRequested;
     }
@@ -22,8 +22,8 @@ public sealed partial class WorkbenchPage : Page
             var page = Activator.CreateInstance(pageType);
 
             // WorkbenchContent wird ersetzt
-            WorkbenchContent.Children.Clear();
-            WorkbenchContent.Children.Add(item: page as UIElement);
+            this.WorkbenchContent.Children.Clear();
+            this.WorkbenchContent.Children.Add(item: page as UIElement);
         }
         catch
         {

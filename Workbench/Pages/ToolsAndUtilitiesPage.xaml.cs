@@ -12,7 +12,7 @@ namespace Jnana.Workbench.Pages
     {
         public ToolsAndUtilitiesPage()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
     }
 }

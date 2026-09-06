@@ -10,7 +10,7 @@ public sealed partial class WorkbenchTile : UserControl
 
     public WorkbenchTile()
     {
-        InitializeComponent();
+        this.InitializeComponent();
     }
 
     private void Grid_OnTapped(object sender, TappedRoutedEventArgs e)

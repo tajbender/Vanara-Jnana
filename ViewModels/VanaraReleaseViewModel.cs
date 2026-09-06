@@ -19,7 +19,7 @@ public class VanaraReleaseViewModel : INotifyPropertyChanged
     {
         LoadFailed += (s, e) => { /* Handle load failure */ };
         PropertyChanged += static (s, e) => { };
-        _ = LoadAsync();
+        _ = this.LoadAsync();
     }
 
 
@@ -28,11 +28,11 @@ public class VanaraReleaseViewModel : INotifyPropertyChanged
         try
         {
             var items = await GitHubApi.GetLatestReleasesAsync();
-            Releases.Clear();
+            this.Releases.Clear();
             foreach (var r in items)
-                Releases.Add(r);
+                this.Releases.Add(r);
 
-            OnPropertyChanged(nameof(Releases));
+            this.OnPropertyChanged(nameof(this.Releases));
         }
         catch
         {

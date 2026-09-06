@@ -22,7 +22,7 @@ public partial class App : Application
     /// </summary>
     public App()
     {
-        InitializeComponent();
+        this.InitializeComponent();
     }
 
     /// <summary>
@@ -33,7 +33,7 @@ public partial class App : Application
     {
         // TODO: await ServiceHost.InitializeAsync(@"C:\Dev\MyProject\MyProject.csproj");
 
-        _window = new MainWindow(null, /* TODO */ null);
-        _window.Activate();
+        this._window = new MainWindow(null, /* TODO */ null);
+        this._window.Activate();
     }
 }

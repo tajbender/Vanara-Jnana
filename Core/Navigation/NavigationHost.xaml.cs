@@ -6,11 +6,11 @@ public sealed partial class NavigationHost : UserControl
 {
     public NavigationHost()
     {
-        InitializeComponent();
+        this.InitializeComponent();
     }
 
     public void ShowPage(object pageInstance)
     {
-        Presenter.Content = pageInstance;
+        this.Presenter.Content = pageInstance;
     }
 }

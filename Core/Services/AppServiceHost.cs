@@ -18,17 +18,17 @@ public sealed class AppServiceHost
         // Decorators
         var cachedGraph = new NuGetDependencyGraphCache(coreGraph);
 
-        DependencyGraphService = cachedGraph;
+        this.DependencyGraphService = cachedGraph;
 
         // ViewModels
-        NuGetTreeViewModel = new NuGetTreeViewModel(DependencyGraphService);
+        this.NuGetTreeViewModel = new NuGetTreeViewModel(this.DependencyGraphService);
 
         // Preload
-        PreLoadService = new NuGetPreLoadService(NuGetTreeViewModel);
+        this.PreLoadService = new NuGetPreLoadService(this.NuGetTreeViewModel);
     }
 
     public async Task InitializeAsync(string projectPath)
     {
-        await PreLoadService.PreLoadAsync(projectPath);
+        await this.PreLoadService.PreLoadAsync(projectPath);
     }
 }

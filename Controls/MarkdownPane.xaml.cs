@@ -7,7 +7,7 @@ namespace Jnana.Controls;
 
 public sealed partial class MarkdownPane : UserControl
 {
-    private MarkdownPaneViewModel ViewModel => (MarkdownPaneViewModel)DataContext;
+    private MarkdownPaneViewModel ViewModel => (MarkdownPaneViewModel)this.DataContext;
     public MarkdownPane()
     {
         //InitializeComponent();
@@ -19,9 +19,9 @@ internal class MarkdownPaneViewModel
 {
     public MarkdownPaneViewModel()
     {
-        OpenCommand = new RelayCommand(Open);
-        SaveCommand = new RelayCommand(Save);
-        TogglePreviewCommand = new RelayCommand(TogglePreview);
+        this.OpenCommand = new RelayCommand(this.Open);
+        this.SaveCommand = new RelayCommand(this.Save);
+        this.TogglePreviewCommand = new RelayCommand(this.TogglePreview);
     }
 
     public ICommand OpenCommand { get; }
@@ -30,7 +30,7 @@ internal class MarkdownPaneViewModel
     public string MarkdownText { get; set; } = string.Empty;
     private bool _isPreviewVisible { get; set; } = true;
 
-    public Visibility PreviewVisibility => _isPreviewVisible ? Visibility.Visible : Visibility.Collapsed;
+    public Visibility PreviewVisibility => this._isPreviewVisible ? Visibility.Visible : Visibility.Collapsed;
 
     private void Open()
     {

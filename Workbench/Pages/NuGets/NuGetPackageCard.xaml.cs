@@ -6,6 +6,6 @@ public sealed partial class NuGetPackageCard : UserControl
 {
     public NuGetPackageCard()
     {
-        InitializeComponent();
+        this.InitializeComponent();
     }
 }

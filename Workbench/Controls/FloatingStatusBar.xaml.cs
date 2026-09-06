@@ -67,8 +67,8 @@ public sealed partial class FloatingStatusBar : UserControl, IStatusService
 
     public FloatingStatusBar()
     {
-        InitializeComponent();
-        _hideTimer.Tick += (_, __) => Hide();
+        this.InitializeComponent();
+        this._hideTimer.Tick += (_, __) => this.Hide();
 
         // OnAreaMenuTapped
     }

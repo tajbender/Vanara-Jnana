@@ -8,9 +8,24 @@
     mc:Ignorable="d">
 
     <Grid VerticalAlignment="Stretch">
-        <Image Source="/Assets/StoreLogo.png" MaxWidth="100"/>
         <StackPanel HorizontalAlignment="Stretch" HorizontalSnapPointsChanged="StackPanel_HorizontalSnapPointsChanged" 
                     Orientation="Vertical" Padding="8" Spacing="8" VerticalAlignment="Stretch">
+
+            <StackPanel Orientation="Horizontal" Margin="12,8,0,0">
+                <Border Width="40" Height="40" CornerRadius="20">
+                    <Image Source="/Assets/StoreLogo.png"/>
+                    <!--<Image Source="{x:Bind UserAvatarImageUri}" Stretch="UniformToFill"/>-->
+                </Border>
+                <TextBlock Text="{x:Bind UserDisplayName}" 
+                           FontWeight="SemiBold" 
+                           VerticalAlignment="Center" 
+                           Margin="8,0,0,0"/>
+                <TextBlock Text="{x:Bind GitHubStatus}" 
+                           Foreground="{ThemeResource AccentFillColorDefaultBrush}" 
+                           VerticalAlignment="Center" 
+                           Margin="6,0,0,0"/>
+            </StackPanel>
+
             <Button Click="OnWorkbenchClick" CornerRadius="6" HorizontalAlignment="Stretch" >
                 <StackPanel Orientation="Vertical" Padding="8" Spacing="8">
                     <FontIcon Glyph="&#xEC7A;"/>
@@ -60,7 +75,8 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <FontIcon Grid.Column="0" Glyph="&#xE7F8;"/> <!-- TODO: Replace with SysInfo -->
+                <FontIcon Grid.Column="0" Glyph="&#xE7F8;"/>
+                <!-- TODO: Replace with SysInfo -->
                 <FontIcon Grid.Column="1" Glyph="&#xE9D9;"/>
                 <FontIcon Grid.Column="2" Glyph="&#xE9D9;"/>
             </Grid>

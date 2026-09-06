@@ -31,12 +31,12 @@ public sealed class NuGetCatalogService : INuGetCatalogService
     public NuGetCatalogService()
     {
         var source = new PackageSource("https://api.nuget.org/v3/index.json");
-        _repo = Repository.Factory.GetCoreV3(source);
+        this._repo = Repository.Factory.GetCoreV3(source);
     }
 
     public async Task<IReadOnlyList<NuGetPackageInfo>> SearchPackagesAsync(string query)
     {
-        var search = await _repo.GetResourceAsync<PackageSearchResource>();
+        var search = await this._repo.GetResourceAsync<PackageSearchResource>();
         var results = await search.SearchAsync(query, new SearchFilter(true), 0, 50, NullLogger.Instance, CancellationToken.None);
 
         return results.Select(r => new NuGetPackageInfo
@@ -50,13 +50,13 @@ public sealed class NuGetCatalogService : INuGetCatalogService
 
     public async Task<NuGetPackageInfo?> GetPackageMetadataAsync(string packageId)
     {
-        var meta = await _repo.GetResourceAsync<PackageMetadataResource>();
+        var meta = await this._repo.GetResourceAsync<PackageMetadataResource>();
 
         var results = await meta.GetMetadataAsync(
             packageId,
             includePrerelease: true,
             includeUnlisted: false,
-            _cache,
+            this._cache,
             NullLogger.Instance,
             CancellationToken.None);
 
@@ -79,7 +79,7 @@ public sealed class NuGetCatalogService : INuGetCatalogService
 
     public async Task<Stream?> DownloadPackageAsync(string packageId, string version)
     {
-        var download = await _repo.GetResourceAsync<DownloadResource>();
+        var download = await this._repo.GetResourceAsync<DownloadResource>();
         var result = await download.GetDownloadResourceResultAsync(
             new PackageIdentity(packageId, NuGetVersion.Parse(version)),
             new PackageDownloadContext(new SourceCacheContext()),
@@ -92,7 +92,7 @@ public sealed class NuGetCatalogService : INuGetCatalogService
 
     public async Task<string?> GetReadmeMarkdownAsync(string packageId, string version)
     {
-        using var pkg = await DownloadPackageAsync(packageId, version);
+        using var pkg = await this.DownloadPackageAsync(packageId, version);
         if (pkg == null)
             return null;
 
