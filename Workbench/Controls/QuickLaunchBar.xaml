@@ -17,12 +17,14 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
-                    <Image Grid.Column="0" Grid.RowSpan="2" HorizontalAlignment="Center" Margin="12,12,12,24" MaxHeight="76" Source="/Assets/StoreLogo.png" VerticalAlignment="Stretch"/>
-                    <TextBlock Grid.Column="0" Grid.Row="2" FontWeight="SemiBold" HorizontalAlignment="Center" Margin="8,0,0,0" Text="Vanara Jnana - v1.269 (debug)" VerticalAlignment="Top"/>
+                    <Image Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" Margin="12,12,12,24" MaxHeight="76" Source="/Assets/StoreLogo.png" VerticalAlignment="Stretch"/>
+                    <TextBlock Grid.Column="0" Grid.Row="1" FontWeight="SemiBold" HorizontalAlignment="Center" Margin="8,0,0,0" Text="Vanara Jñāna" VerticalAlignment="Top"/>
+                    <TextBlock Grid.Column="0" Grid.Row="2" FontWeight="SemiBold" HorizontalAlignment="Center" Margin="8,0,0,0" Text="v1.269 (debug)" VerticalAlignment="Top"/>
+
                     <Border Grid.Column="1" Grid.Row="0" CornerRadius="20" BorderBrush="{ThemeResource AccentFillColorDefaultBrush}" BorderThickness="3">
                         <TextBlock FontWeight="SemiBold" Margin="8,0,0,0" Text="{x:Bind UserDisplayName}" VerticalAlignment="Center"/>
                     </Border>

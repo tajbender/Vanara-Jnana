@@ -164,9 +164,9 @@
     <PublishTrimmed Condition="'$(Configuration)' == 'Debug'">False</PublishTrimmed>
     <PublishTrimmed Condition="'$(Configuration)' != 'Debug'">True</PublishTrimmed>
     <StartupObject>Jnana.Program</StartupObject>
-    <ApplicationIcon>Assets\Icons\Vamara Icon.ico</ApplicationIcon>
+    <ApplicationIcon>Assets\Icons\vanara-Jnana.ico</ApplicationIcon>
     <IncludeSymbols>True</IncludeSymbols>
-    <PackageIcon>Vamara Icon.ico</PackageIcon>
+    <PackageIcon>Square44x44Logo.scale-200.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageReleaseNotes>debug build - do not use in productive environment</PackageReleaseNotes>
     <AssemblyVersion>1.269.96.1</AssemblyVersion>
@@ -380,7 +380,6 @@
     <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\wsl-remote-extension.png" />
     <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\LICENSE.md" />
     <Content Remove="Assets\Icons\vanara-Heading.png" />
-    <Content Remove="Assets\Icons\vanara-Jnana.ico" />
     <Content Remove="Assets\Styles\LonghornTitleBar.xaml" />
   </ItemGroup>
   <ItemGroup>
@@ -659,7 +658,6 @@
     <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\LICENSE.md">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\Icons\vanara-Heading.png" />
     <EmbeddedResource Include="Assets\Icons\vanara-Jnana.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -677,6 +675,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Update="Assets\Icons\Vamara Icon.ico">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="Assets\Square44x44Logo.scale-200.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>

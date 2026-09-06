@@ -90,7 +90,7 @@ public sealed partial class QuickLaunchBar : UserControl
             typeof(QuickLaunchBar),
             new PropertyMetadata(string.Empty));
 
-    public event Action<Type>? PageRequested;
+    public event Action<object, Type, RoutedEventArgs>? PageRequested;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="QuickLaunchBar"/> class. This is the `Vanara Jñāna Workbench` `Quick Launch Bar control`,
@@ -156,56 +156,58 @@ public sealed partial class QuickLaunchBar : UserControl
     /// <param name="sender"></param>
     /// <param name="e"></param>
     private void OnGitHubBrowserClick(object sender, RoutedEventArgs e)
-        => this.RaisePageRequested(typeof(GitHubPage));
-
+        => this.RaisePageRequested(sender, typeof(GitHubPage), e);
     /// <summary>
     /// Handles the click event for the NuGets button.
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e"></param>
     private void OnNuGetsClick(object sender, RoutedEventArgs e)
-        => this.RaisePageRequested(typeof(NuGetsPage));
-
+        => this.RaisePageRequested(sender, typeof(NuGetsPage), e);
     /// <summary>
     /// Handles the click event for the Samples button.
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e"></param>
     private void OnSamplesClick(object sender, RoutedEventArgs e)
-        => this.RaisePageRequested(typeof(SamplesPage));
+        => this.RaisePageRequested(sender, typeof(SamplesPage), e);
     /// <summary>
     /// Handles the click event for the System Information button.
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e"></param>
     private void OnSysInfoClick(object sender, RoutedEventArgs e)
-        => this.RaisePageRequested(typeof(SysInfoPage));
+        => this.RaisePageRequested(sender, typeof(SysInfoPage), e);
     /// <summary>
     /// Handles the click event for the Tools and Utilities button.
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e"></param>
     private void OnToolsAndUtilitiesClick(object sender, RoutedEventArgs e)
-        => this.RaisePageRequested(typeof(ToolsAndUtilitiesPage));
-
+        => this.RaisePageRequested(sender, typeof(ToolsAndUtilitiesPage), e);
     /// <summary>
     /// Handles the click event for the Workbench button.
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e"></param>
     private void OnWorkbenchClick(object sender, RoutedEventArgs e)
-        => this.RaisePageRequested(typeof(WorkbenchPage));
-
+        => this.RaisePageRequested(sender, typeof(WorkbenchPage), e);
     /// <summary>
     /// Handles the click event for the Settings button.
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e"></param>
     private void OnSettingsClick(object sender, RoutedEventArgs e)
-        => this.RaisePageRequested(typeof(SettingsPage));
+        => this.RaisePageRequested(sender, typeof(SettingsPage), e);
 
-    private void RaisePageRequested(Type pageType)
-        => PageRequested?.Invoke(pageType);
+    /// <summary>
+    /// Raises the PageRequested event with the specified page type.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="pageType"></param>
+    /// <param name="args"></param>
+    private void RaisePageRequested(object sender, Type pageType, RoutedEventArgs args)
+        => PageRequested?.Invoke(sender, pageType, args);
 
     private void StackPanel_HorizontalSnapPointsChanged(object sender, object e)
     {
