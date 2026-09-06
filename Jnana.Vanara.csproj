@@ -169,35 +169,42 @@
     <PackageIcon>Vamara Icon.ico</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageReleaseNotes>debug build - do not use in productive environment</PackageReleaseNotes>
-    <AssemblyVersion>1.269.1.0</AssemblyVersion>
-    <FileVersion>1.269.1.0</FileVersion>
+    <AssemblyVersion>1.269.96.1</AssemblyVersion>
+    <FileVersion>1.269.96.1</FileVersion>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <Title>Vanara Jñāna</Title>
-    <PackageTags>Jnana;UWP;Vanara;Shell32;Win32;WindowsForms;WinUI</PackageTags>
+    <PackageTags>Jnana;Vanara;Shell32;Win32;WindowsForms;WinUI</PackageTags>
+    <NeutralLanguage>en</NeutralLanguage>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
     <Optimize>False</Optimize>
     <FileAlignment>2048</FileAlignment>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Optimize>False</Optimize>
     <FileAlignment>2048</FileAlignment>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
     <Optimize>False</Optimize>
     <FileAlignment>2048</FileAlignment>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
     <Optimize>False</Optimize>
     <FileAlignment>2048</FileAlignment>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Optimize>False</Optimize>
     <FileAlignment>2048</FileAlignment>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
     <Optimize>False</Optimize>
     <FileAlignment>2048</FileAlignment>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
   </PropertyGroup>
   <ItemGroup>
     <PRIResource Remove="Workbench\Controls\NuGetsTreeView\**" />
@@ -372,6 +379,8 @@
     <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\wsl-icon.png" />
     <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\wsl-remote-extension.png" />
     <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\LICENSE.md" />
+    <Content Remove="Assets\Icons\vanara-Heading.png" />
+    <Content Remove="Assets\Icons\vanara-Jnana.ico" />
     <Content Remove="Assets\Styles\LonghornTitleBar.xaml" />
   </ItemGroup>
   <ItemGroup>
@@ -650,6 +659,8 @@
     <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\LICENSE.md">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Assets\Icons\vanara-Heading.png" />
+    <EmbeddedResource Include="Assets\Icons\vanara-Jnana.ico" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
