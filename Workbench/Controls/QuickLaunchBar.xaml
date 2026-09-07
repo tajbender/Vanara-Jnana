@@ -24,13 +24,13 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <TextBlock Grid.Column="0" Grid.Row="0" FontWeight="SemiBold" HorizontalAlignment="Left" Text="Vanara Jñāna" VerticalAlignment="Top"/>
-                    <TextBlock Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" Text="v1.269 (debug) - tres hombres" Padding="7"/>
-                    <Image Grid.Column="0" Grid.Row="2" Grid.RowSpan="2" HorizontalAlignment="Left" MaxHeight="128" Opacity="0.66" Source="/Assets/StoreLogo.png" VerticalAlignment="Stretch">
+                    <Image Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Left" MaxHeight="128" Opacity="0.66" Source="/Assets/StoreLogo.png" VerticalAlignment="Stretch">
                         <Image.OpacityTransition>
                             <ScalarTransition Duration="0:0:0.3"/>
                         </Image.OpacityTransition>
                     </Image>
                     <!-- Right side of the grid -->
+                    <TextBlock Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" Text="v1.269 (debug) - tres hombres" Padding="7"/>
                     <Border Grid.Column="1" Grid.Row="1" CornerRadius="7" BorderThickness="3" HorizontalAlignment="Left">
                         <TextBlock FontWeight="SemiBold" Margin="7" Text="{x:Bind UserDisplayName}" VerticalAlignment="Bottom"/>
                     </Border>
@@ -86,6 +86,7 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <FontIcon Grid.Column="0" Grid.Row="0" Glyph="&#xE7F8;"/>
                     <FontIcon Grid.Column="1" Grid.Row="0" Glyph="&#xE9D9;"/>
@@ -93,19 +94,24 @@
                     <FontIcon Grid.Column="0" Grid.Row="1" Glyph="&#xE9D9;"/>
                     <FontIcon Grid.Column="0" Grid.Row="2" Glyph="&#xE7F8;"/>
                     <FontIcon Grid.Column="1" Grid.Row="2" Glyph="&#xE9D9;"/>
+                    <Button Grid.Column="0" Grid.Row="2" Click="OnSysInfoClick" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
+                        <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
+                            <FontIcon Glyph="&#xEC7A;" />
+                            <TextBlock Text="System Information" HorizontalTextAlignment="Center" TextWrapping="WrapWholeWords"/>
+                        </StackPanel>
+                    </Button>
+
+                    <Button Grid.Column="1" Grid.Row="2" Click="OnSettingsClick" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
+                        <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
+                            <FontIcon Glyph="&#xEC7A;" />
+                            <TextBlock Text="Settings and Preferences" HorizontalTextAlignment="Center" TextWrapping="WrapWholeWords"/>
+                        </StackPanel>
+                    </Button>
                 </Grid>
-                <Button Click="OnSysInfoClick" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
-                    <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
-                        <FontIcon Glyph="&#xEC7A;" />
-                        <TextBlock Text="System Information" HorizontalTextAlignment="Center" TextWrapping="WrapWholeWords"/>
-                    </StackPanel>
-                </Button>
-                <Button Click="OnSettingsClick" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
-                    <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
-                        <FontIcon Glyph="&#xEC7A;" />
-                        <TextBlock Text="Settings and Preferences" HorizontalTextAlignment="Center" TextWrapping="WrapWholeWords"/>
-                    </StackPanel>
-                </Button>
+
+
+
+
             </StackPanel>
         </Border>
     </Grid>

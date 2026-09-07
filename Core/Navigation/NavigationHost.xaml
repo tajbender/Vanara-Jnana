@@ -20,7 +20,7 @@
                 BorderBrush="{ThemeResource SystemControlTransparentRevealBorderBrush}"
                 BorderThickness="3" CornerRadius="32" Margin="12">
             <!--<controls:AttachDropShadow BlurRadius="16" ShadowOpacity="0.35" OffsetX="0" OffsetY="4"> -->
-                <ContentPresenter x:Name="Presenter" />
+            <ContentPresenter x:Name="Presenter" />
         </Border>
         <VariableSizedWrapGrid Grid.Column="1">
             <ContentPresenter x:Name="SideBarPresenter" />
@@ -28,7 +28,9 @@
         <!--<Border Grid.Column="1" Background="{ThemeResource SolidBackgroundFillColorBaseBrush}"
                 BorderBrush="{ThemeResource SystemControlTransparentRevealBorderBrush}"
                 BorderThickness="3" CornerRadius="32" Margin="12" >
-            --><!--<controls:DropShadowPanel BlurRadius="16" ShadowOpacity="0.35" OffsetX="0" OffsetY="4"> --><!--
+            -->
+        <!--<controls:DropShadowPanel BlurRadius="16" ShadowOpacity="0.35" OffsetX="0" OffsetY="4"> -->
+        <!--
                 <ContentPresenter x:Name="SideBarPresenter" />
         </Border>-->
     </Grid>
