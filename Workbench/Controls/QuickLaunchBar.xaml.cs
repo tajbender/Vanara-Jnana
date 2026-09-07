@@ -99,8 +99,6 @@ public sealed partial class QuickLaunchBar : UserControl
     public QuickLaunchBar()
     {
         this.InitializeComponent();
-//        this.UserAvatarImageUri = "ms-appx:///Assets/Images/DefaultAvatar.png";
-
         _ = this.InitializeStatusAsync();
     }
 

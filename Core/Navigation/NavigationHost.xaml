@@ -9,22 +9,28 @@
     mc:Ignorable="d">
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition>*</ColumnDefinition>
+            <ColumnDefinition>*</ColumnDefinition>
+            <ColumnDefinition>*</ColumnDefinition>
+        </Grid.ColumnDefinitions>
         <!-- TODO: Implement navigation host -->
         <!-- <Frame x:Name="RootFrame" NavigationUIVisibility="Hidden"/> -->
-        <Border Background="{ThemeResource SolidBackgroundFillColorBaseBrush}"
+        <Border Grid.Column="0" Background="{ThemeResource SolidBackgroundFillColorBaseBrush}"
                 BorderBrush="{ThemeResource SystemControlTransparentRevealBorderBrush}"
                 BorderThickness="3" CornerRadius="32" Margin="12">
-            <controls:DropShadowPanel BlurRadius="16" ShadowOpacity="0.35" OffsetX="0" OffsetY="4">
+            <!--<controls:AttachDropShadow BlurRadius="16" ShadowOpacity="0.35" OffsetX="0" OffsetY="4"> -->
                 <ContentPresenter x:Name="Presenter" />
-            </controls:DropShadowPanel>
         </Border>
-
-        <Border Background="{ThemeResource SolidBackgroundFillColorBaseBrush}"
+        <VariableSizedWrapGrid Grid.Column="1">
+            <ContentPresenter x:Name="SideBarPresenter" />
+        </VariableSizedWrapGrid>
+        <!--<Border Grid.Column="1" Background="{ThemeResource SolidBackgroundFillColorBaseBrush}"
                 BorderBrush="{ThemeResource SystemControlTransparentRevealBorderBrush}"
                 BorderThickness="3" CornerRadius="32" Margin="12" >
-            <controls:DropShadowPanel BlurRadius="16" ShadowOpacity="0.35" OffsetX="0" OffsetY="4">
+            --><!--<controls:DropShadowPanel BlurRadius="16" ShadowOpacity="0.35" OffsetX="0" OffsetY="4"> --><!--
                 <ContentPresenter x:Name="SideBarPresenter" />
-            </controls:DropShadowPanel>
-        </Border>
+        </Border>-->
     </Grid>
 </UserControl>
+    
