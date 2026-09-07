@@ -31,7 +31,7 @@ Jñāna is currently in active development, with the Workbench transformation, M
 | Glyph | Module / Feature | Description | Status |
 | --- | --- | --- | --- |
 | ⚙️ | **Core Services** | NavigationHost, PageRegistry, AppServiceHost | ✅ Implemented |
-| 🧭 | **Navigation System** | Unified navigation, keyboard shortcuts, feature tiles | ✅ Active |
+| 🧭 | **Navigation System** | Unified navigation, keyboard shortcuts, feature tiles | 🟢 In progress |
 | 🧱 | **Workbench Framework** | Page skeletons, QuickLaunchBar, VoidPage | 🟢 In progress |
 | 📦 | **NuGet Tools** | Catalog service, dependency graph, caching | 🟢 In progress |
 | 💻 | **SysInfo Page** | Hardware info providers, ViewModel expansion | 🟢 In progress |
@@ -52,3 +52,5 @@ Jñāna is currently in active development, with the Workbench transformation, M
 | 🎨 | Theme Refinement | System buttons, JetBrains‑style polish | 🟢 Refining |
 
 ----
+
+(c) 2024 Vanara Jñāna. Licensed under the MIT License. See LICENSE for details. - last updated: 2024‑06‑15
