@@ -15,7 +15,7 @@
         </Grid.ColumnDefinitions>
 
         <!-- Workbench Content -->
-        <Grid x:Name="WorkbenchContent" Background="Transparent">
+        <Grid x:Name="WorkbenchContent" Grid.Column="0" Background="Transparent">
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Jñāna workbench" FontSize="32" FontWeight="SemiBold" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
                 <Border BorderThickness="3">
@@ -23,5 +23,7 @@
                 </Border>
             </StackPanel>
         </Grid>
+
+        <Grid Grid.Column="1"></Grid>
     </Grid>
 </Page>

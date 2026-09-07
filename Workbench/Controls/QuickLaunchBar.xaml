@@ -24,14 +24,14 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <TextBlock Grid.Column="0" Grid.Row="0" FontWeight="SemiBold" HorizontalAlignment="Left" Text="Vanara Jñāna" VerticalAlignment="Top"/>
-                    <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right" Text="v1.269 (debug) - tres hombres"/>
-                    <Image Grid.Column="0" Grid.Row="2" Grid.RowSpan="2" HorizontalAlignment="Stretch" MaxHeight="128" Opacity="0.8" Source="/Assets/StoreLogo.png" VerticalAlignment="Stretch">
+                    <TextBlock Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" Text="v1.269 (debug) - tres hombres" Padding="7"/>
+                    <Image Grid.Column="0" Grid.Row="2" Grid.RowSpan="2" HorizontalAlignment="Left" MaxHeight="128" Opacity="0.66" Source="/Assets/StoreLogo.png" VerticalAlignment="Stretch">
                         <Image.OpacityTransition>
                             <ScalarTransition Duration="0:0:0.3"/>
                         </Image.OpacityTransition>
                     </Image>
                     <!-- Right side of the grid -->
-                    <Border Grid.Column="1" Grid.Row="1" CornerRadius="7" BorderThickness="3">
+                    <Border Grid.Column="1" Grid.Row="1" CornerRadius="7" BorderThickness="3" HorizontalAlignment="Left">
                         <TextBlock FontWeight="SemiBold" Margin="7" Text="{x:Bind UserDisplayName}" VerticalAlignment="Bottom"/>
                     </Border>
                     <Border Grid.Column="1" Grid.Row="2" CornerRadius="7" BorderThickness="3">
