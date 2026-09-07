@@ -58,7 +58,7 @@
                 <Button Click="OnGitHubBrowserClick" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
                     <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal" Padding="8" Spacing="8">
                         <FontIcon Glyph="&#xEC7A;"/>
-                        <TextBlock Text="GitHub Browser" HorizontalTextAlignment="Left"/>
+                        <TextBlock Text="GitHub Browser" HorizontalTextAlignment="Left" VerticalAlignment="Center"/>
                         <ComboBox ItemsSource="{x:Bind GitHubBrowserItemSource}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                         <!--<FontIcon Glyph="&#xEC7A;"/>
                         <TextBlock Text="GitHub Browser" HorizontalTextAlignment="Left" TextWrapping="WrapWholeWords"/>-->
@@ -77,8 +77,8 @@
                         <TextBlock Text="Tools and Utilities" HorizontalTextAlignment="Left" TextWrapping="WrapWholeWords" />
                     </StackPanel>
                 </Button>
-                <Grid x:Name="FloatingBar" CornerRadius="8"
-                  HorizontalAlignment="Stretch" Opacity="0.95" Padding="42,23" VerticalAlignment="Bottom">
+                <Grid x:Name="FloatingBar" CornerRadius="8" HorizontalAlignment="Stretch" 
+                      Opacity="0.76" Padding="42,23" VerticalAlignment="Bottom">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
@@ -95,24 +95,19 @@
                     <FontIcon Grid.Column="0" Grid.Row="1" Glyph="&#xE9D9;"/>
                     <FontIcon Grid.Column="0" Grid.Row="2" Glyph="&#xE7F8;"/>
                     <FontIcon Grid.Column="1" Grid.Row="2" Glyph="&#xE9D9;"/>
-                    <Button Grid.Column="0" Grid.Row="2" Click="OnSysInfoClick" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
+                    <Button Grid.Column="0" Grid.Row="3" Click="OnSysInfoClick" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" Margin="3">
                         <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
                             <FontIcon Glyph="&#xEC7A;" />
-                            <TextBlock Text="System Information" HorizontalTextAlignment="Center" TextWrapping="WrapWholeWords"/>
+                            <TextBlock Text="System Info" HorizontalTextAlignment="Center" TextWrapping="WrapWholeWords"/>
                         </StackPanel>
                     </Button>
-
-                    <Button Grid.Column="1" Grid.Row="2" Click="OnSettingsClick" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
+                    <Button Grid.Column="1" Grid.Row="3" Click="OnSettingsClick" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" Margin="3">
                         <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
                             <FontIcon Glyph="&#xEC7A;" />
-                            <TextBlock Text="Settings and Preferences" HorizontalTextAlignment="Center" TextWrapping="WrapWholeWords"/>
+                            <TextBlock Text="Settings" HorizontalTextAlignment="Center"/>
                         </StackPanel>
                     </Button>
                 </Grid>
-
-
-
-
             </StackPanel>
         </Border>
     </Grid>
