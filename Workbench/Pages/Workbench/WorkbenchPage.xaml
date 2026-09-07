@@ -10,10 +10,9 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-
         <!-- Workbench Content -->
         <Grid x:Name="WorkbenchContent" Grid.Column="0" Background="Transparent">
             <StackPanel Orientation="Horizontal">
@@ -23,7 +22,9 @@
                 </Border>
             </StackPanel>
         </Grid>
-
-        <Grid Grid.Column="1"></Grid>
+        <!-- Tool Sidebar Content -->
+        <Grid x:Name="ToolSidebarContent" Grid.Column="1" Background="Transparent">
+            <TextBlock Text="Jñāna workbench sidebar coming soon" FontSize="32" FontWeight="SemiBold" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+        </Grid>
     </Grid>
 </Page>

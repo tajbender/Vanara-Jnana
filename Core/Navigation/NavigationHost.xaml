@@ -5,11 +5,26 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:CommunityToolkit.WinUI.UI.Controls"
     mc:Ignorable="d">
 
-    <!-- TODO: Implement navigation host -->
-    <!-- <Frame x:Name="RootFrame" NavigationUIVisibility="Hidden"/> -->
-    <Border>
-        <ContentPresenter x:Name="Presenter" />
-    </Border>
+    <Grid>
+        <!-- TODO: Implement navigation host -->
+        <!-- <Frame x:Name="RootFrame" NavigationUIVisibility="Hidden"/> -->
+        <Border Background="{ThemeResource SolidBackgroundFillColorBaseBrush}"
+                BorderBrush="{ThemeResource SystemControlTransparentRevealBorderBrush}"
+                BorderThickness="3" CornerRadius="32" Margin="12">
+            <controls:DropShadowPanel BlurRadius="16" ShadowOpacity="0.35" OffsetX="0" OffsetY="4">
+                <ContentPresenter x:Name="Presenter" />
+            </controls:DropShadowPanel>
+        </Border>
+
+        <Border Background="{ThemeResource SolidBackgroundFillColorBaseBrush}"
+                BorderBrush="{ThemeResource SystemControlTransparentRevealBorderBrush}"
+                BorderThickness="3" CornerRadius="32" Margin="12" >
+            <controls:DropShadowPanel BlurRadius="16" ShadowOpacity="0.35" OffsetX="0" OffsetY="4">
+                <ContentPresenter x:Name="SideBarPresenter" />
+            </controls:DropShadowPanel>
+        </Border>
+    </Grid>
 </UserControl>
