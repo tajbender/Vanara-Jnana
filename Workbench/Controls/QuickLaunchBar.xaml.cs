@@ -17,8 +17,9 @@ namespace Jnana.Workbench.Controls;
 public sealed partial class QuickLaunchBar : UserControl
 {
     private const string DefaultAvatarImageUri = "ms-appx:///Assets/Images/DefaultAvatar.png";
-    private String[] GitHubBrowserItemSource = new string[] { "dummy entry" };
+    private String[] GitHubBrowserItemSource = ["dummy entry", "another entry"];
 
+    //private string GitHubUserStatus
 
     /// <summary>
     /// Gets or sets the GitHub user status.
@@ -33,7 +34,7 @@ public sealed partial class QuickLaunchBar : UserControl
             nameof(GitHubUserStatus),
             typeof(string),
             typeof(QuickLaunchBar),
-            new PropertyMetadata("GitHub status: checking..."));
+            new PropertyMetadata("GitHub connection: pending..."));
 
     /// <summary>
     /// Gets or sets the network status.

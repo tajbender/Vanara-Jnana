@@ -47,13 +47,16 @@ public sealed class NuGetCatalogService : INuGetCatalogService
         Debug.Assert(search != null, nameof(search) + " != null");
         var results = await search.SearchAsync(query, new SearchFilter(true), 0, 50, NullLogger.Instance, CancellationToken.None);
 
-        return results.Select(r => new NuGetPackageInfo
-        {
-            Id = r.Identity.Id,
-            Version = r.Identity.Version.ToString(),
-            Description = r.Description,
-            Downloads = r.DownloadCount ?? 0
-        }).ToList();
+        return
+        [
+            .. results.Select(r => new NuGetPackageInfo
+            {
+                Id = r.Identity.Id,
+                Version = r.Identity.Version.ToString(),
+                Description = r.Description,
+                Downloads = r.DownloadCount ?? 0
+            })
+        ];
     }
 
     public async Task<NuGetPackageInfo?> GetPackageMetadataAsync(string packageId)

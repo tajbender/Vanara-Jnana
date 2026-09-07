@@ -7,17 +7,57 @@ namespace Jnana.Core.Navigation;
 
 public static class NamespaceProvider
 {
-    private static readonly List<INamespaceProvider> Providers = new()
-    {
+    private static readonly List<INamespaceProvider> Providers =
+    [
         new ShellProvider(),
         new WebProvider(),
         new ReflectionProvider(),
         new WorkbenchProvider()
-    };
+    ];
 
-    public static NamespaceNode Resolve(string uri)
-        => Resolve(NamespaceUri.Parse(uri));
+    /// <summary>
+    /// Resolves a namespace node for the specified URI.
+    /// </summary>
+    /// <param name="uri">The URI to resolve.</param>
+    /// <returns>The resolved namespace node, or null if not found.</returns>
+    public static NamespaceNode? Resolve(NamespaceUri uri)
+    {
+        return Providers.FirstOrDefault(p => p.CanHandle(uri))?.Resolve(uri);
+    }
 
-    public static NamespaceNode Resolve(NamespaceUri uri)
-        => Providers.FirstOrDefault(p => p.CanHandle(uri))?.Resolve(uri);
+
+    /// <summary>
+    /// Resolves a namespace node for the specified URI string.
+    /// </summary>
+    /// <param name="uri">The URI string to resolve.</param>
+    /// <returns>The resolved namespace node, or null if not found.</returns>
+//    public static NamespaceNode? Resolve(string uri)
+//    {
+//        return Resolve(NamespaceUri.Parse(uri));
+//    }
+
+    /// <summary>
+    /// Resolves all namespace nodes for the specified URI.
+    /// </summary>
+    /// <param name="uri">The URI to resolve.</param>
+    /// <returns>A list of resolved namespace nodes.</returns>
+//    public static List<NamespaceNode> ResolveAll(string uri)
+//    {
+//        return Resolve(NamespaceUri.Parse(uri));
+//    }
+
+    
+    /// <summary>
+    /// Resolves all namespace nodes for the specified URI.
+    /// </summary>
+    /// <param name="uri">The URI to resolve.</param>
+    /// <returns>A list of resolved namespace nodes.</returns>
+    public static List<NamespaceNode> ResolveAll(string uri)
+    {
+        return
+        [
+            .. Providers.Where(p => p.CanHandle(NamespaceUri.Parse(uri)))
+                .Select(p => p.Resolve(NamespaceUri.Parse(uri)))
+        ];
+    }
 }

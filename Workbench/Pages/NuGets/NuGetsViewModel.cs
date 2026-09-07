@@ -16,7 +16,7 @@ namespace Jnana.Workbench.NuGet
         [ObservableProperty]
         private NuGetPackageInfo? selectedPackage;
 
-        public ObservableCollection<NuGetPackageInfo> Packages { get; } = new();
+        public ObservableCollection<NuGetPackageInfo> Packages { get; } = [];
 
         public NuGetsViewModel(INuGetCatalogService catalogService)
         {

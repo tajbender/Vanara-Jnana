@@ -67,7 +67,7 @@
                 <Button Click="OnSamplesClick" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
                     <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
                         <FontIcon Glyph="&#xEC7A;" />
-                        <TextBlock Text="Samples and Science Labs" HorizontalTextAlignment="Left" TextWrapping="WrapWholeWords"/>
+                        <TextBlock Text="Samples and Jñāna science Labs" HorizontalTextAlignment="Left" TextWrapping="WrapWholeWords"/>
                     </StackPanel>
                 </Button>
                 <AppBarSeparator/>

@@ -8,7 +8,7 @@ namespace Jnana.ViewModels;
 
 public class VanaraReleaseViewModel : INotifyPropertyChanged
 {
-    public ObservableCollection<ReleaseInfo> Releases { get; } = new();
+    public ObservableCollection<ReleaseInfo> Releases { get; } = [];
 
     public event EventHandler LoadFailed;
     public event PropertyChangedEventHandler PropertyChanged;

@@ -16,7 +16,7 @@ public sealed class TugorGameState
     {
         this.IsRunning = true;
         this.ChaosLevel = 0;
-        this.ActiveModifiers = Array.Empty<string>();
+        this.ActiveModifiers = [];
     }
 
     public void ApplyChaos(string modifier)
