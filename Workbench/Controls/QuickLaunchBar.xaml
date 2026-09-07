@@ -9,8 +9,9 @@
 
     <Grid VerticalAlignment="Stretch">
         <Border Grid.Column="0" Grid.RowSpan="3" CornerRadius="32" BorderBrush="{ThemeResource SystemControlTransparentRevealBorderBrush}" BorderThickness="3">
-            <StackPanel HorizontalAlignment="Stretch" HorizontalSnapPointsChanged="StackPanel_HorizontalSnapPointsChanged" 
-                        Orientation="{x:Bind Orientation}" Padding="8" Spacing="8" VerticalAlignment="Stretch">
+            <StackPanel HorizontalAlignment="Stretch" Background="Black" HorizontalSnapPointsChanged="StackPanel_HorizontalSnapPointsChanged"
+                        Opacity=".75" Orientation="{x:Bind Orientation}" Padding="8" Spacing="8" VerticalAlignment="Stretch">
+                <!-- Header section -->
                 <Grid MaxHeight="256" Padding="23">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
@@ -22,11 +23,14 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
-                    <TextBlock Grid.Column="0" Grid.Row="0" FontWeight="SemiBold" HorizontalAlignment="Center" Text="Vanara Jñāna" VerticalAlignment="Top"/>
-                    <Image Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch" Source="/Assets/StoreLogo.png" VerticalAlignment="Stretch"/>
-                    <TextBlock Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" Margin="8,0,0,0" Text="v1.269 (debug)"/>
-                    <TextBlock Grid.Column="0" Grid.Row="3" FontStyle="Oblique" HorizontalAlignment="Center" Margin="8,0,0,0" Text="septa hombres"/>
-
+                    <TextBlock Grid.Column="0" Grid.Row="0" FontWeight="SemiBold" HorizontalAlignment="Left" Text="Vanara Jñāna" VerticalAlignment="Top"/>
+                    <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right" Text="v1.269 (debug) - tres hombres"/>
+                    <Image Grid.Column="0" Grid.Row="2" Grid.RowSpan="2" HorizontalAlignment="Stretch" MaxHeight="128" Opacity="0.8" Source="/Assets/StoreLogo.png" VerticalAlignment="Stretch">
+                        <Image.OpacityTransition>
+                            <ScalarTransition Duration="0:0:0.3"/>
+                        </Image.OpacityTransition>
+                    </Image>
+                    <!-- Right side of the grid -->
                     <Border Grid.Column="1" Grid.Row="1" CornerRadius="7" BorderThickness="3">
                         <TextBlock FontWeight="SemiBold" Margin="7" Text="{x:Bind UserDisplayName}" VerticalAlignment="Bottom"/>
                     </Border>
@@ -37,6 +41,7 @@
                         <TextBlock Text="{x:Bind GitHubUserStatus}" VerticalAlignment="Center"/>
                     </Border>
                 </Grid>
+                <!-- End of header section -->
                 <Button Click="OnWorkbenchClick" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
                     <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
                         <FontIcon Glyph="&#xEC7A;"/>
@@ -71,8 +76,8 @@
                         <TextBlock Text="Tools and Utilities" HorizontalTextAlignment="Left" TextWrapping="WrapWholeWords" />
                     </StackPanel>
                 </Button>
-                <Grid x:Name="FloatingBar" Background="{ThemeResource SolidBackgroundFillColorBaseBrush}" CornerRadius="8"
-                  HorizontalAlignment="Stretch" Margin="0,8,8,0" Opacity="0.95" Padding="12,6" VerticalAlignment="Bottom">
+                <Grid x:Name="FloatingBar" CornerRadius="8"
+                  HorizontalAlignment="Stretch" Opacity="0.95" Padding="42,23" VerticalAlignment="Bottom">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
