@@ -23,22 +23,22 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
-                    <TextBlock Grid.Column="0" Grid.Row="0" FontWeight="SemiBold" HorizontalAlignment="Left" Text="Vanara Jñāna" VerticalAlignment="Top"/>
+                    <TextBlock Grid.Column="0" Grid.Row="0" FontSize="23" FontWeight="Bold" HorizontalAlignment="Left" Text="Vanara Jñāna" VerticalAlignment="Top"/>
                     <Image Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Left" MaxHeight="128" Opacity="0.66" Source="/Assets/StoreLogo.png" VerticalAlignment="Stretch">
                         <Image.OpacityTransition>
-                            <ScalarTransition Duration="0:0:0.3"/>
+                            <ScalarTransition Duration="0:0:0.76"/>
                         </Image.OpacityTransition>
                     </Image>
                     <!-- Right side of the grid -->
-                    <TextBlock Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" Text="v1.269 (debug) - tres hombres" Padding="7"/>
-                    <Border Grid.Column="1" Grid.Row="1" CornerRadius="7" BorderThickness="3" HorizontalAlignment="Left">
-                        <TextBlock FontWeight="SemiBold" Margin="7" Text="{x:Bind UserDisplayName}" VerticalAlignment="Bottom"/>
+                    <TextBlock Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" Text="v1.269 (debug) - tres hombres" Padding="7"/>
+                    <Border Grid.Column="1" Grid.Row="1" CornerRadius="7" BorderThickness="3" HorizontalAlignment="Right">
+                        <TextBlock FontWeight="SemiBold" Margin="7" Text="{x:Bind UserDisplayName}"/>
                     </Border>
                     <Border Grid.Column="1" Grid.Row="2" CornerRadius="7" BorderThickness="3">
-                        <TextBlock Text="{x:Bind NetworkStatus}" VerticalAlignment="Center"/>
+                        <TextBlock Text="{x:Bind NetworkStatus}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                     </Border>
                     <Border Grid.Column="1" Grid.Row="3" CornerRadius="7" BorderThickness="3">
-                        <TextBlock Text="{x:Bind GitHubUserStatus}" VerticalAlignment="Center"/>
+                        <TextBlock Text="{x:Bind GitHubUserStatus}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                     </Border>
                 </Grid>
                 <!-- End of header section -->
@@ -56,9 +56,10 @@
                     </StackPanel>
                 </Button>
                 <Button Click="OnGitHubBrowserClick" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
-                    <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
+                    <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal" Padding="8" Spacing="8">
                         <FontIcon Glyph="&#xEC7A;"/>
-                        <ComboBox></ComboBox>
+                        <TextBlock Text="GitHub Browser" HorizontalTextAlignment="Left"/>
+                        <ComboBox ItemsSource="{x:Bind GitHubBrowserItemSource}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                         <!--<FontIcon Glyph="&#xEC7A;"/>
                         <TextBlock Text="GitHub Browser" HorizontalTextAlignment="Left" TextWrapping="WrapWholeWords"/>-->
                     </StackPanel>

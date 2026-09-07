@@ -10,13 +10,17 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition>*</ColumnDefinition>
-            <ColumnDefinition>*</ColumnDefinition>
-            <ColumnDefinition>*</ColumnDefinition>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
         <!-- TODO: Implement navigation host -->
         <!-- <Frame x:Name="RootFrame" NavigationUIVisibility="Hidden"/> -->
-        <Border Grid.Column="0" Background="{ThemeResource SolidBackgroundFillColorBaseBrush}"
+        <Border Grid.Column="0" Grid.ColumnSpan="2" Background="{ThemeResource SolidBackgroundFillColorBaseBrush}"
                 BorderBrush="{ThemeResource SystemControlTransparentRevealBorderBrush}"
                 BorderThickness="3" CornerRadius="32" Margin="12">
             <!--<controls:AttachDropShadow BlurRadius="16" ShadowOpacity="0.35" OffsetX="0" OffsetY="4"> -->
@@ -35,4 +39,3 @@
         </Border>-->
     </Grid>
 </UserControl>
-    

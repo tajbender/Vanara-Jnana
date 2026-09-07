@@ -16,6 +16,10 @@ namespace Jnana.Workbench.Controls;
 
 public sealed partial class QuickLaunchBar : UserControl
 {
+    private const string DefaultAvatarImageUri = "ms-appx:///Assets/Images/DefaultAvatar.png";
+    private String[] GitHubBrowserItemSource = new string[] { "dummy entry" };
+
+
     /// <summary>
     /// Gets or sets the GitHub user status.
     /// </summary>
@@ -131,6 +135,8 @@ public sealed partial class QuickLaunchBar : UserControl
             return false;
         }
     }
+
+    
 
     private async Task<bool> CheckGitHubAsync()
     {
