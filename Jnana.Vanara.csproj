@@ -266,6 +266,9 @@
     <Content Remove="Assets\Styles\LonghornTitleBar.xaml" />
   </ItemGroup>
   <ItemGroup>
+    <Page Remove="Controls\Shell\ExplorerBrowser.xaml" />
+  </ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\AUTHORS.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -450,6 +453,9 @@
     <None Update="Assets\Square44x44Logo.scale-200.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
+    </None>
+    <None Update="Controls\Shell\ExplorerBrowser.xaml">
+      <Generator>MSBuild:Compile</Generator>
     </None>
     <Page Update="Workbench\VanaraReleasePanel.xaml">
       <Generator>MSBuild:Compile</Generator>
