@@ -34,7 +34,7 @@ public sealed partial class QuickLaunchBar : UserControl
             nameof(GitHubUserStatus),
             typeof(string),
             typeof(QuickLaunchBar),
-            new PropertyMetadata("GitHub connection: pending..."));
+            new PropertyMetadata("GitHub status: No Network."));
 
     /// <summary>
     /// Gets or sets the network status.
@@ -109,15 +109,15 @@ public sealed partial class QuickLaunchBar : UserControl
 
     private async Task InitializeStatusAsync()
     {
-        this.UserDisplayName = $"Windows User: `{Environment.UserName}`";
+        this.UserDisplayName = $"Local user: `{Environment.UserName}`";
         this.NetworkStatus = "Network status pending...";
-        this.GitHubUserStatus = "Checking GitHub User...";
+        this.GitHubUserStatus = "GitHub status pending...";
 
         // Network status
         var networkOk = await CheckNetworkAsync();
         this.NetworkStatus = networkOk ? "Network status: Online" : "Network status: Offline";
 
-        // GitHub user status
+        // GitHub status
         var githubOk = await CheckGitHubAsync();
         this.GitHubUserStatus = githubOk ? "GitHub status: Online" : "GitHub status: Offline";
     }

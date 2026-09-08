@@ -24,6 +24,7 @@
     <None Remove="Assets\Styles\LonghornTitleBar.xaml" />
     <None Remove="Controls\GaugeControl.xaml" />
     <None Remove="Controls\MarkdownPane.xaml" />
+    <None Remove="Controls\Shell\ShellNamespaceTreeView.xaml" />
     <None Remove="Core\Navigation\NavigationHost.xaml" />
     <None Remove="Vanara Jnana.csproj.Backup.tmp" />
     <None Remove="Views\Tiles\NuGetTile.xaml" />
@@ -457,6 +458,9 @@
     <None Update="Controls\Shell\ExplorerBrowser.xaml">
       <Generator>MSBuild:Compile</Generator>
     </None>
+    <Page Update="Controls\Shell\ShellNamespaceTreeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Update="Workbench\VanaraReleasePanel.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
