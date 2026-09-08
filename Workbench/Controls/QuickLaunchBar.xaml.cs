@@ -103,8 +103,16 @@ public sealed partial class QuickLaunchBar : UserControl
     /// </summary>
     public QuickLaunchBar()
     {
-        this.InitializeComponent();
-        _ = this.InitializeStatusAsync();
+        try
+        {
+            this.InitializeComponent();
+            _ = this.InitializeStatusAsync();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
     }
 
     private async Task InitializeStatusAsync()
