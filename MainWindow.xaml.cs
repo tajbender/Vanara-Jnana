@@ -43,9 +43,9 @@ public sealed partial class MainWindow : Window
             Theme = SystemBackdropTheme.Default
         };
 
-        this._micaController = new MicaController();
+//        this._micaController = new MicaController();
         // Todo: this fails:
         //   _micaController.AddSystemBackdropTarget(this.As<Microsoft.UI.Composition.ICompositionSupportsSystemBackdrop>());
-        this._micaController.SetSystemBackdropConfiguration(this._configuration);
+//        this._micaController.SetSystemBackdropConfiguration(this._configuration);
     }
 }

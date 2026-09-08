@@ -8,9 +8,10 @@ public sealed partial class NavigationHost : UserControl
     {
         this.InitializeComponent();
     }
-
     public void ShowPage(object pageInstance)
     {
-        this.Presenter.Content = pageInstance;
+        // TODO: this.Presenter.Content = pageInstance;
     }
+    // todo: public object Presenter { get; set; }
+    // todo: public object SideBarPresenter { get; set; }
 }

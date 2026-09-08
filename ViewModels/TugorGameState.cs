@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Numerics;
 
 namespace Jnana.ViewModels;
@@ -16,7 +15,7 @@ public sealed class TugorGameState
     {
         this.IsRunning = true;
         this.ChaosLevel = 0;
-        this.ActiveModifiers = Array.Empty<string>();
+        this.ActiveModifiers = [];
     }
 
     public void ApplyChaos(string modifier)

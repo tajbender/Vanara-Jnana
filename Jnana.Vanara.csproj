@@ -24,6 +24,7 @@
     <None Remove="Assets\Styles\LonghornTitleBar.xaml" />
     <None Remove="Controls\GaugeControl.xaml" />
     <None Remove="Controls\MarkdownPane.xaml" />
+    <None Remove="Controls\Shell\ShellNamespaceTreeView.xaml" />
     <None Remove="Core\Navigation\NavigationHost.xaml" />
     <None Remove="Vanara Jnana.csproj.Backup.tmp" />
     <None Remove="Views\Tiles\NuGetTile.xaml" />
@@ -164,40 +165,47 @@
     <PublishTrimmed Condition="'$(Configuration)' == 'Debug'">False</PublishTrimmed>
     <PublishTrimmed Condition="'$(Configuration)' != 'Debug'">True</PublishTrimmed>
     <StartupObject>Jnana.Program</StartupObject>
-    <ApplicationIcon>Assets\Icons\Vamara Icon.ico</ApplicationIcon>
+    <ApplicationIcon>Assets\Icons\vanara-Jnana.ico</ApplicationIcon>
     <IncludeSymbols>True</IncludeSymbols>
-    <PackageIcon>Vamara Icon.ico</PackageIcon>
+    <PackageIcon>Square44x44Logo.scale-200.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageReleaseNotes>debug build - do not use in productive environment</PackageReleaseNotes>
-    <AssemblyVersion>1.269.1.0</AssemblyVersion>
-    <FileVersion>1.269.1.0</FileVersion>
+    <AssemblyVersion>1.269.96.1</AssemblyVersion>
+    <FileVersion>1.269.96.1</FileVersion>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <Title>Vanara Jñāna</Title>
-    <PackageTags>Jnana;UWP;Vanara;Shell32;Win32;WindowsForms;WinUI</PackageTags>
+    <PackageTags>Jnana;Vanara;Shell32;Win32;WindowsForms;WinUI</PackageTags>
+    <NeutralLanguage>en</NeutralLanguage>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
     <Optimize>False</Optimize>
     <FileAlignment>2048</FileAlignment>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Optimize>False</Optimize>
     <FileAlignment>2048</FileAlignment>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
     <Optimize>False</Optimize>
     <FileAlignment>2048</FileAlignment>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
     <Optimize>False</Optimize>
     <FileAlignment>2048</FileAlignment>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Optimize>False</Optimize>
     <FileAlignment>2048</FileAlignment>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
     <Optimize>False</Optimize>
     <FileAlignment>2048</FileAlignment>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
   </PropertyGroup>
   <ItemGroup>
     <PRIResource Remove="Workbench\Controls\NuGetsTreeView\**" />
@@ -255,124 +263,11 @@
     <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\webfonts\JetBrainsMono-SemiBoldItalic.woff2" />
     <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\webfonts\JetBrainsMono-Thin.woff2" />
     <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\webfonts\JetBrainsMono-ThinItalic.woff2" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\advanced-settings-icon.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\aspnet.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\azure-app-service.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\azure-cognitive-services.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\azure-container-instances.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\azure-container-registry-icon.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\azure-service-fabric.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\azure.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\c-logo.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\continuity-sdk-taskbar.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\csharp-logo.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dev-drive-change-size.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dev-drive-choose-location.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dev-drive-choose-volume-to-resize.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dev-drive-create-vhd-options.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dev-drive-create.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dev-drive-delete.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dev-drive-disk-management-detach-vhd.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dev-drive-group-policy-cfgmgr1.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dev-drive-group-policy-cfgmgr2.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dev-drive-group-policy-intune1.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dev-drive-group-policy-intune2.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dev-drive-group-policy-intune3.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dev-drive-group-policy-intune4.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dev-drive-group-policy1.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dev-drive-group-policy2.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dev-drive-group-policy3.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dev-drive-group-policy4.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dev-drive-icon.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dev-drive-new.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dev-drive-unallocated.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dev-environment-icon.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\docker-docs-icon.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\docker-icon.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\docker-learn-course.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\docker-logo.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\docker-running-screenshot.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\docker-wsl2.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\docs.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dotnet-docker-infographic.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dotnet-docker-workflow.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dotnet-microservice-guide.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dotnet.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\edit.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\faq.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\fe-source-settings.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\fe-source.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\game-icon.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\install-nvm-for-windows-wizard.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\java-logo.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\javascript-logo.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\kubernettes.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\learn-icon.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\microsoftedge-beta.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\microsoftedge-devtools.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\microsoftedge-enterprise.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\microsoftedge-support.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\microsoftedge.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\nodejs-logo.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\nvm-no-node.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\nvm-node-installed.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\opensource-icon.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\phonelink-recents.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\powershell.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\powertoys.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\pwa-icon.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\python-logo.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\react-logo.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\reactnative-windows.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\rust-icon.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\rust-rss-reader-2.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\rust-rss-reader-3.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\sudo-enable.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\taxonomy-of-docker-terms-and-concepts.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\terminal.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\tile-cli.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\tile-devconfigs.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\typescript-icon.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\visualstudio-container-links.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\visualstudio-docker-menu.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\visualstudio-edge-debugger.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\visualstudio-tutorial.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\visualstudio.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\vs-code-marketplace.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\vs-marketplace.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\vscode-advanced-docker.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\vscode-attach-docker.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\vscode-docker-wsl.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\vscode-extensions-local-remote.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\vscode-remote-containers.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\vscode.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\vue-logo.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\webdriver.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\webhint.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\webview2.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\windows-365.svg" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\windows-appdev.svg" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\windows-client.svg" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\windows-container.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\windows-devtools.svg" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\windows-driver.svg" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\windows-insiders.svg" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\windows-iot.svg" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\windows-linux-dev-env.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\windows-logo.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\windows-nvm-list.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\windows-nvm-node-installs.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\windows-nvm-powershell-no-node.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\windows-server-containers.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\windows-server.svg" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\winget-config-powershellgallery-dsc-examples.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\winget-configuration-results.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\winget-mcp-integration-with-vscode.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\winget.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\wsl-icon.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\wsl-remote-extension.png" />
-    <Content Remove="Assets\3rd Parties\Windows Dev Docs Icons\LICENSE.md" />
+    <Content Remove="Assets\Icons\vanara-Heading.png" />
     <Content Remove="Assets\Styles\LonghornTitleBar.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Remove="Controls\Shell\ExplorerBrowser.xaml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\AUTHORS.txt">
@@ -531,125 +426,7 @@
     <EmbeddedResource Include="Assets\3rd Parties\JetBrains Mono Fonts\webfonts\JetBrainsMono-ThinItalic.woff2">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\advanced-settings-icon.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\aspnet.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\azure-app-service.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\azure-cognitive-services.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\azure-container-instances.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\azure-container-registry-icon.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\azure-service-fabric.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\azure.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\c-logo.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\continuity-sdk-taskbar.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\csharp-logo.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dev-drive-change-size.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dev-drive-choose-location.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dev-drive-choose-volume-to-resize.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dev-drive-create-vhd-options.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dev-drive-create.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dev-drive-delete.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dev-drive-disk-management-detach-vhd.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dev-drive-group-policy-cfgmgr1.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dev-drive-group-policy-cfgmgr2.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dev-drive-group-policy-intune1.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dev-drive-group-policy-intune2.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dev-drive-group-policy-intune3.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dev-drive-group-policy-intune4.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dev-drive-group-policy1.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dev-drive-group-policy2.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dev-drive-group-policy3.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dev-drive-group-policy4.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dev-drive-icon.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dev-drive-new.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dev-drive-unallocated.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dev-environment-icon.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\docker-docs-icon.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\docker-icon.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\docker-learn-course.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\docker-logo.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\docker-running-screenshot.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\docker-wsl2.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\docs.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dotnet-docker-infographic.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dotnet-docker-workflow.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dotnet-microservice-guide.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\dotnet.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\edit.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\faq.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\fe-source-settings.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\fe-source.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\game-icon.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\install-nvm-for-windows-wizard.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\java-logo.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\javascript-logo.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\kubernettes.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\learn-icon.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\microsoftedge-beta.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\microsoftedge-devtools.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\microsoftedge-enterprise.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\microsoftedge-support.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\microsoftedge.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\nodejs-logo.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\nvm-no-node.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\nvm-node-installed.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\opensource-icon.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\phonelink-recents.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\powershell.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\powertoys.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\pwa-icon.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\python-logo.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\react-logo.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\reactnative-windows.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\rust-icon.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\rust-rss-reader-2.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\rust-rss-reader-3.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\sudo-enable.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\taxonomy-of-docker-terms-and-concepts.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\terminal.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\tile-cli.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\tile-devconfigs.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\typescript-icon.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\visualstudio-container-links.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\visualstudio-docker-menu.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\visualstudio-edge-debugger.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\visualstudio-tutorial.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\visualstudio.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\vs-code-marketplace.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\vs-marketplace.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\vscode-advanced-docker.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\vscode-attach-docker.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\vscode-docker-wsl.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\vscode-extensions-local-remote.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\vscode-remote-containers.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\vscode.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\vue-logo.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\webdriver.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\webhint.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\webview2.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\windows-365.svg" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\windows-appdev.svg" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\windows-client.svg" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\windows-container.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\windows-devtools.svg" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\windows-driver.svg" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\windows-insiders.svg" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\windows-iot.svg" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\windows-linux-dev-env.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\windows-logo.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\windows-nvm-list.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\windows-nvm-node-installs.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\windows-nvm-powershell-no-node.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\windows-server-containers.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\windows-server.svg" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\winget-config-powershellgallery-dsc-examples.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\winget-configuration-results.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\winget-mcp-integration-with-vscode.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\winget.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\wsl-icon.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\hub-images\wsl-remote-extension.png" />
-    <EmbeddedResource Include="Assets\3rd Parties\Windows Dev Docs Icons\LICENSE.md">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\Icons\vanara-Jnana.ico" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
@@ -657,6 +434,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Update="Assets\3rd Parties\Windows Dev Docs Icons\LICENSE.md">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Properties\Resources.resx">
@@ -669,6 +451,16 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
+    <None Update="Assets\Square44x44Logo.scale-200.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="Controls\Shell\ExplorerBrowser.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <Page Update="Controls\Shell\ShellNamespaceTreeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Update="Workbench\VanaraReleasePanel.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>

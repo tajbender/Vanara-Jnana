@@ -1,4 +1,7 @@
-﻿using Jnana.Core.Services;
+﻿using System;
+using System.Diagnostics;
+using Jnana.Core.Services;
+using Microsoft.UI.Composition.SystemBackdrops;
 using Microsoft.UI.Xaml;
 
 namespace Jnana;
@@ -8,13 +11,12 @@ namespace Jnana;
 /// </summary>
 public partial class App : Application
 {
-    private static AppServiceHost _serviceHost = new();
     private Window? _window;
 
     /// <summary>
     /// Gets the singleton instance of the AppServiceHost for the application.
     /// </summary>
-    public static AppServiceHost ServiceHost { get => _serviceHost; private set => _serviceHost = value; }
+    public static AppServiceHost ServiceHost { get; private set; } = new();
 
     /// <summary>
     /// Initializes the singleton application object.  This is the first line of authored code
@@ -29,11 +31,19 @@ public partial class App : Application
     /// Invoked when the application is launched.
     /// </summary>
     /// <param name="args">Details about the launch request and process.</param>
-    protected override async void OnLaunched(LaunchActivatedEventArgs args)
+    protected override void OnLaunched(LaunchActivatedEventArgs args)
     {
-        // TODO: await ServiceHost.InitializeAsync(@"C:\Dev\MyProject\MyProject.csproj");
-
-        this._window = new MainWindow(null, /* TODO */ null);
-        this._window.Activate();
+        try
+        {
+            //ServiceHost.InitializeAsync(@"C:\Dev\MyProject\MyProject.csproj");
+            var config = new SystemBackdropConfiguration();
+            this._window = new MainWindow(null, /* TODO */ config);
+            this._window.Activate();
+        }
+        catch (Exception e)
+        {
+            Debug.Fail($"Error occurred while launching the application: {e.Message}");
+            Console.WriteLine(e);
+        }
     }
 }

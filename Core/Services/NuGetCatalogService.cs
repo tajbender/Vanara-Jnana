@@ -6,6 +6,7 @@ using NuGet.Protocol.Core.Types;
 using NuGet.Versioning;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
@@ -15,42 +16,53 @@ using System.Threading.Tasks;
 namespace Jnana.Core.Services;
 
 /// <summary>
-/// Service for interacting with the NuGet catalog, allowing for searching packages, retrieving metadata, downloading packages, and extracting README files.
-/// WARN: These Namespaces have to be accessible to make the `Repository.Factory.GetCoreV3(source)` magic work.
-///       Removal may result in undefined behavior: `Repository.Factory` is a static class extendened with various decorators.
-/// -      using NuGet.Protocol;
-/// -      using NuGet.Protocol.Core.Types;
-/// -      using NuGet.Configuration;
+///  Service for interacting with the NuGet catalog, allowing for searching packages,
+///  retrieving metadata, downloading packages, and extracting README files.
 /// </summary>
 public sealed class NuGetCatalogService : INuGetCatalogService
 {
-    private readonly SourceRepository _repo;
+    /// <summary>
+    /// Gets the singleton instance of the NuGetCatalogService.
+    /// </summary>
+    public static NuGetCatalogService Instance { get; } = new();
+    /// <summary>
+    /// The NuGet repository used for interacting with the NuGet catalog.
+    /// </summary>
+    private readonly SourceRepository _nuGetSourceRepository;
     private readonly SourceCacheContext _cache = new();
-
-
-    public NuGetCatalogService()
+    private NuGetCatalogService()
     {
         var source = new PackageSource("https://api.nuget.org/v3/index.json");
-        this._repo = Repository.Factory.GetCoreV3(source);
+        this._nuGetSourceRepository = Repository.Factory.GetCoreV3(source);
     }
 
+    /// <summary>
+    ///  Searches for NuGet packages based on the provided query string.
+    /// </summary>
+    /// <param name="query">The query string to search for.</param>
+    /// <returns>A list of matching NuGet packages.</returns>
     public async Task<IReadOnlyList<NuGetPackageInfo>> SearchPackagesAsync(string query)
     {
-        var search = await this._repo.GetResourceAsync<PackageSearchResource>();
+        var search = await this._nuGetSourceRepository.GetResourceAsync<PackageSearchResource>();
+        Debug.Assert(search != null, nameof(search) + " != null");
         var results = await search.SearchAsync(query, new SearchFilter(true), 0, 50, NullLogger.Instance, CancellationToken.None);
 
-        return results.Select(r => new NuGetPackageInfo
-        {
-            Id = r.Identity.Id,
-            Version = r.Identity.Version.ToString(),
-            Description = r.Description,
-            Downloads = r.DownloadCount ?? 0
-        }).ToList();
+        return
+        [
+            .. results.Select(r => new NuGetPackageInfo
+            {
+                Id = r.Identity.Id,
+                Version = r.Identity.Version.ToString(),
+                Description = r.Description,
+                Downloads = r.DownloadCount ?? 0
+            })
+        ];
     }
 
     public async Task<NuGetPackageInfo?> GetPackageMetadataAsync(string packageId)
     {
-        var meta = await this._repo.GetResourceAsync<PackageMetadataResource>();
+        var meta = await this._nuGetSourceRepository.GetResourceAsync<PackageMetadataResource>();
+        Debug.Assert(meta != null, nameof(meta) + " != null");
 
         var results = await meta.GetMetadataAsync(
             packageId,
@@ -79,7 +91,8 @@ public sealed class NuGetCatalogService : INuGetCatalogService
 
     public async Task<Stream?> DownloadPackageAsync(string packageId, string version)
     {
-        var download = await this._repo.GetResourceAsync<DownloadResource>();
+        var download = await this._nuGetSourceRepository.GetResourceAsync<DownloadResource>();
+        Debug.Assert(download != null, nameof(download) + " != null");
         var result = await download.GetDownloadResourceResultAsync(
             new PackageIdentity(packageId, NuGetVersion.Parse(version)),
             new PackageDownloadContext(new SourceCacheContext()),
@@ -92,7 +105,7 @@ public sealed class NuGetCatalogService : INuGetCatalogService
 
     public async Task<string?> GetReadmeMarkdownAsync(string packageId, string version)
     {
-        using var pkg = await this.DownloadPackageAsync(packageId, version);
+        await using var pkg = await this.DownloadPackageAsync(packageId, version);
         if (pkg == null)
             return null;
 
