@@ -171,40 +171,42 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageReleaseNotes>debug build - do not use in productive environment</PackageReleaseNotes>
     <AssemblyVersion>1.269.14</AssemblyVersion>
-    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <Title>Vanara Jñāna</Title>
     <PackageTags>Jnana;Vanara;Shell32;Win32;WindowsForms;WinUI</PackageTags>
     <NeutralLanguage>en</NeutralLanguage>
     <FileVersion>1.269.14.1</FileVersion>
+    <WindowsPackageType>MSIX</WindowsPackageType>
+    <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
     <Optimize>False</Optimize>
-    <FileAlignment>2048</FileAlignment>
+    <FileAlignment>8192</FileAlignment>
     <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Optimize>False</Optimize>
-    <FileAlignment>2048</FileAlignment>
+    <FileAlignment>8192</FileAlignment>
     <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
     <Optimize>False</Optimize>
-    <FileAlignment>2048</FileAlignment>
+    <FileAlignment>8192</FileAlignment>
     <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
     <Optimize>False</Optimize>
-    <FileAlignment>2048</FileAlignment>
+    <FileAlignment>8192</FileAlignment>
     <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Optimize>False</Optimize>
-    <FileAlignment>2048</FileAlignment>
+    <FileAlignment>8192</FileAlignment>
     <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
     <Optimize>False</Optimize>
-    <FileAlignment>2048</FileAlignment>
+    <FileAlignment>8192</FileAlignment>
     <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
   </PropertyGroup>
   <ItemGroup>
@@ -429,6 +431,12 @@
     <EmbeddedResource Include="Assets\Icons\vanara-Jnana.ico" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="LICENSE.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -470,7 +478,7 @@
     <Page Update="Controls\GaugeControl.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <None Update="LICENSE">
+    <None Update="LICENSE.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>

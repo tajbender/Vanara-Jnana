@@ -17,17 +17,16 @@
                         HorizontalSnapPointsChanged="StackPanel_HorizontalSnapPointsChanged"
                         Opacity=".75" Orientation="{x:Bind Orientation}" Padding="8" Spacing="8"
                         VerticalAlignment="Stretch">
-                <!-- Header section -->
-                <Grid Padding="23">
+                <Grid x:Name="HeaderSectionGrid" Padding="16">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="32" />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
                         <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
@@ -43,11 +42,11 @@
                     <Border Grid.Column="1" Grid.Row="2" CornerRadius="7" BorderThickness="3">
                         <TextBlock FontWeight="SemiBold" HorizontalAlignment="Stretch" Text="{x:Bind MachineDisplayName}" />
                     </Border>
-                    <Border Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="3" CornerRadius="7" BorderThickness="3">
+                    <Border Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="3" CornerRadius="7" BorderThickness="3" Visibility="Collapsed">
                         <TextBlock Margin="7" Text="Network status: {x:Bind NetworkStatus}" />
                         <!-- add Heartbeat animated status -->
                     </Border>
-                    <Border Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="4" CornerRadius="7" BorderThickness="3">
+                    <Border Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="4" CornerRadius="7" BorderThickness="3"  Visibility="Collapsed">
                         <TextBlock Margin="7" Text="GitHub status: {x:Bind GitHubStatus}" />
                         <!-- add Heartbeat animated status -->
                     </Border>
@@ -84,9 +83,8 @@
                                         <Grid>
                                             <!-- Accent‑Stripe links -->
                                             <Rectangle x:Name="AccentStripe" Fill="{StaticResource AccentBrush}"
-                                                       HorizontalAlignment="Left" Opacity="0.0" Width="2" />
-                                            <ContentPresenter Margin="8,0,0,0"
-                                                              VerticalAlignment="Center" />
+                                                       HorizontalAlignment="Left" Opacity="0.23" Width="4" />
+                                            <ContentPresenter Margin="8,8" VerticalAlignment="Center" />
                                         </Grid>
                                     </ControlTemplate>
                                 </Setter.Value>
@@ -155,28 +153,19 @@
                     <FontIcon Grid.Column="0" Grid.Row="2" Glyph="&#xE9D9;" />
                     <FontIcon Grid.Column="1" Grid.Row="2" Glyph="&#xE7F8;" />
                     <FontIcon Grid.Column="2" Grid.Row="2" Glyph="&#xE9D9;" />
-                    <Button Grid.Column="0" Grid.Row="3" Click="OnSysInfoClick" CornerRadius="6"
-                            HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
-                        <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
-                            <FontIcon Glyph="&#xEC7A;" />
-                            <TextBlock Text="Sys Info..." HorizontalTextAlignment="Center"
-                                       TextWrapping="WrapWholeWords" />
-                        </StackPanel>
-                    </Button>
-                    <Button Grid.Column="0" Grid.Row="3" Click="OnSysInfoClick" CornerRadius="6" HorizontalAlignment="Center">
+                    <Button Grid.Column="0" Grid.Row="3" Click="OnSysInfoClick" CornerRadius="6" HorizontalAlignment="Stretch">
                         <StackPanel Orientation="Vertical" Padding="8" Spacing="8">
                             <FontIcon Glyph="&#xEC7A;" />
                             <TextBlock Text="System Information" TextWrapping="WrapWholeWords"/>
                         </StackPanel>
                     </Button>
-                    <Button Grid.Column="1" Grid.Row="3" Click="OnSettingsClick" CornerRadius="6" HorizontalAlignment="Center">
+                    <Button Grid.Column="1" Grid.Row="3" Click="OnSettingsClick" CornerRadius="6" HorizontalAlignment="Stretch">
                         <StackPanel Orientation="Vertical" Padding="8" Spacing="8">
                             <FontIcon Glyph="&#xEC7A;"/>
-                            <TextBlock Text="Settings" TextWrapping="WrapWholeWords"/>
+                            <TextBlock Text="Settings &amp; Preferences" TextWrapping="WrapWholeWords"/>
                         </StackPanel>
                     </Button>
-                    <Button Grid.Column="2" Grid.Row="3" Click="OnSettingsClick" CornerRadius="6"
-                            HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
+                    <Button Grid.Column="2" Grid.Row="3" Click="OnSettingsClick" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
                         <StackPanel Orientation="Vertical" Padding="8" Spacing="8">
                             <FontIcon Glyph="&#xEC7A;"/>
                             <TextBlock Text="Need Help?" TextWrapping="WrapWholeWords"/>
