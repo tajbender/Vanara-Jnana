@@ -18,10 +18,9 @@ public sealed partial class WorkbenchPage : Page
     {
         try
         {
-            // Minimal: direkte Transformation
             var page = Activator.CreateInstance(pageType);
 
-            // WorkbenchContent wird ersetzt
+            // WorkbenchContent Replace current content with the new page
             this.WorkbenchContent.Children.Clear();
             this.WorkbenchContent.Children.Add(item: page as UIElement);
         }
