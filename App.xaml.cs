@@ -43,10 +43,17 @@ public partial class App : Application
     {
         try
         {
-            // TODO: ServiceHost.InitializeAsync(@"C:\Dev\MyProject\MyProject.csproj");
-            var config = new SystemBackdropConfiguration();
-            // TODO: this._window = new MainWindow(null, /* TODO */ config);
-            // this._window.Activate();
+            // TODO: ServiceHost.InitializeAsync();
+            var backdropConfiguration = new SystemBackdropConfiguration();
+            this._window = new MainWindow(null, /* TODO */ backdropConfiguration);
+            if (this._window != null)
+            {
+                this._window.Activate();
+            }
+            else
+            {
+                throw new InvalidOperationException("Failed to create the main window.");
+            }
         }
         catch (Exception e)
         {
