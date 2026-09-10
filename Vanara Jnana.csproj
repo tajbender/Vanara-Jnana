@@ -170,12 +170,12 @@
     <PackageIcon>Square44x44Logo.scale-200.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageReleaseNotes>debug build - do not use in productive environment</PackageReleaseNotes>
-    <AssemblyVersion>1.269.96.1</AssemblyVersion>
-    <FileVersion>1.269.96.1</FileVersion>
+    <AssemblyVersion>1.269.14</AssemblyVersion>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <Title>Vanara Jñāna</Title>
     <PackageTags>Jnana;Vanara;Shell32;Win32;WindowsForms;WinUI</PackageTags>
     <NeutralLanguage>en</NeutralLanguage>
+    <FileVersion>1.269.14.1</FileVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
     <Optimize>False</Optimize>

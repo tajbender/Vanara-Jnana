@@ -1,9 +1,7 @@
-# Vanara Jñāna
+# Vanara Jñāna rc2, v269.14
 
 ![Vanara GitHub](https://img.shields.io/badge/Code-Vanara-blue?style=flat&logo=github)
-TODO Vanara-version. NuGet packages
 ![Jñāna GitHub](https://img.shields.io/badge/Code-Jñāna-blue?style=flat&logo=github)
-TODO Jñāna Vanara-version. download
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat&logo=github)
 
 ## A Vanara Companion Workbench
@@ -53,4 +51,6 @@ Jñāna is currently in active development, with the Workbench transformation, M
 
 ----
 
-(c) 2024 Vanara Jñāna. Licensed under the MIT License. See LICENSE for details. - last updated: 2024‑06‑15
+(c) 2024 Vanara Jñāna and its contributors. Licensed under the MIT License.
+
+See LICENSE for details. - _last update:_ 2024‑09‑10
