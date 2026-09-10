@@ -8,7 +8,8 @@
     mc:Ignorable="d">
 
     <Grid VerticalAlignment="Stretch">
-        <Border Grid.Column="0" Grid.RowSpan="3" CornerRadius="32" BorderBrush="{ThemeResource SystemControlTransparentRevealBorderBrush}" BorderThickness="3">
+        <Border BorderBrush="{ThemeResource SystemControlTransparentRevealBorderBrush}"
+                BorderThickness="3" CornerRadius="32">
             <StackPanel HorizontalAlignment="Stretch" Background="Black" HorizontalSnapPointsChanged="StackPanel_HorizontalSnapPointsChanged"
                         Opacity=".75" Orientation="{x:Bind Orientation}" Padding="8" Spacing="8" VerticalAlignment="Stretch">
                 <!-- Header section -->

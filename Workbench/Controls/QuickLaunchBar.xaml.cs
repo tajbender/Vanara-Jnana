@@ -16,8 +16,8 @@ namespace Jnana.Workbench.Controls;
 
 public sealed partial class QuickLaunchBar : UserControl
 {
-    private const string DefaultAvatarImageUri = "ms-appx:///Assets/Images/DefaultAvatar.png";
-    private String[] GitHubBrowserItemSource = ["dummy entry", "another entry"];
+    public const string DefaultAvatarImageUri = "ms-appx:///Assets/Images/DefaultAvatar.png";
+    public string[] GitHubTreeViewItemSource { get; } = ["dummy entry", "another entry"];
 
     //private string GitHubUserStatus
 
@@ -78,7 +78,7 @@ public sealed partial class QuickLaunchBar : UserControl
             nameof(UserAvatarImageUriProperty),
             typeof(string),
             typeof(QuickLaunchBar),
-            new PropertyMetadata("ms-appx:///Assets/Images/DefaultAvatar.png"));
+            new PropertyMetadata(DefaultAvatarImageUri));
 
     /// <summary>
     /// Gets or sets the user's display name.
@@ -115,11 +115,11 @@ public sealed partial class QuickLaunchBar : UserControl
 
         // Network status
         var networkOk = await CheckNetworkAsync();
-        this.NetworkStatus = networkOk ? "Network status: Online" : "Network status: Offline";
+        this.NetworkStatus = networkOk ? "Retrieving IP address..." : "Network: Offline";
 
         // GitHub status
         var githubOk = await CheckGitHubAsync();
-        this.GitHubUserStatus = githubOk ? "GitHub status: Online" : "GitHub status: Offline";
+        this.GitHubUserStatus = githubOk ? "GitHub status: Online" : "No Connection";
     }
 
     private async Task<bool> CheckNetworkAsync()

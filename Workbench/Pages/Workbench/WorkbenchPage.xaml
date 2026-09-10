@@ -6,25 +6,30 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ctrls="using:Jnana.Workbench.Controls"
+    xmlns:shell="using:Jnana.Controls.Shell"
     mc:Ignorable="d">
 
-    <Grid>
+    <Grid VerticalAlignment="Stretch">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <Grid x:Name="TreeViewSidebarContent" Grid.Column="0" Background="Transparent">
-            <TextBlock Text="Jñāna workbench sidebar coming soon" FontSize="32" FontWeight="SemiBold" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+        <Grid Grid.Column="0">
+            <shell:ShellNamespaceTreeView />
         </Grid>
+        <!--<Grid x:Name="TreeViewSidebarContent" Grid.Column="0" Background="Transparent">
+            <TextBlock Text="Jñāna workbench sidebar coming soon" FontSize="32" FontWeight="SemiBold" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+        </Grid>-->
         <!-- Workbench Content -->
         <Grid x:Name="WorkbenchContent" Grid.Column="1" Background="Transparent">
-            <StackPanel Orientation="Horizontal">
+            <Frame x:Name="WorkbenchContentFrame"/>
+            <!--<StackPanel Orientation="Horizontal">
                 <TextBlock Text="Jñāna workbench" FontSize="32" FontWeight="SemiBold" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
                 <Border BorderThickness="3">
                     <ctrls:VanaraReleasePanel />
                 </Border>
-            </StackPanel>
+            </StackPanel>-->
         </Grid>
         <!-- Tool Sidebar Content -->
         <Grid x:Name="ToolboxSidebarContent" Grid.Column="2" Background="Transparent">
