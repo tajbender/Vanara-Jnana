@@ -48,4 +48,5 @@ public sealed partial class MainWindow : Window
         //   _micaController.AddSystemBackdropTarget(this.As<Microsoft.UI.Composition.ICompositionSupportsSystemBackdrop>());
 //        this._micaController.SetSystemBackdropConfiguration(this._configuration);
     }
+
 }

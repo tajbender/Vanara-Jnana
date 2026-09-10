@@ -33,8 +33,6 @@ public partial class App : Application
             Interval = TimeSpan.FromSeconds(2.5)
         };
         this.VerySlowTimer.Start();
-
-
     }
 
     /// <summary>
@@ -45,15 +43,16 @@ public partial class App : Application
     {
         try
         {
-            //ServiceHost.InitializeAsync(@"C:\Dev\MyProject\MyProject.csproj");
+            // TODO: ServiceHost.InitializeAsync(@"C:\Dev\MyProject\MyProject.csproj");
             var config = new SystemBackdropConfiguration();
-            this._window = new MainWindow(null, /* TODO */ config);
-            this._window.Activate();
+            // TODO: this._window = new MainWindow(null, /* TODO */ config);
+            // this._window.Activate();
         }
         catch (Exception e)
         {
-            Debug.Fail($"Error occurred while launching the application: {e.Message}");
-            Console.WriteLine(e);
+            var msgText = $"App.OnLaunched(): Exception while launching the application: {e.Message}";
+            Console.WriteLine(msgText);
+            Debug.Write(msgText);
         }
     }
 }

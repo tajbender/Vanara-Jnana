@@ -41,7 +41,7 @@
                         <TextBlock Text="{x:Bind GitHubNetworkStatus}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                     </Border>
                 </Grid>
-                <!-- End of header section -->
+                <!-- Navigation section -->
                 <Button Click="OnWorkbenchClick" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
                     <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
                         <FontIcon Glyph="&#xEC7A;"/>
@@ -77,6 +77,10 @@
                         <TextBlock Text="Tools &amp; Utilities" HorizontalTextAlignment="Left" TextWrapping="WrapWholeWords" />
                     </StackPanel>
                 </Button>
+
+                <!-- Drag & Drop area -->
+
+                <!-- Bottom section -->
                 <Grid x:Name="BottomArea" CornerRadius="8" HorizontalAlignment="Stretch" 
                       Opacity="0.76" Padding="42,23" VerticalAlignment="Bottom">
                     <Grid.ColumnDefinitions>
