@@ -19,19 +19,19 @@ public sealed partial class QuickLaunchBar : UserControl
     private const string DefaultAvatarImageUri = "ms-appx:///Assets/Images/DefaultAvatar.png";
     private String[] GitHubBrowserItemSource = ["dummy entry", "another entry"];
 
-    //private string GitHubUserStatus
+    //private string GitHubNetworkStatus
 
     /// <summary>
     /// Gets or sets the GitHub user status.
     /// </summary>
-    public string GitHubUserStatus
+    public string GitHubNetworkStatus
     {
-        get => (string)this.GetValue(GitHubUserStatusProperty);
-        set => this.SetValue(GitHubUserStatusProperty, value);
+        get => (string)this.GetValue(GitHubNetworkStatusProperty);
+        set => this.SetValue(GitHubNetworkStatusProperty, value);
     }
-    public static readonly DependencyProperty GitHubUserStatusProperty =
+    public static readonly DependencyProperty GitHubNetworkStatusProperty =
         DependencyProperty.Register(
-            nameof(GitHubUserStatus),
+            nameof(GitHubNetworkStatus),
             typeof(string),
             typeof(QuickLaunchBar),
             new PropertyMetadata("GitHub status: No Network."));
@@ -104,25 +104,34 @@ public sealed partial class QuickLaunchBar : UserControl
     public QuickLaunchBar()
     {
         this.InitializeComponent();
+
+        // Start the asynchronous initialization of status information
         _ = this.InitializeStatusAsync();
     }
 
+    /// <summary>
+    /// Asynchronously initializes the status information for the QuickLaunchBar, including user display name, network status, and GitHub status.
+    /// </summary>
+    /// <returns></returns>
     private async Task InitializeStatusAsync()
     {
         this.UserDisplayName = $"Local user: `{Environment.UserName}`";
         this.NetworkStatus = "Network status pending...";
-        this.GitHubUserStatus = "GitHub status pending...";
+        this.GitHubNetworkStatus = "GitHub status pending...";
 
         // Network status
         var networkOk = await CheckNetworkAsync();
         this.NetworkStatus = networkOk ? "Network status: Online" : "Network status: Offline";
 
         // GitHub status
-        var githubOk = await CheckGitHubAsync();
-        this.GitHubUserStatus = githubOk ? "GitHub status: Online" : "GitHub status: Offline";
+        if (networkOk)
+        {
+            var githubOk = await CheckGitHubAsync();
+            this.GitHubNetworkStatus = githubOk ? "GitHub status: Online" : "GitHub status: Unreachable";
+        }
     }
 
-    private async Task<bool> CheckNetworkAsync()
+    private static async Task<bool> CheckNetworkAsync()
     {
         try
         {
@@ -132,14 +141,13 @@ public sealed partial class QuickLaunchBar : UserControl
         }
         catch
         {
-            Debug.Fail("Failed to check network connectivity.");
             return false;
         }
     }
 
-    
 
-    private async Task<bool> CheckGitHubAsync()
+
+    private static async Task<bool> CheckGitHubAsync()
     {
         try
         {

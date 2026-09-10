@@ -19,10 +19,16 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Border Grid.Column="0" Grid.Row="0">
-            <TextBlock Text="Hier könnte Ihre Werbung stehen!" />
+        <Border Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0">
+            <!-- Top Navigation Bar comes here -->
         </Border>
-        <Border Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1"
+        <Border Grid.Column="0" Grid.Row="1">
+            <TreeView Grid.Column="0" Grid.Row="0"
+                      CanDragItems="True" AllowDrop="True">
+                <!-- Tree View Items come here: Local Packages, NuGet Packages, Desktop-Folder -->
+            </TreeView>
+        </Border>
+        <Border Grid.Column="1" Grid.Row="1"
                 Background="{ThemeResource SolidBackgroundFillColorBaseBrush}"
                 BorderBrush="{ThemeResource SystemControlTransparentRevealBorderBrush}"
                 BorderThickness="3" CornerRadius="32" Margin="12">
@@ -31,7 +37,7 @@
             <!-- <Frame x:Name="RootFrame" NavigationUIVisibility="Hidden"/> -->
             <ContentPresenter x:Name="Presenter" />
         </Border>
-        <VariableSizedWrapGrid Grid.Column="1" Grid.Row="1">
+        <VariableSizedWrapGrid Grid.Column="2" Grid.Row="1">
             <ContentPresenter x:Name="SideBarPresenter" />
         </VariableSizedWrapGrid>
         <!--<Border Grid.Column="1" Background="{ThemeResource SolidBackgroundFillColorBaseBrush}"

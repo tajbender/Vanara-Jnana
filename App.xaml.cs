@@ -13,6 +13,8 @@ public partial class App : Application
 {
     private Window? _window;
 
+    public DispatcherTimer VerySlowTimer { get; }
+
     /// <summary>
     /// Gets the singleton instance of the AppServiceHost for the application.
     /// </summary>
@@ -25,6 +27,14 @@ public partial class App : Application
     public App()
     {
         this.InitializeComponent();
+
+        this.VerySlowTimer = new DispatcherTimer
+        {
+            Interval = TimeSpan.FromSeconds(2.5)
+        };
+        this.VerySlowTimer.Start();
+
+
     }
 
     /// <summary>

@@ -38,7 +38,7 @@
                         <TextBlock Text="{x:Bind NetworkStatus}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                     </Border>
                     <Border Grid.Column="1" Grid.Row="3" CornerRadius="7" BorderThickness="3">
-                        <TextBlock Text="{x:Bind GitHubUserStatus}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <TextBlock Text="{x:Bind GitHubNetworkStatus}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                     </Border>
                 </Grid>
                 <!-- End of header section -->
@@ -59,7 +59,7 @@
                     <Button Click="OnGitHubBrowserClick" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
                         <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
                             <FontIcon Glyph="&#xEC7A;"/>
-                            <TextBlock Text="GitHub Browser" HorizontalTextAlignment="Left" TextWrapping="WrapWholeWords"/>
+                            <TextBlock Text="GitHub" HorizontalTextAlignment="Left" TextWrapping="WrapWholeWords"/>
                             <!-- <ComboBox ItemsSource="{x:Bind GitHubBrowserItemSource}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/> -->
                         </StackPanel>
                     </Button>
@@ -67,14 +67,14 @@
                 <Button Click="OnSamplesClick" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
                     <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
                         <FontIcon Glyph="&#xEC7A;" />
-                        <TextBlock Text="Samples and Jñāna science Labs" HorizontalTextAlignment="Left" TextWrapping="WrapWholeWords"/>
+                        <TextBlock Text="Vanara Samples &amp; Jñāna science Labs" HorizontalTextAlignment="Left" TextWrapping="WrapWholeWords"/>
                     </StackPanel>
                 </Button>
                 <AppBarSeparator/>
                 <Button Click="OnToolsAndUtilitiesClick" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
                     <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
                         <FontIcon Glyph="&#xEC7A;" />
-                        <TextBlock Text="Tools and Utilities" HorizontalTextAlignment="Left" TextWrapping="WrapWholeWords" />
+                        <TextBlock Text="Tools &amp; Utilities" HorizontalTextAlignment="Left" TextWrapping="WrapWholeWords" />
                     </StackPanel>
                 </Button>
                 <Grid x:Name="BottomArea" CornerRadius="8" HorizontalAlignment="Stretch" 
@@ -97,22 +97,16 @@
                     <FontIcon Grid.Column="0" Grid.Row="2" Glyph="&#xE9D9;"/>
                     <FontIcon Grid.Column="1" Grid.Row="2" Glyph="&#xE7F8;"/>
                     <FontIcon Grid.Column="2" Grid.Row="2" Glyph="&#xE9D9;"/>
-                    <Button Grid.Column="0" Grid.Row="3" Click="OnSysInfoClick" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" Margin="3">
+                    <Button Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" Click="OnSysInfoClick" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" Margin="3">
                         <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
                             <FontIcon Glyph="&#xEC7A;" />
-                            <TextBlock Text="System Info" HorizontalTextAlignment="Center" TextWrapping="WrapWholeWords"/>
-                        </StackPanel>
-                    </Button>
-                    <Button Grid.Column="1" Grid.Row="3" Click="OnSettingsClick" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" Margin="3">
-                        <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
-                            <FontIcon Glyph="&#xEC7A;" />
-                            <TextBlock Text="Help?" HorizontalTextAlignment="Center"/>
+                            <TextBlock Text="System Info &amp; Config" HorizontalTextAlignment="Center" TextWrapping="WrapWholeWords"/>
                         </StackPanel>
                     </Button>
                     <Button Grid.Column="2" Grid.Row="3" Click="OnSettingsClick" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" Margin="3">
                         <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
                             <FontIcon Glyph="&#xEC7A;" />
-                            <TextBlock Text="Config" HorizontalTextAlignment="Center"/>
+                            <TextBlock Text="Help?" HorizontalTextAlignment="Center"/>
                         </StackPanel>
                     </Button>
                 </Grid>
