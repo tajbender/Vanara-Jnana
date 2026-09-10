@@ -5,11 +5,18 @@ using Microsoft.UI.Xaml;
 
 namespace Jnana;
 
+/// INFO: TitleBar
+///   - https://github.com/CommunityToolkit/Labs-Windows/discussions/454 
+///   - https://learn.microsoft.com/en-us/dotnet/api/communitytoolkit.winui.ui.titlebarextensions?view=win-comm-toolkit-dotnet-7.0
+/// see also:
+///   TitleBarExtensions Class - `CommunityToolkit.WinUI.UI`
+
 public sealed partial class MainWindow : Window
 {
     private MicaController _micaController;
     private SystemBackdropConfiguration _configuration;
-    private readonly NavigationService _navigationService;
+
+    public NavigationService NavigationService { get; }
 
     /// <summary>
     /// Public properties for the title, subtitle, and back button visibility of the main window.
@@ -26,13 +33,13 @@ public sealed partial class MainWindow : Window
         this.InitializeComponent();
         this.TrySetMicaBackdrop();
 
-        this._navigationService = new NavigationService();
+        this.NavigationService = new NavigationService();
         // TODO: Restore Navigation handling when NavigationService is implemented
         //_navigationService.OnPageNavigated += (sender, e) => NavigationHost.ShowPage(e.PageInstance);
 
         var workbench = new WorkbenchPage();
         this.NavigationHost.ShowPage(workbench);
-        this._navigationService.Navigate(typeof(WorkbenchPage));
+        this.NavigationService.Navigate(typeof(WorkbenchPage));
     }
 
     private void TrySetMicaBackdrop()

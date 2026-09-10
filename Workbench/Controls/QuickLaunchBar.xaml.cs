@@ -19,22 +19,35 @@ public sealed partial class QuickLaunchBar : UserControl
     public const string DefaultAvatarImageUri = "ms-appx:///Assets/Images/DefaultAvatar.png";
     public string[] GitHubTreeViewItemSource { get; } = ["dummy entry", "another entry"];
 
-    //private string GitHubUserStatus
-
     /// <summary>
-    /// Gets or sets the GitHub user status.
+    /// Gets or sets the machine's display name.
     /// </summary>
-    public string GitHubUserStatus
+    public string MachineDisplayName
     {
-        get => (string)this.GetValue(GitHubUserStatusProperty);
-        set => this.SetValue(GitHubUserStatusProperty, value);
+        get => (string)this.GetValue(MachineDisplayNameProperty);
+        set => this.SetValue(MachineDisplayNameProperty, value);
     }
-    public static readonly DependencyProperty GitHubUserStatusProperty =
+    public static readonly DependencyProperty MachineDisplayNameProperty =
         DependencyProperty.Register(
-            nameof(GitHubUserStatus),
+            nameof(MachineDisplayName),
             typeof(string),
             typeof(QuickLaunchBar),
-            new PropertyMetadata("GitHub status: No Network."));
+            new PropertyMetadata(Environment.MachineName));
+
+    /// <summary>
+    /// Gets or sets the GitHub status.
+    /// </summary>
+    public string GitHubStatus
+    {
+        get => (string)this.GetValue(GitHubStatusProperty);
+        set => this.SetValue(GitHubStatusProperty, value);
+    }
+    public static readonly DependencyProperty GitHubStatusProperty =
+        DependencyProperty.Register(
+            nameof(GitHubStatus),
+            typeof(string),
+            typeof(QuickLaunchBar),
+            new PropertyMetadata("GitHub: Network status pending."));
 
     /// <summary>
     /// Gets or sets the network status.
@@ -109,9 +122,9 @@ public sealed partial class QuickLaunchBar : UserControl
 
     private async Task InitializeStatusAsync()
     {
-        this.UserDisplayName = $"Local user: `{Environment.UserName}`";
+        this.UserDisplayName = $"`{Environment.UserName}`";
         this.NetworkStatus = "Network status pending...";
-        this.GitHubUserStatus = "GitHub status pending...";
+        this.GitHubStatus = "GitHub status pending...";
 
         // Network status
         var networkOk = await CheckNetworkAsync();
@@ -119,7 +132,7 @@ public sealed partial class QuickLaunchBar : UserControl
 
         // GitHub status
         var githubOk = await CheckGitHubAsync();
-        this.GitHubUserStatus = githubOk ? "GitHub status: Online" : "No Connection";
+        this.GitHubStatus = githubOk ? "GitHub status: Online" : "No Connection";
     }
 
     private async Task<bool> CheckNetworkAsync()
