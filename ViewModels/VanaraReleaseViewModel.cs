@@ -28,9 +28,9 @@ public class VanaraReleaseViewModel : INotifyPropertyChanged
     {
         try
         {
-            List<ReleaseInfo> items = await GitHubApi.GetLatestReleasesAsync();
+            var items = await GitHubApi.GetLatestReleasesAsync();
             this.Releases.Clear();
-            foreach (ReleaseInfo r in items)
+            foreach (var r in items)
                 this.Releases.Add(r);
 
             this.OnPropertyChanged(nameof(this.Releases));

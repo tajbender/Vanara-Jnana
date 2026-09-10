@@ -4,7 +4,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Jnana.Core.Services;
 
-namespace Jnana.Workbench.NuGet;
+namespace Jnana.Workbench.Pages.NuGets;
 
 public partial class NuGetsViewModel : ObservableObject
 {

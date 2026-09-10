@@ -14,11 +14,9 @@
             <TextBlock Text="NuGet Packages"
                        FontSize="24"
                        FontWeight="SemiBold" />
-
             <!-- Search Bar -->
             <TextBox x:Name="SearchBox"
                      PlaceholderText="Search NuGet Packages..." />
-
             <!-- Package Tree -->
             <ScrollViewer>
                 <controls:NuGetTreeView />

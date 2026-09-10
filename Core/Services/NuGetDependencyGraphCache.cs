@@ -9,7 +9,7 @@ public sealed class NuGetDependencyGraphCache : INuGetDependencyGraphService
     private readonly Dictionary<string, DependencyGraphResult> _cache = [];
     private readonly INuGetDependencyGraphService _inner;
 
-    public NuGetDependencyGraphCache(INuGetDependencyGraphService inner)
+    public NuGetDependencyGraphCache(NuGetDependencyGraphService inner)
     {
         _inner = inner;
     }
