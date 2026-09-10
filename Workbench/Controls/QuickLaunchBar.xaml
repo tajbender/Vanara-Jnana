@@ -18,8 +18,8 @@
                 <!-- Header section -->
                 <Grid Padding="23">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="128" />
-                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="32" />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
@@ -29,24 +29,24 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-                    <TextBlock Grid.Column="0" Grid.Row="0" FontSize="23" FontWeight="Bold" HorizontalAlignment="Left"
+                    <TextBlock Grid.Column="0" Grid.Row="0" FontSize="23" FontWeight="Bold" HorizontalAlignment="Stretch"
                                Text="Vanara Jñāna" VerticalAlignment="Top" />
-                    <Image Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Left" MaxHeight="128"
+                    <Image Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Stretch" MaxHeight="128"
                            Opacity="0.23" Source="/Assets/StoreLogo.png" VerticalAlignment="Stretch" />
                     <!-- Right side of the grid -->
                     <TextBlock Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right"
-                               Text="v1.269 (debug) - tres hombres" Padding="7" />
-                    <Border Grid.Column="1" Grid.Row="1" CornerRadius="7" BorderThickness="3">
-                        <TextBlock FontWeight="SemiBold" Margin="7" Text="{x:Bind UserDisplayName}" />
+                               Text="v1.269 dbg" Padding="7" />
+                    <Border Grid.Column="1" Grid.Row="1" BorderThickness="3" CornerRadius="7">
+                        <TextBlock FontWeight="SemiBold" Text="{x:Bind UserDisplayName}" />
                     </Border>
                     <Border Grid.Column="1" Grid.Row="2" CornerRadius="7" BorderThickness="3">
-                        <TextBlock FontWeight="SemiBold" Margin="7" Text="{x:Bind MachineDisplayName}" />
+                        <TextBlock FontWeight="SemiBold" HorizontalAlignment="Stretch" Text="{x:Bind MachineDisplayName}" />
                     </Border>
-                    <Border Grid.Column="1" Grid.Row="3" CornerRadius="7" BorderThickness="3">
-                        <TextBlock Margin="7" Text="{x:Bind NetworkStatus}" />
+                    <Border Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="3" CornerRadius="7" BorderThickness="3">
+                        <TextBlock Margin="7" Text="Network status: {x:Bind NetworkStatus}" />
                     </Border>
-                    <Border Grid.Column="1" Grid.Row="4" CornerRadius="7" BorderThickness="3">
-                        <TextBlock Margin="7" Text="{x:Bind GitHubStatus}" />
+                    <Border Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="4" CornerRadius="7" BorderThickness="3">
+                        <TextBlock Margin="7" Text="GitHub status: {x:Bind GitHubStatus}" />
                     </Border>
                 </Grid>
                 <!-- Quick Navigation section -->
@@ -93,6 +93,7 @@
 
                     <!-- Vanara -->
                     <ComboBoxItem IsEnabled="False">
+                        <!-- Add image, stretch, add "Goto" button" -->
                         <TextBlock Text="Vanara" FontWeight="SemiBold" Opacity="0.6" />
                     </ComboBoxItem>
                     <ComboBoxItem Content="Code" />

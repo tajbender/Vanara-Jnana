@@ -128,7 +128,7 @@ public sealed partial class QuickLaunchBar : UserControl
 
     private async Task InitializeStatusAsync()
     {
-        UserDisplayName = $"`{Environment.UserName}`";
+        UserDisplayName = $"User: `{Environment.UserName}`";
         NetworkStatus = "Network status pending...";
         GitHubStatus = "GitHub status pending...";
 
