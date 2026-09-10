@@ -38,10 +38,10 @@ public sealed partial class SysInfoPage : Page
 
         // Calculated values: Split PATH environment variable
         this.ViewModel.PathCollection = [];
-        var pathEnvironment = Environment.GetEnvironmentVariable("PATH")?.Split(';');
+        string[]? pathEnvironment = Environment.GetEnvironmentVariable("PATH")?.Split(';');
         if ((pathEnvironment is not null) && (pathEnvironment.Length > 0))
         {
-            foreach (var pathItem in pathEnvironment)
+            foreach (string pathItem in pathEnvironment)
                 this.ViewModel.PathCollection.Add(pathItem);
         }
     }

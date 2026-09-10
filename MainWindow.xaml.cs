@@ -6,45 +6,47 @@ using Microsoft.UI.Xaml;
 namespace Jnana;
 
 /// INFO: TitleBar
-///   - https://github.com/CommunityToolkit/Labs-Windows/discussions/454 
-///   - https://learn.microsoft.com/en-us/dotnet/api/communitytoolkit.winui.ui.titlebarextensions?view=win-comm-toolkit-dotnet-7.0
+/// - https://github.com/CommunityToolkit/Labs-Windows/discussions/454 
+/// -
+/// https://learn.microsoft.com/en-us/dotnet/api/communitytoolkit.winui.ui.titlebarextensions?view=win-comm-toolkit-dotnet-7.0
 /// see also:
-///   TitleBarExtensions Class - `CommunityToolkit.WinUI.UI`
-
+/// TitleBarExtensions Class - `CommunityToolkit.WinUI.UI`
 public sealed partial class MainWindow : Window
 {
-    private MicaController _micaController;
-    private SystemBackdropConfiguration _configuration;
-
-    public NavigationService NavigationService { get; }
-
-    /// <summary>
-    /// Public properties for the title, subtitle, and back button visibility of the main window.
-    /// </summary>
-    public string TitleText { get; set; } = "Vanara Jñāna";
-    public string SubtitleText { get; set; } = "Workbench";
-    public bool IsBackButtonVisible { get; set; } = true;
-    public bool IsBackButtonEnabled { get; set; } = false;
+    public SystemBackdropConfiguration SysBackdropConfiguration;
 
     public MainWindow(MicaController micaController, SystemBackdropConfiguration configuration)
     {
-        this._micaController = micaController;
-        this._configuration = configuration;
-        this.InitializeComponent();
-        this.TrySetMicaBackdrop();
+        Controller = micaController;
+        SysBackdropConfiguration = configuration;
+        InitializeComponent();
+        TrySetMicaBackdrop();
 
-        this.NavigationService = new NavigationService();
+        NavigationService = new NavigationService();
         // TODO: Restore Navigation handling when NavigationService is implemented
         //_navigationService.OnPageNavigated += (sender, e) => NavigationHost.ShowPage(e.PageInstance);
 
         var workbench = new WorkbenchPage();
-        this.NavigationHost.ShowPage(workbench);
-        this.NavigationService.Navigate(typeof(WorkbenchPage));
+        NavigationHost.ShowPage(workbench);
+        NavigationService.Navigate(typeof(WorkbenchPage));
     }
+
+    public MicaController Controller { get; }
+
+    public NavigationService NavigationService { get; }
+
+    /// <summary>
+    ///     Public properties for the title, subtitle, and back button visibility of the main window.
+    /// </summary>
+    public string TitleText { get; set; } = "Vanara Jñāna";
+
+    public string SubtitleText { get; set; } = "Workbench";
+    public bool IsBackButtonVisible { get; set; } = true;
+    public bool IsBackButtonEnabled { get; set; } = false;
 
     private void TrySetMicaBackdrop()
     {
-        this._configuration = new SystemBackdropConfiguration
+        SysBackdropConfiguration = new SystemBackdropConfiguration
         {
             IsInputActive = true,
             Theme = SystemBackdropTheme.Default

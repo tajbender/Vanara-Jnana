@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <Page
     x:Class="Jnana.Workbench.Pages.GitHub.GitHubPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -9,12 +10,12 @@
     mc:Ignorable="d">
 
     <Grid Padding="12">
-            <!--<TextBlock Text="Web Browser: Vanara on GitHub"
+        <!--<TextBlock Text="Web Browser: Vanara on GitHub"
                        FontSize="24"
                        FontWeight="SemiBold"/>-->
 
-            <wv2:WebView2 x:Name="GitHubView"
+        <wv2:WebView2 x:Name="GitHubView"
                       HorizontalAlignment="Stretch"
-                      VerticalAlignment="Stretch"/>
+                      VerticalAlignment="Stretch" />
     </Grid>
 </Page>

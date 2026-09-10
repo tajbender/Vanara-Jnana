@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <Page
     x:Class="Jnana.Workbench.Pages.ToolsAndUtilitiesPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -17,9 +18,7 @@
             <TextBox x:Name="SearchBox" PlaceholderText="Search Tools and Utilities..." />
 
             <!-- Package Tree -->
-            <ScrollViewer>
-
-            </ScrollViewer>
+            <ScrollViewer />
         </StackPanel>
     </Grid>
 </Page>

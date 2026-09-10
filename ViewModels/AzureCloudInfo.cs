@@ -1,6 +1,6 @@
-﻿using Microsoft.Identity.Client;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Microsoft.Identity.Client;
 
 namespace Jnana.ViewModels;
 
@@ -11,9 +11,7 @@ public class AzureCloudInfo
         var clouds = new List<string>();
 
         foreach (AzureCloudInstance instance in Enum.GetValues(typeof(AzureCloudInstance)))
-        {
             clouds.Add($"{instance} → {GetAuthority(instance)}");
-        }
 
         return clouds;
     }

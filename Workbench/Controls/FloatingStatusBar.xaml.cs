@@ -1,8 +1,8 @@
+using System;
+using Windows.UI;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media;
-using System;
-using Windows.UI;
 
 namespace Jnana.Workbench.Controls;
 
@@ -28,10 +28,14 @@ public sealed partial class FloatingStatusBar : UserControl, IStatusService
 
     //public static FloatingStatusBar Instance { get; private set; }
 
-    private string _cpuUsage = "calculating...";
-    private string _netUsage = "calculating...";
-    private string _ramUsage = "calculating...";
-    private string _diskUsage = "calculating...";
+
+    public FloatingStatusBar()
+    {
+        InitializeComponent();
+        _hideTimer.Tick += (_, __) => Hide();
+
+        // OnAreaMenuTapped
+    }
 
     public new double Opacity
     {
@@ -39,39 +43,13 @@ public sealed partial class FloatingStatusBar : UserControl, IStatusService
         set => ((UserControl)this).Opacity = value;
     }
 
-    public string CPUUsage
-    {
-        get => this._cpuUsage;
-        set => this._cpuUsage = value;
-    }
+    public string CPUUsage { get; set; } = "calculating...";
 
-    public string NetUsage
-    {
-        get => this._netUsage;
-        set => this._netUsage = value;
-    }
+    public string NetUsage { get; set; } = "calculating...";
 
-    public string RAMUsage
-    {
-        get => this._ramUsage;
-        set => this._ramUsage = value;
-    }
+    public string RAMUsage { get; set; } = "calculating...";
 
-    public string DiskUsage
-    {
-        get => this._diskUsage;
-        set => this._diskUsage = value;
-    }
-
-
-
-    public FloatingStatusBar()
-    {
-        this.InitializeComponent();
-        this._hideTimer.Tick += (_, __) => this.Hide();
-
-        // OnAreaMenuTapped
-    }
+    public string DiskUsage { get; set; } = "calculating...";
 
     public void Show(string message, StatusKind kind)
     {
@@ -96,26 +74,31 @@ public sealed partial class FloatingStatusBar : UserControl, IStatusService
 
     public void OnAreaMenuTapped(object sender, RoutedEventArgs e)
     {
-
     }
 
 
-    private string GetGlyph(StatusKind kind) => kind switch
+    private string GetGlyph(StatusKind kind)
     {
-        StatusKind.Success => "\uE73E",
-        StatusKind.Warning => "\uE7BA",
-        StatusKind.Error => "\uE783",
-        StatusKind.NuGet => "\uEBDC",
-        StatusKind.GitHub => "\uE8B8",
-        StatusKind.Assembly => "\uEC2E",
-        _ => "\uE946"
-    };
+        return kind switch
+        {
+            StatusKind.Success => "\uE73E",
+            StatusKind.Warning => "\uE7BA",
+            StatusKind.Error => "\uE783",
+            StatusKind.NuGet => "\uEBDC",
+            StatusKind.GitHub => "\uE8B8",
+            StatusKind.Assembly => "\uEC2E",
+            _ => "\uE946"
+        };
+    }
 
-    private Brush GetBackground(StatusKind kind) => kind switch
+    private Brush GetBackground(StatusKind kind)
     {
-        StatusKind.Error => new SolidColorBrush(Color.FromArgb(255, 180, 40, 40)),
-        StatusKind.Success => new SolidColorBrush(Color.FromArgb(255, 40, 160, 80)),
-        StatusKind.Warning => new SolidColorBrush(Color.FromArgb(255, 200, 160, 40)),
-        _ => (Brush)Application.Current.Resources["AcrylicBackgroundFillColorDefaultBrush"]
-    };
+        return kind switch
+        {
+            StatusKind.Error => new SolidColorBrush(Color.FromArgb(255, 180, 40, 40)),
+            StatusKind.Success => new SolidColorBrush(Color.FromArgb(255, 40, 160, 80)),
+            StatusKind.Warning => new SolidColorBrush(Color.FromArgb(255, 200, 160, 40)),
+            _ => (Brush)Application.Current.Resources["AcrylicBackgroundFillColorDefaultBrush"]
+        };
+    }
 }

@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <Window
     x:Class="Jnana.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -16,25 +17,26 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="420"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="320" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <!-- QuickLaunchBar -->
-        <ctrls:QuickLaunchBar x:Name="QuickLaunchBar" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Stretch"/>
+        <ctrls:QuickLaunchBar x:Name="QuickLaunchBar" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2"
+                              VerticalAlignment="Stretch" />
         <TitleBar Grid.Column="1" Grid.Row="0"
                   IsBackButtonEnabled="{x:Bind IsBackButtonEnabled, Mode=OneWay}"
                   IsBackButtonVisible="{x:Bind IsBackButtonVisible, Mode=OneWay}"
-                  Subtitle="{x:Bind SubtitleText, Mode=OneWay}" 
-                  Title="{x:Bind TitleText, Mode=OneWay}" >
+                  Subtitle="{x:Bind SubtitleText, Mode=OneWay}"
+                  Title="{x:Bind TitleText, Mode=OneWay}">
             <TitleBar.IconSource>
                 <ImageIconSource ImageSource="/Assets/Square44x44Logo.png" />
             </TitleBar.IconSource>
         </TitleBar>
         <!-- Navigation Host -->
-        <nav:NavigationHost x:Name="NavigationHost" Grid.Column="1" Grid.Row="1" VerticalAlignment="Stretch"/>
+        <nav:NavigationHost x:Name="NavigationHost" Grid.Column="1" Grid.Row="1" VerticalAlignment="Stretch" />
     </Grid>
 </Window>

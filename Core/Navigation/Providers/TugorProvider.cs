@@ -1,6 +1,5 @@
 ﻿using Jnana.ViewModels;
 using Jnana.Workbench.Pages.Workbench;
-using System;
 using static Jnana.Core.Navigation.NamespaceUri;
 
 namespace Jnana.Core.Navigation.Providers;
@@ -8,7 +7,9 @@ namespace Jnana.Core.Navigation.Providers;
 public sealed class TugorProvider : INamespaceProvider
 {
     public bool CanHandle(NamespaceUri uri)
-        => uri.Scheme == "jnana" && uri.Path == "tugor";
+    {
+        return uri.Scheme == "jnana" && uri.Path == "tugor";
+    }
 
     public NamespaceNode Resolve(NamespaceUri uri)
     {
@@ -16,7 +17,7 @@ public sealed class TugorProvider : INamespaceProvider
         {
             PageType = typeof(TugorPage),
             Payload = new TugorGameState(),
-            TargetObject = String.Empty, // TODO: Determine if a specific target object is needed for the TugorPage
+            TargetObject = string.Empty // TODO: Determine if a specific target object is needed for the TugorPage
         };
     }
 }

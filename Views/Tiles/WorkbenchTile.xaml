@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <UserControl
     x:Class="Jnana.Views.Tiles.WorkbenchTile"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -10,13 +11,13 @@
     <UserControl.Resources>
         <!--<vm:WorkbenchTileViewModel x:Key="WorkbenchTileViewModel" />-->
         <Style x:Key="TileTitleStyle" TargetType="TextBlock">
-            <Setter Property="FontSize" Value="18"/>
-            <Setter Property="FontWeight" Value="SemiBold"/>
-            <Setter Property="Margin" Value="0,0,0,4"/>
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Margin" Value="0,0,0,4" />
         </Style>
         <Style x:Key="TileDescriptionStyle" TargetType="TextBlock">
-            <Setter Property="FontSize" Value="13"/>
-            <Setter Property="Opacity" Value="0.7"/>
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="Opacity" Value="0.7" />
         </Style>
     </UserControl.Resources>
 

@@ -1,5 +1,5 @@
-﻿using Jnana.Workbench.Controls;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using Jnana.Workbench.Controls;
 
 namespace Jnana.Core.Services;
 
@@ -9,11 +9,11 @@ public sealed class NuGetPreLoadService : INuGetPreLoadService
 
     public NuGetPreLoadService(NuGetTreeViewModel treeViewModel)
     {
-        this._treeViewModel = treeViewModel;
+        _treeViewModel = treeViewModel;
     }
 
     public async Task PreLoadAsync(string projectPath)
     {
-        await this._treeViewModel.LoadAsync(projectPath);
+        await _treeViewModel.LoadAsync(projectPath);
     }
 }
