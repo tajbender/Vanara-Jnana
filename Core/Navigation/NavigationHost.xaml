@@ -29,10 +29,34 @@
                 Background="{ThemeResource SolidBackgroundFillColorBaseBrush}"
                 BorderBrush="{ThemeResource SystemControlTransparentRevealBorderBrush}"
                 BorderThickness="3" CornerRadius="32" Margin="12">
-            <!--<controls:AttachDropShadow BlurRadius="16" ShadowOpacity="0.35" OffsetX="0" OffsetY="4"> -->
+            <TabView AddTabButtonClick="TabView_AddButtonClick" TabCloseRequested="TabView_TabCloseRequested">
+                <TabView.TabItems>
+                    <TabViewItem Header="Document 0">
+                        <TabViewItem.IconSource>
+                            <SymbolIconSource Symbol="Placeholder" />
+                        </TabViewItem.IconSource>
+                        <!--<samplepages:SamplePage1 />-->
+                    </TabViewItem>
+                    <TabViewItem Header="Document 1">
+                        <TabViewItem.IconSource>
+                            <SymbolIconSource Symbol="Placeholder" />
+                        </TabViewItem.IconSource>
+                        <!--<samplepages:SamplePage2 />-->
+                    </TabViewItem>
+                    <TabViewItem Header="Document 2">
+                        <TabViewItem.IconSource>
+                            <SymbolIconSource Symbol="Placeholder" />
+                        </TabViewItem.IconSource>
+                        <!--<samplepages:SamplePage3 />-->
+                    </TabViewItem>
+                </TabView.TabItems>
+            </TabView>
+
             <!-- TODO: Implement navigation host -->
             <!-- <Frame x:Name="RootFrame" NavigationUIVisibility="Hidden"/> -->
-            <ContentPresenter x:Name="MainAreaPresenter" />
+            <!--<ContentPresenter x:Name="MainAreaPresenter" />-->
+
+            <!--<controls:AttachDropShadow BlurRadius="16" ShadowOpacity="0.35" OffsetX="0" OffsetY="4"> -->
         </Border>
         <Border Grid.Column="2" Grid.Row="1" 
                 BorderBrush="{ThemeResource SystemControlTransparentRevealBorderBrush}"

@@ -188,9 +188,10 @@
                             MinHeight="60"
                             CornerRadius="10"
                             BorderThickness="1"
-                            Padding="10">
-                        <StackPanel Orientation="Vertical" Spacing="2">
-                            <TextBlock Text="Drop items here..."
+                            Padding="10"
+                            VerticalAlignment="Stretch">
+                        <StackPanel Orientation="Vertical" Spacing="2" VerticalAlignment="Stretch">
+                            <TextBlock Text="Show and Drop favorite items here..."
                                        FontWeight="SemiBold" />
                             <TextBlock Text="Tabs, folders, shortcuts..."
                                        Opacity="0.8" />
