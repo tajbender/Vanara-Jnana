@@ -31,7 +31,6 @@
     <None Remove="Views\Tiles\WorkbenchTile.xaml" />
     <None Remove="Workbench\Controls\QuickLaunchBar.xaml" />
     <None Remove="Workbench\Controls\FloatingStatusBar.xaml" />
-    <None Remove="Workbench\Controls\NuGetTreeView.xaml" />
     <None Remove="Workbench\Pages\GitHub\GitHubPage.xaml" />
     <None Remove="Workbench\Pages\NuGets\NuGetPackageCard.xaml" />
     <None Remove="Workbench\Pages\NuGets\NuGetsPage.xaml" />

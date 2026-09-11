@@ -4,15 +4,10 @@ using Jnana.Workbench.Controls;
 
 namespace Jnana.Core.Services;
 
-public sealed class NuGetDependencyGraphCache : INuGetDependencyGraphService
+public sealed class NuGetDependencyGraphCache(NuGetDependencyGraphService inner) : INuGetDependencyGraphService
 {
     private readonly Dictionary<string, DependencyGraphResult> _cache = [];
-    private readonly INuGetDependencyGraphService _inner;
-
-    public NuGetDependencyGraphCache(NuGetDependencyGraphService inner)
-    {
-        _inner = inner;
-    }
+    private readonly INuGetDependencyGraphService _inner = inner;
 
     public async Task<DependencyGraphResult> GetDependencyGraphAsync(string projectPath)
     {

@@ -4,7 +4,7 @@ namespace Jnana.Workbench.ViewModels;
 
 public partial class StatusBarViewModel : ObservableObject
 {
-    private readonly TelemetryViewModel _telemetry;
+    private readonly TelemetryViewModel _telemetry = new(); // Temporary for testing, replace with DI in production
 
     private string _cpu;
 
@@ -14,38 +14,32 @@ public partial class StatusBarViewModel : ObservableObject
 
     private string _ram;
 
-    public StatusBarViewModel()
-    {
-        //TODO:        _telemetry = App.GetService<TelemetryViewModel>();
-        _telemetry = new TelemetryViewModel(); // Temporary for testing, replace with DI in production
-
-        // Bindings
-        //CPUUsage = $"{_telemetry.CPU}%";
-        //RAMUsage = $"{_telemetry.RAM}%";
-        //NetUsage = $"{_telemetry.Network}%";
-        //DiskUsage = $"{_telemetry.Disk}%";
-
-        //_telemetry.PropertyChanged += (s, e) =>
-        //{
-        //    switch (e.PropertyName)
-        //    {
-        //        case nameof(_telemetry.CPU):
-        //            CPUUsage = $"{_telemetry.CPU}%";
-        //            break;
-        //        case nameof(_telemetry.RAM):
-        //            RAMUsage = $"{_telemetry.RAM}%";
-        //            break;
-        //        case nameof(_telemetry.Network):
-        //            NetUsage = $"{_telemetry.Network}%";
-        //            break;
-        //        case nameof(_telemetry.Disk):
-        //            DiskUsage = $"{_telemetry.Disk}%";
-        //            break;
-        //        default:
-        //            break;
-        //    }
-        //};
-    }
+    //TODO:        _telemetry = App.GetService<TelemetryViewModel>();
+    // Bindings
+    //CPUUsage = $"{_telemetry.CPU}%";
+    //RAMUsage = $"{_telemetry.RAM}%";
+    //NetUsage = $"{_telemetry.Network}%";
+    //DiskUsage = $"{_telemetry.Disk}%";
+    //_telemetry.PropertyChanged += (s, e) =>
+    //{
+    //    switch (e.PropertyName)
+    //    {
+    //        case nameof(_telemetry.CPU):
+    //            CPUUsage = $"{_telemetry.CPU}%";
+    //            break;
+    //        case nameof(_telemetry.RAM):
+    //            RAMUsage = $"{_telemetry.RAM}%";
+    //            break;
+    //        case nameof(_telemetry.Network):
+    //            NetUsage = $"{_telemetry.Network}%";
+    //            break;
+    //        case nameof(_telemetry.Disk):
+    //            DiskUsage = $"{_telemetry.Disk}%";
+    //            break;
+    //        default:
+    //            break;
+    //    }
+    //};
 
     public string CPUUsage
     {

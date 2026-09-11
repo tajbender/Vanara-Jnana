@@ -3,17 +3,10 @@ using Jnana.Workbench.Controls;
 
 namespace Jnana.Core.Services;
 
-public sealed class NuGetPreLoadService : INuGetPreLoadService
+public sealed class NuGetPreLoadService(NuGetTreeViewModel treeViewModel) : INuGetPreLoadService
 {
-    private readonly NuGetTreeViewModel _treeViewModel;
-
-    public NuGetPreLoadService(NuGetTreeViewModel treeViewModel)
-    {
-        _treeViewModel = treeViewModel;
-    }
-
     public async Task PreLoadAsync(string projectPath)
     {
-        await _treeViewModel.LoadAsync(projectPath);
+        await treeViewModel.LoadAsync(projectPath);
     }
 }

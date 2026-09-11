@@ -23,6 +23,7 @@
             <TreeView />
         </Border>
         <Border Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0" BorderBrush="{ThemeResource SystemControlTransparentRevealBorderBrush}" BorderThickness="3">
+            <!-- TODO: Implement navigation host -->
             <TextBlock>NavigationBar will be placed here.</TextBlock>
         </Border>
         <Border Grid.Column="1" Grid.Row="1"
@@ -37,22 +38,9 @@
                         </TabViewItem.IconSource>
                         <!--<samplepages:SamplePage1 />-->
                     </TabViewItem>
-                    <TabViewItem Header="Document 1">
-                        <TabViewItem.IconSource>
-                            <SymbolIconSource Symbol="Placeholder" />
-                        </TabViewItem.IconSource>
-                        <!--<samplepages:SamplePage2 />-->
-                    </TabViewItem>
-                    <TabViewItem Header="Document 2">
-                        <TabViewItem.IconSource>
-                            <SymbolIconSource Symbol="Placeholder" />
-                        </TabViewItem.IconSource>
-                        <!--<samplepages:SamplePage3 />-->
-                    </TabViewItem>
                 </TabView.TabItems>
             </TabView>
 
-            <!-- TODO: Implement navigation host -->
             <!-- <Frame x:Name="RootFrame" NavigationUIVisibility="Hidden"/> -->
             <!--<ContentPresenter x:Name="MainAreaPresenter" />-->
 

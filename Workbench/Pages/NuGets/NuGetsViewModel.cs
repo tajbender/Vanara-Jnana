@@ -6,18 +6,13 @@ using Jnana.Core.Services;
 
 namespace Jnana.Workbench.Pages.NuGets;
 
-public partial class NuGetsViewModel : ObservableObject
+public partial class NuGetsViewModel(INuGetCatalogService catalogService) : ObservableObject
 {
-    private readonly INuGetCatalogService _catalogService;
+    private readonly INuGetCatalogService _catalogService = catalogService;
 
     [ObservableProperty] private string searchQuery = string.Empty;
 
     [ObservableProperty] private NuGetPackageInfo? selectedPackage;
-
-    public NuGetsViewModel(INuGetCatalogService catalogService)
-    {
-        _catalogService = catalogService;
-    }
 
     public ObservableCollection<NuGetPackageInfo> Packages { get; } = [];
 

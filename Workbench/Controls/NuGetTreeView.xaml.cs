@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
@@ -13,42 +14,25 @@ public interface INuGetDependencyGraphService
     Task<DependencyGraphResult> GetDependencyGraphAsync(string projectPath);
 }
 
-public sealed class DependencyGraphResult
+public sealed class DependencyGraphResult(
+    IReadOnlyList<PackageInfo> topLevel,
+    IReadOnlyList<PackageInfo> transitive)
 {
-    public DependencyGraphResult(
-        IReadOnlyList<PackageInfo> topLevel,
-        IReadOnlyList<PackageInfo> transitive)
-    {
-        TopLevelPackages = topLevel;
-        TransitivePackages = transitive;
-    }
-
-    public IReadOnlyList<PackageInfo> TopLevelPackages { get; }
-    public IReadOnlyList<PackageInfo> TransitivePackages { get; }
+    public IReadOnlyList<PackageInfo> TopLevelPackages { get; } = topLevel;
+    public IReadOnlyList<PackageInfo> TransitivePackages { get; } = transitive;
 }
 
-public sealed class PackageInfo
+public sealed class PackageInfo(string id, string version)
 {
-    public PackageInfo(string id, string version)
-    {
-        Id = id;
-        Version = version;
-    }
-
-    public string Id { get; }
-    public string Version { get; }
+    public string Id { get; } = id;
+    public string Version { get; } = version;
 }
 
-public abstract class TreeNode
+public abstract class TreeNode(string name)
 {
     private readonly List<TreeNode> _children = [];
 
-    protected TreeNode(string name)
-    {
-        Name = name;
-    }
-
-    public string Name { get; }
+    public string Name { get; } = name;
     public IReadOnlyList<TreeNode> Children => _children;
 
     public void AddChild(TreeNode node)
@@ -57,39 +41,18 @@ public abstract class TreeNode
     }
 }
 
-public sealed class PackageNode : TreeNode
+public sealed class PackageNode(string name, string version, bool isTopLevel) : TreeNode(name)
 {
-    public PackageNode(string name, string version, bool isTopLevel)
-        : base(name)
-    {
-        Version = version;
-        IsTopLevel = isTopLevel;
-    }
-
-    public string Version { get; }
-    public bool IsTopLevel { get; }
+    public string Version { get; } = version;
+    public bool IsTopLevel { get; } = isTopLevel;
 }
 
-public sealed class PackageGroupNode : TreeNode
-{
-    public PackageGroupNode(string name)
-        : base(name)
-    {
-    }
-}
+public sealed class PackageGroupNode(string name) : TreeNode(name);
 
-public sealed class NuGetTreeRoot : TreeNode
-{
-    public NuGetTreeRoot()
-        : base("Root")
-    {
-    }
-}
+public sealed class NuGetTreeRoot() : TreeNode("Root");
 
-public sealed partial class NuGetTreeViewModel : ObservableObject
+public sealed partial class NuGetTreeViewModel(INuGetDependencyGraphService graphService) : ObservableObject
 {
-    private readonly INuGetDependencyGraphService _graphService;
-
     // -----------------------------
     // Loading State
     // -----------------------------
@@ -97,16 +60,10 @@ public sealed partial class NuGetTreeViewModel : ObservableObject
 
     [ObservableProperty] public bool _isLoading;
 
-    public NuGetTreeViewModel(INuGetDependencyGraphService graphService)
-    {
-        _graphService = graphService;
-        RootNodes = [];
-    }
-
     // -----------------------------
     // Tree Nodes
     // -----------------------------
-    public ObservableCollection<TreeNode> RootNodes { get; }
+    public ObservableCollection<TreeNode> RootNodes { get; } = [];
 
     // -----------------------------
     // Commands
@@ -119,7 +76,7 @@ public sealed partial class NuGetTreeViewModel : ObservableObject
             IsLoading = true;
             RootNodes.Clear();
 
-            var graph = await _graphService.GetDependencyGraphAsync(projectPath);
+            var graph = await graphService.GetDependencyGraphAsync(projectPath);
 
             var root = BuildTree(graph);
 
@@ -155,6 +112,7 @@ public sealed partial class NuGetTreeViewModel : ObservableObject
     }
 }
 
+[Obsolete("Use NuGetTreeViewModel instead.")]
 public sealed partial class NuGetTreeView : UserControl
 {
     private readonly NuGetDependencyGraphService _dependencyGraphService = new();
