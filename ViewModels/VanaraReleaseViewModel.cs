@@ -1,8 +1,8 @@
-﻿using Jnana.Core.Services;
-using System;
+﻿using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading.Tasks;
+using Jnana.Core.Services;
 
 namespace Jnana.ViewModels;
 
