@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-
 <UserControl
     x:Class="Jnana.Workbench.Controls.QuickLaunchBar"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -7,169 +5,221 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-    <!-- TODO: Add a title or description for the quick launch bar -->
-    <!-- TODO: Add a setter for the title -->
 
     <Grid VerticalAlignment="Stretch">
+        <!-- Außenrahmen: etwas schlanker, weicher -->
         <Border BorderBrush="{ThemeResource SystemControlTransparentRevealBorderBrush}"
-                BorderThickness="7" CornerRadius="32" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <StackPanel HorizontalAlignment="Stretch" HorizontalSnapPointsChanged="StackPanel_HorizontalSnapPointsChanged"
-                        Orientation="{x:Bind Orientation}" Padding="8" Spacing="8" VerticalAlignment="Stretch">
-                <Grid x:Name="HeaderSectionGrid" Padding="16">
+                BorderThickness="3"
+                CornerRadius="20"
+                Padding="12"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch">
+            <StackPanel Orientation="{x:Bind Orientation}"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Spacing="10">
+
+                <!-- Header -->
+                <Grid x:Name="HeaderSectionGrid" Padding="12">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
-                        <RowDefinition Height="*" />
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-                    <TextBlock Grid.Column="0" Grid.Row="0" FontSize="23" FontWeight="Bold" Text="Vanara Jñāna"/>
-                    <Image Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Stretch" 
-                           MaxHeight="128" Source="/Assets/StoreLogo.png" VerticalAlignment="Stretch" />
-                    <!-- Right side of the grid -->
-                    <TextBlock Grid.Column="1" Grid.Row="0" FontStyle="Italic" FontWeight="SemiBold" Text="v1.269" Padding="7,5,7,7"/>
-                    <Border Grid.Column="1" Grid.Row="1" BorderThickness="3" CornerRadius="7">
-                        <TextBlock FontWeight="SemiBold" HorizontalAlignment="Left" Text="{x:Bind UserDisplayName}"/>
-                        <!-- TODO: Load avatar -->
-                    </Border>
-                    <Border Grid.Column="1" Grid.Row="2" CornerRadius="7" BorderThickness="3">
-                        <TextBlock FontWeight="SemiBold" HorizontalAlignment="Left" Text="{x:Bind MachineDisplayName}"/>
-                        <!-- TODO: Use cool machine glyph styling -->
-                    </Border>
-                    <!-- Bottom area-->
-                    <Border Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" CornerRadius="7" BorderThickness="3" Visibility="Collapsed">
-                        <!-- todo: add Heartbeat animated status -->
-                        <TextBlock Margin="7" Text="Network status: {x:Bind NetworkStatus}" />
-                    </Border>
-                    <Border Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="4" CornerRadius="7" BorderThickness="3"  Visibility="Collapsed">
-                        <!-- todo: add Heartbeat animated status -->
-                        <TextBlock Margin="7" Text="GitHub status: {x:Bind GitHubStatus}" />
-                    </Border>
+
+                    <!-- Titel + Logo -->
+                    <StackPanel Grid.Column="0" Grid.Row="0" Grid.RowSpan="2"
+                                Orientation="Vertical"
+                                Spacing="6">
+                        <TextBlock FontSize="22"
+                                   FontWeight="Bold"
+                                   Text="Vanara Jñāna" />
+                        <Image MaxHeight="96"
+                               Source="/Assets/StoreLogo.png"
+                               Stretch="Uniform" />
+                    </StackPanel>
+
+                    <!-- Version + User -->
+                    <StackPanel Grid.Column="1" Grid.Row="0"
+                                Orientation="Vertical"
+                                HorizontalAlignment="Right"
+                                Spacing="6">
+                        <TextBlock FontStyle="Italic"
+                                   FontWeight="SemiBold"
+                                   Text="v1.269"
+                                   Opacity="0.8" />
+                        <Border BorderThickness="1"
+                                CornerRadius="8"
+                                Padding="6"
+                                Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                            <TextBlock FontWeight="SemiBold"
+                                       Text="{x:Bind UserDisplayName}" />
+                        </Border>
+                    </StackPanel>
+
+                    <!-- Status‑Area (später aktivierbar) -->
+                    <StackPanel Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3"
+                                Orientation="Vertical"
+                                Spacing="4">
+                        <Border CornerRadius="6"
+                                BorderThickness="1"
+                                Padding="6"
+                                Visibility="Collapsed">
+                            <TextBlock Text="Network status: {x:Bind NetworkStatus}" />
+                        </Border>
+                        <Border CornerRadius="6"
+                                BorderThickness="1"
+                                Padding="6"
+                                Visibility="Collapsed">
+                            <TextBlock Text="GitHub status: {x:Bind GitHubStatus}" />
+                        </Border>
+                    </StackPanel>
                 </Grid>
-                <!-- Quick Navigation section -->
-                <Button Click="OnWorkbenchClick" CornerRadius="6" HorizontalAlignment="Stretch"
-                        HorizontalContentAlignment="Left" BorderBrush="AliceBlue">
-                    <!-- TODO: Move Accent color brush for button into styles -->
-                    <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
-                        <FontIcon Glyph="&#xEC7A;" />
-                        <TextBlock Text="Workbench" HorizontalTextAlignment="Left" TextWrapping="WrapWholeWords" />
-                    </StackPanel>
-                </Button>
-                <AppBarSeparator />
-                <Button Click="OnNuGetsClick" CornerRadius="6" HorizontalAlignment="Stretch"
-                        HorizontalContentAlignment="Left" Padding="8">
-                    <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
-                        <FontIcon Glyph="&#xEC7A;" />
-                        <TextBlock Text="NuGets" HorizontalTextAlignment="Left" TextWrapping="WrapWholeWords" />
-                    </StackPanel>
-                </Button>
-                <ComboBox>
-                    <ComboBox.Resources>
-                        <!-- TODO: Move Accent color brush into styles -->
-                        <SolidColorBrush x:Key="AccentBrush" Color="#FFB26EFF" />
-                    </ComboBox.Resources>
-                    <ComboBox.ItemContainerStyle>
-                        <Style TargetType="ComboBoxItem">
-                            <Setter Property="Padding" Value="24,8" />
-                            <Setter Property="Background" Value="Transparent" />
-                            <Setter Property="Foreground" Value="{ThemeResource SystemControlForegroundBaseHighBrush}" />
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="ComboBoxItem">
-                                        <Grid>
-                                            <!-- Accent‑Stripe on the left hand side -->
-                                            <Rectangle x:Name="AccentStripe" Fill="{StaticResource AccentBrush}" HorizontalAlignment="Left" Opacity="0.23" Width="4" />
-                                            <ContentPresenter Margin="8,8" VerticalAlignment="Center" />
-                                        </Grid>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </ComboBox.ItemContainerStyle>
-                    <!-- Vanara on  GitHub ComboBox -->
-                    <ComboBoxItem IsSelected="False">
-                        <!-- todo: Add image, stretch, add "Goto" button" -->
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Vanara on GitHub" FontWeight="SemiBold" Opacity="0.76" VerticalAlignment="Center"/>
-                            <Button VerticalAlignment="Center">open...</Button>
+
+                <!-- Quick Navigation -->
+                <StackPanel Spacing="6">
+                    <Button Click="OnWorkbenchClick"
+                            CornerRadius="8"
+                            HorizontalAlignment="Stretch"
+                            HorizontalContentAlignment="Left">
+                        <StackPanel Orientation="Horizontal" Padding="10" Spacing="8">
+                            <FontIcon Glyph="&#xEC7A;" />
+                            <TextBlock Text="Workbench"
+                                       TextWrapping="WrapWholeWords" />
                         </StackPanel>
-                    </ComboBoxItem>
-                    <ComboBoxItem Content="Code" />
-                    <ComboBoxItem Content="Downloads" />
-                    <ComboBoxItem Content="Issues" />
-                    <ComboBoxItem Content="Pull Requests" />
-                    <ComboBoxItem IsEnabled="False">
-                        <!-- Separator -->
-                        <Rectangle Fill="{ThemeResource SystemControlForegroundBaseLowBrush}" Height="1" Margin="6,2" Opacity="0.42" />
-                    </ComboBoxItem>
-                    <!-- WinClassicSamples -->
-                    <ComboBoxItem IsEnabled="False">
-                        <TextBlock Text="WinClassicSamples" FontWeight="SemiBold" Opacity="0.6" />
-                    </ComboBoxItem>
-                    <ComboBoxItem Content="Code" />
-                </ComboBox>
-                <AppBarSeparator />
-                <Button Click="OnSamplesClick" CornerRadius="6" HorizontalAlignment="Stretch"
-                        HorizontalContentAlignment="Left">
-                    <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
-                        <FontIcon Glyph="&#xEC7A;" />
-                        <TextBlock Text="Samples &amp; Jñāna science Labs" HorizontalTextAlignment="Left"
-                                   TextWrapping="WrapWholeWords" />
-                    </StackPanel>
-                </Button>
-                <Button Click="OnToolsAndUtilitiesClick" CornerRadius="6" HorizontalAlignment="Stretch"
-                        HorizontalContentAlignment="Left">
-                    <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
-                        <FontIcon Glyph="&#xEC7A;" />
-                        <TextBlock Text="Tools &amp; Utilities" HorizontalTextAlignment="Left"
-                                   TextWrapping="WrapWholeWords" />
-                    </StackPanel>
-                </Button>
-                <Grid x:Name="BottomArea" CornerRadius="8" HorizontalAlignment="Stretch"
-                      Opacity="0.76" Padding="42,23" VerticalAlignment="Bottom">
+                    </Button>
+
+                    <AppBarSeparator />
+
+                    <Button Click="OnNuGetsClick"
+                            CornerRadius="8"
+                            HorizontalAlignment="Stretch"
+                            HorizontalContentAlignment="Left">
+                        <StackPanel Orientation="Horizontal" Padding="10" Spacing="8">
+                            <FontIcon Glyph="&#xEC7A;" />
+                            <TextBlock Text="NuGets"
+                                       TextWrapping="WrapWholeWords" />
+                        </StackPanel>
+                    </Button>
+
+                    <!-- GitHub ComboBox TODO: IsExpanded = true -->
+                    <ComboBox Margin="0,6,0,0">
+                        <ComboBox.Resources>
+                            <SolidColorBrush x:Key="AccentBrush" Color="#FFB26EFF" />
+                        </ComboBox.Resources>
+                        <ComboBox.ItemContainerStyle>
+                            <Style TargetType="ComboBoxItem">
+                                <Setter Property="Padding" Value="16,6" />
+                                <Setter Property="Background" Value="Transparent" />
+                                <Setter Property="Foreground" Value="{ThemeResource SystemControlForegroundBaseHighBrush}" />
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="ComboBoxItem">
+                                            <Grid>
+                                                <Rectangle x:Name="AccentStripe"
+                                                           Fill="{StaticResource AccentBrush}"
+                                                           HorizontalAlignment="Left"
+                                                           Opacity="0.23"
+                                                           Width="3" />
+                                                <ContentPresenter Margin="8,4"
+                                                                  VerticalAlignment="Center" />
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ComboBox.ItemContainerStyle>
+
+                        <ComboBoxItem>
+                            <StackPanel Orientation="Horizontal" Spacing="8">
+                                <TextBlock Text="GitHub: Vanara Home"
+                                           FontWeight="SemiBold"
+                                           Opacity="0.8"
+                                           VerticalAlignment="Center" />
+                                <Button Content="Go"
+                                        Padding="8,2"
+                                        MinWidth="48"
+                                        HorizontalAlignment="Right" />
+                            </StackPanel>
+                        </ComboBoxItem>
+                        <ComboBoxItem Content="Code on GitHub" />
+                        <ComboBoxItem Content="GitHub Downloads" />
+                        <ComboBoxItem Content="Issues" />
+                        <ComboBoxItem Content="Pull Requests" />
+                        <ComboBoxItem IsEnabled="False">
+                            <Rectangle Height="1"
+                                       Margin="6,2"
+                                       Fill="{ThemeResource SystemControlForegroundBaseLowBrush}"
+                                       Opacity="0.42" />
+                        </ComboBoxItem>
+                        <ComboBoxItem IsEnabled="False">
+                            <TextBlock Text="WinClassicSamples"
+                                       FontWeight="SemiBold"
+                                       Opacity="0.6" />
+                        </ComboBoxItem>
+                        <ComboBoxItem Content="Code" />
+                    </ComboBox>
+                </StackPanel>
+
+                <!-- Bottom Area -->
+                <Grid x:Name="BottomArea"
+                      CornerRadius="12"
+                      HorizontalAlignment="Stretch"
+                      Padding="16"
+                      Opacity="0.9">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-                    <Border Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Height="92" HorizontalAlignment="Stretch" MinHeight="42">
-                        <StackPanel Orientation="Vertical">
-                            <TextBlock Text="Drop Items to this area here..." TextWrapping="WrapWholeWords"/>
-                            <TextBlock Text="Tabs, Folders, Shortcuts..." TextWrapping="WrapWholeWords"/>
+
+                    <!-- Drop‑Zone -->
+                    <Border Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0"
+                            MinHeight="60"
+                            CornerRadius="10"
+                            BorderThickness="1"
+                            Padding="10">
+                        <StackPanel Orientation="Vertical" Spacing="2">
+                            <TextBlock Text="Drop items here..."
+                                       FontWeight="SemiBold" />
+                            <TextBlock Text="Tabs, folders, shortcuts..."
+                                       Opacity="0.8" />
                         </StackPanel>
                     </Border>
-                    <FontIcon Grid.Column="0" Grid.Row="1" Glyph="&#xE7F8;" />
-                    <FontIcon Grid.Column="1" Grid.Row="1" Glyph="&#xE9D9;" />
-                    <FontIcon Grid.Column="2" Grid.Row="1" Glyph="&#xE7F8;" />
-                    <FontIcon Grid.Column="0" Grid.Row="2" Glyph="&#xE9D9;" />
-                    <FontIcon Grid.Column="1" Grid.Row="2" Glyph="&#xE7F8;" />
-                    <FontIcon Grid.Column="2" Grid.Row="2" Glyph="&#xE9D9;" />
-                    <Button Grid.Column="0" Grid.Row="3" Click="OnSysInfoClick" CornerRadius="6" HorizontalAlignment="Stretch">
-                        <StackPanel Orientation="Vertical" Padding="8" Spacing="8">
+
+                    <!-- Actions -->
+                    <Button Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1"
+                            Click="OnSysInfoClick"
+                            CornerRadius="8"
+                            HorizontalAlignment="Left"
+                            Margin="0,10,6,0">
+                        <StackPanel Orientation="Vertical" Padding="8" Spacing="6">
                             <FontIcon Glyph="&#xEC7A;" />
-                            <TextBlock Text="System Information" TextWrapping="WrapWholeWords"/>
+                            <TextBlock HorizontalTextAlignment="Center"
+                                       Text="System Information Preferences"
+                                       TextWrapping="WrapWholeWords" />
                         </StackPanel>
                     </Button>
-                    <Button Grid.Column="1" Grid.Row="3" Click="OnSettingsClick" CornerRadius="6" HorizontalAlignment="Stretch">
-                        <StackPanel Orientation="Vertical" Padding="8" Spacing="8">
-                            <FontIcon Glyph="&#xEC7A;"/>
-                            <TextBlock Text="Settings &amp; Preferences" TextWrapping="WrapWholeWords"/>
-                        </StackPanel>
-                    </Button>
-                    <Button Grid.Column="2" Grid.Row="3" Click="OnSettingsClick" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
-                        <StackPanel Orientation="Vertical" Padding="8" Spacing="8">
-                            <FontIcon Glyph="&#xEC7A;"/>
-                            <TextBlock Text="Need Help?" TextWrapping="WrapWholeWords"/>
+
+                    <Button Grid.Column="2" Grid.Row="1"
+                            Click="OnSettingsClick"
+                            CornerRadius="8"
+                            HorizontalAlignment="Right"
+                            Margin="6,10,0,0">
+                        <StackPanel Orientation="Vertical" Padding="8" Spacing="6">
+                            <FontIcon Glyph="&#xEC7A;" />
+                            <TextBlock Text="Help?"
+                                       TextWrapping="WrapWholeWords" />
                         </StackPanel>
                     </Button>
                 </Grid>
