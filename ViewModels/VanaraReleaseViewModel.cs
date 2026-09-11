@@ -1,6 +1,5 @@
 ﻿using Jnana.Core.Services;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading.Tasks;
@@ -12,7 +11,7 @@ public class VanaraReleaseViewModel : INotifyPropertyChanged
     public ObservableCollection<ReleaseInfo> Releases { get; } = [];
 
     public event EventHandler LoadFailed;
-    public event PropertyChangedEventHandler PropertyChanged;
+    public event PropertyChangedEventHandler? PropertyChanged;
     protected void OnPropertyChanged(string name)
         => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
 
