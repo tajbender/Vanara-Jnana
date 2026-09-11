@@ -141,10 +141,16 @@ public sealed partial class QuickLaunchBar : UserControl
         GitHubStatus = githubOk ? "GitHub status: Online" : "No Connection";
     }
 
+    /// <summary>
+    ///    Checks the network connectivity by pinging a well-known server (Google's public DNS server).
+    /// </summary>
+    /// <returns></returns>
     private async Task<bool> CheckNetworkAsync()
     {
         try
         {
+            // Ping Google's public DNS server with a 2-second timeout
+
             using var ping = new Ping();
             var reply = await ping.SendPingAsync("8.8.8.8", 2000);
             return reply.Status == IPStatus.Success;
@@ -156,7 +162,10 @@ public sealed partial class QuickLaunchBar : UserControl
         }
     }
 
-
+    /// <summary>
+    ///   Checks the connectivity to GitHub by pinging the GitHub API endpoint.
+    /// </summary>
+    /// <returns></returns>
     private async Task<bool> CheckGitHubAsync()
     {
         try
@@ -254,6 +263,7 @@ public sealed partial class QuickLaunchBar : UserControl
     /// <param name="args"></param>
     private void RaisePageRequested(object sender, Type pageType, RoutedEventArgs args)
     {
+        Debug.WriteLine("Page requested: {0}", pageType.Name);
         PageRequested?.Invoke(sender, pageType, args);
     }
 
@@ -262,5 +272,10 @@ public sealed partial class QuickLaunchBar : UserControl
         // TODO: React to Layout Updates or new SnapPoints
         Debug.WriteLine("Horizontal snap points recalculated: {0}: {1}", sender, e);
         //(sender as StackPanel)?.HorizontalSnapPoints.Count ?? 0);
+    }
+
+    private void OnGitHubClick(object sender, RoutedEventArgs e)
+    {
+        Debug.WriteLine("GitHub button clicked.");
     }
 }

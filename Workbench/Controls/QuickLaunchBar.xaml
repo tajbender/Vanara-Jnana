@@ -19,70 +19,53 @@
                         VerticalAlignment="Stretch"
                         Spacing="10">
 
-                <!-- Header -->
-                <Grid x:Name="HeaderSectionGrid" Padding="12">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
+                <!-- Titel + Logo -->
+                <StackPanel Orientation="Vertical"
+                            Spacing="6">
+                    <TextBlock FontSize="22"
+                               FontWeight="Bold"
+                               Text="Vanara Jñāna" />
+                    <Image MaxHeight="96"
+                           Source="/Assets/StoreLogo.png"
+                           Stretch="Uniform" />
+                </StackPanel>
 
-                    <!-- Titel + Logo -->
-                    <StackPanel Grid.Column="0" Grid.Row="0" Grid.RowSpan="2"
-                                Orientation="Vertical"
-                                Spacing="6">
-                        <TextBlock FontSize="22"
-                                   FontWeight="Bold"
-                                   Text="Vanara Jñāna" />
-                        <Image MaxHeight="96"
-                               Source="/Assets/StoreLogo.png"
-                               Stretch="Uniform" />
-                    </StackPanel>
+                <!-- Version + User TODO: Bind UserName, add MachineName to the bottom area -->
+                <StackPanel Orientation="Horizontal"
+                            Visibility="Collapsed"
+                            Spacing="6">
+                    <TextBlock FontStyle="Italic"
+                               FontWeight="SemiBold"
+                               Text="v1.269"
+                               Opacity="0.8" />
+                    <Border Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}"
+                            BorderThickness="1"
+                            CornerRadius="8"
+                            Padding="6">
+                        <TextBlock FontWeight="SemiBold"
+                                   Text="{x:Bind UserDisplayName}" />
+                    </Border>
+                </StackPanel>
 
-                    <!-- Version + User -->
-                    <StackPanel Grid.Column="1" Grid.Row="0"
-                                Orientation="Vertical"
-                                HorizontalAlignment="Right"
-                                Spacing="6">
-                        <TextBlock FontStyle="Italic"
-                                   FontWeight="SemiBold"
-                                   Text="v1.269"
-                                   Opacity="0.8" />
-                        <Border BorderThickness="1"
-                                CornerRadius="8"
-                                Padding="6"
-                                Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-                            <TextBlock FontWeight="SemiBold"
-                                       Text="{x:Bind UserDisplayName}" />
-                        </Border>
-                    </StackPanel>
-
-                    <!-- Status‑Area (später aktivierbar) -->
-                    <StackPanel Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3"
-                                Orientation="Vertical"
-                                Spacing="4">
-                        <Border CornerRadius="6"
-                                BorderThickness="1"
-                                Padding="6"
-                                Visibility="Collapsed">
-                            <TextBlock Text="Network status: {x:Bind NetworkStatus}" />
-                        </Border>
-                        <Border CornerRadius="6"
-                                BorderThickness="1"
-                                Padding="6"
-                                Visibility="Collapsed">
-                            <TextBlock Text="GitHub status: {x:Bind GitHubStatus}" />
-                        </Border>
-                    </StackPanel>
-                </Grid>
+                <!-- Status‑Area (später aktivierbar) -->
+                <StackPanel Orientation="Vertical"
+                            Spacing="4">
+                    <Border CornerRadius="6"
+                            BorderThickness="1"
+                            Padding="6"
+                            Visibility="Collapsed">
+                        <TextBlock Text="Network status: {x:Bind NetworkStatus}" />
+                    </Border>
+                    <Border CornerRadius="6"
+                            BorderThickness="1"
+                            Padding="6"
+                            Visibility="Collapsed">
+                        <TextBlock Text="GitHub status: {x:Bind GitHubStatus}" />
+                    </Border>
+                </StackPanel>
 
                 <!-- Quick Navigation -->
-                <StackPanel Spacing="6">
+                <StackPanel Spacing="6" HorizontalAlignment="Stretch">
                     <Button Click="OnWorkbenchClick"
                             CornerRadius="8"
                             HorizontalAlignment="Stretch"
@@ -107,8 +90,20 @@
                         </StackPanel>
                     </Button>
 
+                    <Button Click="OnGitHubClick"
+                            CornerRadius="8"
+                            HorizontalAlignment="Stretch"
+                            HorizontalContentAlignment="Left">
+                        <StackPanel Orientation="Horizontal" Padding="10" Spacing="8">
+                            <FontIcon Glyph="&#xEC7A;" />
+                            <TextBlock Text="GitHub"
+                                       TextWrapping="WrapWholeWords" />
+                        </StackPanel>
+                    </Button>
+
+
                     <!-- GitHub ComboBox TODO: IsExpanded = true -->
-                    <ComboBox Margin="0,6,0,0">
+                    <!--<ComboBox Margin="0,6,0,0">
                         <ComboBox.Resources>
                             <SolidColorBrush x:Key="AccentBrush" Color="#FFB26EFF" />
                         </ComboBox.Resources>
@@ -163,7 +158,7 @@
                                        Opacity="0.6" />
                         </ComboBoxItem>
                         <ComboBoxItem Content="Code" />
-                    </ComboBox>
+                    </ComboBox>-->
                 </StackPanel>
 
                 <!-- Bottom Area -->
