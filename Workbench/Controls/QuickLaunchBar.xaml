@@ -55,7 +55,7 @@
                         <TextBlock Text="NuGets" HorizontalTextAlignment="Left" TextWrapping="WrapWholeWords"/>
                     </StackPanel>
                 </Button>
-                <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal" Padding="8" Spacing="8">
+                <!--<StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal" Padding="8" Spacing="8">-->
                     <Button Click="OnGitHubBrowserClick" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
                         <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
                             <FontIcon Glyph="&#xEC7A;"/>
@@ -63,7 +63,7 @@
                             <!-- <ComboBox ItemsSource="{x:Bind GitHubBrowserItemSource}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/> -->
                         </StackPanel>
                     </Button>
-                </StackPanel>
+                <!--</StackPanel>-->
                 <Button Click="OnSamplesClick" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
                     <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
                         <FontIcon Glyph="&#xEC7A;" />
