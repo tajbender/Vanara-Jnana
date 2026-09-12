@@ -10,7 +10,7 @@ public sealed partial class WorkbenchPage : Page
     public WorkbenchPage()
     {
         InitializeComponent();
-        
+
         //LaunchBar.PageRequested += OnPageRequested;
     }
 

@@ -122,10 +122,10 @@ public partial class SysInfoViewModel : INotifyPropertyChanged
 
     private void Update(object sender, object e)
     {
-//        CpuUsage = _cpu.GetCpuUsage();
-//
-//        var ram = _ram.GetRamInfo();
-//        RamTotal = ram.totalGb;
-//        RamUsed = ram.usedGb;
+        //        CpuUsage = _cpu.GetCpuUsage();
+        //
+        //        var ram = _ram.GetRamInfo();
+        //        RamTotal = ram.totalGb;
+        //        RamUsed = ram.usedGb;
     }
 }

@@ -15,6 +15,6 @@ public sealed partial class WorkbenchTile : UserControl
 
     private void Grid_OnTapped(object sender, TappedRoutedEventArgs e)
     {
-// TODO:        NavigationService.Navigate(typeof(WorkbenchPage));
+        // TODO:        NavigationService.Navigate(typeof(WorkbenchPage));
     }
 }
