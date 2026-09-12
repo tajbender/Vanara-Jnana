@@ -1,0 +1,1312 @@
+{
+  "settings": {
+    "components": {
+      "code": true,
+      "binaries": false
+    },
+    "targetId": "net10.0",
+    "targetDisplayName": ".NETCoreApp,Version=v10.0"
+  },
+  "analysisStartTime": "2026-09-12T11:54:57.3289199Z",
+  "analysisEndTime": "2026-09-12T11:55:02.4552642Z",
+  "privacyModeHelpUrl": "https://go.microsoft.com/fwlink/?linkid=2270980",
+  "stats": {
+    "summary": {
+      "projects": 1,
+      "issues": 6,
+      "incidents": 45,
+      "effort": 45
+    },
+    "charts": {
+      "severity": {
+        "Mandatory": 5,
+        "Optional": 0,
+        "Potential": 40,
+        "Information": 0
+      },
+      "category": {
+        "NuGet": 6,
+        "Project": 1,
+        "Api": 38
+      }
+    }
+  },
+  "projects": [
+    {
+      "path": "Vanara Jnana.csproj",
+      "startingProject": true,
+      "issues": 6,
+      "storyPoints": 45,
+      "properties": {
+        "appName": "Vanara Jnana",
+        "projectKind": "WinForms",
+        "frameworks": [
+          "net8.0-windows10.0.19041.0"
+        ],
+        "languages": [
+          "C#"
+        ],
+        "tools": [
+          "MSBuild"
+        ],
+        "isSdkStyle": true,
+        "isTestProject": false,
+        "numberOfFiles": 270,
+        "numberOfCodeFiles": 70,
+        "linesTotal": 390218,
+        "linesOfCode": 2934,
+        "totalApiScanned": 2348,
+        "minLinesOfCodeToChange": 38,
+        "maxLinesOfCodeToChange": 38
+      },
+      "ruleInstances": [
+        {
+          "incidentId": "05f58362-3d5d-44a2-a20c-8018dd5cd74d",
+          "ruleId": "NuGet.0001",
+          "projectPath": "Vanara Jnana.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "ColorCode.WinUI, 2.0.15\n\nRecommendation:\n\nNo supported version found",
+              "protected": "ColorCode.WinUI, 2.0.15\n\nRecommendation:\n\nNo supported version found"
+            },
+            "kind": "File",
+            "path": "Vanara Jnana.csproj",
+            "snippet": "ColorCode.WinUI, 2.0.15\n\nRecommendation:\n\nNo supported version found",
+            "protectedSnippet": "ColorCode.WinUI, 2.0.15\n\nRecommendation:\n\nNo supported version found",
+            "label": "ColorCode.WinUI 2.0.15",
+            "properties": {
+              "PackageId": "ColorCode.WinUI",
+              "PackageVersion": "2.0.15",
+              "PackageNewVersion": null,
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "c4b5f814-40a8-40a4-99c6-83235d958248",
+          "ruleId": "NuGet.0001",
+          "projectPath": "Vanara Jnana.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "CommunityToolkit.WinUI.UI.Controls.Markdown, 7.1.2\n\nRecommendation:\n\nNo supported version found",
+              "protected": "CommunityToolkit.WinUI.UI.Controls.Markdown, 7.1.2\n\nRecommendation:\n\nNo supported version found"
+            },
+            "kind": "File",
+            "path": "Vanara Jnana.csproj",
+            "snippet": "CommunityToolkit.WinUI.UI.Controls.Markdown, 7.1.2\n\nRecommendation:\n\nNo supported version found",
+            "protectedSnippet": "CommunityToolkit.WinUI.UI.Controls.Markdown, 7.1.2\n\nRecommendation:\n\nNo supported version found",
+            "label": "CommunityToolkit.WinUI.UI.Controls.Markdown 7.1.2",
+            "properties": {
+              "PackageId": "CommunityToolkit.WinUI.UI.Controls.Markdown",
+              "PackageVersion": "7.1.2",
+              "PackageNewVersion": null,
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "37459126-92b9-40ce-bdcc-7055a8cbeee5",
+          "ruleId": "NuGet.0002",
+          "projectPath": "Vanara Jnana.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Microsoft.Extensions.Caching.Abstractions, 11.0.0-rc.1.26425.128\n\nRecommendation:\n\nRemove Microsoft.Extensions.Caching.Abstractions, and replace with new package Microsoft.Extensions.Caching.Abstractions 10.0.12",
+              "protected": "Microsoft.Extensions.Caching.Abstractions, 11.0.0-rc.1.26425.128\n\nRecommendation:\n\nRemove Microsoft.Extensions.Caching.Abstractions, and replace with new package Microsoft.Extensions.Caching.Abstractions 10.0.12"
+            },
+            "kind": "File",
+            "path": "Vanara Jnana.csproj",
+            "snippet": "Microsoft.Extensions.Caching.Abstractions, 11.0.0-rc.1.26425.128\n\nRecommendation:\n\nRemove Microsoft.Extensions.Caching.Abstractions, and replace with new package Microsoft.Extensions.Caching.Abstractions 10.0.12",
+            "protectedSnippet": "Microsoft.Extensions.Caching.Abstractions, 11.0.0-rc.1.26425.128\n\nRecommendation:\n\nRemove Microsoft.Extensions.Caching.Abstractions, and replace with new package Microsoft.Extensions.Caching.Abstractions 10.0.12",
+            "label": "Microsoft.Extensions.Caching.Abstractions 11.0.0-rc.1.26425.128",
+            "properties": {
+              "PackageId": "Microsoft.Extensions.Caching.Abstractions",
+              "PackageVersion": "11.0.0-rc.1.26425.128",
+              "PackageNewVersion": "10.0.12",
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "3ad3c3dd-594e-4c5b-a3e2-42ddda3e6829",
+          "ruleId": "NuGet.0002",
+          "projectPath": "Vanara Jnana.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Microsoft.Extensions.Caching.Memory, 11.0.0-rc.1.26425.128\n\nRecommendation:\n\nRemove Microsoft.Extensions.Caching.Memory, and replace with new package Microsoft.Extensions.Caching.Memory 10.0.12",
+              "protected": "Microsoft.Extensions.Caching.Memory, 11.0.0-rc.1.26425.128\n\nRecommendation:\n\nRemove Microsoft.Extensions.Caching.Memory, and replace with new package Microsoft.Extensions.Caching.Memory 10.0.12"
+            },
+            "kind": "File",
+            "path": "Vanara Jnana.csproj",
+            "snippet": "Microsoft.Extensions.Caching.Memory, 11.0.0-rc.1.26425.128\n\nRecommendation:\n\nRemove Microsoft.Extensions.Caching.Memory, and replace with new package Microsoft.Extensions.Caching.Memory 10.0.12",
+            "protectedSnippet": "Microsoft.Extensions.Caching.Memory, 11.0.0-rc.1.26425.128\n\nRecommendation:\n\nRemove Microsoft.Extensions.Caching.Memory, and replace with new package Microsoft.Extensions.Caching.Memory 10.0.12",
+            "label": "Microsoft.Extensions.Caching.Memory 11.0.0-rc.1.26425.128",
+            "properties": {
+              "PackageId": "Microsoft.Extensions.Caching.Memory",
+              "PackageVersion": "11.0.0-rc.1.26425.128",
+              "PackageNewVersion": "10.0.12",
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "e6b7d8aa-42af-434b-9b50-44b304507b8c",
+          "ruleId": "NuGet.0003",
+          "projectPath": "Vanara Jnana.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "System.Net.Http, 4.3.4\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+              "protected": "System.Net.Http, 4.3.4\n\nRecommendation:\n\nPackage functionality included with new framework reference"
+            },
+            "kind": "File",
+            "path": "Vanara Jnana.csproj",
+            "snippet": "System.Net.Http, 4.3.4\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+            "protectedSnippet": "System.Net.Http, 4.3.4\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+            "label": "System.Net.Http 4.3.4",
+            "properties": {
+              "PackageId": "System.Net.Http",
+              "PackageVersion": "4.3.4",
+              "PackageNewVersion": null,
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "2cf564ff-1dbb-41bc-803f-1e70c61dbef4",
+          "ruleId": "NuGet.0003",
+          "projectPath": "Vanara Jnana.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "System.Text.RegularExpressions, 4.3.1\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+              "protected": "System.Text.RegularExpressions, 4.3.1\n\nRecommendation:\n\nPackage functionality included with new framework reference"
+            },
+            "kind": "File",
+            "path": "Vanara Jnana.csproj",
+            "snippet": "System.Text.RegularExpressions, 4.3.1\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+            "protectedSnippet": "System.Text.RegularExpressions, 4.3.1\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+            "label": "System.Text.RegularExpressions 4.3.1",
+            "properties": {
+              "PackageId": "System.Text.RegularExpressions",
+              "PackageVersion": "4.3.1",
+              "PackageNewVersion": null,
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "d3342091-8f77-4c9d-91eb-0840fbbf5eab",
+          "ruleId": "Project.0002",
+          "projectPath": "Vanara Jnana.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Current target framework: net8.0-windows10.0.19041.0\nRecommended target framework: net10.0-windows10.0.22000.0",
+              "protected": "Current target framework: net8.0-windows10.0.19041.0\nRecommended target framework: net10.0-windows10.0.22000.0"
+            },
+            "kind": "File",
+            "path": "Vanara Jnana.csproj",
+            "snippet": "Current target framework: net8.0-windows10.0.19041.0\nRecommended target framework: net10.0-windows10.0.22000.0",
+            "protectedSnippet": "Current target framework: net8.0-windows10.0.19041.0\nRecommended target framework: net10.0-windows10.0.22000.0",
+            "properties": {
+              "CurrentTargetFramework": "net8.0-windows10.0.19041.0",
+              "RecommendedTargetFramework": "net10.0-windows10.0.22000.0"
+            }
+          }
+        },
+        {
+          "incidentId": "e96ea45f-82d7-41fd-a1c7-8fe850a9f135",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Runtime.WindowsRuntime, 4.7.0. Add package reference to System.Runtime.WindowsRuntime, 4.7.0",
+          "projectPath": "Vanara Jnana.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "return kind switch\r\n        {\r\n            StatusKind.Error =\u003E new SolidColorBrush(Color.FromArgb(255, 180, 40, 40)),\r\n            StatusKind.Success =\u003E new SolidColorBrush(Color.FromArgb(255, 40, 160, 80)),\r\n            StatusKind.Warning =\u003E new SolidColorBrush(Color.FromArgb(255, 200, 160, 40)),\r\n            _ =\u003E (Brush)Application.Current.Resources[\u0022AcrylicBackgroundFillColorDefaultBrush\u0022]\r\n        };",
+              "protected": "T:Windows.UI.Color"
+            },
+            "kind": "File",
+            "path": "Workbench\\Controls\\FloatingStatusBar.xaml.cs",
+            "snippet": "return kind switch\r\n        {\r\n            StatusKind.Error =\u003E new SolidColorBrush(Color.FromArgb(255, 180, 40, 40)),\r\n            StatusKind.Success =\u003E new SolidColorBrush(Color.FromArgb(255, 40, 160, 80)),\r\n            StatusKind.Warning =\u003E new SolidColorBrush(Color.FromArgb(255, 200, 160, 40)),\r\n            _ =\u003E (Brush)Application.Current.Resources[\u0022AcrylicBackgroundFillColorDefaultBrush\u0022]\r\n        };",
+            "protectedSnippet": "T:Windows.UI.Color",
+            "label": "T:Windows.UI.Color",
+            "properties": {
+              "PackageId": "System.Runtime.WindowsRuntime",
+              "PackageNewVersion": "4.7.0",
+              "CharCount": "3353"
+            },
+            "line": 115,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "ccc80451-04ca-4d76-aaba-83c3dde2db09",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Runtime.WindowsRuntime, 4.7.0. Add package reference to System.Runtime.WindowsRuntime, 4.7.0",
+          "projectPath": "Vanara Jnana.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "return kind switch\r\n        {\r\n            StatusKind.Error =\u003E new SolidColorBrush(Color.FromArgb(255, 180, 40, 40)),\r\n            StatusKind.Success =\u003E new SolidColorBrush(Color.FromArgb(255, 40, 160, 80)),\r\n            StatusKind.Warning =\u003E new SolidColorBrush(Color.FromArgb(255, 200, 160, 40)),\r\n            _ =\u003E (Brush)Application.Current.Resources[\u0022AcrylicBackgroundFillColorDefaultBrush\u0022]\r\n        };",
+              "protected": "T:Windows.UI.Color"
+            },
+            "kind": "File",
+            "path": "Workbench\\Controls\\FloatingStatusBar.xaml.cs",
+            "snippet": "return kind switch\r\n        {\r\n            StatusKind.Error =\u003E new SolidColorBrush(Color.FromArgb(255, 180, 40, 40)),\r\n            StatusKind.Success =\u003E new SolidColorBrush(Color.FromArgb(255, 40, 160, 80)),\r\n            StatusKind.Warning =\u003E new SolidColorBrush(Color.FromArgb(255, 200, 160, 40)),\r\n            _ =\u003E (Brush)Application.Current.Resources[\u0022AcrylicBackgroundFillColorDefaultBrush\u0022]\r\n        };",
+            "protectedSnippet": "T:Windows.UI.Color",
+            "label": "T:Windows.UI.Color",
+            "properties": {
+              "PackageId": "System.Runtime.WindowsRuntime",
+              "PackageNewVersion": "4.7.0",
+              "CharCount": "3353"
+            },
+            "line": 115,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "a394f39d-43c3-496a-a197-015b5e686049",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Runtime.WindowsRuntime, 4.7.0. Add package reference to System.Runtime.WindowsRuntime, 4.7.0",
+          "projectPath": "Vanara Jnana.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "return kind switch\r\n        {\r\n            StatusKind.Error =\u003E new SolidColorBrush(Color.FromArgb(255, 180, 40, 40)),\r\n            StatusKind.Success =\u003E new SolidColorBrush(Color.FromArgb(255, 40, 160, 80)),\r\n            StatusKind.Warning =\u003E new SolidColorBrush(Color.FromArgb(255, 200, 160, 40)),\r\n            _ =\u003E (Brush)Application.Current.Resources[\u0022AcrylicBackgroundFillColorDefaultBrush\u0022]\r\n        };",
+              "protected": "M:Windows.UI.Color.FromArgb(System.Byte,System.Byte,System.Byte,System.Byte)"
+            },
+            "kind": "File",
+            "path": "Workbench\\Controls\\FloatingStatusBar.xaml.cs",
+            "snippet": "return kind switch\r\n        {\r\n            StatusKind.Error =\u003E new SolidColorBrush(Color.FromArgb(255, 180, 40, 40)),\r\n            StatusKind.Success =\u003E new SolidColorBrush(Color.FromArgb(255, 40, 160, 80)),\r\n            StatusKind.Warning =\u003E new SolidColorBrush(Color.FromArgb(255, 200, 160, 40)),\r\n            _ =\u003E (Brush)Application.Current.Resources[\u0022AcrylicBackgroundFillColorDefaultBrush\u0022]\r\n        };",
+            "protectedSnippet": "M:Windows.UI.Color.FromArgb(System.Byte,System.Byte,System.Byte,System.Byte)",
+            "label": "M:Windows.UI.Color.FromArgb(System.Byte,System.Byte,System.Byte,System.Byte)",
+            "properties": {
+              "PackageId": "System.Runtime.WindowsRuntime",
+              "PackageNewVersion": "4.7.0",
+              "CharCount": "3353"
+            },
+            "line": 115,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "203bff68-dc29-4522-a6cc-162713215438",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Runtime.WindowsRuntime, 4.7.0. Add package reference to System.Runtime.WindowsRuntime, 4.7.0",
+          "projectPath": "Vanara Jnana.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "return kind switch\r\n        {\r\n            StatusKind.Error =\u003E new SolidColorBrush(Color.FromArgb(255, 180, 40, 40)),\r\n            StatusKind.Success =\u003E new SolidColorBrush(Color.FromArgb(255, 40, 160, 80)),\r\n            StatusKind.Warning =\u003E new SolidColorBrush(Color.FromArgb(255, 200, 160, 40)),\r\n            _ =\u003E (Brush)Application.Current.Resources[\u0022AcrylicBackgroundFillColorDefaultBrush\u0022]\r\n        };",
+              "protected": "T:Windows.UI.Color"
+            },
+            "kind": "File",
+            "path": "Workbench\\Controls\\FloatingStatusBar.xaml.cs",
+            "snippet": "return kind switch\r\n        {\r\n            StatusKind.Error =\u003E new SolidColorBrush(Color.FromArgb(255, 180, 40, 40)),\r\n            StatusKind.Success =\u003E new SolidColorBrush(Color.FromArgb(255, 40, 160, 80)),\r\n            StatusKind.Warning =\u003E new SolidColorBrush(Color.FromArgb(255, 200, 160, 40)),\r\n            _ =\u003E (Brush)Application.Current.Resources[\u0022AcrylicBackgroundFillColorDefaultBrush\u0022]\r\n        };",
+            "protectedSnippet": "T:Windows.UI.Color",
+            "label": "T:Windows.UI.Color",
+            "properties": {
+              "PackageId": "System.Runtime.WindowsRuntime",
+              "PackageNewVersion": "4.7.0",
+              "CharCount": "3353"
+            },
+            "line": 115,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "1aa280f8-0595-4329-9225-dbec9de38d9e",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Runtime.WindowsRuntime, 4.7.0. Add package reference to System.Runtime.WindowsRuntime, 4.7.0",
+          "projectPath": "Vanara Jnana.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "return kind switch\r\n        {\r\n            StatusKind.Error =\u003E new SolidColorBrush(Color.FromArgb(255, 180, 40, 40)),\r\n            StatusKind.Success =\u003E new SolidColorBrush(Color.FromArgb(255, 40, 160, 80)),\r\n            StatusKind.Warning =\u003E new SolidColorBrush(Color.FromArgb(255, 200, 160, 40)),\r\n            _ =\u003E (Brush)Application.Current.Resources[\u0022AcrylicBackgroundFillColorDefaultBrush\u0022]\r\n        };",
+              "protected": "T:Windows.UI.Color"
+            },
+            "kind": "File",
+            "path": "Workbench\\Controls\\FloatingStatusBar.xaml.cs",
+            "snippet": "return kind switch\r\n        {\r\n            StatusKind.Error =\u003E new SolidColorBrush(Color.FromArgb(255, 180, 40, 40)),\r\n            StatusKind.Success =\u003E new SolidColorBrush(Color.FromArgb(255, 40, 160, 80)),\r\n            StatusKind.Warning =\u003E new SolidColorBrush(Color.FromArgb(255, 200, 160, 40)),\r\n            _ =\u003E (Brush)Application.Current.Resources[\u0022AcrylicBackgroundFillColorDefaultBrush\u0022]\r\n        };",
+            "protectedSnippet": "T:Windows.UI.Color",
+            "label": "T:Windows.UI.Color",
+            "properties": {
+              "PackageId": "System.Runtime.WindowsRuntime",
+              "PackageNewVersion": "4.7.0",
+              "CharCount": "3353"
+            },
+            "line": 115,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "35d6da6f-582b-4c28-a4b5-c81a436e3a0c",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Runtime.WindowsRuntime, 4.7.0. Add package reference to System.Runtime.WindowsRuntime, 4.7.0",
+          "projectPath": "Vanara Jnana.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "return kind switch\r\n        {\r\n            StatusKind.Error =\u003E new SolidColorBrush(Color.FromArgb(255, 180, 40, 40)),\r\n            StatusKind.Success =\u003E new SolidColorBrush(Color.FromArgb(255, 40, 160, 80)),\r\n            StatusKind.Warning =\u003E new SolidColorBrush(Color.FromArgb(255, 200, 160, 40)),\r\n            _ =\u003E (Brush)Application.Current.Resources[\u0022AcrylicBackgroundFillColorDefaultBrush\u0022]\r\n        };",
+              "protected": "M:Windows.UI.Color.FromArgb(System.Byte,System.Byte,System.Byte,System.Byte)"
+            },
+            "kind": "File",
+            "path": "Workbench\\Controls\\FloatingStatusBar.xaml.cs",
+            "snippet": "return kind switch\r\n        {\r\n            StatusKind.Error =\u003E new SolidColorBrush(Color.FromArgb(255, 180, 40, 40)),\r\n            StatusKind.Success =\u003E new SolidColorBrush(Color.FromArgb(255, 40, 160, 80)),\r\n            StatusKind.Warning =\u003E new SolidColorBrush(Color.FromArgb(255, 200, 160, 40)),\r\n            _ =\u003E (Brush)Application.Current.Resources[\u0022AcrylicBackgroundFillColorDefaultBrush\u0022]\r\n        };",
+            "protectedSnippet": "M:Windows.UI.Color.FromArgb(System.Byte,System.Byte,System.Byte,System.Byte)",
+            "label": "M:Windows.UI.Color.FromArgb(System.Byte,System.Byte,System.Byte,System.Byte)",
+            "properties": {
+              "PackageId": "System.Runtime.WindowsRuntime",
+              "PackageNewVersion": "4.7.0",
+              "CharCount": "3353"
+            },
+            "line": 115,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "9bcfe432-585f-423a-99d7-0c4e04d86c6c",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Runtime.WindowsRuntime, 4.7.0. Add package reference to System.Runtime.WindowsRuntime, 4.7.0",
+          "projectPath": "Vanara Jnana.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "return kind switch\r\n        {\r\n            StatusKind.Error =\u003E new SolidColorBrush(Color.FromArgb(255, 180, 40, 40)),\r\n            StatusKind.Success =\u003E new SolidColorBrush(Color.FromArgb(255, 40, 160, 80)),\r\n            StatusKind.Warning =\u003E new SolidColorBrush(Color.FromArgb(255, 200, 160, 40)),\r\n            _ =\u003E (Brush)Application.Current.Resources[\u0022AcrylicBackgroundFillColorDefaultBrush\u0022]\r\n        };",
+              "protected": "T:Windows.UI.Color"
+            },
+            "kind": "File",
+            "path": "Workbench\\Controls\\FloatingStatusBar.xaml.cs",
+            "snippet": "return kind switch\r\n        {\r\n            StatusKind.Error =\u003E new SolidColorBrush(Color.FromArgb(255, 180, 40, 40)),\r\n            StatusKind.Success =\u003E new SolidColorBrush(Color.FromArgb(255, 40, 160, 80)),\r\n            StatusKind.Warning =\u003E new SolidColorBrush(Color.FromArgb(255, 200, 160, 40)),\r\n            _ =\u003E (Brush)Application.Current.Resources[\u0022AcrylicBackgroundFillColorDefaultBrush\u0022]\r\n        };",
+            "protectedSnippet": "T:Windows.UI.Color",
+            "label": "T:Windows.UI.Color",
+            "properties": {
+              "PackageId": "System.Runtime.WindowsRuntime",
+              "PackageNewVersion": "4.7.0",
+              "CharCount": "3353"
+            },
+            "line": 115,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "d8f85a2f-d89b-41f3-80a6-757bb33c7265",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Runtime.WindowsRuntime, 4.7.0. Add package reference to System.Runtime.WindowsRuntime, 4.7.0",
+          "projectPath": "Vanara Jnana.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "return kind switch\r\n        {\r\n            StatusKind.Error =\u003E new SolidColorBrush(Color.FromArgb(255, 180, 40, 40)),\r\n            StatusKind.Success =\u003E new SolidColorBrush(Color.FromArgb(255, 40, 160, 80)),\r\n            StatusKind.Warning =\u003E new SolidColorBrush(Color.FromArgb(255, 200, 160, 40)),\r\n            _ =\u003E (Brush)Application.Current.Resources[\u0022AcrylicBackgroundFillColorDefaultBrush\u0022]\r\n        };",
+              "protected": "T:Windows.UI.Color"
+            },
+            "kind": "File",
+            "path": "Workbench\\Controls\\FloatingStatusBar.xaml.cs",
+            "snippet": "return kind switch\r\n        {\r\n            StatusKind.Error =\u003E new SolidColorBrush(Color.FromArgb(255, 180, 40, 40)),\r\n            StatusKind.Success =\u003E new SolidColorBrush(Color.FromArgb(255, 40, 160, 80)),\r\n            StatusKind.Warning =\u003E new SolidColorBrush(Color.FromArgb(255, 200, 160, 40)),\r\n            _ =\u003E (Brush)Application.Current.Resources[\u0022AcrylicBackgroundFillColorDefaultBrush\u0022]\r\n        };",
+            "protectedSnippet": "T:Windows.UI.Color",
+            "label": "T:Windows.UI.Color",
+            "properties": {
+              "PackageId": "System.Runtime.WindowsRuntime",
+              "PackageNewVersion": "4.7.0",
+              "CharCount": "3353"
+            },
+            "line": 115,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "a259da1f-4f79-4ba6-9a4e-b738960f527d",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Runtime.WindowsRuntime, 4.7.0. Add package reference to System.Runtime.WindowsRuntime, 4.7.0",
+          "projectPath": "Vanara Jnana.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "return kind switch\r\n        {\r\n            StatusKind.Error =\u003E new SolidColorBrush(Color.FromArgb(255, 180, 40, 40)),\r\n            StatusKind.Success =\u003E new SolidColorBrush(Color.FromArgb(255, 40, 160, 80)),\r\n            StatusKind.Warning =\u003E new SolidColorBrush(Color.FromArgb(255, 200, 160, 40)),\r\n            _ =\u003E (Brush)Application.Current.Resources[\u0022AcrylicBackgroundFillColorDefaultBrush\u0022]\r\n        };",
+              "protected": "M:Windows.UI.Color.FromArgb(System.Byte,System.Byte,System.Byte,System.Byte)"
+            },
+            "kind": "File",
+            "path": "Workbench\\Controls\\FloatingStatusBar.xaml.cs",
+            "snippet": "return kind switch\r\n        {\r\n            StatusKind.Error =\u003E new SolidColorBrush(Color.FromArgb(255, 180, 40, 40)),\r\n            StatusKind.Success =\u003E new SolidColorBrush(Color.FromArgb(255, 40, 160, 80)),\r\n            StatusKind.Warning =\u003E new SolidColorBrush(Color.FromArgb(255, 200, 160, 40)),\r\n            _ =\u003E (Brush)Application.Current.Resources[\u0022AcrylicBackgroundFillColorDefaultBrush\u0022]\r\n        };",
+            "protectedSnippet": "M:Windows.UI.Color.FromArgb(System.Byte,System.Byte,System.Byte,System.Byte)",
+            "label": "M:Windows.UI.Color.FromArgb(System.Byte,System.Byte,System.Byte,System.Byte)",
+            "properties": {
+              "PackageId": "System.Runtime.WindowsRuntime",
+              "PackageNewVersion": "4.7.0",
+              "CharCount": "3353"
+            },
+            "line": 115,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "43a3f7c6-804c-40c4-b704-6583c64f02c9",
+          "ruleId": "Api.0003",
+          "description": "Breaking change: MacCatalyst version normalization ",
+          "projectPath": "Vanara Jnana.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "this.ViewModel.OSVersion = Environment.OSVersion.VersionString;",
+              "protected": "P:System.Environment.OSVersion"
+            },
+            "kind": "File",
+            "path": "Workbench\\Pages\\SysInfo\\SysInfoPage.xaml.cs",
+            "snippet": "this.ViewModel.OSVersion = Environment.OSVersion.VersionString;",
+            "protectedSnippet": "P:System.Environment.OSVersion",
+            "label": "P:System.Environment.OSVersion",
+            "properties": {
+              "CharCount": "2382"
+            },
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/10.0/maccatalyst-version-normalization.md",
+                "isCustom": false
+              }
+            ],
+            "line": 24,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "efd049e9-764f-40f6-b5ec-64218477f309",
+          "ruleId": "Api.0002",
+          "description": "Breaking change: New TimeSpan.From*() overloads that take integers ",
+          "projectPath": "Vanara Jnana.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "_timer = new DispatcherTimer\r\n        {\r\n            Interval = TimeSpan.FromSeconds(1)\r\n        };",
+              "protected": "M:System.TimeSpan.FromSeconds(System.Double)"
+            },
+            "kind": "File",
+            "path": "Workbench\\Pages\\SysInfo\\SysInfoViewModel.cs",
+            "snippet": "_timer = new DispatcherTimer\r\n        {\r\n            Interval = TimeSpan.FromSeconds(1)\r\n        };",
+            "protectedSnippet": "M:System.TimeSpan.FromSeconds(System.Double)",
+            "label": "M:System.TimeSpan.FromSeconds(System.Double)",
+            "properties": {
+              "CharCount": "5808"
+            },
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/9.0/timespan-from-overloads.md",
+                "isCustom": false
+              }
+            ],
+            "line": 64,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "f627694c-68da-457a-8191-d6af16d55dbc",
+          "ruleId": "Api.0003",
+          "description": "Breaking change: MacCatalyst version normalization ",
+          "projectPath": "Vanara Jnana.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "OSVersion = Environment.OSVersion.ToString();",
+              "protected": "P:System.Environment.OSVersion"
+            },
+            "kind": "File",
+            "path": "Workbench\\Pages\\SysInfo\\SysInfoViewModel.cs",
+            "snippet": "OSVersion = Environment.OSVersion.ToString();",
+            "protectedSnippet": "P:System.Environment.OSVersion",
+            "label": "P:System.Environment.OSVersion",
+            "properties": {
+              "CharCount": "5808"
+            },
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/10.0/maccatalyst-version-normalization.md",
+                "isCustom": false
+              }
+            ],
+            "line": 43,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "5b753803-d1da-47a8-8ec8-b9a525fbcde6",
+          "ruleId": "Api.0002",
+          "description": "Breaking change: New TimeSpan.From*() overloads that take integers ",
+          "projectPath": "Vanara Jnana.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "_timer = new DispatcherTimer\r\n        {\r\n            Interval = TimeSpan.FromSeconds(1)\r\n        };",
+              "protected": "M:System.TimeSpan.FromSeconds(System.Double)"
+            },
+            "kind": "File",
+            "path": "Workbench\\Pages\\SysInfo\\SysInfoViewModel.cs",
+            "snippet": "_timer = new DispatcherTimer\r\n        {\r\n            Interval = TimeSpan.FromSeconds(1)\r\n        };",
+            "protectedSnippet": "M:System.TimeSpan.FromSeconds(System.Double)",
+            "label": "M:System.TimeSpan.FromSeconds(System.Double)",
+            "properties": {
+              "CharCount": "5808"
+            },
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/9.0/timespan-from-overloads.md",
+                "isCustom": false
+              }
+            ],
+            "line": 64,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "6feeca54-05f3-4d93-9b42-c380be09d158",
+          "ruleId": "Api.0003",
+          "description": "Breaking change: MacCatalyst version normalization ",
+          "projectPath": "Vanara Jnana.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "OSVersion = Environment.OSVersion.ToString();",
+              "protected": "P:System.Environment.OSVersion"
+            },
+            "kind": "File",
+            "path": "Workbench\\Pages\\SysInfo\\SysInfoViewModel.cs",
+            "snippet": "OSVersion = Environment.OSVersion.ToString();",
+            "protectedSnippet": "P:System.Environment.OSVersion",
+            "label": "P:System.Environment.OSVersion",
+            "properties": {
+              "CharCount": "5808"
+            },
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/10.0/maccatalyst-version-normalization.md",
+                "isCustom": false
+              }
+            ],
+            "line": 43,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "2979cab0-f1c4-4692-9abf-7f03c967e4a4",
+          "ruleId": "Api.0003",
+          "description": "Breaking change: URI length limits removed ",
+          "projectPath": "Vanara Jnana.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "GitHubView.Source = new Uri(\u0022https://github.com/dahall/vanara\u0022);",
+              "protected": "T:System.Uri"
+            },
+            "kind": "File",
+            "path": "Workbench\\Pages\\GitHub\\GitHubPage.xaml.cs",
+            "snippet": "GitHubView.Source = new Uri(\u0022https://github.com/dahall/vanara\u0022);",
+            "protectedSnippet": "T:System.Uri",
+            "label": "T:System.Uri",
+            "properties": {
+              "CharCount": "508"
+            },
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/networking/10.0/uri-length-limits-removed.md",
+                "isCustom": false
+              }
+            ],
+            "line": 18,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "48ebda14-608d-4eb7-bbf8-8be11800312c",
+          "ruleId": "Api.0003",
+          "description": "Breaking change: URI length limits removed ",
+          "projectPath": "Vanara Jnana.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "GitHubView.Source = new Uri(\u0022https://github.com/dahall/vanara\u0022);",
+              "protected": "M:System.Uri.#ctor(System.String)"
+            },
+            "kind": "File",
+            "path": "Workbench\\Pages\\GitHub\\GitHubPage.xaml.cs",
+            "snippet": "GitHubView.Source = new Uri(\u0022https://github.com/dahall/vanara\u0022);",
+            "protectedSnippet": "M:System.Uri.#ctor(System.String)",
+            "label": "M:System.Uri.#ctor(System.String)",
+            "properties": {
+              "CharCount": "508"
+            },
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/networking/10.0/uri-length-limits-removed.md",
+                "isCustom": false
+              }
+            ],
+            "line": 18,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "5a34d0cb-d20a-4a7a-a575-ec50ad74bbd5",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Runtime.WindowsRuntime, 4.7.0. Add package reference to System.Runtime.WindowsRuntime, 4.7.0",
+          "projectPath": "Vanara Jnana.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "return status switch\r\n        {\r\n            \u0022online\u0022 or \u0022operational\u0022 =\u003E new SolidColorBrush(Colors.LimeGreen),\r\n            \u0022warning\u0022 or \u0022degraded\u0022 =\u003E new SolidColorBrush(Colors.Gold),\r\n            \u0022error\u0022 or \u0022outage\u0022 =\u003E new SolidColorBrush(Colors.IndianRed),\r\n            \u0022pending\u0022 or \u0022unknown\u0022 =\u003E new SolidColorBrush(Colors.Gray),\r\n            _ =\u003E new SolidColorBrush(Colors.LightGray)\r\n        };",
+              "protected": "T:Windows.UI.Color"
+            },
+            "kind": "File",
+            "path": "Controls\\Helpers\\StatusColorConverter.cs",
+            "snippet": "return status switch\r\n        {\r\n            \u0022online\u0022 or \u0022operational\u0022 =\u003E new SolidColorBrush(Colors.LimeGreen),\r\n            \u0022warning\u0022 or \u0022degraded\u0022 =\u003E new SolidColorBrush(Colors.Gold),\r\n            \u0022error\u0022 or \u0022outage\u0022 =\u003E new SolidColorBrush(Colors.IndianRed),\r\n            \u0022pending\u0022 or \u0022unknown\u0022 =\u003E new SolidColorBrush(Colors.Gray),\r\n            _ =\u003E new SolidColorBrush(Colors.LightGray)\r\n        };",
+            "protectedSnippet": "T:Windows.UI.Color",
+            "label": "T:Windows.UI.Color",
+            "properties": {
+              "PackageId": "System.Runtime.WindowsRuntime",
+              "PackageNewVersion": "4.7.0",
+              "CharCount": "1059"
+            },
+            "line": 16,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "5f421096-ec9b-40eb-b465-e9dea0bb2b0d",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Runtime.WindowsRuntime, 4.7.0. Add package reference to System.Runtime.WindowsRuntime, 4.7.0",
+          "projectPath": "Vanara Jnana.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "return status switch\r\n        {\r\n            \u0022online\u0022 or \u0022operational\u0022 =\u003E new SolidColorBrush(Colors.LimeGreen),\r\n            \u0022warning\u0022 or \u0022degraded\u0022 =\u003E new SolidColorBrush(Colors.Gold),\r\n            \u0022error\u0022 or \u0022outage\u0022 =\u003E new SolidColorBrush(Colors.IndianRed),\r\n            \u0022pending\u0022 or \u0022unknown\u0022 =\u003E new SolidColorBrush(Colors.Gray),\r\n            _ =\u003E new SolidColorBrush(Colors.LightGray)\r\n        };",
+              "protected": "T:Windows.UI.Color"
+            },
+            "kind": "File",
+            "path": "Controls\\Helpers\\StatusColorConverter.cs",
+            "snippet": "return status switch\r\n        {\r\n            \u0022online\u0022 or \u0022operational\u0022 =\u003E new SolidColorBrush(Colors.LimeGreen),\r\n            \u0022warning\u0022 or \u0022degraded\u0022 =\u003E new SolidColorBrush(Colors.Gold),\r\n            \u0022error\u0022 or \u0022outage\u0022 =\u003E new SolidColorBrush(Colors.IndianRed),\r\n            \u0022pending\u0022 or \u0022unknown\u0022 =\u003E new SolidColorBrush(Colors.Gray),\r\n            _ =\u003E new SolidColorBrush(Colors.LightGray)\r\n        };",
+            "protectedSnippet": "T:Windows.UI.Color",
+            "label": "T:Windows.UI.Color",
+            "properties": {
+              "PackageId": "System.Runtime.WindowsRuntime",
+              "PackageNewVersion": "4.7.0",
+              "CharCount": "1059"
+            },
+            "line": 16,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "dfcc235f-7f79-4324-a166-2ce1cafc25b2",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Runtime.WindowsRuntime, 4.7.0. Add package reference to System.Runtime.WindowsRuntime, 4.7.0",
+          "projectPath": "Vanara Jnana.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "return status switch\r\n        {\r\n            \u0022online\u0022 or \u0022operational\u0022 =\u003E new SolidColorBrush(Colors.LimeGreen),\r\n            \u0022warning\u0022 or \u0022degraded\u0022 =\u003E new SolidColorBrush(Colors.Gold),\r\n            \u0022error\u0022 or \u0022outage\u0022 =\u003E new SolidColorBrush(Colors.IndianRed),\r\n            \u0022pending\u0022 or \u0022unknown\u0022 =\u003E new SolidColorBrush(Colors.Gray),\r\n            _ =\u003E new SolidColorBrush(Colors.LightGray)\r\n        };",
+              "protected": "T:Windows.UI.Color"
+            },
+            "kind": "File",
+            "path": "Controls\\Helpers\\StatusColorConverter.cs",
+            "snippet": "return status switch\r\n        {\r\n            \u0022online\u0022 or \u0022operational\u0022 =\u003E new SolidColorBrush(Colors.LimeGreen),\r\n            \u0022warning\u0022 or \u0022degraded\u0022 =\u003E new SolidColorBrush(Colors.Gold),\r\n            \u0022error\u0022 or \u0022outage\u0022 =\u003E new SolidColorBrush(Colors.IndianRed),\r\n            \u0022pending\u0022 or \u0022unknown\u0022 =\u003E new SolidColorBrush(Colors.Gray),\r\n            _ =\u003E new SolidColorBrush(Colors.LightGray)\r\n        };",
+            "protectedSnippet": "T:Windows.UI.Color",
+            "label": "T:Windows.UI.Color",
+            "properties": {
+              "PackageId": "System.Runtime.WindowsRuntime",
+              "PackageNewVersion": "4.7.0",
+              "CharCount": "1059"
+            },
+            "line": 16,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "1806ded2-6e18-4955-b08e-e0daf9731b73",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Runtime.WindowsRuntime, 4.7.0. Add package reference to System.Runtime.WindowsRuntime, 4.7.0",
+          "projectPath": "Vanara Jnana.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "return status switch\r\n        {\r\n            \u0022online\u0022 or \u0022operational\u0022 =\u003E new SolidColorBrush(Colors.LimeGreen),\r\n            \u0022warning\u0022 or \u0022degraded\u0022 =\u003E new SolidColorBrush(Colors.Gold),\r\n            \u0022error\u0022 or \u0022outage\u0022 =\u003E new SolidColorBrush(Colors.IndianRed),\r\n            \u0022pending\u0022 or \u0022unknown\u0022 =\u003E new SolidColorBrush(Colors.Gray),\r\n            _ =\u003E new SolidColorBrush(Colors.LightGray)\r\n        };",
+              "protected": "T:Windows.UI.Color"
+            },
+            "kind": "File",
+            "path": "Controls\\Helpers\\StatusColorConverter.cs",
+            "snippet": "return status switch\r\n        {\r\n            \u0022online\u0022 or \u0022operational\u0022 =\u003E new SolidColorBrush(Colors.LimeGreen),\r\n            \u0022warning\u0022 or \u0022degraded\u0022 =\u003E new SolidColorBrush(Colors.Gold),\r\n            \u0022error\u0022 or \u0022outage\u0022 =\u003E new SolidColorBrush(Colors.IndianRed),\r\n            \u0022pending\u0022 or \u0022unknown\u0022 =\u003E new SolidColorBrush(Colors.Gray),\r\n            _ =\u003E new SolidColorBrush(Colors.LightGray)\r\n        };",
+            "protectedSnippet": "T:Windows.UI.Color",
+            "label": "T:Windows.UI.Color",
+            "properties": {
+              "PackageId": "System.Runtime.WindowsRuntime",
+              "PackageNewVersion": "4.7.0",
+              "CharCount": "1059"
+            },
+            "line": 16,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "8750aff2-9e3c-47de-9175-b731d43ff1b1",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Runtime.WindowsRuntime, 4.7.0. Add package reference to System.Runtime.WindowsRuntime, 4.7.0",
+          "projectPath": "Vanara Jnana.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "return status switch\r\n        {\r\n            \u0022online\u0022 or \u0022operational\u0022 =\u003E new SolidColorBrush(Colors.LimeGreen),\r\n            \u0022warning\u0022 or \u0022degraded\u0022 =\u003E new SolidColorBrush(Colors.Gold),\r\n            \u0022error\u0022 or \u0022outage\u0022 =\u003E new SolidColorBrush(Colors.IndianRed),\r\n            \u0022pending\u0022 or \u0022unknown\u0022 =\u003E new SolidColorBrush(Colors.Gray),\r\n            _ =\u003E new SolidColorBrush(Colors.LightGray)\r\n        };",
+              "protected": "T:Windows.UI.Color"
+            },
+            "kind": "File",
+            "path": "Controls\\Helpers\\StatusColorConverter.cs",
+            "snippet": "return status switch\r\n        {\r\n            \u0022online\u0022 or \u0022operational\u0022 =\u003E new SolidColorBrush(Colors.LimeGreen),\r\n            \u0022warning\u0022 or \u0022degraded\u0022 =\u003E new SolidColorBrush(Colors.Gold),\r\n            \u0022error\u0022 or \u0022outage\u0022 =\u003E new SolidColorBrush(Colors.IndianRed),\r\n            \u0022pending\u0022 or \u0022unknown\u0022 =\u003E new SolidColorBrush(Colors.Gray),\r\n            _ =\u003E new SolidColorBrush(Colors.LightGray)\r\n        };",
+            "protectedSnippet": "T:Windows.UI.Color",
+            "label": "T:Windows.UI.Color",
+            "properties": {
+              "PackageId": "System.Runtime.WindowsRuntime",
+              "PackageNewVersion": "4.7.0",
+              "CharCount": "1059"
+            },
+            "line": 16,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "1bc05bab-aff3-4476-ad83-c09cf624f147",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Runtime.WindowsRuntime, 4.7.0. Add package reference to System.Runtime.WindowsRuntime, 4.7.0",
+          "projectPath": "Vanara Jnana.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "PathFigure pathFigure = new PathFigure\r\n        {\r\n            StartPoint = startPoint,\r\n            Segments = { arcSegment }\r\n        };",
+              "protected": "T:Windows.Foundation.Point"
+            },
+            "kind": "File",
+            "path": "Controls\\Inspectors\\GaugeControl.xaml.cs",
+            "snippet": "PathFigure pathFigure = new PathFigure\r\n        {\r\n            StartPoint = startPoint,\r\n            Segments = { arcSegment }\r\n        };",
+            "protectedSnippet": "T:Windows.Foundation.Point",
+            "label": "T:Windows.Foundation.Point",
+            "properties": {
+              "PackageId": "System.Runtime.WindowsRuntime",
+              "PackageNewVersion": "4.7.0",
+              "CharCount": "3058"
+            },
+            "line": 97,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "b8b29c8d-c689-4c7d-94fc-8d591960d89c",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Runtime.WindowsRuntime, 4.7.0. Add package reference to System.Runtime.WindowsRuntime, 4.7.0",
+          "projectPath": "Vanara Jnana.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "ArcSegment arcSegment = new ArcSegment\r\n        {\r\n            Point = endPoint,\r\n            Size = new Size(radius, radius),\r\n            IsLargeArc = isLargeArc,\r\n            SweepDirection = SweepDirection.Clockwise\r\n        };",
+              "protected": "T:Windows.Foundation.Size"
+            },
+            "kind": "File",
+            "path": "Controls\\Inspectors\\GaugeControl.xaml.cs",
+            "snippet": "ArcSegment arcSegment = new ArcSegment\r\n        {\r\n            Point = endPoint,\r\n            Size = new Size(radius, radius),\r\n            IsLargeArc = isLargeArc,\r\n            SweepDirection = SweepDirection.Clockwise\r\n        };",
+            "protectedSnippet": "T:Windows.Foundation.Size",
+            "label": "T:Windows.Foundation.Size",
+            "properties": {
+              "PackageId": "System.Runtime.WindowsRuntime",
+              "PackageNewVersion": "4.7.0",
+              "CharCount": "3058"
+            },
+            "line": 89,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "93266a1e-1bc1-4777-8424-c91531e2e81b",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Runtime.WindowsRuntime, 4.7.0. Add package reference to System.Runtime.WindowsRuntime, 4.7.0",
+          "projectPath": "Vanara Jnana.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "ArcSegment arcSegment = new ArcSegment\r\n        {\r\n            Point = endPoint,\r\n            Size = new Size(radius, radius),\r\n            IsLargeArc = isLargeArc,\r\n            SweepDirection = SweepDirection.Clockwise\r\n        };",
+              "protected": "M:Windows.Foundation.Size.#ctor(System.Double,System.Double)"
+            },
+            "kind": "File",
+            "path": "Controls\\Inspectors\\GaugeControl.xaml.cs",
+            "snippet": "ArcSegment arcSegment = new ArcSegment\r\n        {\r\n            Point = endPoint,\r\n            Size = new Size(radius, radius),\r\n            IsLargeArc = isLargeArc,\r\n            SweepDirection = SweepDirection.Clockwise\r\n        };",
+            "protectedSnippet": "M:Windows.Foundation.Size.#ctor(System.Double,System.Double)",
+            "label": "M:Windows.Foundation.Size.#ctor(System.Double,System.Double)",
+            "properties": {
+              "PackageId": "System.Runtime.WindowsRuntime",
+              "PackageNewVersion": "4.7.0",
+              "CharCount": "3058"
+            },
+            "line": 89,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "74fd284b-c83e-4959-b941-86b560834e25",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Runtime.WindowsRuntime, 4.7.0. Add package reference to System.Runtime.WindowsRuntime, 4.7.0",
+          "projectPath": "Vanara Jnana.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "ArcSegment arcSegment = new ArcSegment\r\n        {\r\n            Point = endPoint,\r\n            Size = new Size(radius, radius),\r\n            IsLargeArc = isLargeArc,\r\n            SweepDirection = SweepDirection.Clockwise\r\n        };",
+              "protected": "T:Windows.Foundation.Size"
+            },
+            "kind": "File",
+            "path": "Controls\\Inspectors\\GaugeControl.xaml.cs",
+            "snippet": "ArcSegment arcSegment = new ArcSegment\r\n        {\r\n            Point = endPoint,\r\n            Size = new Size(radius, radius),\r\n            IsLargeArc = isLargeArc,\r\n            SweepDirection = SweepDirection.Clockwise\r\n        };",
+            "protectedSnippet": "T:Windows.Foundation.Size",
+            "label": "T:Windows.Foundation.Size",
+            "properties": {
+              "PackageId": "System.Runtime.WindowsRuntime",
+              "PackageNewVersion": "4.7.0",
+              "CharCount": "3058"
+            },
+            "line": 89,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "c1d72f11-0f36-4ba4-b704-136fc2cd08c7",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Runtime.WindowsRuntime, 4.7.0. Add package reference to System.Runtime.WindowsRuntime, 4.7.0",
+          "projectPath": "Vanara Jnana.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "ArcSegment arcSegment = new ArcSegment\r\n        {\r\n            Point = endPoint,\r\n            Size = new Size(radius, radius),\r\n            IsLargeArc = isLargeArc,\r\n            SweepDirection = SweepDirection.Clockwise\r\n        };",
+              "protected": "T:Windows.Foundation.Point"
+            },
+            "kind": "File",
+            "path": "Controls\\Inspectors\\GaugeControl.xaml.cs",
+            "snippet": "ArcSegment arcSegment = new ArcSegment\r\n        {\r\n            Point = endPoint,\r\n            Size = new Size(radius, radius),\r\n            IsLargeArc = isLargeArc,\r\n            SweepDirection = SweepDirection.Clockwise\r\n        };",
+            "protectedSnippet": "T:Windows.Foundation.Point",
+            "label": "T:Windows.Foundation.Point",
+            "properties": {
+              "PackageId": "System.Runtime.WindowsRuntime",
+              "PackageNewVersion": "4.7.0",
+              "CharCount": "3058"
+            },
+            "line": 89,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "c9575f57-cf4f-4840-98b6-14a396756e22",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Runtime.WindowsRuntime, 4.7.0. Add package reference to System.Runtime.WindowsRuntime, 4.7.0",
+          "projectPath": "Vanara Jnana.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Point endPoint = new Point(\r\n            100 \u002B radius * Math.Cos(endRadians),\r\n            100 \u002B radius * Math.Sin(endRadians)\r\n        );",
+              "protected": "T:Windows.Foundation.Point"
+            },
+            "kind": "File",
+            "path": "Controls\\Inspectors\\GaugeControl.xaml.cs",
+            "snippet": "Point endPoint = new Point(\r\n            100 \u002B radius * Math.Cos(endRadians),\r\n            100 \u002B radius * Math.Sin(endRadians)\r\n        );",
+            "protectedSnippet": "T:Windows.Foundation.Point",
+            "label": "T:Windows.Foundation.Point",
+            "properties": {
+              "PackageId": "System.Runtime.WindowsRuntime",
+              "PackageNewVersion": "4.7.0",
+              "CharCount": "3058"
+            },
+            "line": 83,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "a5bd1285-9a9c-427d-a761-84845efe8a1a",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Runtime.WindowsRuntime, 4.7.0. Add package reference to System.Runtime.WindowsRuntime, 4.7.0",
+          "projectPath": "Vanara Jnana.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Point endPoint = new Point(\r\n            100 \u002B radius * Math.Cos(endRadians),\r\n            100 \u002B radius * Math.Sin(endRadians)\r\n        );",
+              "protected": "M:Windows.Foundation.Point.#ctor(System.Double,System.Double)"
+            },
+            "kind": "File",
+            "path": "Controls\\Inspectors\\GaugeControl.xaml.cs",
+            "snippet": "Point endPoint = new Point(\r\n            100 \u002B radius * Math.Cos(endRadians),\r\n            100 \u002B radius * Math.Sin(endRadians)\r\n        );",
+            "protectedSnippet": "M:Windows.Foundation.Point.#ctor(System.Double,System.Double)",
+            "label": "M:Windows.Foundation.Point.#ctor(System.Double,System.Double)",
+            "properties": {
+              "PackageId": "System.Runtime.WindowsRuntime",
+              "PackageNewVersion": "4.7.0",
+              "CharCount": "3058"
+            },
+            "line": 83,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "13646ffb-6bcf-4b4f-9544-21fe089edf45",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Runtime.WindowsRuntime, 4.7.0. Add package reference to System.Runtime.WindowsRuntime, 4.7.0",
+          "projectPath": "Vanara Jnana.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Point startPoint = new Point(\r\n            100 \u002B radius * Math.Cos(startRadians),\r\n            100 \u002B radius * Math.Sin(startRadians)\r\n        );",
+              "protected": "T:Windows.Foundation.Point"
+            },
+            "kind": "File",
+            "path": "Controls\\Inspectors\\GaugeControl.xaml.cs",
+            "snippet": "Point startPoint = new Point(\r\n            100 \u002B radius * Math.Cos(startRadians),\r\n            100 \u002B radius * Math.Sin(startRadians)\r\n        );",
+            "protectedSnippet": "T:Windows.Foundation.Point",
+            "label": "T:Windows.Foundation.Point",
+            "properties": {
+              "PackageId": "System.Runtime.WindowsRuntime",
+              "PackageNewVersion": "4.7.0",
+              "CharCount": "3058"
+            },
+            "line": 79,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "f6e78b20-46c8-447e-875c-8e040542f513",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Runtime.WindowsRuntime, 4.7.0. Add package reference to System.Runtime.WindowsRuntime, 4.7.0",
+          "projectPath": "Vanara Jnana.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Point startPoint = new Point(\r\n            100 \u002B radius * Math.Cos(startRadians),\r\n            100 \u002B radius * Math.Sin(startRadians)\r\n        );",
+              "protected": "M:Windows.Foundation.Point.#ctor(System.Double,System.Double)"
+            },
+            "kind": "File",
+            "path": "Controls\\Inspectors\\GaugeControl.xaml.cs",
+            "snippet": "Point startPoint = new Point(\r\n            100 \u002B radius * Math.Cos(startRadians),\r\n            100 \u002B radius * Math.Sin(startRadians)\r\n        );",
+            "protectedSnippet": "M:Windows.Foundation.Point.#ctor(System.Double,System.Double)",
+            "label": "M:Windows.Foundation.Point.#ctor(System.Double,System.Double)",
+            "properties": {
+              "PackageId": "System.Runtime.WindowsRuntime",
+              "PackageNewVersion": "4.7.0",
+              "CharCount": "3058"
+            },
+            "line": 79,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "a2da5b33-ee8f-4232-ae29-ca88c5271792",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Runtime.WindowsRuntime, 4.7.0. Add package reference to System.Runtime.WindowsRuntime, 4.7.0",
+          "projectPath": "Vanara Jnana.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "private static Point CalculateArcPoint(double v)",
+              "protected": "T:Windows.Foundation.Point"
+            },
+            "kind": "File",
+            "path": "Controls\\Inspectors\\GaugeControl.xaml.cs",
+            "snippet": "private static Point CalculateArcPoint(double v)",
+            "protectedSnippet": "T:Windows.Foundation.Point",
+            "label": "T:Windows.Foundation.Point",
+            "properties": {
+              "PackageId": "System.Runtime.WindowsRuntime",
+              "PackageNewVersion": "4.7.0",
+              "CharCount": "3058"
+            },
+            "line": 48,
+            "column": 4
+          }
+        },
+        {
+          "incidentId": "a5f34c29-9bcd-4b74-b06f-dd479a0cbe3f",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Runtime.WindowsRuntime, 4.7.0. Add package reference to System.Runtime.WindowsRuntime, 4.7.0",
+          "projectPath": "Vanara Jnana.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "return new Point(100, 100);",
+              "protected": "T:Windows.Foundation.Point"
+            },
+            "kind": "File",
+            "path": "Controls\\Inspectors\\GaugeControl.xaml.cs",
+            "snippet": "return new Point(100, 100);",
+            "protectedSnippet": "T:Windows.Foundation.Point",
+            "label": "T:Windows.Foundation.Point",
+            "properties": {
+              "PackageId": "System.Runtime.WindowsRuntime",
+              "PackageNewVersion": "4.7.0",
+              "CharCount": "3058"
+            },
+            "line": 50,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "ad00969d-e836-431a-a030-32dae4a37e2e",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Runtime.WindowsRuntime, 4.7.0. Add package reference to System.Runtime.WindowsRuntime, 4.7.0",
+          "projectPath": "Vanara Jnana.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "=\u003E CalculateArcPoint(Percent * 1.8 - 90)",
+              "protected": "T:Windows.Foundation.Point"
+            },
+            "kind": "File",
+            "path": "Controls\\Inspectors\\GaugeControl.xaml.cs",
+            "snippet": "=\u003E CalculateArcPoint(Percent * 1.8 - 90)",
+            "protectedSnippet": "T:Windows.Foundation.Point",
+            "label": "T:Windows.Foundation.Point",
+            "properties": {
+              "PackageId": "System.Runtime.WindowsRuntime",
+              "PackageNewVersion": "4.7.0",
+              "CharCount": "3058"
+            },
+            "line": 19,
+            "column": 29
+          }
+        },
+        {
+          "incidentId": "b12cf611-3aa8-4dc3-b59a-beaac4ae1786",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Runtime.WindowsRuntime, 4.7.0. Add package reference to System.Runtime.WindowsRuntime, 4.7.0",
+          "projectPath": "Vanara Jnana.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "CalculateArcPoint(Percent * 1.8 - 90)",
+              "protected": "T:Windows.Foundation.Point"
+            },
+            "kind": "File",
+            "path": "Controls\\Inspectors\\GaugeControl.xaml.cs",
+            "snippet": "CalculateArcPoint(Percent * 1.8 - 90)",
+            "protectedSnippet": "T:Windows.Foundation.Point",
+            "label": "T:Windows.Foundation.Point",
+            "properties": {
+              "PackageId": "System.Runtime.WindowsRuntime",
+              "PackageNewVersion": "4.7.0",
+              "CharCount": "3058"
+            },
+            "line": 19,
+            "column": 32
+          }
+        },
+        {
+          "incidentId": "fcf5bd4c-75c1-4606-bd30-56467a829268",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Runtime.WindowsRuntime, 4.7.0. Add package reference to System.Runtime.WindowsRuntime, 4.7.0",
+          "projectPath": "Vanara Jnana.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "public Point ArcEndPoint",
+              "protected": "T:Windows.Foundation.Point"
+            },
+            "kind": "File",
+            "path": "Controls\\Inspectors\\GaugeControl.xaml.cs",
+            "snippet": "public Point ArcEndPoint",
+            "protectedSnippet": "T:Windows.Foundation.Point",
+            "label": "T:Windows.Foundation.Point",
+            "properties": {
+              "PackageId": "System.Runtime.WindowsRuntime",
+              "PackageNewVersion": "4.7.0",
+              "CharCount": "3058"
+            },
+            "line": 19,
+            "column": 4
+          }
+        },
+        {
+          "incidentId": "a3ab49cc-dfa1-4573-9fe7-cf5ce3264ee6",
+          "ruleId": "Api.0003",
+          "description": "Breaking change: URI length limits removed ",
+          "projectPath": "Vanara Jnana.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "var path = u.AbsolutePath.Trim(\u0027/\u0027);",
+              "protected": "P:System.Uri.AbsolutePath"
+            },
+            "kind": "File",
+            "path": "Core\\Navigation\\NamespaceUri.cs",
+            "snippet": "var path = u.AbsolutePath.Trim(\u0027/\u0027);",
+            "protectedSnippet": "P:System.Uri.AbsolutePath",
+            "label": "P:System.Uri.AbsolutePath",
+            "properties": {
+              "CharCount": "2856"
+            },
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/networking/10.0/uri-length-limits-removed.md",
+                "isCustom": false
+              }
+            ],
+            "line": 47,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "5ec68976-239f-4029-8abe-5ab0405b6b67",
+          "ruleId": "Api.0003",
+          "description": "Breaking change: URI length limits removed ",
+          "projectPath": "Vanara Jnana.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "var u = new Uri(uri);",
+              "protected": "T:System.Uri"
+            },
+            "kind": "File",
+            "path": "Core\\Navigation\\NamespaceUri.cs",
+            "snippet": "var u = new Uri(uri);",
+            "protectedSnippet": "T:System.Uri",
+            "label": "T:System.Uri",
+            "properties": {
+              "CharCount": "2856"
+            },
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/networking/10.0/uri-length-limits-removed.md",
+                "isCustom": false
+              }
+            ],
+            "line": 44,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "920c18f5-d568-4cea-b5c5-332ac990145c",
+          "ruleId": "Api.0003",
+          "description": "Breaking change: URI length limits removed ",
+          "projectPath": "Vanara Jnana.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "var u = new Uri(uri);",
+              "protected": "M:System.Uri.#ctor(System.String)"
+            },
+            "kind": "File",
+            "path": "Core\\Navigation\\NamespaceUri.cs",
+            "snippet": "var u = new Uri(uri);",
+            "protectedSnippet": "M:System.Uri.#ctor(System.String)",
+            "label": "M:System.Uri.#ctor(System.String)",
+            "properties": {
+              "CharCount": "2856"
+            },
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/networking/10.0/uri-length-limits-removed.md",
+                "isCustom": false
+              }
+            ],
+            "line": 44,
+            "column": 8
+          }
+        }
+      ],
+      "features": []
+    }
+  ],
+  "rules": {
+    "NuGet.0001": {
+      "id": "NuGet.0001",
+      "isFeature": false,
+      "description": "NuGet package is incompatible with selected target framework.\n\nPackage needs to be upgraded to a version supporting selected project target framework. If there no new package versions supporting new target framework, different package needs to be used and all code needs to be upgraded to new API.",
+      "label": "NuGet package is incompatible",
+      "severity": "Mandatory",
+      "effort": 1,
+      "links": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262529",
+          "isCustom": false
+        }
+      ]
+    },
+    "NuGet.0002": {
+      "id": "NuGet.0002",
+      "isFeature": false,
+      "description": "NuGet package upgrade is recommended for selected target framework.\n\nStandard .NET packages are recommended to have versions matching version of .NET that project targets.\n\nSome other packages also are known to work better for selected target frameworks.",
+      "label": "NuGet package upgrade is recommended",
+      "severity": "Potential",
+      "effort": 1,
+      "links": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262530",
+          "isCustom": false
+        }
+      ]
+    },
+    "NuGet.0003": {
+      "id": "NuGet.0003",
+      "isFeature": false,
+      "description": "NuGet package functionality is included with framework reference.\n\nPackage needs to be removed.",
+      "label": "NuGet package functionality is included with framework reference",
+      "severity": "Mandatory",
+      "effort": 1,
+      "links": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262609",
+          "isCustom": false
+        }
+      ]
+    },
+    "Project.0002": {
+      "id": "Project.0002",
+      "isFeature": false,
+      "description": "Project\u0027s target framework(s) needs to be changed to the new target framework that you selected for this upgrade.\n\nDuring upgrade target framework will be adjusted to corresponding platform when applicable. In some cases project would result in multiple target frameworks after the upgrade if it was using features that now have their own platforms in modern .NET frameworks (windows, iOS, Android etc).",
+      "label": "Project\u0027s target framework(s) needs to be changed",
+      "severity": "Mandatory",
+      "effort": 1,
+      "links": [
+        {
+          "title": "Overview of porting from .NET Framework to .NET",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2265227",
+          "isCustom": false
+        },
+        {
+          "title": ".NET project SDKs",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2265226",
+          "isCustom": false
+        }
+      ]
+    },
+    "Api.0002": {
+      "id": "Api.0002",
+      "isFeature": false,
+      "description": "API is source incompatible for selected .NET version: requires code changes to compile successfully when targeting a new version, such as removing obsolete APIs or changing method signatures.",
+      "label": "Source incompatible for selected .NET version",
+      "severity": "Potential",
+      "effort": 1,
+      "links": [
+        {
+          "title": "Breaking changes in .NET",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262679",
+          "isCustom": false
+        }
+      ]
+    },
+    "Api.0003": {
+      "id": "Api.0003",
+      "isFeature": false,
+      "description": "API has a behavioral change in selected .NET version: code and binaries may behave differently at runtime without needing recompilation, but the new behavior might be undesirable and require updates.",
+      "label": "Behavioral change in selected .NET version",
+      "severity": "Potential",
+      "effort": 1
+    }
+  }
+}

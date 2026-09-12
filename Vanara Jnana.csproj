@@ -430,6 +430,7 @@
     <EmbeddedResource Include="Assets\Icons\vanara-Jnana.ico" />
   </ItemGroup>
   <ItemGroup>
+    <None Include=".github\upgrades\scenarios\dotnet-version-upgrade\scenario-instructions.md" />
     <None Include="LICENSE.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
