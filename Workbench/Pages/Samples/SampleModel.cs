@@ -2,18 +2,7 @@
 
 internal class SampleModel
 {
-    private string _title = "";
-    private string _description = "";
+    public string Title { get; set; } = "";
 
-    public string Title
-    {
-        get => _title;
-        set => _title = value;
-    }
-
-    public string Description
-    {
-        get => _description;
-        set => _description = value;
-    }
+    public string Description { get; set; } = "";
 }

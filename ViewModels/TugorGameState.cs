@@ -5,41 +5,15 @@ namespace Jnana.ViewModels;
 
 public sealed class TugorGameState
 {
-    private bool _isRunning;
-    private int _chaosLevel;
-    private Vector2 _tugotPosition;
-    private Vector2 _playerPosition;
-    private IReadOnlyList<string> _activeModifiers;
+    public bool IsRunning { get; private set; }
 
-    public bool IsRunning
-    {
-        get => _isRunning;
-        private set => _isRunning = value;
-    }
+    public int ChaosLevel { get; private set; }
 
-    public int ChaosLevel
-    {
-        get => _chaosLevel;
-        private set => _chaosLevel = value;
-    }
+    public Vector2 TugotPosition { get; private set; }
 
-    public Vector2 TugotPosition
-    {
-        get => _tugotPosition;
-        private set => _tugotPosition = value;
-    }
+    public Vector2 PlayerPosition { get; private set; }
 
-    public Vector2 PlayerPosition
-    {
-        get => _playerPosition;
-        private set => _playerPosition = value;
-    }
-
-    public IReadOnlyList<string> ActiveModifiers
-    {
-        get => _activeModifiers;
-        private set => _activeModifiers = value;
-    }
+    public IReadOnlyList<string> ActiveModifiers { get; private set; }
 
     public void Start()
     {

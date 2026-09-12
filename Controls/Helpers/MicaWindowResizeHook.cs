@@ -3,16 +3,20 @@
 namespace Jnana.Controls.Helpers;
 
 /**
-//  <Grid x:Name="ResizeOverlay" 
-//              Background="{ThemeResource AcrylicBackgroundFillColorDefaultBrush}" 
-//              Opacity="0" 
-//              Visibility="Collapsed"
-//       <Image Source="Assets/AppIcon.png"
-//              Width="96" Height="96"
-//              HorizontalAlignment="Center"
-//              VerticalAlignment="Center"
-//              Opacity="0.9"
-**/
+ * //
+ * <Grid x:Name="ResizeOverlay"
+ *     // Background="{ThemeResource AcrylicBackgroundFillColorDefaultBrush}"
+ *     // Opacity="0"
+ *     // Visibility="Collapsed"
+ * /
+ * /
+ * <Image Source="Assets/AppIcon.png"
+ *     // Width="96" Height="96"
+ *     // HorizontalAlignment="Center"
+ *     // VerticalAlignment="Center"
+ *     // Opacity="0.9"
+ * *
+ */
 
 // 
 // INFO: MicaWindowResizeHook.cs
@@ -20,7 +24,6 @@ namespace Jnana.Controls.Helpers;
 // Use MicaController or DesktopAcrylicController for the background.
 //    Trigger over Window.Activated + SizeChanged for smooth fade-in/out.
 // 
-
 public class MicaWindowResizeHook
 {
 //    public static AddCompositor(Window window)

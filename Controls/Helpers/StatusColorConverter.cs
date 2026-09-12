@@ -6,7 +6,7 @@ using Microsoft.UI.Xaml.Media;
 namespace Jnana.Controls.Helpers;
 
 /// <summary>
-/// A value converter that converts a status string to a corresponding color brush.
+///     A value converter that converts a status string to a corresponding color brush.
 /// </summary>
 public class StatusColorConverter : IValueConverter
 {
@@ -25,5 +25,7 @@ public class StatusColorConverter : IValueConverter
     }
 
     public object ConvertBack(object value, Type targetType, object parameter, string language)
-        => throw new NotImplementedException();
+    {
+        throw new NotImplementedException();
+    }
 }

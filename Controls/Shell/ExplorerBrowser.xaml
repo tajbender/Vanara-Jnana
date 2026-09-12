@@ -13,7 +13,7 @@
             -->
             <TextBox
                 Grid.Column="0"
-                
+
                 FontFamily="Consolas"
                 FontSize="14"
                 AcceptsReturn="True"
@@ -26,7 +26,7 @@
             <!-- Preview pane: MarkdownTextBlock 
             Visibility="{x:Bind ViewModel.PreviewVisibility}"
             -->
-            <ScrollViewer Grid.Column="1" >
+            <ScrollViewer Grid.Column="1">
                 <!-- Markdown="{x:Bind ViewModel.MarkdownText, Mode=OneWay}" -->
                 <controls:MarkdownTextBlock
                     FontSize="14"

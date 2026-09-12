@@ -1,19 +1,11 @@
 using System;
 using System.Diagnostics;
-using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 
 namespace Jnana.Workbench.Pages.Workbench;
 
 public sealed partial class WorkbenchPage : Page
 {
-    public WorkbenchPage()
-    {
-        //InitializeComponent();
-
-        //LaunchBar.PageRequested += OnPageRequested;
-    }
-
     private void OnPageRequested(Type pageType)
     {
         try

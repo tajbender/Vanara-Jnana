@@ -4,14 +4,9 @@ namespace Jnana.Core.Navigation;
 
 public class NavigationService : INavigationService
 {
-    private Type? _currentPage;
     //private readonly Frame _frame;
 
-    public Type? CurrentPage
-    {
-        get => _currentPage;
-        private set => _currentPage = value;
-    }
+    public Type? CurrentPage { get; private set; }
 
     /*  // private readonly Frame _frame;
         public NavigationService(Frame frame) => _frame = frame; */

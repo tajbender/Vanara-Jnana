@@ -14,21 +14,15 @@ namespace Jnana;
 public sealed partial class MainWindow : Window
 {
     public SystemBackdropConfiguration SysBackdropConfiguration;
-    private readonly MicaController _controller;
-    private readonly NavigationService _navigationService;
-    private string _titleText = "Vanara Jñāna";
-    private string _subtitleText = "Workbench";
-    private bool _isBackButtonVisible = true;
-    private bool _isBackButtonEnabled = false;
 
     public MainWindow(MicaController micaController, SystemBackdropConfiguration configuration)
     {
-        _controller = micaController;
+        Controller = micaController;
         SysBackdropConfiguration = configuration;
         InitializeComponent();
         TrySetMicaBackdrop();
 
-        _navigationService = new NavigationService();
+        NavigationService = new NavigationService();
         // TODO: Restore Navigation handling when NavigationService is implemented
         //_navigationService.OnPageNavigated += (sender, e) => NavigationHost.ShowPage(e.PageInstance);
 
@@ -37,36 +31,20 @@ public sealed partial class MainWindow : Window
         NavigationService.Navigate(typeof(WorkbenchPage));
     }
 
-    public MicaController Controller => _controller;
+    public MicaController Controller { get; }
 
-    public NavigationService NavigationService => _navigationService;
+    public NavigationService NavigationService { get; }
 
     /// <summary>
     ///     Public properties for the title, subtitle, and back button visibility of the main window.
     /// </summary>
-    public string TitleText
-    {
-        get => _titleText;
-        set => _titleText = value;
-    }
+    public string TitleText { get; set; } = "Vanara Jñāna";
 
-    public string SubtitleText
-    {
-        get => _subtitleText;
-        set => _subtitleText = value;
-    }
+    public string SubtitleText { get; set; } = "Workbench";
 
-    public bool IsBackButtonVisible
-    {
-        get => _isBackButtonVisible;
-        set => _isBackButtonVisible = value;
-    }
+    public bool IsBackButtonVisible { get; set; } = true;
 
-    public bool IsBackButtonEnabled
-    {
-        get => _isBackButtonEnabled;
-        set => _isBackButtonEnabled = value;
-    }
+    public bool IsBackButtonEnabled { get; set; }
 
     private void TrySetMicaBackdrop()
     {

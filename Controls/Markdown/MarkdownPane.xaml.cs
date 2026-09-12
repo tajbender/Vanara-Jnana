@@ -12,32 +12,22 @@ public sealed partial class MarkdownPane : UserControl
 
 internal class MarkdownPaneViewModel
 {
-    private readonly ICommand _openCommand;
-    private readonly ICommand _saveCommand;
-    private readonly ICommand _togglePreviewCommand;
-    private string _markdownText = string.Empty;
-    private readonly bool _isPreviewVisible1 = true;
-
     public MarkdownPaneViewModel()
     {
-        _openCommand = new RelayCommand(Open);
-        _saveCommand = new RelayCommand(Save);
-        _togglePreviewCommand = new RelayCommand(TogglePreview);
+        OpenCommand = new RelayCommand(Open);
+        SaveCommand = new RelayCommand(Save);
+        TogglePreviewCommand = new RelayCommand(TogglePreview);
     }
 
-    public ICommand OpenCommand => _openCommand;
+    public ICommand OpenCommand { get; }
 
-    public ICommand SaveCommand => _saveCommand;
+    public ICommand SaveCommand { get; }
 
-    public ICommand TogglePreviewCommand => _togglePreviewCommand;
+    public ICommand TogglePreviewCommand { get; }
 
-    public string MarkdownText
-    {
-        get => _markdownText;
-        set => _markdownText = value;
-    }
+    public string MarkdownText { get; set; } = string.Empty;
 
-    private bool _isPreviewVisible => _isPreviewVisible1;
+    private bool _isPreviewVisible { get; } = true;
 
     public Visibility PreviewVisibility => _isPreviewVisible ? Visibility.Visible : Visibility.Collapsed;
 

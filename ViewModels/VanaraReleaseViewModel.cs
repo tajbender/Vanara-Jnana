@@ -8,20 +8,25 @@ namespace Jnana.ViewModels;
 
 public class VanaraReleaseViewModel : INotifyPropertyChanged
 {
-    private readonly ObservableCollection<ReleaseInfo> _releases = [];
-
-    public ObservableCollection<ReleaseInfo> Releases => _releases;
-
-    public event EventHandler LoadFailed;
-    public event PropertyChangedEventHandler? PropertyChanged;
-    protected void OnPropertyChanged(string name)
-        => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-
     public VanaraReleaseViewModel()
     {
-        LoadFailed += (s, e) => { /* Handle load failure */ };
+        LoadFailed += (s, e) =>
+        {
+            /* Handle load failure */
+        };
         PropertyChanged += static (s, e) => { };
-        _ = this.LoadAsync();
+        _ = LoadAsync();
+    }
+
+    public ObservableCollection<ReleaseInfo> Releases { get; } = [];
+
+    public event PropertyChangedEventHandler? PropertyChanged;
+
+    public event EventHandler LoadFailed;
+
+    protected void OnPropertyChanged(string name)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
     }
 
 
@@ -30,11 +35,11 @@ public class VanaraReleaseViewModel : INotifyPropertyChanged
         try
         {
             var items = await GitHubApi.GetLatestReleasesAsync();
-            this.Releases.Clear();
+            Releases.Clear();
             foreach (var r in items)
-                this.Releases.Add(r);
+                Releases.Add(r);
 
-            this.OnPropertyChanged(nameof(this.Releases));
+            OnPropertyChanged(nameof(Releases));
         }
         catch
         {
@@ -45,25 +50,9 @@ public class VanaraReleaseViewModel : INotifyPropertyChanged
 
 public class ReleaseInfo
 {
-    private string _name;
-    private string _body;
-    private DateTime _publishedAt;
+    public string Name { get; set; }
 
-    public string Name
-    {
-        get => _name;
-        set => _name = value;
-    }
+    public string Body { get; set; }
 
-    public string Body
-    {
-        get => _body;
-        set => _body = value;
-    }
-
-    public DateTime PublishedAt
-    {
-        get => _publishedAt;
-        set => _publishedAt = value;
-    }
+    public DateTime PublishedAt { get; set; }
 }

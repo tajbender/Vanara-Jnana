@@ -47,12 +47,12 @@ public static class NamespaceProvider
 //    }
 
 
-/// <summary>
-///     Resolves all namespace nodes for the specified URI.
-/// </summary>
-/// <param name="uri">The URI to resolve.</param>
-/// <returns>A list of resolved namespace nodes.</returns>
-public static List<NamespaceNode> ResolveAll(string uri)
+    /// <summary>
+    ///     Resolves all namespace nodes for the specified URI.
+    /// </summary>
+    /// <param name="uri">The URI to resolve.</param>
+    /// <returns>A list of resolved namespace nodes.</returns>
+    public static List<NamespaceNode> ResolveAll(string uri)
     {
         return
         [

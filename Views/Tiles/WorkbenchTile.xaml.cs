@@ -6,14 +6,12 @@ namespace Jnana.Views.Tiles;
 
 public sealed partial class WorkbenchTile : UserControl
 {
-    private readonly WorkbenchTileViewModel _viewModel = new();
-
     public WorkbenchTile()
     {
         InitializeComponent();
     }
 
-    public WorkbenchTileViewModel ViewModel => _viewModel;
+    public WorkbenchTileViewModel ViewModel { get; } = new();
 
     private void Grid_OnTapped(object sender, TappedRoutedEventArgs e)
     {

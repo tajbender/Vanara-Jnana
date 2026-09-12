@@ -4,9 +4,7 @@ namespace Jnana.Workbench.Pages.Samples;
 
 internal class SamplesViewModel
 {
-    private readonly ObservableCollection<SampleModel> _samples = [];
-
-    public ObservableCollection<SampleModel> Samples => _samples;
+    public ObservableCollection<SampleModel> Samples { get; } = [];
 
     // TODO: Add load logic
 }

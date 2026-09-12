@@ -1,5 +1,5 @@
-using Microsoft.UI.Xaml.Controls;
 using System.Diagnostics;
+using Microsoft.UI.Xaml.Controls;
 
 namespace Jnana.Core.Navigation;
 
@@ -14,6 +14,7 @@ public sealed partial class NavigationHost : UserControl
     {
         // TODO: this.Presenter.Content = pageInstance;
     }
+
     // todo: public object Presenter { get; set; }
     // todo: public object SideBarPresenter { get; set; }
     private void TabView_AddButtonClick(TabView sender, object args)

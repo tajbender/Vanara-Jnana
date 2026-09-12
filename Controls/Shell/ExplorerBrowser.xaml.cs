@@ -1,6 +1,5 @@
-using CommunityToolkit.WinUI.UI.Controls.TextToolbarSymbols;
-using Microsoft.UI.Xaml.Controls;
 using System.Collections.Generic;
+using Microsoft.UI.Xaml.Controls;
 
 namespace Jnana.Controls.Shell;
 
@@ -13,6 +12,5 @@ public sealed partial class ExplorerBrowser : Control
     public ExplorerBrowser()
     {
         DefaultStyleKey = typeof(ExplorerBrowser);
-
     }
 }

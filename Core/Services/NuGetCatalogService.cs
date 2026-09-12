@@ -16,39 +16,40 @@ using NuGet.Versioning;
 namespace Jnana.Core.Services;
 
 /// <summary>
-///  Service for interacting with the NuGet catalog, allowing for searching packages,
-///  retrieving metadata, downloading packages, and extracting README files.
+///     Service for interacting with the NuGet catalog, allowing for searching packages,
+///     retrieving metadata, downloading packages, and extracting README files.
 /// </summary>
 public sealed class NuGetCatalogService : INuGetCatalogService
 {
-    /// <summary>
-    /// Gets the singleton instance of the NuGetCatalogService.
-    /// </summary>
-    public static NuGetCatalogService Instance => Instance1;
+    private readonly SourceCacheContext _cache = new();
 
     /// <summary>
-    /// The NuGet repository used for interacting with the NuGet catalog.
+    ///     The NuGet repository used for interacting with the NuGet catalog.
     /// </summary>
     private readonly SourceRepository _nuGetSourceRepository;
-    private readonly SourceCacheContext _cache = new();
-    private static readonly NuGetCatalogService Instance1 = new();
 
     private NuGetCatalogService()
     {
         var source = new PackageSource("https://api.nuget.org/v3/index.json");
-        this._nuGetSourceRepository = Repository.Factory.GetCoreV3(source);
+        _nuGetSourceRepository = Repository.Factory.GetCoreV3(source);
     }
 
     /// <summary>
-    ///  Searches for NuGet packages based on the provided query string.
+    ///     Gets the singleton instance of the NuGetCatalogService.
+    /// </summary>
+    public static NuGetCatalogService Instance { get; } = new();
+
+    /// <summary>
+    ///     Searches for NuGet packages based on the provided query string.
     /// </summary>
     /// <param name="query">The query string to search for.</param>
     /// <returns>A list of matching NuGet packages.</returns>
     public async Task<IReadOnlyList<NuGetPackageInfo>> SearchPackagesAsync(string query)
     {
-        var search = await this._nuGetSourceRepository.GetResourceAsync<PackageSearchResource>();
+        var search = await _nuGetSourceRepository.GetResourceAsync<PackageSearchResource>();
         Debug.Assert(search != null, nameof(search) + " != null");
-        IEnumerable<IPackageSearchMetadata> results = await search.SearchAsync(query, new SearchFilter(true), 0, 50, NullLogger.Instance, CancellationToken.None);
+        IEnumerable<IPackageSearchMetadata> results = await search.SearchAsync(query, new SearchFilter(true), 0, 50,
+            NullLogger.Instance, CancellationToken.None);
 
         return
         [
@@ -64,14 +65,14 @@ public sealed class NuGetCatalogService : INuGetCatalogService
 
     public async Task<NuGetPackageInfo?> GetPackageMetadataAsync(string packageId)
     {
-        var meta = await this._nuGetSourceRepository.GetResourceAsync<PackageMetadataResource>();
+        var meta = await _nuGetSourceRepository.GetResourceAsync<PackageMetadataResource>();
         Debug.Assert(meta != null, nameof(meta) + " != null");
 
         IEnumerable<IPackageSearchMetadata>? results = await meta.GetMetadataAsync(
             packageId,
-            includePrerelease: true,
-            includeUnlisted: false,
-            this._cache,
+            true,
+            false,
+            _cache,
             NullLogger.Instance,
             CancellationToken.None);
 
@@ -94,7 +95,7 @@ public sealed class NuGetCatalogService : INuGetCatalogService
 
     public async Task<Stream?> DownloadPackageAsync(string packageId, string version)
     {
-        var download = await this._nuGetSourceRepository.GetResourceAsync<DownloadResource>();
+        var download = await _nuGetSourceRepository.GetResourceAsync<DownloadResource>();
         Debug.Assert(download != null, nameof(download) + " != null");
         var result = await download.GetDownloadResourceResultAsync(
             new PackageIdentity(packageId, NuGetVersion.Parse(version)),
@@ -108,7 +109,7 @@ public sealed class NuGetCatalogService : INuGetCatalogService
 
     public async Task<string?> GetReadmeMarkdownAsync(string packageId, string version)
     {
-        await using var pkg = await this.DownloadPackageAsync(packageId, version);
+        await using var pkg = await DownloadPackageAsync(packageId, version);
         if (pkg == null)
             return null;
 

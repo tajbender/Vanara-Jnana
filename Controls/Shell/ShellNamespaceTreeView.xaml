@@ -9,9 +9,6 @@
     mc:Ignorable="d">
 
     <Grid>
-        <TreeView>
-
-        </TreeView>
+        <TreeView />
     </Grid>
 </UserControl>
-    

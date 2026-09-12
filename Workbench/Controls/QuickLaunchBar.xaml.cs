@@ -59,8 +59,6 @@ public sealed partial class QuickLaunchBar : UserControl
             typeof(QuickLaunchBar),
             new PropertyMetadata(string.Empty));
 
-    private readonly string[] _gitHubTreeViewItemSource = ["dummy entry", "another entry"];
-
     /// <summary>
     ///     Initializes a new instance of the <see cref="QuickLaunchBar" /> class. This is the `Vanara Jñāna Workbench` `Quick
     ///     Launch Bar control`,
@@ -72,7 +70,7 @@ public sealed partial class QuickLaunchBar : UserControl
         _ = InitializeStatusAsync();
     }
 
-    public string[] GitHubTreeViewItemSource => _gitHubTreeViewItemSource;
+    public string[] GitHubTreeViewItemSource { get; } = ["dummy entry", "another entry"];
 
     /// <summary>
     ///     Gets or sets the machine's display name.
@@ -144,7 +142,7 @@ public sealed partial class QuickLaunchBar : UserControl
     }
 
     /// <summary>
-    ///    Checks the network connectivity by pinging a well-known server (Google's public DNS server).
+    ///     Checks the network connectivity by pinging a well-known server (Google's public DNS server).
     /// </summary>
     /// <returns></returns>
     private async Task<bool> CheckNetworkAsync()
@@ -165,7 +163,7 @@ public sealed partial class QuickLaunchBar : UserControl
     }
 
     /// <summary>
-    ///   Checks the connectivity to GitHub by pinging the GitHub API endpoint.
+    ///     Checks the connectivity to GitHub by pinging the GitHub API endpoint.
     /// </summary>
     /// <returns></returns>
     private async Task<bool> CheckGitHubAsync()

@@ -7,11 +7,6 @@ namespace Jnana.Controls;
 
 public class GaugeControlViewModel
 {
-    private double _minimum = 0;
-    private double _maximum = 100;
-    private double _percent;
-    private double _value;
-
     public GaugeControlViewModel(double value)
     {
         Value = value;
@@ -20,31 +15,15 @@ public class GaugeControlViewModel
     public Point ArcEndPoint => CalculateArcPoint(Percent * 1.8 - 90);
     public bool IsLargeArc => Percent > 50;
 
-    public double Minimum
-    {
-        get => _minimum;
-        set => _minimum = value;
-    }
+    public double Minimum { get; set; }
 
-    public double Maximum
-    {
-        get => _maximum;
-        set => _maximum = value;
-    }
+    public double Maximum { get; set; } = 100;
 
     public double NeedleAngle => Percent * 1.8 - 90; // 0% = -90° (left), 100% = +90° (right)
 
-    public double Percent
-    {
-        get => _percent;
-        set => _percent = value;
-    } // 0–100
+    public double Percent { get; set; } // 0–100
 
-    public double Value
-    {
-        get => _value;
-        set => _value = value;
-    }
+    public double Value { get; set; }
 
     private static Point CalculateArcPoint(double v)
     {
@@ -52,11 +31,8 @@ public class GaugeControlViewModel
     }
 }
 
-
 public sealed partial class GaugeControl : UserControl
 {
-    public PathGeometry ProgressArc => CalculateProgressArc();
-
     public GaugeControlViewModel ViewModel;
 
     public GaugeControl()
@@ -66,28 +42,30 @@ public sealed partial class GaugeControl : UserControl
         ViewModel = (GaugeControlViewModel)DataContext;
     }
 
+    public PathGeometry ProgressArc => CalculateProgressArc();
+
     private PathGeometry CalculateProgressArc()
     {
         if (ViewModel is not GaugeControlViewModel vm)
             return new PathGeometry();
         double startAngle = -90; // Start at the top
-        double endAngle = vm.NeedleAngle; // End angle based on the percentage
+        var endAngle = vm.NeedleAngle; // End angle based on the percentage
         // Convert angles to radians
-        double startRadians = startAngle * (Math.PI / 180);
-        double endRadians = endAngle * (Math.PI / 180);
+        var startRadians = startAngle * (Math.PI / 180);
+        var endRadians = endAngle * (Math.PI / 180);
         // Calculate the start and end points of the arc
         double radius = 100; // Assuming a radius of 100 for the gauge
-        Point startPoint = new Point(
+        var startPoint = new Point(
             100 + radius * Math.Cos(startRadians),
             100 + radius * Math.Sin(startRadians)
         );
-        Point endPoint = new Point(
+        var endPoint = new Point(
             100 + radius * Math.Cos(endRadians),
             100 + radius * Math.Sin(endRadians)
         );
-        bool isLargeArc = vm.IsLargeArc;
+        var isLargeArc = vm.IsLargeArc;
         // Create the arc segment
-        ArcSegment arcSegment = new ArcSegment
+        var arcSegment = new ArcSegment
         {
             Point = endPoint,
             Size = new Size(radius, radius),
@@ -95,13 +73,13 @@ public sealed partial class GaugeControl : UserControl
             SweepDirection = SweepDirection.Clockwise
         };
         // Create the path figure
-        PathFigure pathFigure = new PathFigure
+        var pathFigure = new PathFigure
         {
             StartPoint = startPoint,
             Segments = { arcSegment }
         };
         // Create the path geometry
-        PathGeometry pathGeometry = new PathGeometry();
+        var pathGeometry = new PathGeometry();
         pathGeometry.Figures.Add(pathFigure);
 
         return pathGeometry;
