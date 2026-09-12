@@ -75,13 +75,13 @@
             <!-- CPU -->
             <StackPanel Orientation="Horizontal">
                 <FontIcon Glyph="&#xE9A9;" FontSize="14" Margin="0,0,4,0"/>
-                <TextBlock Text="{x:Bind CPUUsage, Mode=OneWay}" FontSize="12"/>
+                <TextBlock Text="{x:Bind CpuUsage, Mode=OneWay}" FontSize="12"/>
             </StackPanel>
 
             <!-- RAM -->
             <StackPanel Orientation="Horizontal">
                 <FontIcon Glyph="&#xEBD8;" FontSize="14" Margin="0,0,4,0"/>
-                <TextBlock Text="{x:Bind RAMUsage, Mode=OneWay}" FontSize="12"/>
+                <TextBlock Text="{x:Bind RamUsage, Mode=OneWay}" FontSize="12"/>
             </StackPanel>
 
             <!-- NET -->

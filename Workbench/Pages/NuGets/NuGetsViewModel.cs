@@ -11,10 +11,10 @@ namespace Jnana.Workbench.NuGet
         private readonly INuGetCatalogService _catalogService;
 
         [ObservableProperty]
-        private string searchQuery = string.Empty;
+        private string _searchQuery = string.Empty;
 
         [ObservableProperty]
-        private NuGetPackageInfo? selectedPackage;
+        private NuGetPackageInfo? _selectedPackage;
 
         public ObservableCollection<NuGetPackageInfo> Packages { get; } = new();
 
@@ -35,7 +35,7 @@ namespace Jnana.Workbench.NuGet
         [RelayCommand]
         public void NavigateToPackage(NuGetPackageInfo package)
         {
-            selectedPackage = package;
+            _selectedPackage = package;
 
             // Workbench-Morphing:
             // NavigationService.MorphTo("nuget://" + package.Id);

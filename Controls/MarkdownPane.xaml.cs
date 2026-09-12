@@ -28,9 +28,9 @@ internal class MarkdownPaneViewModel
     public ICommand SaveCommand { get; }
     public ICommand TogglePreviewCommand { get; }
     public string MarkdownText { get; set; } = string.Empty;
-    private bool _isPreviewVisible { get; set; } = true;
+    private bool IsPreviewVisible { get; set; } = true;
 
-    public Visibility PreviewVisibility => _isPreviewVisible ? Visibility.Visible : Visibility.Collapsed;
+    public Visibility PreviewVisibility => IsPreviewVisible ? Visibility.Visible : Visibility.Collapsed;
 
     private void Open()
     {

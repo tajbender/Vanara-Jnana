@@ -39,7 +39,7 @@ public sealed partial class FloatingStatusBar : UserControl, IStatusService
         set => ((UserControl)this).Opacity = value;
     }
 
-    public string CPUUsage
+    public string CpuUsage
     {
         get => this._cpuUsage;
         set => this._cpuUsage = value;
@@ -51,7 +51,7 @@ public sealed partial class FloatingStatusBar : UserControl, IStatusService
         set => this._netUsage = value;
     }
 
-    public string RAMUsage
+    public string RamUsage
     {
         get => this._ramUsage;
         set => this._ramUsage = value;

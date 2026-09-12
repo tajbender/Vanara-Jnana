@@ -105,7 +105,7 @@ public sealed partial class NuGetTreeViewModel : ObservableObject
     //private bool _isLoading = true;
 
     [ObservableProperty]
-    public bool _isLoading;
+    public bool isLoading;
 
     // -----------------------------
     // Commands
@@ -115,7 +115,7 @@ public sealed partial class NuGetTreeViewModel : ObservableObject
     {
         try
         {
-            IsLoading = true;
+            isLoading = true;
             RootNodes.Clear();
 
             var graph = await _graphService.GetDependencyGraphAsync(projectPath);
@@ -127,7 +127,7 @@ public sealed partial class NuGetTreeViewModel : ObservableObject
         }
         finally
         {
-            IsLoading = false;
+            isLoading = false;
         }
     }
 

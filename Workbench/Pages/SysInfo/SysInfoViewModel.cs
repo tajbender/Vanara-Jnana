@@ -53,14 +53,14 @@ public partial class SysInfoViewModel : INotifyPropertyChanged
         => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
 
     // Identity
-    public string OSVersion { get; set; } = "";
+    public string OsVersion { get; set; } = "";
     public string WinAppSdkVersion { get; set; } = "";
     public string MachineName { get; set; } = "";
 
     // Hardware
-    public string CPU { get; set; } = "";
-    public string RAM { get; set; } = "";
-    public string GPU { get; set; } = "";
+    public string Cpu { get; set; } = "";
+    public string Ram { get; set; } = "";
+    public string Gpu { get; set; } = "";
 
     // Runtime
     public int ThreadCount { get; set; }
@@ -91,7 +91,7 @@ public partial class SysInfoViewModel : INotifyPropertyChanged
 
     public SysInfoViewModel()
     {
-        OSVersion = Environment.OSVersion.ToString();
+        OsVersion = Environment.OSVersion.ToString();
         MachineName = Environment.MachineName;
         this.WinAppSdkVersion = typeof(App).Assembly.GetName().Version?.ToString() ?? "unknown";
 

@@ -15,15 +15,15 @@ public enum PageKeys
 
 public static class PageRegistry
 {
-    private static readonly Dictionary<PageKeys, Type> _pages = [];
+    private static readonly Dictionary<PageKeys, Type> Pages = [];
 
     public static void Register(PageKeys key, Type pageType)
     {
-        _pages[key] = pageType;
+        Pages[key] = pageType;
     }
 
     public static Type? Resolve(PageKeys key)
     {
-        return _pages.TryGetValue(key, out var type) ? type : null;
+        return Pages.GetValueOrDefault(key, null);
     }
 }

@@ -4,9 +4,9 @@ namespace Jnana.Workbench.ViewModels;
 
 public class TelemetryViewModel
 {
-    private float cpu;
-    private float gpu;
-    private float ram;
+    private float _cpu;
+    private float _gpu;
+    private float _ram;
 
     public Action<object, object> PropertyChanged { get; internal set; }
 }

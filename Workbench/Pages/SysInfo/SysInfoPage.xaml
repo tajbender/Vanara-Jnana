@@ -24,16 +24,16 @@
             <StackPanel Spacing="12">
                 <Expander Header="Identity" HorizontalAlignment="Left" IsExpanded="True">
                     <StackPanel Spacing="4" HorizontalAlignment="Left">
-                        <TextBlock Text="{x:Bind ViewModel.OSVersion, Mode=OneWay}" />
+                        <TextBlock Text="{x:Bind ViewModel.OsVersion, Mode=OneWay}" />
                         <TextBlock Text="{x:Bind ViewModel.WinAppSdkVersion, Mode=OneWay}" />
                         <TextBlock Text="{x:Bind ViewModel.MachineName, Mode=OneWay}" />
                     </StackPanel>
                 </Expander>
                 <Expander Header="Hardware" HorizontalAlignment="Left" IsExpanded="True">
                     <StackPanel Spacing="4" HorizontalAlignment="Left">
-                        <TextBlock Text="{x:Bind ViewModel.CPU, Mode=OneWay}" />
-                        <TextBlock Text="{x:Bind ViewModel.RAM, Mode=OneWay}" />
-                        <TextBlock Text="{x:Bind ViewModel.GPU, Mode=OneWay}" />
+                        <TextBlock Text="{x:Bind ViewModel.Cpu, Mode=OneWay}" />
+                        <TextBlock Text="{x:Bind ViewModel.Ram, Mode=OneWay}" />
+                        <TextBlock Text="{x:Bind ViewModel.Gpu, Mode=OneWay}" />
                     </StackPanel>
                 </Expander>
                 <Expander Header="Runtime" HorizontalAlignment="Left" IsExpanded="True">

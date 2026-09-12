@@ -16,15 +16,15 @@ public sealed partial class SysInfoPage : Page
 
     private void LoadData()
     {
-        ViewModel.CPU = "TODO: bind CPU Info.";
-        ViewModel.GPU = "TODO: bind GPU Info.";
+        ViewModel.Cpu = "TODO: bind CPU Info.";
+        ViewModel.Gpu = "TODO: bind GPU Info.";
         ViewModel.HandleCount = 0; // TODO: bind to an PerformanceCounter
         ViewModel.MachineName = Environment.MachineName;
-        ViewModel.OSVersion = Environment.OSVersion.VersionString;
+        ViewModel.OsVersion = Environment.OSVersion.VersionString;
         ViewModel.EnvironmentPathVariable = Environment.GetEnvironmentVariable("PATH") ?? "";
         ViewModel.ProcessName = Environment.ProcessPath ?? "unknown";
         ViewModel.ProcessId = Environment.ProcessId;
-        ViewModel.RAM = "TODO: bind RAM Info.";
+        ViewModel.Ram = "TODO: bind RAM Info.";
         ViewModel.ThreadCount = Environment.ProcessorCount;
         ViewModel.Uptime = $"{Environment.TickCount64 / 1000 / 60} min";
         ViewModel.User = Environment.UserName;
