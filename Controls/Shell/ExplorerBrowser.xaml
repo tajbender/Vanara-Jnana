@@ -1,12 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿<UserControl
+    x:Class="Jnana.Controls.Shell.ExplorerBrowser"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:CommunityToolkit.WinUI.UI.Controls">
 
-namespace Jnana.Controls.Shell
-{
-class ExplorerBrowser
-{
-}
-}
+    <Grid RowDefinitions="Auto,*">
+        <!-- Split View -->
+        <Grid Grid.Row="1" ColumnDefinitions="*,*">
+
+            <!-- Editor: TextBox 
+            Text="{x:Bind ViewModel.MarkdownText, Mode=TwoWay}"
+            -->
+            <TextBox
+                Grid.Column="0"
+                
+                FontFamily="Consolas"
+                FontSize="14"
+                AcceptsReturn="True"
+                TextWrapping="NoWrap"
+                Background="#1E1E1E"
+                Foreground="White"
+                BorderThickness="0"
+                Padding="12" />
+
+            <!-- Preview pane: MarkdownTextBlock 
+            Visibility="{x:Bind ViewModel.PreviewVisibility}"
+            -->
+            <ScrollViewer Grid.Column="1" >
+                <!-- Markdown="{x:Bind ViewModel.MarkdownText, Mode=OneWay}" -->
+                <controls:MarkdownTextBlock
+                    FontSize="14"
+                    TextWrapping="Wrap"
+                    LinkForeground="DodgerBlue"
+                    CodeBackground="#1E1E1E"
+                    CodeForeground="White"
+                    Padding="12" />
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</UserControl>
