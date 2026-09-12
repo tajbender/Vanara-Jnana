@@ -22,46 +22,47 @@ public enum StatusKind
     Assembly
 }
 
-public sealed partial class FloatingStatusBar : UserControl
+public sealed partial class FloatingStatusBar : UserControl, IStatusService
 {
     private readonly DispatcherTimer _hideTimer = new() { Interval = TimeSpan.FromSeconds(3) };
 
     //public static FloatingStatusBar Instance { get; private set; }
 
-    public float Opacity
+    private string _cpuUsage = "calculating...";
+    private string _netUsage = "calculating...";
+    private string _ramUsage = "calculating...";
+    private string _diskUsage = "calculating...";
+
+    public new double Opacity
     {
-        get => this.Opacity;
-        set => this.Opacity = value;
+        get => ((UserControl)this).Opacity;
+        set => ((UserControl)this).Opacity = value;
     }
 
     public string CPUUsage
     {
-        get => CPUUsage;
-        set => CPUUsage = value;
+        get => this._cpuUsage;
+        set => this._cpuUsage = value;
     }
 
     public string NetUsage
     {
-        get => NetUsage;
-        set => NetUsage = value;
+        get => this._netUsage;
+        set => this._netUsage = value;
     }
 
     public string RAMUsage
     {
-        get => RAMUsage;
-        set => RAMUsage = value;
+        get => this._ramUsage;
+        set => this._ramUsage = value;
     }
 
     public string DiskUsage
     {
-        get => DiskUsage;
-        set => DiskUsage = value;
+        get => this._diskUsage;
+        set => this._diskUsage = value;
     }
 
-    public void OnAreaMenuTapped(object sender, RoutedEventArgs e)
-    {
-
-    }
 
 
     public FloatingStatusBar()
@@ -92,6 +93,12 @@ public sealed partial class FloatingStatusBar : UserControl
         //            Root.Opacity = 0;
         //            Root.Translation = new System.Numerics.Vector3(0, 20, 0);
     }
+
+    public void OnAreaMenuTapped(object sender, RoutedEventArgs e)
+    {
+
+    }
+
 
     private string GetGlyph(StatusKind kind) => kind switch
     {

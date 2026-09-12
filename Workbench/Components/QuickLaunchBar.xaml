@@ -8,78 +8,84 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
+	<StackPanel Orientation="Vertical" Padding="8" Spacing="8">
 
-        <Button Click="OnToolsClick" CornerRadius="6">
-            <StackPanel Orientation="Horizontal">
-                <FontIcon Glyph="&#xEC7A;" />
-                <TextBlock Text="Workbench"/>
-            </StackPanel>
-        </Button>
+		<Button Click="OnWorkbenchClick" CornerRadius="6" Width="128">
+			<StackPanel Orientation="Vertical">
+				<FontIcon Glyph="&#xEC7A;" />
+				<TextBlock Text="Workbench" HorizontalTextAlignment="Center" TextWrapping="WrapWholeWords"/>
+			</StackPanel>
+		</Button>
 
-        <Button Click="OnGitHubClick" CornerRadius="6">
-            <StackPanel Orientation="Horizontal">
-                <FontIcon Glyph="&#xEC7A;" />
-                <TextBlock Text="Shell"/>
-            </StackPanel>
-        </Button>
+		<Button Click="OnNuGetsClick" CornerRadius="6" Width="128">
+			<StackPanel Orientation="Vertical">
+				<FontIcon Glyph="&#xEC7A;" />
+				<TextBlock Text="NuGets" HorizontalTextAlignment="Center" TextWrapping="WrapWholeWords"/>
+			</StackPanel>
+		</Button>
 
-        <Button Click="OnSamplesClick" CornerRadius="6">
-            <StackPanel Orientation="Horizontal">
-                <FontIcon Glyph="&#xEC7A;" />
-                <TextBlock Text="Web"/>
-            </StackPanel>
-        </Button>
+		<Button Click="OnGitHubClick" CornerRadius="6" Width="128">
+			<StackPanel Orientation="Vertical">
+				<FontIcon Glyph="&#xEC7A;" />
+				<TextBlock Text="GitHub Client" HorizontalTextAlignment="Center" TextWrapping="WrapWholeWords"/>
+			</StackPanel>
+		</Button>
 
-        <Button Click="OnGitHubClick" CornerRadius="6">
-            <StackPanel Orientation="Horizontal">
-                <FontIcon Glyph="&#xEC7A;" />
-                <TextBlock Text="GitHub"/>
-            </StackPanel>
-        </Button>
+		<!-- Click="OnDisassemblyClick"  -->
+		<Button CornerRadius="6" Width="128">
+			<StackPanel Orientation="Vertical">
+				<FontIcon Glyph="&#xEC7A;" />
+				<TextBlock Text="Disassemblies" HorizontalTextAlignment="Center" TextWrapping="WrapWholeWords"/>
+			</StackPanel>
+		</Button>
 
+		<Button Click="OnSamplesClick" CornerRadius="6" Width="128">
+			<StackPanel Orientation="Vertical">
+				<FontIcon Glyph="&#xEC7A;" />
+				<TextBlock Text="Vanara Science Labs" HorizontalTextAlignment="Center" TextWrapping="WrapWholeWords"/>
+			</StackPanel>
+		</Button>
 
-        <Button Click="OnNuGetsClick" CornerRadius="6">
-            <StackPanel Orientation="Horizontal">
-                <FontIcon Glyph="&#xEC7A;" />
-                <TextBlock Text="NuGets"/>
-            </StackPanel>
-        </Button>
+		<Button Click="OnToolsAndUtilitiesClick" CornerRadius="6" Width="128">
+			<StackPanel Orientation="Vertical">
+				<FontIcon Glyph="&#xEC7A;" />
+				<TextBlock Text="Tools &amp; Utilities" HorizontalTextAlignment="Center" TextWrapping="WrapWholeWords" />
+			</StackPanel>
+		</Button>
 
-        <Button Click="OnToolsAndUtilitiesClick" CornerRadius="6">
-            <StackPanel Orientation="Horizontal">
-                <FontIcon Glyph="&#xEC7A;" />
-                <!-- Toolbox -->
-                <TextBlock Text="Tools &amp; Utilities"/>
-            </StackPanel>
-        </Button>
+		<Button Click="OnSysInfoClick" CornerRadius="6" Width="128">
+			<StackPanel Orientation="Vertical">
+				<FontIcon Glyph="&#xEC7A;" />
+				<TextBlock Text="System Information Summary" HorizontalTextAlignment="Center" TextWrapping="WrapWholeWords"/>
+			</StackPanel>
+		</Button>
 
-        <Button Click="OnSysInfoClick" CornerRadius="6">
-            <StackPanel Orientation="Horizontal">
-                <FontIcon Glyph="&#xEC7A;" />
-                <TextBlock Text="SysInfo"/>
-            </StackPanel>
-        </Button>
-
-        <Grid x:Name="FloatingBar"
+		<Grid x:Name="FloatingBar"
               Background="{ThemeResource SolidBackgroundFillColorBaseBrush}"
               CornerRadius="8"
-              Padding="12,6"
-              HorizontalAlignment="Right"
-              VerticalAlignment="Top"
+              HorizontalAlignment="Stretch"
               Margin="0,8,8,0"
-              Opacity="0.95">
-            <StackPanel Orientation="Horizontal" Spacing="12">
-                <FontIcon Glyph="&#xE7F8;" />
-                <!-- GPU -->
-                <!--<TextBlock Text="{x:Bind ViewModel.GpuName}" />
+              Opacity="0.95"
+              Padding="12,6"
+              VerticalAlignment="Bottom">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition Width="Auto" />
+			</Grid.ColumnDefinitions>
+			<FontIcon Grid.Column="0" Glyph="&#xE7F8;"/>
+			<FontIcon Grid.Column="1" Glyph="&#xE9D9;"/>
+			<FontIcon Grid.Column="2" Glyph="&#xE9D9;"/>
+
+			<TextBlock Grid.Column="0" Grid.ColumnSpan="3" Text="CPU Usage" />
+			<TextBlock Grid.Column="0" Grid.ColumnSpan="3" Text="Gfx Acceleration" />
+			<TextBlock Grid.Column="0" Grid.ColumnSpan="3" Text="RAM Usage" />
+
+			<!-- GPU -->
+			<!--<TextBlock Text="{x:Bind ViewModel.GpuName}" />
                 <TextBlock Text="{x:Bind ViewModel.GpuLoad, StringFormat='{}{0}%'}" />-->
-                <FontIcon Glyph="&#xE9D9;" />
-                <!-- RAM -->
-                <!--<TextBlock Text="{x:Bind ViewModel.RamUsage}" />-->
-            </StackPanel>
-        </Grid>
-
-    </StackPanel>
-
+			<!-- RAM -->
+			<!--<TextBlock Text="{x:Bind ViewModel.RamUsage}" />-->
+		</Grid>
+	</StackPanel>
 </UserControl>

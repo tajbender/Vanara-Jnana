@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0-windows10.0.19041.0</TargetFramework>
@@ -20,7 +20,10 @@
     <Page Remove="Workbench\Controls\NuGetsTreeView\**" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="Assets\Styles\LonghornTitleBar.xaml" />
+    <None Remove="Controls\MarkdownPane.xaml" />
     <None Remove="Core\Navigation\NavigationHost.xaml" />
+    <None Remove="Vanara Jnana.csproj.Backup.tmp" />
     <None Remove="Views\Tiles\NuGetTile.xaml" />
     <None Remove="Views\Tiles\WorkbenchTile.xaml" />
     <None Remove="Workbench\Components\QuickLaunchBar.xaml" />
@@ -35,6 +38,7 @@
     <None Remove="Workbench\Pages\ToolsAndUtilitiesPage.xaml" />
     <None Remove="Workbench\Pages\VoidPage.xaml" />
     <None Remove="Workbench\Pages\WorkbenchPage.xaml" />
+    <None Remove="Workbench\Pages\Workbench\DisassemblyPage.xaml" />
     <None Remove="Workbench\Pages\Workbench\TugorPage.xaml" />
   </ItemGroup>
 
@@ -62,13 +66,18 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
+    <PackageReference Include="CommunityToolkit.WinUI.UI.Controls.Markdown" Version="7.1.2" />
+    <PackageReference Include="fuselibs-desktop-fonts" Version="1.0.0" />
     <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="10.0.11" />
     <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="10.0.11" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.28000.2526" />
-    <PackageReference Include="Microsoft.WindowsAppSDK" Version="2.4.0" />
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="2.3.1" />
     <PackageReference Include="NuGet.Common" Version="7.9.0" />
     <PackageReference Include="NuGet.Configuration" Version="7.9.0" />
     <PackageReference Include="NuGet.ProjectModel" Version="7.9.0" />
+    <PackageReference Include="System.Net.Http" Version="4.3.4" />
+    <PackageReference Include="System.Private.Uri" Version="4.3.2" />
+    <PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
     <PackageReference Include="Vanara.Core" Version="5.0.6" />
     <PackageReference Include="Vanara.PInvoke.Shared" Version="5.0.0" />
     <PackageReference Include="Vanara.PInvoke.Shell32" Version="5.0.6" />
@@ -150,12 +159,64 @@
     <PublishTrimmed Condition="'$(Configuration)' == 'Debug'">False</PublishTrimmed>
     <PublishTrimmed Condition="'$(Configuration)' != 'Debug'">True</PublishTrimmed>
     <StartupObject>Jnana.Program</StartupObject>
+    <ApplicationIcon>Assets\Icons\default vanara-icon.ico</ApplicationIcon>
+    <IncludeSymbols>True</IncludeSymbols>
+    <PackageIcon>vanara icon (hq).ico</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReleaseNotes>debug build - do not use in productive environment</PackageReleaseNotes>
+    <AssemblyVersion>1.268.506.1</AssemblyVersion>
+    <FileVersion>1.268.506.1</FileVersion>
+    <PublishAot>True</PublishAot>
+    <Version>1.268.506.1</Version>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
   <ItemGroup>
     <PRIResource Remove="Workbench\Controls\NuGetsTreeView\**" />
   </ItemGroup>
   <ItemGroup>
-    <Content Remove="Assets\i18n.cs" />
+    <Content Remove="Assets\Styles\LonghornTitleBar.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\Icons\default vanara-icon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Assets\Icons\vanara icon (hq).ico">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Workbench\Pages\Workbench\DisassemblyPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Controls\MarkdownPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Workbench\Pages\ToolsAndUtilitiesPage.xaml">
@@ -181,5 +242,18 @@
     <Page Update="Views\Tiles\WorkbenchTile.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Assets\Styles\LonghornTitleBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\Fonts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Update="Assets\Icons\vanara.icon.ifx">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 </Project>

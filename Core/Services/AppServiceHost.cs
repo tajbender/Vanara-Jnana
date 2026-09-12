@@ -5,7 +5,7 @@ namespace Jnana.Core.Services;
 
 public sealed class AppServiceHost
 {
-    // Core Services
+    // Core ServiceHost
     public INuGetDependencyGraphService DependencyGraphService { get; }
     public NuGetTreeViewModel NuGetTreeViewModel { get; }
     public INuGetPreLoadService PreLoadService { get; }
