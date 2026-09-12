@@ -1,16 +1,15 @@
-# Vanara Jñāna
+# Vanara Jñāna r1.926.14 debug pre-release
 
-![Vanara GitHub](https://img.shields.io/badge/Code-Vanara-blue?style=flat&logo=github)
-TODO Vanara-version. NuGet packages
 ![Jñāna GitHub](https://img.shields.io/badge/Code-Jñāna-blue?style=flat&logo=github)
 TODO Jñāna Vanara-version. download
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat&logo=github)
 
 ## A Vanara Companion Workbench
 
+![Vanara GitHub](https://img.shields.io/badge/Code-Vanara-blue?style=flat&logo=github) TODO Vanara-version. NuGet packages
 ![WinUI 3](https://img.shields.io/badge/UI-WinUI%203-0078D4?style=flat&logo=windows)
 ![Architecture](https://img.shields.io/badge/Style-Clean%20Architecture-orange?style=flat)
 ![Status](https://img.shields.io/badge/State-Active%20Development-brightgreen?style=flat)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat&logo=github)
 
 Jñāna is a modular WinUI 3 workspace designed around clarity, structure, and predictable UI behavior. The current iteration focuses on a clean foundation: a unified navigation service, a consistent window model, and a lightweight shell that keeps complexity out of the core.
 
@@ -53,4 +52,13 @@ Jñāna is currently in active development, with the Workbench transformation, M
 
 ----
 
-(c) 2024 Vanara Jñāna. Licensed under the MIT License. See LICENSE for details. - last updated: 2024‑06‑15
+# Licenses
+
+| License | Owner  | Notes  |
+| --- | --- | --- |
+| (c) Vanara @dahall David Hall | | |
+| (c) 2026 Vanara Jñāna @dahall David Hall, @tajbender and contributors. | See MIT-`LICENSE.md` for details. | |
+
+----
+
+last updated 2026‑09‑12.
