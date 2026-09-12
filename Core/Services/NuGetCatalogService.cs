@@ -24,12 +24,15 @@ public sealed class NuGetCatalogService : INuGetCatalogService
     /// <summary>
     /// Gets the singleton instance of the NuGetCatalogService.
     /// </summary>
-    public static NuGetCatalogService Instance { get; } = new();
+    public static NuGetCatalogService Instance => Instance1;
+
     /// <summary>
     /// The NuGet repository used for interacting with the NuGet catalog.
     /// </summary>
     private readonly SourceRepository _nuGetSourceRepository;
     private readonly SourceCacheContext _cache = new();
+    private static readonly NuGetCatalogService Instance1 = new();
+
     private NuGetCatalogService()
     {
         var source = new PackageSource("https://api.nuget.org/v3/index.json");

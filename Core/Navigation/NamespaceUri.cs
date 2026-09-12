@@ -18,19 +18,27 @@ public sealed class NamespaceUri
         Payload = null
     };
 
+    private readonly string _scheme;
+    private readonly string _path;
+    private readonly IReadOnlyDictionary<string, string> _parameters;
+    private readonly string _fragment;
+
     private NamespaceUri(string scheme, string path,
         IReadOnlyDictionary<string, string> parameters, string fragment)
     {
-        Scheme = scheme;
-        Path = path;
-        Parameters = parameters;
-        Fragment = fragment;
+        _scheme = scheme;
+        _path = path;
+        _parameters = parameters;
+        _fragment = fragment;
     }
 
-    public string Scheme { get; }
-    public string Path { get; }
-    public IReadOnlyDictionary<string, string> Parameters { get; }
-    public string Fragment { get; }
+    public string Scheme => _scheme;
+
+    public string Path => _path;
+
+    public IReadOnlyDictionary<string, string> Parameters => _parameters;
+
+    public string Fragment => _fragment;
 
     public static NamespaceUri Parse(string uri)
     {
@@ -60,9 +68,27 @@ public sealed class NamespaceUri
 
     public sealed class NamespaceNode
     {
-        public Type PageType { get; init; }
-        public object TargetObject { get; init; }
-        public object Payload { get; init; }
+        private readonly Type _pageType;
+        private readonly object _targetObject;
+        private readonly object _payload;
+
+        public Type PageType
+        {
+            get => _pageType;
+            init => _pageType = value;
+        }
+
+        public object TargetObject
+        {
+            get => _targetObject;
+            init => _targetObject = value;
+        }
+
+        public object Payload
+        {
+            get => _payload;
+            init => _payload = value;
+        }
     }
 
 

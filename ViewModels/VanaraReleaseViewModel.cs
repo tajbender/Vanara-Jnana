@@ -8,7 +8,9 @@ namespace Jnana.ViewModels;
 
 public class VanaraReleaseViewModel : INotifyPropertyChanged
 {
-    public ObservableCollection<ReleaseInfo> Releases { get; } = [];
+    private readonly ObservableCollection<ReleaseInfo> _releases = [];
+
+    public ObservableCollection<ReleaseInfo> Releases => _releases;
 
     public event EventHandler LoadFailed;
     public event PropertyChangedEventHandler? PropertyChanged;
@@ -43,7 +45,25 @@ public class VanaraReleaseViewModel : INotifyPropertyChanged
 
 public class ReleaseInfo
 {
-    public string Name { get; set; }
-    public string Body { get; set; }
-    public DateTime PublishedAt { get; set; }
+    private string _name;
+    private string _body;
+    private DateTime _publishedAt;
+
+    public string Name
+    {
+        get => _name;
+        set => _name = value;
+    }
+
+    public string Body
+    {
+        get => _body;
+        set => _body = value;
+    }
+
+    public DateTime PublishedAt
+    {
+        get => _publishedAt;
+        set => _publishedAt = value;
+    }
 }

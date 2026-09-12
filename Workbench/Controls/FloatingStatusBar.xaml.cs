@@ -25,6 +25,10 @@ public enum StatusKind
 public sealed partial class FloatingStatusBar : UserControl, IStatusService
 {
     private readonly DispatcherTimer _hideTimer = new() { Interval = TimeSpan.FromSeconds(3) };
+    private string _cpuUsage = "calculating...";
+    private string _netUsage = "calculating...";
+    private string _ramUsage = "calculating...";
+    private string _diskUsage = "calculating...";
 
     //public static FloatingStatusBar Instance { get; private set; }
 
@@ -43,13 +47,29 @@ public sealed partial class FloatingStatusBar : UserControl, IStatusService
         set => ((UserControl)this).Opacity = value;
     }
 
-    public string CPUUsage { get; set; } = "calculating...";
+    public string CPUUsage
+    {
+        get => _cpuUsage;
+        set => _cpuUsage = value;
+    }
 
-    public string NetUsage { get; set; } = "calculating...";
+    public string NetUsage
+    {
+        get => _netUsage;
+        set => _netUsage = value;
+    }
 
-    public string RAMUsage { get; set; } = "calculating...";
+    public string RAMUsage
+    {
+        get => _ramUsage;
+        set => _ramUsage = value;
+    }
 
-    public string DiskUsage { get; set; } = "calculating...";
+    public string DiskUsage
+    {
+        get => _diskUsage;
+        set => _diskUsage = value;
+    }
 
     public void Show(string message, StatusKind kind)
     {

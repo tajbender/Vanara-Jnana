@@ -6,6 +6,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
+    <!-- add 09:42 apple bar -->
+
     <Grid VerticalAlignment="Stretch">
         <!-- Außenrahmen: etwas schlanker, weicher -->
         <Border BorderBrush="{ThemeResource SystemControlTransparentRevealBorderBrush}"

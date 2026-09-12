@@ -18,21 +18,31 @@ public sealed class DependencyGraphResult(
     IReadOnlyList<PackageInfo> topLevel,
     IReadOnlyList<PackageInfo> transitive)
 {
-    public IReadOnlyList<PackageInfo> TopLevelPackages { get; } = topLevel;
-    public IReadOnlyList<PackageInfo> TransitivePackages { get; } = transitive;
+    private readonly IReadOnlyList<PackageInfo> _topLevelPackages = topLevel;
+    private readonly IReadOnlyList<PackageInfo> _transitivePackages = transitive;
+
+    public IReadOnlyList<PackageInfo> TopLevelPackages => _topLevelPackages;
+
+    public IReadOnlyList<PackageInfo> TransitivePackages => _transitivePackages;
 }
 
 public sealed class PackageInfo(string id, string version)
 {
-    public string Id { get; } = id;
-    public string Version { get; } = version;
+    private readonly string _id = id;
+    private readonly string _version = version;
+
+    public string Id => _id;
+
+    public string Version => _version;
 }
 
 public abstract class TreeNode(string name)
 {
     private readonly List<TreeNode> _children = [];
+    private readonly string _name = name;
 
-    public string Name { get; } = name;
+    public string Name => _name;
+
     public IReadOnlyList<TreeNode> Children => _children;
 
     public void AddChild(TreeNode node)
@@ -43,8 +53,12 @@ public abstract class TreeNode(string name)
 
 public sealed class PackageNode(string name, string version, bool isTopLevel) : TreeNode(name)
 {
-    public string Version { get; } = version;
-    public bool IsTopLevel { get; } = isTopLevel;
+    private readonly string _version = version;
+    private readonly bool _isTopLevel = isTopLevel;
+
+    public string Version => _version;
+
+    public bool IsTopLevel => _isTopLevel;
 }
 
 public sealed class PackageGroupNode(string name) : TreeNode(name);
@@ -59,11 +73,12 @@ public sealed partial class NuGetTreeViewModel(INuGetDependencyGraphService grap
     //private bool _isLoading = true;
 
     [ObservableProperty] public bool _isLoading;
+    private readonly ObservableCollection<TreeNode> _rootNodes = [];
 
     // -----------------------------
     // Tree Nodes
     // -----------------------------
-    public ObservableCollection<TreeNode> RootNodes { get; } = [];
+    public ObservableCollection<TreeNode> RootNodes => _rootNodes;
 
     // -----------------------------
     // Commands
@@ -116,17 +131,19 @@ public sealed partial class NuGetTreeViewModel(INuGetDependencyGraphService grap
 public sealed partial class NuGetTreeView : UserControl
 {
     private readonly NuGetDependencyGraphService _dependencyGraphService = new();
+    private readonly NuGetTreeViewModel _viewModel;
 
     public NuGetTreeView()
     {
         InitializeComponent();
 
-        ViewModel = new NuGetTreeViewModel(_dependencyGraphService);
+        _viewModel = new NuGetTreeViewModel(_dependencyGraphService);
         NuGetTreeViewControl.ItemsSource = ViewModel.RootNodes;
     }
 
     public ObservableCollection<TreeNode> RootNodes => ViewModel.RootNodes;
-    public NuGetTreeViewModel ViewModel { get; }
+
+    public NuGetTreeViewModel ViewModel => _viewModel;
 
     public static NuGetTreeRoot BuildTree(DependencyGraphResult graph)
     {

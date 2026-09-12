@@ -59,6 +59,8 @@ public sealed partial class QuickLaunchBar : UserControl
             typeof(QuickLaunchBar),
             new PropertyMetadata(string.Empty));
 
+    private readonly string[] _gitHubTreeViewItemSource = ["dummy entry", "another entry"];
+
     /// <summary>
     ///     Initializes a new instance of the <see cref="QuickLaunchBar" /> class. This is the `Vanara Jñāna Workbench` `Quick
     ///     Launch Bar control`,
@@ -70,7 +72,7 @@ public sealed partial class QuickLaunchBar : UserControl
         _ = InitializeStatusAsync();
     }
 
-    public string[] GitHubTreeViewItemSource { get; } = ["dummy entry", "another entry"];
+    public string[] GitHubTreeViewItemSource => _gitHubTreeViewItemSource;
 
     /// <summary>
     ///     Gets or sets the machine's display name.

@@ -26,6 +26,18 @@ public partial class SysInfoViewModel : INotifyPropertyChanged
     private double _gpuVram;
     private double _ramTotal;
     private double _ramUsed;
+    private string _osVersion = "";
+    private string _winAppSdkVersion = "";
+    private string _machineName = "";
+    private string _cpu1 = "";
+    private string _ram1 = "";
+    private string _gpu1 = "";
+    private int _threadCount;
+    private int _handleCount;
+    private string _user = "";
+    private string _uptime = "";
+    private int _processId;
+    private string _processName = "";
 
     public SysInfoViewModel()
     {
@@ -109,24 +121,80 @@ public partial class SysInfoViewModel : INotifyPropertyChanged
     }
 
     // Identity
-    public string OSVersion { get; set; } = "";
-    public string WinAppSdkVersion { get; set; } = "";
-    public string MachineName { get; set; } = "";
+    public string OSVersion
+    {
+        get => _osVersion;
+        set => _osVersion = value;
+    }
+
+    public string WinAppSdkVersion
+    {
+        get => _winAppSdkVersion;
+        set => _winAppSdkVersion = value;
+    }
+
+    public string MachineName
+    {
+        get => _machineName;
+        set => _machineName = value;
+    }
 
     // Hardware
-    public string CPU { get; set; } = "";
-    public string RAM { get; set; } = "";
-    public string GPU { get; set; } = "";
+    public string CPU
+    {
+        get => _cpu1;
+        set => _cpu1 = value;
+    }
+
+    public string RAM
+    {
+        get => _ram1;
+        set => _ram1 = value;
+    }
+
+    public string GPU
+    {
+        get => _gpu1;
+        set => _gpu1 = value;
+    }
 
     // Runtime
-    public int ThreadCount { get; set; }
-    public int HandleCount { get; set; }
-    public string User { get; set; } = "";
+    public int ThreadCount
+    {
+        get => _threadCount;
+        set => _threadCount = value;
+    }
+
+    public int HandleCount
+    {
+        get => _handleCount;
+        set => _handleCount = value;
+    }
+
+    public string User
+    {
+        get => _user;
+        set => _user = value;
+    }
 
     // Diagnostics
-    public string Uptime { get; set; } = "";
-    public int ProcessId { get; set; }
-    public string ProcessName { get; set; } = "";
+    public string Uptime
+    {
+        get => _uptime;
+        set => _uptime = value;
+    }
+
+    public int ProcessId
+    {
+        get => _processId;
+        set => _processId = value;
+    }
+
+    public string ProcessName
+    {
+        get => _processName;
+        set => _processName = value;
+    }
 
     public string SdkVersion => $"{Release.Major}.{Release.Minor}.{Release.Patch}";
     public string SdkChannel => Release.Channel;

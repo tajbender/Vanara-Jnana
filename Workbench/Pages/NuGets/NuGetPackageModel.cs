@@ -2,7 +2,25 @@
 
 public class NuGetPackageModel
 {
-    public string Title { get; set; } = "";
-    public string Version { get; set; } = "";
-    public string Description { get; set; } = "";
+    private string _title = "";
+    private string _version = "";
+    private string _description = "";
+
+    public string Title
+    {
+        get => _title;
+        set => _title = value;
+    }
+
+    public string Version
+    {
+        get => _version;
+        set => _version = value;
+    }
+
+    public string Description
+    {
+        get => _description;
+        set => _description = value;
+    }
 }

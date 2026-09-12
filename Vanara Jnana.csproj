@@ -145,7 +145,7 @@
     </Page>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <WebView2DispatchAdapterNamespace>jnana.vanara</WebView2DispatchAdapterNamespace>
+    <WebView2DispatchAdapterNamespace>vanara.jnana</WebView2DispatchAdapterNamespace>
   </PropertyGroup>
 
   <!--
@@ -174,9 +174,8 @@
     <Title>Vanara Jñāna</Title>
     <PackageTags>Jnana;Vanara;Shell32;Win32;WindowsForms;WinUI</PackageTags>
     <NeutralLanguage>en</NeutralLanguage>
-    <FileVersion>1.269.14.1</FileVersion>
+    <FileVersion>1.269.12.12</FileVersion>
     <WindowsPackageType>MSIX</WindowsPackageType>
-    <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
     <Optimize>False</Optimize>

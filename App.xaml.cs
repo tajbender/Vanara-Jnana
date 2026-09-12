@@ -16,6 +16,7 @@ public partial class App : Application
     // TODO: These version strings should be automatically generated from the project file or assembly info. For now, they are hardcoded.
     public string Version = "1.269.14";       // TODO:Full version string with major, minor, and build numbers. Get them from the project file or assembly info.
     public string PackageVersion = "1.269";         // TODO:Full version string with major, minor, and build numbers. Get them from the project file or assembly info.
+    private static AppServiceHost _serviceHost = new();
 
     /// <summary>
     ///     Initializes the singleton application object.  This is the first line of authored code
@@ -29,7 +30,11 @@ public partial class App : Application
     /// <summary>
     ///     Gets the singleton instance of the AppServiceHost for the application.
     /// </summary>
-    public static AppServiceHost ServiceHost { get; private set; } = new();
+    public static AppServiceHost ServiceHost
+    {
+        get => _serviceHost;
+        private set => _serviceHost = value;
+    }
 
     /// <summary>
     ///     Invoked when the application is launched.

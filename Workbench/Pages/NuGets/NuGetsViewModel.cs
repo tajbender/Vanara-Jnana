@@ -13,8 +13,9 @@ public partial class NuGetsViewModel(INuGetCatalogService catalogService) : Obse
     [ObservableProperty] private string searchQuery = string.Empty;
 
     [ObservableProperty] private NuGetPackageInfo? selectedPackage;
+    private readonly ObservableCollection<NuGetPackageInfo> _packages = [];
 
-    public ObservableCollection<NuGetPackageInfo> Packages { get; } = [];
+    public ObservableCollection<NuGetPackageInfo> Packages => _packages;
 
     [RelayCommand]
     public async Task LoadAsync()

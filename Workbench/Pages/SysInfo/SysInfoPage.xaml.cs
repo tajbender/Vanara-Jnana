@@ -5,7 +5,9 @@ namespace Jnana.Workbench.Pages.SysInfo;
 
 public sealed partial class SysInfoPage : Page
 {
-    public SysInfoViewModel ViewModel { get; } = new();
+    private readonly SysInfoViewModel _viewModel = new();
+
+    public SysInfoViewModel ViewModel => _viewModel;
 
     public SysInfoPage()
     {
