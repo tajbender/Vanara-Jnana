@@ -35,5 +35,8 @@ public partial class App : Application
 
         _window = new MainWindow();
         _window.Activate();
+
+        // navigate initially or from command line arguments
+        // TODO: await Services.InitializeAsync(@"C:\Dev\MyProject\MyProject.csproj");
     }
 }

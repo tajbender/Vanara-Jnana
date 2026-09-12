@@ -15,6 +15,38 @@
     </Window.SystemBackdrop>
 
     <Grid>
-        <nav:NavigationHost x:Name="Host" />
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="MainHostGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="256" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="256" />
+            </Grid.ColumnDefinitions>
+            <nav:NavigationHost x:Name="PrimarySidebarHost" Grid.Column="0"/>
+            <nav:NavigationHost x:Name="MainWindowHost" Grid.Column="1"/>
+            <nav:NavigationHost x:Name="PrimaryLeftSidebarHost" Grid.Column="2"/>
+        </Grid>
+
+        <Grid x:Name="SecondaryPaneHostGrid" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="256" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="256" />
+            </Grid.ColumnDefinitions>
+            <nav:NavigationHost x:Name="SecondarySidebarHost" Grid.Column="0"/>
+            <nav:NavigationHost x:Name="SecondaryWindowHost" Grid.Column="1"/>
+            <nav:NavigationHost x:Name="SecondaryRightSidebarHost" Grid.Column="2"/>
+        </Grid>
+
+        <Grid x:Name="BottomStatusBarHostGrid" Grid.Row="1"/>
+
     </Grid>
 </Window>

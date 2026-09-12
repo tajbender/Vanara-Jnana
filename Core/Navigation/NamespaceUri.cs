@@ -49,9 +49,9 @@ public sealed class NamespaceUri
 
     public sealed class NamespaceNode
     {
-        public Type PageType { get; init; }
-        public object TargetObject { get; init; }
-        public object Payload { get; init; }
+        public required Type PageType { get; init; }
+        public required object TargetObject { get; init; }
+        public required object Payload { get; init; }
     }
 
     // NamespaceNode.Void is a special value indicating that there is no specific target object for the page.

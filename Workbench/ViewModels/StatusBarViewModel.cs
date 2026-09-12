@@ -6,16 +6,18 @@ public partial class StatusBarViewModel : ObservableObject
 {
     private readonly TelemetryViewModel _telemetry;
 
-    public StatusBarViewModel()
+    public StatusBarViewModel(TelemetryViewModel telemetry)
     {
-        //TODO:        _telemetry = App.GetService<TelemetryViewModel>();
-        _telemetry = new TelemetryViewModel(); // Temporary for testing, replace with DI in production
+        _telemetry = telemetry;
+        // _telemetry = App.GetService<TelemetryViewModel>();
+
+
 
         // Bindings
-        //CPUUsage = $"{_telemetry.CPU}%";
-        //RAMUsage = $"{_telemetry.RAM}%";
-        //NetUsage = $"{_telemetry.Network}%";
-        //DiskUsage = $"{_telemetry.Disk}%";
+        CPUUsage = $"{_telemetry.CPU}%";
+        RAMUsage = $"{_telemetry.RAM}%";
+        NetUsage = $"{_telemetry.Network}%";
+        DiskUsage = $"{_telemetry.Disk}%";
 
         //_telemetry.PropertyChanged += (s, e) =>
         //{

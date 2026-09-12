@@ -5,28 +5,79 @@ namespace Jnana.Core.Navigation;
 
 public class NavigationService : INavigationService
 {
-    //private readonly Frame _frame;
+    private readonly Frame _frame;
+    private readonly NavigationHost _host;
 
-    public Type? CurrentPage { get; private set; }
+    public Type? CurrentPage { get; private set; } = null;
+    public NavigationHost SecondaryRightSidebarHost { get; }
 
-    /*  // private readonly Frame _frame;
-        public NavigationService(Frame frame) => _frame = frame; */
+    public event EventHandler Navigated;
+
+    public NavigationService(NavigationHost host, Frame frame)
+    {
+        _host = host;
+        _frame = frame;
+        _host.ShowPage(this._frame);
+        // pageInstance
+        //_PrimaryNavigation = new NavigationService(MainGridHost);
+
+    }
+
+    public NavigationService(NavigationHost secondaryRightSidebarHost)
+    {
+        this.SecondaryRightSidebarHost = secondaryRightSidebarHost;
+    }
 
     public void Navigate(Type pageType)
     {
-        CurrentPage = pageType;
-        // TODO: Implement navigation logic:
-        //       public void Navigate(Type pageType) => _frame.Navigate(pageType);
+        try
+        {
+            var page = Activator.CreateInstance(pageType);
+            this.CurrentPage = pageType;
+
+            // TODO: Implement navigation logic:
+            //ShowPage(page);
+
+            Navigated?.Invoke(this, EventArgs.Empty);
+        }
+        catch
+        {
+            this.CurrentPage = null;
+        }
+    }
+
+    private void ShowPage(Frame page)
+    {
+        if (CurrentPage != null)
+        {
+            try
+            {
+                _frame.Navigate(page.GetType());
+            }
+            catch
+            {
+                // Handle navigation failure
+            }
+        }
     }
 
     public void Navigate<TPage>() where TPage : class
     {
         Navigate(typeof(TPage));
+
+        Navigated?.Invoke(this, EventArgs.Empty);
     }
 
+    // TODO: Implement back navigation
     public void GoBack()
     {
-        // TODO: Implement back navigation
-        //       public void GoBack() { if (_frame.CanGoBack) _frame.GoBack(); }     
+        if (this.CurrentPage != null)
+        {
+            if (_frame.CanGoBack)
+                _frame.GoBack();
+
+            //this.CurrentPage = null;
+            Navigated?.Invoke(this, EventArgs.Empty);
+        }
     }
 }
