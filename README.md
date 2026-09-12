@@ -1,15 +1,16 @@
 # Vanara Jñāna r1.926.14 debug pre-release
 
+## ⚠️ no official download yet.
+
 ![Jñāna GitHub](https://img.shields.io/badge/Code-Jñāna-blue?style=flat&logo=github)
-TODO Jñāna Vanara-version. download
+![Vanara GitHub](https://img.shields.io/badge/Code-Vanara-blue?style=flat&logo=github)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat&logo=github)
+![Status](https://img.shields.io/badge/State-Active%20Development-brightgreen?style=flat)
 
 ## A Vanara Companion Workbench
 
-![Vanara GitHub](https://img.shields.io/badge/Code-Vanara-blue?style=flat&logo=github) TODO Vanara-version. NuGet packages
 ![WinUI 3](https://img.shields.io/badge/UI-WinUI%203-0078D4?style=flat&logo=windows)
 ![Architecture](https://img.shields.io/badge/Style-Clean%20Architecture-orange?style=flat)
-![Status](https://img.shields.io/badge/State-Active%20Development-brightgreen?style=flat)
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat&logo=github)
 
 Jñāna is a modular WinUI 3 workspace designed around clarity, structure, and predictable UI behavior. The current iteration focuses on a clean foundation: a unified navigation service, a consistent window model, and a lightweight shell that keeps complexity out of the core.
 
