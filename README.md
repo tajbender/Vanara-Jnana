@@ -6,10 +6,6 @@
 
 ## A Vanara Companion Workbench
 
-![WinUI 3](https://img.shields.io/badge/UI-WinUI%203-0078D4?style=flat&logo=windows)
-![Architecture](https://img.shields.io/badge/Style-Clean%20Architecture-orange?style=flat)
-![Status](https://img.shields.io/badge/State-Active%20Development-brightgreen?style=flat)
-
 Jñāna is a modular WinUI 3 workspace designed around clarity, structure, and predictable UI behavior. The current iteration focuses on a clean foundation: a unified navigation service, a consistent window model, and a lightweight shell that keeps complexity out of the core.
 
 The Workbench concept defines how tools, editors, and panels coexist. Each component follows a strict separation of concerns: views remain thin, viewmodels handle state, and services provide the underlying mechanics. This keeps the system flexible while avoiding hidden coupling.
@@ -25,6 +21,10 @@ Jñāna is currently in active development, with the Workbench transformation, M
 ----
 
 # Jñāna — Clean Architecture Workspace
+
+![WinUI 3](https://img.shields.io/badge/UI-WinUI%203-0078D4?style=flat&logo=windows)
+![Architecture](https://img.shields.io/badge/Style-Clean%20Architecture-orange?style=flat)
+![Status](https://img.shields.io/badge/State-Active%20Development-brightgreen?style=flat)
 
 | Glyph | Module / Feature | Description | Status |
 | --- | --- | --- | --- |
