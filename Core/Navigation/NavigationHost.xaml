@@ -20,7 +20,9 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Border Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0">
-            <!-- Top Navigation Bar comes here -->
+            <BreadcrumbBar>
+
+            </BreadcrumbBar>
         </Border>
         <Border Grid.Column="0" Grid.Row="1">
             <TreeView

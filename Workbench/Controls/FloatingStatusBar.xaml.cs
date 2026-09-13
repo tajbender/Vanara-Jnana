@@ -29,6 +29,8 @@ public interface IStatusService
 public sealed partial class FloatingStatusBar : UserControl, IStatusService
 {
     private readonly DispatcherTimer _hideTimer = new() { Interval = TimeSpan.FromSeconds(3) };
+    public string DefaultStringCalculating { get; } = "calculating...";
+    private string _defaultStringCalculating = "calculating...";
 
     //public static FloatingStatusBar Instance { get; private set; }
 
@@ -37,6 +39,8 @@ public sealed partial class FloatingStatusBar : UserControl, IStatusService
     {
         InitializeComponent();
         _hideTimer.Tick += (_, __) => Hide();
+
+
 
         // OnAreaMenuTapped
     }
@@ -47,13 +51,13 @@ public sealed partial class FloatingStatusBar : UserControl, IStatusService
         set => ((UserControl)this).Opacity = value;
     }
 
-    public string CPUUsage { get; set; } = "calculating...";
+    public string CPUUsage { get; set; }
 
-    public string NetUsage { get; set; } = "calculating...";
+    public string NetUsage { get; set; }
 
-    public string RAMUsage { get; set; } = "calculating...";
+    public string RAMUsage { get; set; }
 
-    public string DiskUsage { get; set; } = "calculating...";
+    public string DiskUsage { get; set; }
 
     public void Show(string message, StatusKind kind)
     {
