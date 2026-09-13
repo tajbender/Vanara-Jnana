@@ -43,11 +43,11 @@ Jñāna is currently in active development, with the Workbench transformation, M
 
 | Glyph | Milestone | Target | Status |
 | --- | --- | --- | --- |
-| 🚀 | Workbench Transformation | Full modular docking | 🟢 In progress |
-| 🧩 | Markdown Editor Integration | Inline editing & preview | 🟢 In progress |
+| 🚀 | Workbench Transformation | Full modular docking | 🔜 Planned |
+| 🧩 | Markdown Editor Integration | Inline editing & preview | 🔜 Planned |
 | 🧠 | Virtual Shell | Unified workspace abstraction | 🔜 Planned |
 | 🧰 | Diagnostics Tools | PerfMon++, RAM bar, EMA smoothing | 🔜 Planned |
-| 🎨 | Theme Refinement | System buttons, JetBrains‑style polish | 🟢 Refining |
+| 🎨 | Theme Refinement | System buttons, JetBrains‑style polish | 🔜 Planned |
 
 ----
 
