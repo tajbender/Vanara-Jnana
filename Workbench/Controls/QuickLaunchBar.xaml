@@ -8,10 +8,10 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid VerticalAlignment="Stretch">
+    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
         <Border Grid.Column="0" Grid.RowSpan="3" CornerRadius="32"
                 BorderBrush="{ThemeResource SystemControlTransparentRevealBorderBrush}" BorderThickness="3">
-            <StackPanel Background="Black" HorizontalAlignment="Stretch"
+            <StackPanel HorizontalAlignment="Stretch"
                         HorizontalSnapPointsChanged="StackPanel_HorizontalSnapPointsChanged"
                         Opacity=".42" Orientation="{x:Bind Orientation}"
                         Padding="8" Spacing="8" VerticalAlignment="Stretch">
@@ -19,7 +19,6 @@
                 <Grid MaxHeight="256" Padding="15">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
@@ -29,14 +28,14 @@
                     </Grid.RowDefinitions>
                     <TextBlock Grid.Column="0" Grid.Row="0" FontSize="23" FontWeight="Bold" HorizontalAlignment="Left"
                                Text="Vanara Jñāna" VerticalAlignment="Top" />
-                    <Image Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Left" MaxHeight="128"
+                    <Image Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Center" MaxHeight="128"
                            Opacity="0.66" Source="/Assets/StoreLogo.png" VerticalAlignment="Stretch">
                         <Image.OpacityTransition>
                             <ScalarTransition Duration="0:3:3.1976" />
                         </Image.OpacityTransition>
                     </Image>
                     <!-- Right side of the grid -->
-                    <TextBlock Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right"
+                    <!--<TextBlock Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right"
                                Text="v1.269 (debug) - tres hombres" Padding="7" />
                     <Border Grid.Column="1" Grid.Row="1" CornerRadius="7" BorderThickness="3"
                             HorizontalAlignment="Right" VerticalAlignment="Bottom">
@@ -48,7 +47,7 @@
                     <Border Grid.Column="1" Grid.Row="3" CornerRadius="7" BorderThickness="3">
                         <TextBlock Text="{x:Bind GitHubNetworkStatus}" HorizontalAlignment="Right"
                                    VerticalAlignment="Center" />
-                    </Border>
+                    </Border>-->
                 </Grid>
                 <!-- Navigation section -->
                 <Button Click="OnWorkbenchClick" CornerRadius="6" HorizontalAlignment="Stretch"
@@ -66,7 +65,6 @@
                         <TextBlock Text="NuGets" HorizontalTextAlignment="Left" TextWrapping="WrapWholeWords" />
                     </StackPanel>
                 </Button>
-                <!--<StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal" Padding="8" Spacing="8">-->
                 <Button Click="OnGitHubBrowserClick" CornerRadius="6" HorizontalAlignment="Stretch"
                         HorizontalContentAlignment="Left">
                     <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
@@ -76,12 +74,18 @@
                                   VerticalAlignment="Stretch" />
                     </StackPanel>
                 </Button>
-                <!--</StackPanel>-->
                 <Button Click="OnSamplesClick" CornerRadius="6" HorizontalAlignment="Stretch"
                         HorizontalContentAlignment="Left">
                     <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
                         <FontIcon Glyph="&#xEC7A;" />
                         <TextBlock HorizontalTextAlignment="Left" Text="Vanara samples &amp; Jñāna science Labs" TextWrapping="WrapWholeWords" />
+                    </StackPanel>
+                </Button>
+                <Button Click="OnScienceLabsClick" CornerRadius="6" HorizontalAlignment="Stretch"
+                        HorizontalContentAlignment="Left">
+                    <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
+                        <FontIcon Glyph="&#xEC7A;" />
+                        <TextBlock HorizontalTextAlignment="Left" Text="Jñāna science Labs" TextWrapping="WrapWholeWords" />
                     </StackPanel>
                 </Button>
                 <AppBarSeparator />
@@ -130,7 +134,7 @@
                             HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" Margin="3">
                         <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
                             <FontIcon Glyph="&#xEC7A;" />
-                            <TextBlock Text="Help?" HorizontalTextAlignment="Center" />
+                            <TextBlock Text="May I Help?" HorizontalTextAlignment="Center" />
                         </StackPanel>
                     </Button>
                 </Grid>

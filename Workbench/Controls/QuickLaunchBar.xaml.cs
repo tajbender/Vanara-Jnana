@@ -200,6 +200,16 @@ public sealed partial class QuickLaunchBar : UserControl
     }
 
     /// <summary>
+    ///     Handles the click event for the Science Labs button.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void OnScienceLabsClick(object sender, RoutedEventArgs e)
+    {
+        RaisePageRequested(sender, typeof(ScienceLabsPage), e);
+    }
+
+    /// <summary>
     ///     Handles the click event for the System Information button.
     /// </summary>
     /// <param name="sender"></param>
