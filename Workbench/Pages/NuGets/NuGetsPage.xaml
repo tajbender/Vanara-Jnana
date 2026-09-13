@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <Page
     x:Class="Jnana.Workbench.Pages.NuGets.NuGetsPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -20,7 +21,7 @@
 
             <!-- Package Tree -->
             <ScrollViewer>
-                <controls:NuGetTreeView/>
+                <controls:NuGetTreeView />
             </ScrollViewer>
         </StackPanel>
     </Grid>

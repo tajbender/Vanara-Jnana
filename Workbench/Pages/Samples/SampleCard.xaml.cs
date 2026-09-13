@@ -6,6 +6,6 @@ public sealed partial class SampleCard : UserControl
 {
     public SampleCard()
     {
-        this.InitializeComponent();
+        InitializeComponent();
     }
 }

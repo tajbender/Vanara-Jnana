@@ -6,6 +6,6 @@ public sealed partial class VoidPage : Page
 {
     public VoidPage()
     {
-        this.InitializeComponent();
+        InitializeComponent();
     }
 }

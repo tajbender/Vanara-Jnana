@@ -1,8 +1,8 @@
-﻿using Jnana.ViewModels;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Jnana.ViewModels;
 
 namespace Jnana.Core.Services;
 

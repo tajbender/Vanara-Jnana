@@ -6,8 +6,9 @@ public sealed partial class NavigationHost : UserControl
 {
     public NavigationHost()
     {
-        this.InitializeComponent();
+        InitializeComponent();
     }
+
     public void ShowPage(object pageInstance)
     {
         // TODO: this.Presenter.Content = pageInstance;

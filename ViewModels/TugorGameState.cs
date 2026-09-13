@@ -13,25 +13,25 @@ public sealed class TugorGameState
 
     public void Start()
     {
-        this.IsRunning = true;
-        this.ChaosLevel = 0;
-        this.ActiveModifiers = [];
+        IsRunning = true;
+        ChaosLevel = 0;
+        ActiveModifiers = [];
     }
 
     public void ApplyChaos(string modifier)
     {
-        this.ChaosLevel++;
+        ChaosLevel++;
         // TODO: ActiveModifiers = ActiveModifiers.Append(modifier).ToList();
     }
 
     public void UpdatePositions(Vector2 tugot, Vector2 player)
     {
-        this.TugotPosition = tugot;
-        this.PlayerPosition = player;
+        TugotPosition = tugot;
+        PlayerPosition = player;
     }
 
     public void Stop()
     {
-        this.IsRunning = false;
+        IsRunning = false;
     }
 }

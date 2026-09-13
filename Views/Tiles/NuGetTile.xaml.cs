@@ -6,6 +6,6 @@ public sealed partial class NuGetTile : UserControl
 {
     public NuGetTile()
     {
-        this.InitializeComponent();
+        InitializeComponent();
     }
 }

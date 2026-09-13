@@ -1,4 +1,5 @@
-﻿using static Jnana.Core.Navigation.NamespaceUri;
+﻿using System;
+using static Jnana.Core.Navigation.NamespaceUri;
 
 namespace Jnana.Core.Navigation.Providers;
 
@@ -6,15 +7,16 @@ public class WebProvider : INamespaceProvider
 {
     public bool CanHandle(NamespaceUri uri)
     {
-        throw new System.NotImplementedException();
+        throw new NotImplementedException();
     }
 
     public NamespaceNode Resolve(NamespaceUri uri)
     {
-        throw new System.NotImplementedException();
+        throw new NotImplementedException();
     }
+
     public string Resolve(string name)
     {
-        throw new System.NotImplementedException();
+        throw new NotImplementedException();
     }
 }

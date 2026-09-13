@@ -6,6 +6,6 @@ public sealed partial class TugorPage : Page
 {
     public TugorPage()
     {
-        this.InitializeComponent();
+        InitializeComponent();
     }
 }

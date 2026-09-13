@@ -1,15 +1,10 @@
-﻿using Jnana.Workbench.Controls;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using Jnana.Workbench.Controls;
 
 namespace Jnana.Core.Services;
 
 public sealed class AppServiceHost
 {
-    // Core ServiceHost
-    public INuGetDependencyGraphService DependencyGraphService { get; }
-    public NuGetTreeViewModel NuGetTreeViewModel { get; }
-    public INuGetPreLoadService PreLoadService { get; }
-
     public AppServiceHost()
     {
         // Core
@@ -18,17 +13,22 @@ public sealed class AppServiceHost
         // Decorators
         var cachedGraph = new NuGetDependencyGraphCache(coreGraph);
 
-        this.DependencyGraphService = cachedGraph;
+        DependencyGraphService = cachedGraph;
 
         // ViewModels
-        this.NuGetTreeViewModel = new NuGetTreeViewModel(this.DependencyGraphService);
+        NuGetTreeViewModel = new NuGetTreeViewModel(DependencyGraphService);
 
         // Preload
-        this.PreLoadService = new NuGetPreLoadService(this.NuGetTreeViewModel);
+        PreLoadService = new NuGetPreLoadService(NuGetTreeViewModel);
     }
+
+    // Core ServiceHost
+    public INuGetDependencyGraphService DependencyGraphService { get; }
+    public NuGetTreeViewModel NuGetTreeViewModel { get; }
+    public INuGetPreLoadService PreLoadService { get; }
 
     public async Task InitializeAsync(string projectPath)
     {
-        await this.PreLoadService.PreLoadAsync(projectPath);
+        await PreLoadService.PreLoadAsync(projectPath);
     }
 }

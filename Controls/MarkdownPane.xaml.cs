@@ -1,36 +1,31 @@
+using System.Windows.Input;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-using System.Windows.Input;
 
 namespace Jnana.Controls;
 
 public sealed partial class MarkdownPane : UserControl
 {
-    private MarkdownPaneViewModel ViewModel => (MarkdownPaneViewModel)this.DataContext;
-    public MarkdownPane()
-    {
-        //InitializeComponent();
-    }
+    private MarkdownPaneViewModel ViewModel => (MarkdownPaneViewModel)DataContext;
 }
-
 
 internal class MarkdownPaneViewModel
 {
     public MarkdownPaneViewModel()
     {
-        this.OpenCommand = new RelayCommand(this.Open);
-        this.SaveCommand = new RelayCommand(this.Save);
-        this.TogglePreviewCommand = new RelayCommand(this.TogglePreview);
+        OpenCommand = new RelayCommand(Open);
+        SaveCommand = new RelayCommand(Save);
+        TogglePreviewCommand = new RelayCommand(TogglePreview);
     }
 
     public ICommand OpenCommand { get; }
     public ICommand SaveCommand { get; }
     public ICommand TogglePreviewCommand { get; }
     public string MarkdownText { get; set; } = string.Empty;
-    private bool _isPreviewVisible { get; set; } = true;
+    private bool _isPreviewVisible { get; } = true;
 
-    public Visibility PreviewVisibility => this._isPreviewVisible ? Visibility.Visible : Visibility.Collapsed;
+    public Visibility PreviewVisibility => _isPreviewVisible ? Visibility.Visible : Visibility.Collapsed;
 
     private void Open()
     {

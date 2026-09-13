@@ -1,25 +1,31 @@
-﻿using Jnana.Core.Services;
-using System;
+﻿using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading.Tasks;
+using Jnana.Core.Services;
 
 namespace Jnana.ViewModels;
 
 public class VanaraReleaseViewModel : INotifyPropertyChanged
 {
-    public ObservableCollection<ReleaseInfo> Releases { get; } = [];
-
-    public event EventHandler LoadFailed;
-    public event PropertyChangedEventHandler PropertyChanged;
-    protected void OnPropertyChanged(string name)
-        => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-
     public VanaraReleaseViewModel()
     {
-        LoadFailed += (s, e) => { /* Handle load failure */ };
+        LoadFailed += (s, e) =>
+        {
+            /* Handle load failure */
+        };
         PropertyChanged += static (s, e) => { };
-        _ = this.LoadAsync();
+        _ = LoadAsync();
+    }
+
+    public ObservableCollection<ReleaseInfo> Releases { get; } = [];
+    public event PropertyChangedEventHandler PropertyChanged;
+
+    public event EventHandler LoadFailed;
+
+    protected void OnPropertyChanged(string name)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
     }
 
 
@@ -28,11 +34,11 @@ public class VanaraReleaseViewModel : INotifyPropertyChanged
         try
         {
             var items = await GitHubApi.GetLatestReleasesAsync();
-            this.Releases.Clear();
+            Releases.Clear();
             foreach (var r in items)
-                this.Releases.Add(r);
+                Releases.Add(r);
 
-            this.OnPropertyChanged(nameof(this.Releases));
+            OnPropertyChanged(nameof(Releases));
         }
         catch
         {

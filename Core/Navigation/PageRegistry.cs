@@ -12,7 +12,6 @@ public enum PageKeys
     SysInfo
 }
 
-
 public static class PageRegistry
 {
     private static readonly Dictionary<PageKeys, Type> _pages = [];

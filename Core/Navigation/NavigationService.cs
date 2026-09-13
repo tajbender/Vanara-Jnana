@@ -13,14 +13,14 @@ public class NavigationService : INavigationService
 
     public void Navigate(Type pageType)
     {
-        this.CurrentPage = pageType;
+        CurrentPage = pageType;
         // TODO: Implement navigation logic:
         //       public void Navigate(Type pageType) => _frame.Navigate(pageType);
     }
 
     public void Navigate<TPage>() where TPage : class
     {
-        this.Navigate(typeof(TPage));
+        Navigate(typeof(TPage));
     }
 
     public void GoBack()

@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <UserControl
     x:Class="Jnana.Workbench.Controls.QuickLaunchBar"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -8,109 +9,129 @@
     mc:Ignorable="d">
 
     <Grid VerticalAlignment="Stretch">
-        <Border Grid.Column="0" Grid.RowSpan="3" CornerRadius="32" BorderBrush="{ThemeResource SystemControlTransparentRevealBorderBrush}" BorderThickness="3">
-            <StackPanel HorizontalAlignment="Stretch" Background="Black" HorizontalSnapPointsChanged="StackPanel_HorizontalSnapPointsChanged"
-                        Opacity=".75" Orientation="{x:Bind Orientation}" Padding="8" Spacing="8" VerticalAlignment="Stretch">
+        <Border Grid.Column="0" Grid.RowSpan="3" CornerRadius="32"
+                BorderBrush="{ThemeResource SystemControlTransparentRevealBorderBrush}" BorderThickness="3">
+            <StackPanel Background="Black" HorizontalAlignment="Stretch" 
+                        HorizontalSnapPointsChanged="StackPanel_HorizontalSnapPointsChanged"
+                        Opacity=".75" Orientation="{x:Bind Orientation}" 
+                        Padding="8" Spacing="8" VerticalAlignment="Stretch">
                 <!-- Header section -->
-                <Grid MaxHeight="256" Padding="23">
+                <Grid MaxHeight="256" Padding="15">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-                    <TextBlock Grid.Column="0" Grid.Row="0" FontSize="23" FontWeight="Bold" HorizontalAlignment="Left" Text="Vanara Jñāna" VerticalAlignment="Top"/>
-                    <Image Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Left" MaxHeight="128" Opacity="0.66" Source="/Assets/StoreLogo.png" VerticalAlignment="Stretch">
+                    <TextBlock Grid.Column="0" Grid.Row="0" FontSize="23" FontWeight="Bold" HorizontalAlignment="Left"
+                               Text="Vanara Jñāna" VerticalAlignment="Top" />
+                    <Image Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Left" MaxHeight="128"
+                           Opacity="0.66" Source="/Assets/StoreLogo.png" VerticalAlignment="Stretch">
                         <Image.OpacityTransition>
-                            <ScalarTransition Duration="0:0:0.76"/>
+                            <ScalarTransition Duration="0:0:0.76" />
                         </Image.OpacityTransition>
                     </Image>
                     <!-- Right side of the grid -->
-                    <TextBlock Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" Text="v1.269 (debug) - tres hombres" Padding="7"/>
-                    <Border Grid.Column="1" Grid.Row="1" CornerRadius="7" BorderThickness="3" HorizontalAlignment="Right" VerticalAlignment="Bottom">
-                        <TextBlock FontWeight="SemiBold" Margin="7" Text="{x:Bind UserDisplayName}"/>
+                    <TextBlock Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right"
+                               Text="v1.269 (debug) - tres hombres" Padding="7" />
+                    <Border Grid.Column="1" Grid.Row="1" CornerRadius="7" BorderThickness="3"
+                            HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                        <TextBlock FontWeight="SemiBold" Margin="7" Text="{x:Bind UserDisplayName}" />
                     </Border>
                     <Border Grid.Column="1" Grid.Row="2" CornerRadius="7" BorderThickness="3">
-                        <TextBlock Text="{x:Bind NetworkStatus}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <TextBlock Text="{x:Bind NetworkStatus}" HorizontalAlignment="Right" VerticalAlignment="Center" />
                     </Border>
                     <Border Grid.Column="1" Grid.Row="3" CornerRadius="7" BorderThickness="3">
-                        <TextBlock Text="{x:Bind GitHubNetworkStatus}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <TextBlock Text="{x:Bind GitHubNetworkStatus}" HorizontalAlignment="Right"
+                                   VerticalAlignment="Center" />
                     </Border>
                 </Grid>
                 <!-- Navigation section -->
-                <Button Click="OnWorkbenchClick" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
+                <Button Click="OnWorkbenchClick" CornerRadius="6" HorizontalAlignment="Stretch"
+                        HorizontalContentAlignment="Left">
                     <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
-                        <FontIcon Glyph="&#xEC7A;"/>
-                        <TextBlock Text="Workbench" HorizontalTextAlignment="Left" TextWrapping="WrapWholeWords"/>
+                        <FontIcon Glyph="&#xEC7A;" />
+                        <TextBlock Text="Workbench" HorizontalTextAlignment="Left" TextWrapping="WrapWholeWords" />
                     </StackPanel>
                 </Button>
-                <AppBarSeparator/>
-                <Button Click="OnNuGetsClick" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
+                <AppBarSeparator />
+                <Button Click="OnNuGetsClick" CornerRadius="6" HorizontalAlignment="Stretch"
+                        HorizontalContentAlignment="Left">
                     <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
-                        <FontIcon Glyph="&#xEC7A;"/>
-                        <TextBlock Text="NuGets" HorizontalTextAlignment="Left" TextWrapping="WrapWholeWords"/>
+                        <FontIcon Glyph="&#xEC7A;" />
+                        <TextBlock Text="NuGets" HorizontalTextAlignment="Left" TextWrapping="WrapWholeWords" />
                     </StackPanel>
                 </Button>
                 <!--<StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal" Padding="8" Spacing="8">-->
-                    <Button Click="OnGitHubBrowserClick" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
-                        <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
-                            <FontIcon Glyph="&#xEC7A;"/>
-                            <TextBlock Text="GitHub" HorizontalTextAlignment="Left" TextWrapping="WrapWholeWords"/>
-                            <!-- <ComboBox ItemsSource="{x:Bind GitHubBrowserItemSource}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/> -->
-                        </StackPanel>
-                    </Button>
-                <!--</StackPanel>-->
-                <Button Click="OnSamplesClick" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
+                <Button Click="OnGitHubBrowserClick" CornerRadius="6" HorizontalAlignment="Stretch"
+                        HorizontalContentAlignment="Left">
                     <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
                         <FontIcon Glyph="&#xEC7A;" />
-                        <TextBlock Text="Vanara Samples &amp; Jñāna science Labs" HorizontalTextAlignment="Left" TextWrapping="WrapWholeWords"/>
+                        <TextBlock Text="GitHub" HorizontalTextAlignment="Left" TextWrapping="WrapWholeWords" />
+                        <ComboBox ItemsSource="{x:Bind GitHubBrowserItemSource}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                     </StackPanel>
                 </Button>
-                <AppBarSeparator/>
-                <Button Click="OnToolsAndUtilitiesClick" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
+                <!--</StackPanel>-->
+                <Button Click="OnSamplesClick" CornerRadius="6" HorizontalAlignment="Stretch"
+                        HorizontalContentAlignment="Left">
                     <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
                         <FontIcon Glyph="&#xEC7A;" />
-                        <TextBlock Text="Tools &amp; Utilities" HorizontalTextAlignment="Left" TextWrapping="WrapWholeWords" />
+                        <TextBlock Text="Vanara Samples &amp; Jñāna science Labs" HorizontalTextAlignment="Left"
+                                   TextWrapping="WrapWholeWords" />
+                    </StackPanel>
+                </Button>
+                <AppBarSeparator />
+                <Button Click="OnToolsAndUtilitiesClick" CornerRadius="6" HorizontalAlignment="Stretch"
+                        HorizontalContentAlignment="Left">
+                    <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
+                        <FontIcon Glyph="&#xEC7A;" />
+                        <TextBlock Text="Tools &amp; Utilities" HorizontalTextAlignment="Left"
+                                   TextWrapping="WrapWholeWords" />
                     </StackPanel>
                 </Button>
 
                 <!-- Drag & Drop area -->
 
                 <!-- Bottom section -->
-                <Grid x:Name="BottomArea" CornerRadius="8" HorizontalAlignment="Stretch" 
+                <Grid x:Name="BottomArea" CornerRadius="8" HorizontalAlignment="Stretch"
                       Opacity="0.76" Padding="42,23" VerticalAlignment="Bottom">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-                    <Border Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" ><!-- empty row --></Border>
-                    <FontIcon Grid.Column="0" Grid.Row="1" Glyph="&#xE7F8;"/>
-                    <FontIcon Grid.Column="1" Grid.Row="1" Glyph="&#xE9D9;"/>
-                    <FontIcon Grid.Column="2" Grid.Row="1" Glyph="&#xE7F8;"/>
-                    <FontIcon Grid.Column="0" Grid.Row="2" Glyph="&#xE9D9;"/>
-                    <FontIcon Grid.Column="1" Grid.Row="2" Glyph="&#xE7F8;"/>
-                    <FontIcon Grid.Column="2" Grid.Row="2" Glyph="&#xE9D9;"/>
-                    <Button Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" Click="OnSysInfoClick" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" Margin="3">
+                    <Border Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0">
+                        <!-- empty row -->
+                    </Border>
+                    <FontIcon Grid.Column="0" Grid.Row="1" Glyph="&#xE7F8;" />
+                    <FontIcon Grid.Column="1" Grid.Row="1" Glyph="&#xE9D9;" />
+                    <FontIcon Grid.Column="2" Grid.Row="1" Glyph="&#xE7F8;" />
+                    <FontIcon Grid.Column="0" Grid.Row="2" Glyph="&#xE9D9;" />
+                    <FontIcon Grid.Column="1" Grid.Row="2" Glyph="&#xE7F8;" />
+                    <FontIcon Grid.Column="2" Grid.Row="2" Glyph="&#xE9D9;" />
+                    <Button Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" Click="OnSysInfoClick" CornerRadius="6"
+                            HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" Margin="3">
                         <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
                             <FontIcon Glyph="&#xEC7A;" />
-                            <TextBlock Text="System Info &amp; Config" HorizontalTextAlignment="Center" TextWrapping="WrapWholeWords"/>
+                            <TextBlock Text="System Info &amp; Config" HorizontalTextAlignment="Center"
+                                       TextWrapping="WrapWholeWords" />
                         </StackPanel>
                     </Button>
-                    <Button Grid.Column="2" Grid.Row="3" Click="OnSettingsClick" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" Margin="3">
+                    <Button Grid.Column="2" Grid.Row="3" Click="OnSettingsClick" CornerRadius="6"
+                            HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" Margin="3">
                         <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
                             <FontIcon Glyph="&#xEC7A;" />
-                            <TextBlock Text="Help?" HorizontalTextAlignment="Center"/>
+                            <TextBlock Text="Help?" HorizontalTextAlignment="Center" />
                         </StackPanel>
                     </Button>
                 </Grid>
