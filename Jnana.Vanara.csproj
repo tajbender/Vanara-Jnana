@@ -211,6 +211,9 @@
     <PRIResource Remove="Workbench\Controls\NuGetsTreeView\**" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Remove="Unit-Tests\Jnana.Vanara.WinUI.TestRunner.cs" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\AUTHORS.txt" />
     <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\OFL.txt" />
     <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\ttf\JetBrainsMono-Bold.ttf" />
@@ -427,6 +430,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Assets\Icons\vanara-Jnana.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Unit-Tests\Jnana.Vanara.WinUI.TestRunner.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
