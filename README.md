@@ -1,16 +1,13 @@
-# Vanara Jñāna
+# Vanara Jñāna 1.269 rc _*beta debug build*_
 
 ![Vanara GitHub](https://img.shields.io/badge/Code-Vanara-blue?style=flat&logo=github)
-TODO Vanara-version. NuGet packages
 ![Jñāna GitHub](https://img.shields.io/badge/Code-Jñāna-blue?style=flat&logo=github)
-TODO Jñāna Vanara-version. download
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat&logo=github)
-
-## A Vanara Companion Workbench
-
 ![WinUI 3](https://img.shields.io/badge/UI-WinUI%203-0078D4?style=flat&logo=windows)
 ![Architecture](https://img.shields.io/badge/Style-Clean%20Architecture-orange?style=flat)
 ![Status](https://img.shields.io/badge/State-Active%20Development-brightgreen?style=flat)
+
+## A Vanara Companion Workbench
 
 Jñāna is a modular WinUI 3 workspace designed around clarity, structure, and predictable UI behavior. The current iteration focuses on a clean foundation: a unified navigation service, a consistent window model, and a lightweight shell that keeps complexity out of the core.
 
@@ -26,7 +23,7 @@ Jñāna is currently in active development, with the Workbench transformation, M
 
 ----
 
-# Jñāna — Clean Architecture Workspace
+## Jñāna — Clean Architecture Workspace
 
 | Glyph | Module / Feature | Description | Status |
 | --- | --- | --- | --- |
@@ -41,16 +38,19 @@ Jñāna is currently in active development, with the Workbench transformation, M
 
 ----
 
-# Jñāna — Milestones
+## Jñāna — Milestones
 
 | Glyph | Milestone | Target | Status |
 | --- | --- | --- | --- |
-| 🚀 | Workbench Transformation | Full modular docking | 🟢 In progress |
+| 🚀 | Workbench Transformation | Full modular docking | 🔜 Planned |
 | 🧩 | Markdown Editor Integration | Inline editing & preview | 🟢 In progress |
 | 🧠 | Virtual Shell | Unified workspace abstraction | 🔜 Planned |
 | 🧰 | Diagnostics Tools | PerfMon++, RAM bar, EMA smoothing | 🔜 Planned |
-| 🎨 | Theme Refinement | System buttons, JetBrains‑style polish | 🟢 Refining |
+| 🎨 | Theme Refinement | System buttons | 🔜 Planned |
 
 ----
 
-(c) 2024 Vanara Jñāna. Licensed under the MIT License. See LICENSE for details. - last updated: 2024‑06‑15
+(c) 2024 Vanara Jñāna. 
+Licensed under the MIT License. See LICENSE for details.
+
+last updated: 2024‑06‑15

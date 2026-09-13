@@ -13,7 +13,7 @@
                 BorderBrush="{ThemeResource SystemControlTransparentRevealBorderBrush}" BorderThickness="3">
             <StackPanel Background="Black" HorizontalAlignment="Stretch"
                         HorizontalSnapPointsChanged="StackPanel_HorizontalSnapPointsChanged"
-                        Opacity=".75" Orientation="{x:Bind Orientation}"
+                        Opacity=".42" Orientation="{x:Bind Orientation}"
                         Padding="8" Spacing="8" VerticalAlignment="Stretch">
                 <!-- Header section -->
                 <Grid MaxHeight="256" Padding="15">
@@ -32,7 +32,7 @@
                     <Image Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Left" MaxHeight="128"
                            Opacity="0.66" Source="/Assets/StoreLogo.png" VerticalAlignment="Stretch">
                         <Image.OpacityTransition>
-                            <ScalarTransition Duration="0:0:0.76" />
+                            <ScalarTransition Duration="0:3:3.1976" />
                         </Image.OpacityTransition>
                     </Image>
                     <!-- Right side of the grid -->
@@ -81,8 +81,7 @@
                         HorizontalContentAlignment="Left">
                     <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
                         <FontIcon Glyph="&#xEC7A;" />
-                        <TextBlock Text="Vanara Samples &amp; Jñāna science Labs" HorizontalTextAlignment="Left"
-                                   TextWrapping="WrapWholeWords" />
+                        <TextBlock HorizontalTextAlignment="Left" Text="Vanara samples &amp; Jñāna science Labs" TextWrapping="WrapWholeWords" />
                     </StackPanel>
                 </Button>
                 <AppBarSeparator />
@@ -90,8 +89,7 @@
                         HorizontalContentAlignment="Left">
                     <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
                         <FontIcon Glyph="&#xEC7A;" />
-                        <TextBlock Text="Tools &amp; Utilities" HorizontalTextAlignment="Left"
-                                   TextWrapping="WrapWholeWords" />
+                        <TextBlock HorizontalTextAlignment="Left" Text="Tools &amp; Utilities" TextWrapping="WrapWholeWords" />
                     </StackPanel>
                 </Button>
 
@@ -124,7 +122,7 @@
                             HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" Margin="3">
                         <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
                             <FontIcon Glyph="&#xEC7A;" />
-                            <TextBlock Text="System Info &amp; Config" HorizontalTextAlignment="Center"
+                            <TextBlock Text="System Information &amp; Configuration" HorizontalTextAlignment="Center"
                                        TextWrapping="WrapWholeWords" />
                         </StackPanel>
                     </Button>

@@ -26,6 +26,7 @@
     <None Remove="Controls\MarkdownPane.xaml" />
     <None Remove="Controls\Shell\ShellNamespaceTreeView.xaml" />
     <None Remove="Core\Navigation\NavigationHost.xaml" />
+    <None Remove="README.md" />
     <None Remove="Vanara Jnana.csproj.Backup.tmp" />
     <None Remove="Views\Tiles\NuGetTile.xaml" />
     <None Remove="Views\Tiles\WorkbenchTile.xaml" />
@@ -55,6 +56,11 @@
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <Content Include="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
@@ -147,6 +153,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <WebView2DispatchAdapterNamespace>jnana.vanara</WebView2DispatchAdapterNamespace>
+    <WebView2UseWinRT>True</WebView2UseWinRT>
+    <WebView2EnableCsWinRTProjection>False</WebView2EnableCsWinRTProjection>
   </PropertyGroup>
 
   <!--
@@ -211,7 +219,7 @@
     <PRIResource Remove="Workbench\Controls\NuGetsTreeView\**" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Remove="Unit-Tests\Jnana.Vanara.WinUI.TestRunner.cs" />
+    <Compile Remove="Unit-Tests\TestRunner.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="Assets\3rd Parties\JetBrains Mono Fonts\AUTHORS.txt" />
@@ -432,7 +440,7 @@
     <EmbeddedResource Include="Assets\Icons\vanara-Jnana.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Unit-Tests\Jnana.Vanara.WinUI.TestRunner.cs" />
+    <None Include="Unit-Tests\TestRunner.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
@@ -476,11 +484,7 @@
     <Page Update="Controls\GaugeControl.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <None Update="LICENSE">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-    <None Update="README.md">
+    <None Update="LICENSE.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
