@@ -17,58 +17,7 @@ namespace Jnana.Workbench.Controls;
 public sealed partial class QuickLaunchBar : UserControl
 {
     private const string DefaultAvatarImageUri = "ms-appx:///Assets/Images/DefaultAvatar.png";
-
-    public static readonly DependencyProperty GitHubNetworkStatusProperty =
-        DependencyProperty.Register(
-            nameof(GitHubNetworkStatus),
-            typeof(string),
-            typeof(QuickLaunchBar),
-            new PropertyMetadata("GitHub status: No Network."));
-
-    public static readonly DependencyProperty NetworkStatusDependencyProperty =
-        DependencyProperty.Register(
-            nameof(NetworkStatus),
-            typeof(string),
-            typeof(QuickLaunchBar),
-            new PropertyMetadata("Network status: pending..."));
-
-    public static readonly DependencyProperty OrientationDependencyProperty =
-        DependencyProperty.Register(
-            nameof(Orientation),
-            typeof(string),
-            typeof(QuickLaunchBar),
-            new PropertyMetadata("Vertical"));
-
-    public static readonly DependencyProperty UserAvatarImageUriProperty =
-        DependencyProperty.Register(
-            nameof(UserAvatarImageUriProperty),
-            typeof(string),
-            typeof(QuickLaunchBar),
-            new PropertyMetadata("ms-appx:///Assets/Images/DefaultAvatar.png"));
-
-    public static readonly DependencyProperty UserDisplayNameProperty =
-        DependencyProperty.Register(
-            nameof(UserDisplayName),
-            typeof(string),
-            typeof(QuickLaunchBar),
-            new PropertyMetadata(string.Empty));
-
     private readonly string[] GitHubBrowserItemSource = ["dummy entry", "another entry"];
-
-    /// <summary>
-    ///     Initializes a new instance of the <see cref="QuickLaunchBar" /> class. This is the `Vanara Jñāna Workbench` `Quick
-    ///     Launch Bar control`,
-    ///     which provides quick access to various pages and displays user and network status information.
-    /// </summary>
-    public QuickLaunchBar()
-    {
-        InitializeComponent();
-
-        // Start the asynchronous initialization of status information
-        _ = InitializeStatusAsync();
-    }
-
-    //private string GitHubNetworkStatus
 
     /// <summary>
     ///     Gets or sets the GitHub user status.
@@ -113,7 +62,70 @@ public sealed partial class QuickLaunchBar : UserControl
         set => SetValue(UserDisplayNameProperty, value);
     }
 
+
+    /// <summary>
+    ///   Event raised when a page is requested to be displayed. The event provides the sender, the type of the requested
+    /// </summary>
     public event Action<object, Type, RoutedEventArgs>? PageRequested;
+    /// <summary>
+    ///   Initializes a new instance of the <see cref="QuickLaunchBar" /> class.
+    ///
+    ///   This is the `Vanara Jñāna Workbench` `Quick Launch Bar control`,
+    ///   which provides quick access to various pages and displays user
+    ///   and network status information.
+    /// </summary>
+    public QuickLaunchBar()
+    {
+        InitializeComponent();
+
+        // Start the asynchronous initialization of status information
+        _ = InitializeStatusAsync();
+    }
+
+    //private string GitHubNetworkStatus
+    // <Page.Resources><ResourceDictionary Source = "ms-appx:///Microsoft.UI.Xaml/DensityStyles/Compact.xaml" />
+    // <!--Dependency Properties for binding to the UI elements -->
+
+    #region Dependency Properties
+    public static readonly DependencyProperty GitHubNetworkStatusProperty =
+        DependencyProperty.Register(
+            nameof(GitHubNetworkStatus),
+            typeof(string),
+            typeof(QuickLaunchBar),
+            new PropertyMetadata("GitHub status: No Network."));
+
+    public static readonly DependencyProperty NetworkStatusDependencyProperty =
+        DependencyProperty.Register(
+            nameof(NetworkStatus),
+            typeof(string),
+            typeof(QuickLaunchBar),
+            new PropertyMetadata("Network status: pending..."));
+
+    public static readonly DependencyProperty OrientationDependencyProperty =
+        DependencyProperty.Register(
+            nameof(Orientation),
+            typeof(string),
+            typeof(QuickLaunchBar),
+            new PropertyMetadata("Vertical"));
+
+    public static readonly DependencyProperty UserAvatarImageUriProperty =
+        DependencyProperty.Register(
+            nameof(UserAvatarImageUriProperty),
+            typeof(string),
+            typeof(QuickLaunchBar),
+            new PropertyMetadata("ms-appx:///Assets/Images/DefaultAvatar.png"));
+
+    public static readonly DependencyProperty UserDisplayNameProperty =
+        DependencyProperty.Register(
+            nameof(UserDisplayName),
+            typeof(string),
+            typeof(QuickLaunchBar),
+            new PropertyMetadata(string.Empty));
+
+    #endregion Dependency Properties
+
+
+
 
     /// <summary>
     ///     Asynchronously initializes the status information for the QuickLaunchBar, including user display name, network
