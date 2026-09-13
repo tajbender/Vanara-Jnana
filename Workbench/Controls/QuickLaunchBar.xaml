@@ -72,7 +72,7 @@
                         HorizontalContentAlignment="Left">
                     <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
                         <FontIcon Glyph="&#xEC7A;" />
-                        <TextBlock Text="GitHub" HorizontalTextAlignment="Left" TextWrapping="WrapWholeWords" />
+                        <TextBlock Text="GitHub" HorizontalTextAlignment="Left" TextWrapping="WrapWholeWords" VerticalAlignment="Center"/>
                         <ComboBox ItemsSource="{x:Bind GitHubBrowserItemSource}" HorizontalAlignment="Stretch"
                                   VerticalAlignment="Stretch" />
                     </StackPanel>

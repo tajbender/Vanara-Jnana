@@ -6,11 +6,9 @@ using Microsoft.UI.Xaml.Media;
 
 namespace Jnana.Workbench.Controls;
 
-public interface IStatusService
-{
-    void Show(string message, StatusKind kind = StatusKind.Info);
-}
-
+/// <summary>
+///    Represents the kind of status message to be displayed in the floating status bar.
+/// </summary>
 public enum StatusKind
 {
     Info,
@@ -21,6 +19,12 @@ public enum StatusKind
     GitHub,
     Assembly
 }
+
+public interface IStatusService
+{
+    void Show(string message, StatusKind kind = StatusKind.Info);
+}
+
 
 public sealed partial class FloatingStatusBar : UserControl, IStatusService
 {
