@@ -19,16 +19,15 @@
             <Button Content="Refresh" Click="Refresh_Click" Margin="10 0 0 0"/>
         </DockPanel>-->
 
-        <!-- Release List -->
-        <ListView Grid.Row="1"
-                  ItemsSource="{Binding Releases}">
+        <!-- Release List : Source:                   ItemsSource="{Binding Releases}">-->
+        <ListView Grid.Row="1">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border BorderBrush="#444" BorderThickness="0 0 0 1" Padding="10">
                         <StackPanel>
-                            <TextBlock Text="{Binding Name}" FontSize="16" FontWeight="Bold" />
+                            <!--<TextBlock Text="{Binding Name}" FontSize="16" FontWeight="Bold" />
                             <TextBlock Text="{Binding PublishedAt}" FontSize="12" Foreground="#AAA" />
-                            <TextBlock Text="{Binding Body}" TextWrapping="Wrap" Margin="0 5 0 0" />
+                            <TextBlock Text="{Binding Body}" TextWrapping="Wrap" Margin="0 5 0 0" />-->
                         </StackPanel>
                     </Border>
                 </DataTemplate>
@@ -36,8 +35,8 @@
         </ListView>
 
         <!-- Error Overlay -->
-        <Border x:Name="ErrorOverlay"
-                Background="#AA000000"
+        <Border Grid.Row="0" x:Name="ErrorOverlay"
+                Background="#77000000"
                 Visibility="Collapsed"
                 CornerRadius="6"
                 Padding="20"

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Net.Http;
 using System.Net.NetworkInformation;
@@ -81,6 +81,11 @@ public sealed partial class QuickLaunchBar : UserControl
         // Start the asynchronous initialization of status information
         _ = InitializeStatusAsync();
     }
+
+    //  private void InitializeComponent()
+    //  {
+    //      // XAML-generated InitializeComponent stub for build-time.
+    //  }
 
     //private string GitHubNetworkStatus
     // <Page.Resources><ResourceDictionary Source = "ms-appx:///Microsoft.UI.Xaml/DensityStyles/Compact.xaml" />

@@ -84,9 +84,11 @@
     <PackageReference Include="Microsoft.Identity.Client" Version="4.89.0" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.29648.1000-preview" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="2.4.1-experimental" />
+    <PackageReference Include="MSTest.TestFramework" Version="4.4.0" />
     <PackageReference Include="NuGet.Common" Version="7.9.0" />
     <PackageReference Include="NuGet.Configuration" Version="7.9.0" />
     <PackageReference Include="NuGet.ProjectModel" Version="7.9.0" />
+    <PackageReference Include="Selenium.WebDriver" Version="4.49.0" />
     <PackageReference Include="Vanara.Core" Version="5.0.7" />
     <PackageReference Include="Vanara.PInvoke.Shared" Version="5.0.0" />
     <PackageReference Include="Vanara.PInvoke.Shell32" Version="5.0.7" />
