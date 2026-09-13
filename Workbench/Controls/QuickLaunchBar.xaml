@@ -19,6 +19,7 @@
                 <Grid MaxHeight="256" Padding="15">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
@@ -34,6 +35,8 @@
                             <ScalarTransition Duration="0:3:3.1976" />
                         </Image.OpacityTransition>
                     </Image>
+                    <TextBlock Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right"
+                               Text="v1.269 (debug) - tres hombres" VerticalAlignment="Bottom" />
                     <!-- Right side of the grid -->
                     <!--<TextBlock Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right"
                                Text="v1.269 (debug) - tres hombres" Padding="7" />
@@ -74,11 +77,12 @@
                                   VerticalAlignment="Stretch" />
                     </StackPanel>
                 </Button>
+                <AppBarSeparator />
                 <Button Click="OnSamplesClick" CornerRadius="6" HorizontalAlignment="Stretch"
                         HorizontalContentAlignment="Left">
                     <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
                         <FontIcon Glyph="&#xEC7A;" />
-                        <TextBlock HorizontalTextAlignment="Left" Text="Vanara samples &amp; Jñāna science Labs" TextWrapping="WrapWholeWords" />
+                        <TextBlock HorizontalTextAlignment="Left" Text="Vanara classic Samples" TextWrapping="WrapWholeWords" />
                     </StackPanel>
                 </Button>
                 <Button Click="OnScienceLabsClick" CornerRadius="6" HorizontalAlignment="Stretch"
@@ -98,6 +102,7 @@
                 </Button>
 
                 <!-- Drag & Drop area -->
+                <Border></Border>
 
                 <!-- Bottom section -->
                 <Grid x:Name="BottomArea" CornerRadius="8" HorizontalAlignment="Stretch"
