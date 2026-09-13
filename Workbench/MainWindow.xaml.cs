@@ -3,7 +3,7 @@ using Jnana.Workbench.Pages.Workbench;
 using Microsoft.UI.Composition.SystemBackdrops;
 using Microsoft.UI.Xaml;
 
-namespace Jnana;
+namespace Jnana.Workbench;
 
 /// INFO: TitleBar
 /// - https://github.com/CommunityToolkit/Labs-Windows/discussions/454 
