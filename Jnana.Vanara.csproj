@@ -467,6 +467,9 @@
     <None Update="Controls\Shell\ExplorerBrowser.xaml">
       <Generator>MSBuild:Compile</Generator>
     </None>
+    <Page Update="Workbench\Pages\Workbench\ScienceLabsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Update="Controls\Shell\ShellNamespaceTreeView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
