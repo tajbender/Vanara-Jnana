@@ -11,9 +11,9 @@
     <Grid VerticalAlignment="Stretch">
         <Border Grid.Column="0" Grid.RowSpan="3" CornerRadius="32"
                 BorderBrush="{ThemeResource SystemControlTransparentRevealBorderBrush}" BorderThickness="3">
-            <StackPanel Background="Black" HorizontalAlignment="Stretch" 
+            <StackPanel Background="Black" HorizontalAlignment="Stretch"
                         HorizontalSnapPointsChanged="StackPanel_HorizontalSnapPointsChanged"
-                        Opacity=".75" Orientation="{x:Bind Orientation}" 
+                        Opacity=".75" Orientation="{x:Bind Orientation}"
                         Padding="8" Spacing="8" VerticalAlignment="Stretch">
                 <!-- Header section -->
                 <Grid MaxHeight="256" Padding="15">
@@ -72,7 +72,8 @@
                     <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
                         <FontIcon Glyph="&#xEC7A;" />
                         <TextBlock Text="GitHub" HorizontalTextAlignment="Left" TextWrapping="WrapWholeWords" />
-                        <ComboBox ItemsSource="{x:Bind GitHubBrowserItemSource}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <ComboBox ItemsSource="{x:Bind GitHubBrowserItemSource}" HorizontalAlignment="Stretch"
+                                  VerticalAlignment="Stretch" />
                     </StackPanel>
                 </Button>
                 <!--</StackPanel>-->

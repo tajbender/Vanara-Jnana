@@ -53,7 +53,7 @@ public sealed partial class QuickLaunchBar : UserControl
             typeof(QuickLaunchBar),
             new PropertyMetadata(string.Empty));
 
-    private string[] GitHubBrowserItemSource = ["dummy entry", "another entry"];
+    private readonly string[] GitHubBrowserItemSource = ["dummy entry", "another entry"];
 
     /// <summary>
     ///     Initializes a new instance of the <see cref="QuickLaunchBar" /> class. This is the `Vanara Jñāna Workbench` `Quick
