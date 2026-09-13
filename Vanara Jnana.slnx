@@ -4,6 +4,7 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
+  <Project Path="../EdgeDriverTest1/Jnana.EdgeDriver-Test.csproj" Id="ba225a1a-ae37-4113-ab32-1eda5b09fa6e" />
   <Project Path="Jnana.Vanara.csproj">
     <Platform Solution="*|ARM64" Project="ARM64" />
     <Platform Solution="*|x64" Project="x64" />
