@@ -6,7 +6,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:nav="using:Jnana.Core.Navigation"
     xmlns:ctrls="using:Jnana.Workbench.Controls"
     mc:Ignorable="d"
     Title="Vanara Jñāna">
@@ -46,6 +45,6 @@
                               VerticalAlignment="Stretch" />
 
         <!-- Navigation Host -->
-        <nav:NavigationHost x:Name="NavigationHost" Grid.Column="1" Grid.Row="1" VerticalAlignment="Stretch" />
+        <ctrls:NavigationHost x:Name="NavigationHost" Grid.Column="1" Grid.Row="1" VerticalAlignment="Stretch" />
     </Grid>
 </Window>

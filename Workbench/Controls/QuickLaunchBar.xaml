@@ -16,7 +16,7 @@
                         Opacity=".42" Orientation="{x:Bind Orientation}"
                         Padding="8" Spacing="8" VerticalAlignment="Stretch">
                 <!-- Header section -->
-                <Grid MaxHeight="256" Padding="15">
+                <Grid MaxHeight="256">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="Auto" />
@@ -25,18 +25,17 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="*" />
                         <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
                     <TextBlock Grid.Column="0" Grid.Row="0" FontSize="23" FontWeight="Bold" HorizontalAlignment="Left"
                                Text="Vanara Jñāna" VerticalAlignment="Top" />
-                    <Image Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Center" MaxHeight="128"
+                    <TextBlock Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right"
+                               Text="v1.269 (debug) - tres hombres" VerticalAlignment="Bottom" />
+                    <Image Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" MaxHeight="128"
                            Opacity="0.66" Source="/Assets/StoreLogo.png" VerticalAlignment="Stretch">
                         <Image.OpacityTransition>
                             <ScalarTransition Duration="0:3:3.1976" />
                         </Image.OpacityTransition>
                     </Image>
-                    <TextBlock Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right"
-                               Text="v1.269 (debug) - tres hombres" VerticalAlignment="Bottom" />
                     <!-- Right side of the grid -->
                     <!--<TextBlock Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right"
                                Text="v1.269 (debug) - tres hombres" Padding="7" />

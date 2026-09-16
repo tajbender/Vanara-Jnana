@@ -179,6 +179,7 @@
     <Title>Vanara Jñāna</Title>
     <PackageTags>Jnana;Vanara;Shell32;Win32;WindowsForms;WinUI</PackageTags>
     <NeutralLanguage>en</NeutralLanguage>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
     <Optimize>False</Optimize>

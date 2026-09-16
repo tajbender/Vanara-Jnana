@@ -6,7 +6,7 @@ using Jnana.Core.Services;
 
 namespace Jnana.ViewModels;
 
-public class VanaraReleaseViewModel : INotifyPropertyChanged
+public partial class VanaraReleaseViewModel : INotifyPropertyChanged
 {
     public VanaraReleaseViewModel()
     {
