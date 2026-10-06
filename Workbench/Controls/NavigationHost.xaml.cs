@@ -1,3 +1,4 @@
+using Jnana.Core.Navigation;
 using Microsoft.UI.Xaml.Controls;
 
 namespace Jnana.Workbench.Controls;
@@ -11,10 +12,10 @@ public sealed partial class NavigationHost : UserControl
     {
         InitializeComponent();
 
-        this.NavigationBreadcrumbBar.ItemsSource = new string[] { "Workbench" };
+        this.BreadcrumbBar.ItemsSource = new string[] { "Vanara Jnana", "Workbench" };
     }
 
-    public void ShowPage(object pageInstance)
+    public static void ShowPage<TPage>(TPage pageInstance) where TPage : class, INavigationAware
     {
         // TODO: this.Presenter.Content = pageInstance;
     }

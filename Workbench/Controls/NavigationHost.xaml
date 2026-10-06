@@ -15,38 +15,45 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <!-- Navigation Bar -->
-        <StackPanel Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" HorizontalAlignment="Stretch"
-                    Orientation="Horizontal" VerticalAlignment="Top">
-            <FontIcon x:Name="BackButton" FontFamily="Segoe Fluent Icons" Glyph="&#xE7F8;"/>
-            <FontIcon x:Name="ForwardButton" FontFamily="Segoe Fluent Icons" Glyph="&#xE7F7;"/>
-            <FontIcon x:Name="ParentFolderButton" FontFamily="Segoe Fluent Icons" Glyph="&#xE838;"/>
-            <BreadcrumbBar x:Name="NavigationBreadcrumbBar" BorderBrush="Aqua" BorderThickness="3">
-                <!--         <FontIcon FontFamily="Segoe Fluent Icons"/>
-                <FontIcon x:Name="BackButton" Glyph="&#xE7F8;"/>
-        <FontIcon Grid.Column="0" Grid.Row="1" Glyph="&#xE7F8;" /> -->
-            </BreadcrumbBar>
-            <FontIcon x:Name="RefreshButton" FontFamily="Segoe Fluent Icons" Glyph="&#xE72C;"/>
-        </StackPanel>
-        <Border Grid.Column="0" Grid.Row="1">
-            <TreeView
-                CanDragItems="True" AllowDrop="True">
+        <Grid x:Name="NavigationBar" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" BorderBrush="Black" BorderThickness="3" CornerRadius="6" ColumnSpacing="16" Padding="8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <AppBarButton x:Name="BackButton" Grid.Column="0" CornerRadius="6" Icon="Back" Label="Back" LabelPosition="Collapsed"/>
+            <AppBarButton x:Name="ForwardButton" Grid.Column="1" CornerRadius="6" Icon="Forward" Label="Forward" LabelPosition="Collapsed"/>
+            <AppBarButton x:Name="UpButton" Grid.Column="2" CornerRadius="6" Icon="Up" Label="Parent folder" LabelPosition="Collapsed"/>
+            <AppBarButton x:Name="RefreshButton" Grid.Column="3" CornerRadius="6" Icon="Refresh" Label="Refresh" LabelPosition="Collapsed"/>
+            <BreadcrumbBar x:Name="BreadcrumbBar" Grid.Column="4" CornerRadius="6" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+            <AppBarButton x:Name="SubmenuButton" Grid.Column="5" CornerRadius="6" Icon="More" Label="Submenu" LabelPosition="Collapsed"/>
+        </Grid>
+        <!-- TreeView -->
+        <Border x:Name="ShellTreeviewBorder" Grid.Column="0" Grid.Row="1" BorderBrush="Black" BorderThickness="3" CornerRadius="16" Margin="13">
+            <TreeView x:Name="ShellTreeview" AllowDrop="True" CanDragItems="True">
                 <!-- Tree View Items come here: Local Packages, NuGet Packages, Desktop-Folder -->
             </TreeView>
         </Border>
-        <Border Grid.Column="1" Grid.Row="1" CornerRadius="32" Margin="12">
+        <!-- Page Content Presenter -->
+        <Border x:Name="ContentPresenterBorder" Grid.Column="1" Grid.Row="1" BorderBrush="Black" BorderThickness="3" CornerRadius="32" Margin="12">
             <!--<controls:AttachDropShadow BlurRadius="16" ShadowOpacity="0.35" OffsetX="0" OffsetY="4"> -->
             <!-- TODO: Implement navigation host -->
             <!-- <Frame x:Name="RootFrame" NavigationUIVisibility="Hidden"/> -->
             <ContentPresenter x:Name="ContentPresenter" />
         </Border>
-        <VariableSizedWrapGrid Grid.Column="2" Grid.Row="1">
-            <ContentPresenter x:Name="SideBarPresenter" />
-        </VariableSizedWrapGrid>
+        <!-- Page Content Sidebar -->
+        <Border Grid.Column="2" Grid.Row="1" BorderBrush="Black" BorderThickness="3" CornerRadius="32" Margin="12">
+            <VariableSizedWrapGrid Grid.Column="2" Grid.Row="1">
+                <ContentPresenter x:Name="SideBarPresenter" />
+            </VariableSizedWrapGrid>
+        </Border>
         <!--<Border Grid.Column="1" Background="{ThemeResource SolidBackgroundFillColorBaseBrush}"
                 BorderBrush="{ThemeResource SystemControlTransparentRevealBorderBrush}"
                 BorderThickness="3" CornerRadius="32" Margin="12" >

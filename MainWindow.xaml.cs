@@ -23,7 +23,7 @@ public sealed partial class MainWindow : Window
         //_navigationService.OnPageNavigated += (sender, e) => NavigationHost.ShowPage(e.PageInstance);
 
         var workbench = new WorkbenchPage();
-        NavigationHost.ShowPage(workbench);
+        //TODO: NavigationHost<WorkbenchPage>.ShowPage(workbench);
         _navigationService.Navigate(typeof(WorkbenchPage));
     }
 

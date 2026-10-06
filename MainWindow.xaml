@@ -41,8 +41,7 @@
         </TitleBar>
 
         <!-- QuickLaunchBar -->
-        <ctrls:QuickLaunchBar x:Name="QuickLaunchBar" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2"
-                              VerticalAlignment="Stretch" />
+        <ctrls:QuickLaunchBar x:Name="QuickLaunchBar" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Stretch" />
 
         <!-- Navigation Host -->
         <ctrls:NavigationHost x:Name="NavigationHost" Grid.Column="1" Grid.Row="1" VerticalAlignment="Stretch" />
