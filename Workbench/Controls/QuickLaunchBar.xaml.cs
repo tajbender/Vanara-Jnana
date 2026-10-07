@@ -222,16 +222,6 @@ public sealed partial class QuickLaunchBar : UserControl
     }
 
     /// <summary>
-    ///     Handles the click event for the System Information button.
-    /// </summary>
-    /// <param name="sender"></param>
-    /// <param name="e"></param>
-    private void OnSysInfoClick(object sender, RoutedEventArgs e)
-    {
-        RaisePageRequested(sender, typeof(SysInfoPage), e);
-    }
-
-    /// <summary>
     ///     Handles the click event for the Tools and Utilities button.
     /// </summary>
     /// <param name="sender"></param>

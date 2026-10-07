@@ -1,3 +1,4 @@
+using CommunityToolkit.WinUI.UI;
 using Jnana.Core.Navigation;
 using Jnana.Workbench.Pages.Workbench;
 using Microsoft.UI.Composition.SystemBackdrops;
@@ -5,6 +6,15 @@ using Microsoft.UI.Xaml;
 
 namespace Jnana;
 
+/// <summary>
+/// 
+///         <!-- INFO: TitleBar
+///               - https://github.com/CommunityToolkit/Labs-Windows/discussions/454 
+///               - https://learn.microsoft.com/en-us/dotnet/api/communitytoolkit.winui.ui.titlebarextensions?view=win-comm-toolkit-dotnet-7.0
+///        see also:
+///               TitleBarExtensions Class - `CommunityToolkit.WinUI.UI v7.0.3` -->
+/// 
+/// </summary>
 public sealed partial class MainWindow : Window
 {
     private readonly NavigationService _navigationService;
@@ -30,9 +40,8 @@ public sealed partial class MainWindow : Window
     /// <summary>
     ///     Public properties for the title, subtitle, and back button visibility of the main window.
     /// </summary>
-    public string TitleText { get; set; } = "Vanara Jñāna";
-
-    public string SubtitleText { get; set; } = "Workbench";
+    public string TitleText { get; set; } = "Jñāna";
+    public string SubtitleText { get; set; } = "Vanara";
     public bool IsBackButtonVisible { get; set; } = true;
     public bool IsBackButtonEnabled { get; set; } = false;
 

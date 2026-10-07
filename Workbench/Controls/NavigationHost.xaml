@@ -10,57 +10,53 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="2*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <!-- Navigation Bar -->
-        <Grid x:Name="NavigationBar" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" BorderBrush="Black" BorderThickness="3" CornerRadius="6" ColumnSpacing="16" Padding="8">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-            <AppBarButton x:Name="BackButton" Grid.Column="0" CornerRadius="6" Icon="Back" Label="Back" LabelPosition="Collapsed"/>
-            <AppBarButton x:Name="ForwardButton" Grid.Column="1" CornerRadius="6" Icon="Forward" Label="Forward" LabelPosition="Collapsed"/>
-            <AppBarButton x:Name="UpButton" Grid.Column="2" CornerRadius="6" Icon="Up" Label="Parent folder" LabelPosition="Collapsed"/>
-            <AppBarButton x:Name="RefreshButton" Grid.Column="3" CornerRadius="6" Icon="Refresh" Label="Refresh" LabelPosition="Collapsed"/>
-            <BreadcrumbBar x:Name="BreadcrumbBar" Grid.Column="4" CornerRadius="6" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
-            <AppBarButton x:Name="SubmenuButton" Grid.Column="5" CornerRadius="6" Icon="More" Label="Submenu" LabelPosition="Collapsed"/>
-        </Grid>
         <!-- TreeView -->
-        <Border x:Name="ShellTreeviewBorder" Grid.Column="0" Grid.Row="1" BorderBrush="Black" BorderThickness="3" CornerRadius="16" Margin="13">
+        <Border x:Name="ShellTreeviewBorder" Grid.Column="0" Grid.Row="1" BorderBrush="Black" BorderThickness="3" CornerRadius="16" Margin="13" Visibility="Collapsed">
             <TreeView x:Name="ShellTreeview" AllowDrop="True" CanDragItems="True">
                 <!-- Tree View Items come here: Local Packages, NuGet Packages, Desktop-Folder -->
             </TreeView>
         </Border>
         <!-- Page Content Presenter -->
         <Border x:Name="ContentPresenterBorder" Grid.Column="1" Grid.Row="1" BorderBrush="Black" BorderThickness="3" CornerRadius="32" Margin="12">
+            <Grid x:Name="NavigationBarNew" BorderThickness="3" CornerRadius="6" ColumnSpacing="16" Padding="8" Visibility="Visible">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <AppBarButton x:Name="BackButton" Grid.Column="0" CornerRadius="6" Icon="Back" Label="Back" LabelPosition="Collapsed"/>
+                <AppBarButton x:Name="ForwardButton" Grid.Column="1" CornerRadius="6" Icon="Forward" Label="Forward" LabelPosition="Collapsed"/>
+                <AppBarButton x:Name="UpParentButton" Grid.Column="2" CornerRadius="6" Icon="Up" Label="Parent folder" LabelPosition="Collapsed"/>
+                <BreadcrumbBar x:Name="BreadcrumbBar" Grid.Column="3" Grid.ColumnSpan="2"  CornerRadius="6" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                <AppBarButton x:Name="SubmenuButton" Grid.Column="5" CornerRadius="6" Icon="More" Label="Submenu" LabelPosition="Collapsed"/>
             <!--<controls:AttachDropShadow BlurRadius="16" ShadowOpacity="0.35" OffsetX="0" OffsetY="4"> -->
             <!-- TODO: Implement navigation host -->
             <!-- <Frame x:Name="RootFrame" NavigationUIVisibility="Hidden"/> -->
             <ContentPresenter x:Name="ContentPresenter" />
+            </Grid>
         </Border>
         <!-- Page Content Sidebar -->
         <Border Grid.Column="2" Grid.Row="1" BorderBrush="Black" BorderThickness="3" CornerRadius="32" Margin="12">
-            <VariableSizedWrapGrid Grid.Column="2" Grid.Row="1">
                 <ContentPresenter x:Name="SideBarPresenter" />
-            </VariableSizedWrapGrid>
         </Border>
-        <!--<Border Grid.Column="1" Background="{ThemeResource SolidBackgroundFillColorBaseBrush}"
+        <!--    <Border Grid.Column="1" Background="{ThemeResource SolidBackgroundFillColorBaseBrush}"
                 BorderBrush="{ThemeResource SystemControlTransparentRevealBorderBrush}"
-                BorderThickness="3" CornerRadius="32" Margin="12" >
-            -->
-        <!--<controls:DropShadowPanel BlurRadius="16" ShadowOpacity="0.35" OffsetX="0" OffsetY="4"> -->
-        <!--
-                <ContentPresenter x:Name="SideBarPresenter" />
-        </Border>-->
+                BorderThickness="3" CornerRadius="32" Margin="12" > -->
+        <!--    <controls:DropShadowPanel BlurRadius="16" ShadowOpacity="0.35" OffsetX="0" OffsetY="4"> -->
     </Grid>
 </UserControl>
