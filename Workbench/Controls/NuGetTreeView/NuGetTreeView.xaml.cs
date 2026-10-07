@@ -119,11 +119,11 @@ public sealed partial class NuGetTreeViewModel : ObservableObject
             IsLoading = true;
             RootNodes.Clear();
 
-            var graph = await _graphService.GetDependencyGraphAsync(projectPath);
+            DependencyGraphResult graph = await _graphService.GetDependencyGraphAsync(projectPath);
 
-            var root = BuildTree(graph);
+            NuGetTreeRoot root = BuildTree(graph);
 
-            foreach (var node in root.Children)
+            foreach (TreeNode node in root.Children)
                 RootNodes.Add(node);
         }
         finally
@@ -145,10 +145,10 @@ public sealed partial class NuGetTreeViewModel : ObservableObject
         root.AddChild(topLevelNode);
         root.AddChild(transitiveNode);
 
-        foreach (var pkg in graph.TopLevelPackages)
+        foreach (PackageInfo pkg in graph.TopLevelPackages)
             topLevelNode.AddChild(new PackageNode(pkg.Id, pkg.Version, true));
 
-        foreach (var pkg in graph.TransitivePackages)
+        foreach (PackageInfo pkg in graph.TransitivePackages)
             transitiveNode.AddChild(new PackageNode(pkg.Id, pkg.Version, false));
 
         return root;
@@ -180,10 +180,10 @@ public sealed partial class NuGetTreeView : UserControl
         root.AddChild(topLevelNode);
         root.AddChild(transitiveNode);
 
-        foreach (var pkg in graph.TopLevelPackages)
+        foreach (PackageInfo pkg in graph.TopLevelPackages)
             topLevelNode.AddChild(new PackageNode(pkg.Id, pkg.Version, true));
 
-        foreach (var pkg in graph.TransitivePackages)
+        foreach (PackageInfo pkg in graph.TransitivePackages)
             transitiveNode.AddChild(new PackageNode(pkg.Id, pkg.Version, false));
 
         return root;

@@ -23,6 +23,6 @@ public static class PageRegistry
 
     public static Type? Resolve(PageKeys key)
     {
-        return _pages.TryGetValue(key, out var type) ? type : null;
+        return _pages.TryGetValue(key, out Type? type) ? type : null;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading.Tasks;
@@ -33,9 +34,9 @@ public partial class VanaraReleaseViewModel : INotifyPropertyChanged
     {
         try
         {
-            var items = await GitHubApi.GetLatestReleasesAsync();
+            List<ReleaseInfo> items = await GitHubApi.GetLatestReleasesAsync();
             Releases.Clear();
-            foreach (var r in items)
+            foreach (ReleaseInfo r in items)
                 Releases.Add(r);
 
             OnPropertyChanged(nameof(Releases));

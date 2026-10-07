@@ -17,7 +17,7 @@ public static class GitHubApi
         http.DefaultRequestHeaders.UserAgent.ParseAdd("ElectrifierWorkbench");
 
         var json = await http.GetStringAsync(url);
-        var data = JsonSerializer.Deserialize<List<ReleaseInfo>>(json);
+        List<ReleaseInfo>? data = JsonSerializer.Deserialize<List<ReleaseInfo>>(json);
 
         return data;
     }

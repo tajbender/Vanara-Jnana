@@ -46,9 +46,9 @@ public sealed class NuGetCatalogService : INuGetCatalogService
     /// <returns>A list of matching NuGet packages.</returns>
     public async Task<IReadOnlyList<NuGetPackageInfo>> SearchPackagesAsync(string query)
     {
-        var search = await _nuGetSourceRepository.GetResourceAsync<PackageSearchResource>();
+        PackageSearchResource? search = await _nuGetSourceRepository.GetResourceAsync<PackageSearchResource>();
         Debug.Assert(search != null, nameof(search) + " != null");
-        var results = await search.SearchAsync(query, new SearchFilter(true), 0, 50, NullLogger.Instance,
+        IEnumerable<IPackageSearchMetadata> results = await search.SearchAsync(query, new SearchFilter(true), 0, 50, NullLogger.Instance,
             CancellationToken.None);
 
         return
@@ -65,10 +65,10 @@ public sealed class NuGetCatalogService : INuGetCatalogService
 
     public async Task<NuGetPackageInfo?> GetPackageMetadataAsync(string packageId)
     {
-        var meta = await _nuGetSourceRepository.GetResourceAsync<PackageMetadataResource>();
+        PackageMetadataResource? meta = await _nuGetSourceRepository.GetResourceAsync<PackageMetadataResource>();
         Debug.Assert(meta != null, nameof(meta) + " != null");
 
-        var results = await meta.GetMetadataAsync(
+        IEnumerable<IPackageSearchMetadata> results = await meta.GetMetadataAsync(
             packageId,
             true,
             false,
@@ -76,7 +76,7 @@ public sealed class NuGetCatalogService : INuGetCatalogService
             NullLogger.Instance,
             CancellationToken.None);
 
-        var latest = results?
+        IPackageSearchMetadata? latest = results?
             .OrderByDescending(m => m.Identity.Version)
             .FirstOrDefault();
 
@@ -95,9 +95,9 @@ public sealed class NuGetCatalogService : INuGetCatalogService
 
     public async Task<Stream?> DownloadPackageAsync(string packageId, string version)
     {
-        var download = await _nuGetSourceRepository.GetResourceAsync<DownloadResource>();
+        DownloadResource? download = await _nuGetSourceRepository.GetResourceAsync<DownloadResource>();
         Debug.Assert(download != null, nameof(download) + " != null");
-        var result = await download.GetDownloadResourceResultAsync(
+        DownloadResourceResult result = await download.GetDownloadResourceResultAsync(
             new PackageIdentity(packageId, NuGetVersion.Parse(version)),
             new PackageDownloadContext(new SourceCacheContext()),
             Path.GetTempPath(),
@@ -109,12 +109,12 @@ public sealed class NuGetCatalogService : INuGetCatalogService
 
     public async Task<string?> GetReadmeMarkdownAsync(string packageId, string version)
     {
-        await using var pkg = await DownloadPackageAsync(packageId, version);
+        await using Stream? pkg = await DownloadPackageAsync(packageId, version);
         if (pkg == null)
             return null;
 
         using var archive = new ZipArchive(pkg, ZipArchiveMode.Read);
-        var entry = archive.Entries.FirstOrDefault(e =>
+        ZipArchiveEntry? entry = archive.Entries.FirstOrDefault(e =>
             e.FullName.EndsWith("readme.md", StringComparison.OrdinalIgnoreCase));
 
         if (entry == null)

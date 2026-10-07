@@ -1,16 +1,15 @@
+using Jnana.Workbench.Pages;
+using Jnana.Workbench.Pages.GitHub;
+using Jnana.Workbench.Pages.NuGets;
+using Jnana.Workbench.Pages.Samples;
+using Jnana.Workbench.Pages.Workbench;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
 using System;
 using System.Diagnostics;
 using System.Net.Http;
 using System.Net.NetworkInformation;
 using System.Threading.Tasks;
-using Jnana.Workbench.Pages;
-using Jnana.Workbench.Pages.GitHub;
-using Jnana.Workbench.Pages.NuGets;
-using Jnana.Workbench.Pages.Samples;
-using Jnana.Workbench.Pages.SysInfo;
-using Jnana.Workbench.Pages.Workbench;
-using Microsoft.UI.Xaml;
-using Microsoft.UI.Xaml.Controls;
 
 namespace Jnana.Workbench.Controls;
 
@@ -155,7 +154,7 @@ public sealed partial class QuickLaunchBar : UserControl
         try
         {
             using var ping = new Ping();
-            var reply = await ping.SendPingAsync("8.8.8.8", 2000);
+            PingReply reply = await ping.SendPingAsync("8.8.8.8", 2000);
             return reply.Status == IPStatus.Success;
         }
         catch
@@ -171,7 +170,7 @@ public sealed partial class QuickLaunchBar : UserControl
         {
             using var client = new HttpClient();
             //client.Timeout = TimeSpan.FromSeconds(3);
-            var response = await client.GetAsync("https://api.github.com/");
+            HttpResponseMessage response = await client.GetAsync("https://api.github.com/");
             return response.IsSuccessStatusCode;
         }
         catch

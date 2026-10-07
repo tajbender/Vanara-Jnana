@@ -1,4 +1,3 @@
-using CommunityToolkit.WinUI.UI;
 using Jnana.Core.Navigation;
 using Jnana.Workbench.Pages.Workbench;
 using Microsoft.UI.Composition.SystemBackdrops;
@@ -40,8 +39,8 @@ public sealed partial class MainWindow : Window
     /// <summary>
     ///     Public properties for the title, subtitle, and back button visibility of the main window.
     /// </summary>
-    public string TitleText { get; set; } = "Jñāna";
-    public string SubtitleText { get; set; } = "Vanara";
+    public string TitleText { get; set; } = "jñāna";
+    public string SubtitleText { get; set; } = "vanara jñāna";
     public bool IsBackButtonVisible { get; set; } = true;
     public bool IsBackButtonEnabled { get; set; } = false;
 

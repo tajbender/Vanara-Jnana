@@ -48,7 +48,7 @@ public sealed class NuGetCatalogCache : INuGetCatalogService
         if (_cache.TryGetValue(key, out T? value))
             return value;
 
-        var result = factory().Result;
+        T? result = factory().Result;
         if (result != null)
             _cache.Set(key, result, new MemoryCacheEntryOptions
             {

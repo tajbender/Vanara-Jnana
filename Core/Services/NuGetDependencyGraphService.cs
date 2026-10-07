@@ -16,12 +16,12 @@ public sealed class NuGetDependencyGraphService : INuGetDependencyGraphService
         if (!File.Exists(dgFile))
             throw new FileNotFoundException("project.assets.json not found", dgFile);
 
-        var lockFile = LockFileUtilities.GetLockFile(dgFile, NullLogger.Instance);
+        LockFile lockFile = LockFileUtilities.GetLockFile(dgFile, NullLogger.Instance);
 
         var topLevel = new List<PackageInfo>();
         var transitive = new List<PackageInfo>();
 
-        foreach (var library in lockFile.Libraries)
+        foreach (LockFileLibrary? library in lockFile.Libraries)
         {
             if (library.Type != "package")
                 continue;
