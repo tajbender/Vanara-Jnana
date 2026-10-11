@@ -11,13 +11,13 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="3*" />
-            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <!-- TreeView -->
         <Border x:Name="ShellTreeviewBorder" Grid.Column="0" Grid.Row="1" BorderBrush="Black" BorderThickness="3" CornerRadius="16" Margin="13" Visibility="Collapsed">
@@ -48,7 +48,7 @@
                 <!--<controls:AttachDropShadow BlurRadius="16" ShadowOpacity="0.35" OffsetX="0" OffsetY="4"> -->
                 <!-- TODO: Implement navigation host -->
                 <!-- <Frame x:Name="RootFrame" NavigationUIVisibility="Hidden"/> -->
-                <ContentPresenter x:Name="ContentPresenter" />
+                <ContentPresenter x:Name="ContentPresenter"/>
             </Grid>
         </Border>
         <!-- Page Content Sidebar -->

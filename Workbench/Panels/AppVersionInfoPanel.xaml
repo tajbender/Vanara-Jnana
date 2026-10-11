@@ -10,19 +10,16 @@
 
     <Grid Padding="8">
         <StackPanel>
-            <TextBlock Text="App Version Info" FontSize="20" FontWeight="Bold" Margin="0,0,0,8"/>
-            <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal" Spacing="8">
-                <TextBlock Text="Vanara Jnana TODO: "/>
-                <Border Background="#2D5A88" CornerRadius="4" Padding="8,2">
-                    <TextBlock Text="v1.261011" />
-                </Border>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Spacing="8">
-                <TextBlock Text="Vanara version in Use TODO: "/>
-                <Border Background="#355C3A" CornerRadius="4" Padding="8,2">
-                    <TextBlock Text="v5.0.4" />
-                </Border>
-            </StackPanel>
+            <TitleBar IsBackButtonVisible="False" IsPaneToggleButtonVisible="True" Title="Vanara Jnana" Subtitle="Preview">
+                <TitleBar.Content>
+                    <TextBlock Text="Vanara Jñāna"/>
+                </TitleBar.Content>
+                <TitleBar.RightHeader>
+                    <Border Background="#2D5A88" CornerRadius="4" Opacity="0.8" Padding="8,2">
+                        <TextBlock Text="v1.261011"/>
+                    </Border>
+                </TitleBar.RightHeader>
+            </TitleBar>
         </StackPanel>
     </Grid>
 </UserControl>
