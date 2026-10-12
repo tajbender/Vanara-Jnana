@@ -20,6 +20,10 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Button Grid.Row="0" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center">
                     <Image Grid.Row="1" MaxHeight="64" Opacity="0.66" Source="/Assets/StoreLogo.png" VerticalAlignment="Stretch">
@@ -29,46 +33,29 @@
                     </Image>
                 </Button>
                 <Button Grid.Row="1" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
-                    <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
-                        <FontIcon Glyph="&#xEC7A;"/>
-                        <TextBlock Text="Jñāna Workbench"/>
-                    </StackPanel>
+                    <TextBlock Text="🧠 Jñāna Workbench"/>
                 </Button>
-                <Button Grid.Row="2" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
-                    <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
-                        <FontIcon Glyph="&#xEC7A;"/>
-                        <TextBlock Text="Packages"/>
-                    </StackPanel>
-                </Button>
+                <Border Grid.Row="2" Height="16"/>
                 <Button Grid.Row="3" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
-                    <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
-                        <FontIcon Glyph="&#xEC7A;"/>
-                        <TextBlock Text="GitHub"/>
-                    </StackPanel>
+                    <TextBlock Text="📦 Vanara NuGets"/>
                 </Button>
-                <Button Grid.Row="4" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
-                    <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
-                        <FontIcon Glyph="&#xEC7A;"/>
-                        <TextBlock Text="Issues"/>
-                    </StackPanel>
-                </Button>
+                <Border Grid.Row="4" Height="16"/>
                 <Button Grid.Row="5" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
-                    <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
-                        <FontIcon Glyph="&#xEC7A;"/>
-                        <TextBlock Text="Discussions"/>
-                    </StackPanel>
+                    <TextBlock Text="🌿 GitHub"/>
                 </Button>
                 <Button Grid.Row="6" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
-                    <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
-                        <FontIcon Glyph="&#xEC7A;"/>
-                        <TextBlock Text="Samples"/>
-                    </StackPanel>
+                    <TextBlock Text="🐞 Issues"/>
                 </Button>
                 <Button Grid.Row="7" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
-                    <StackPanel Orientation="Horizontal" Padding="8" Spacing="8">
-                        <FontIcon Glyph="&#xEC7A;"/>
-                        <TextBlock Text="Labs" TextWrapping="WrapWholeWords"/>
-                    </StackPanel>
+                    <TextBlock Text="💬 Discussions"/>
+                </Button>
+                <Border Grid.Row="8" Height="16"/>
+                <Button Grid.Row="9" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
+                    <TextBlock Text="📚 Samples"/>
+                </Button>
+                <Border Grid.Row="10" Height="16"/>
+                <Button Grid.Row="11" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
+                    <TextBlock Text="🧪 Jñāna Science Lab"/>
                 </Button>
             </Grid>
         </Border>

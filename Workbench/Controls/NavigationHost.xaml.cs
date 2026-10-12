@@ -12,7 +12,7 @@ public sealed partial class NavigationHost : UserControl
     {
         InitializeComponent();
 
-        this.BreadcrumbBar.ItemsSource = new string[] { "Vanara Jnana", "Workbench" };
+        this.BreadcrumbBar.ItemsSource = new string[] { "Workbench" };
     }
 
     public static void ShowPage<TPage>(TPage pageInstance) where TPage : class, INavigationAware

@@ -46,6 +46,7 @@
     <None Remove="Workbench\Pages\Workbench\SettingsPage.xaml" />
     <None Remove="Workbench\Pages\Workbench\TugorPage.xaml" />
     <None Remove="Workbench\Panels\AppVersionInfoPanel.xaml" />
+    <None Remove="Workbench\Panels\ClipboardHistoryPanel.xaml" />
     <None Remove="Workbench\VanaraReleasePanel.xaml" />
   </ItemGroup>
 
@@ -464,6 +465,9 @@
     <None Update="Controls\Shell\ExplorerBrowser.xaml">
       <Generator>MSBuild:Compile</Generator>
     </None>
+    <Page Update="Workbench\Panels\ClipboardHistoryPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Update="Workbench\Panels\AppVersionInfoPanel.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>

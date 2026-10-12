@@ -8,18 +8,39 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Padding="8">
-        <StackPanel>
-            <TitleBar IsBackButtonVisible="False" IsPaneToggleButtonVisible="True" Title="Vanara Jnana" Subtitle="Preview">
+    <Grid Padding="8" RowSpacing="8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <TitleBar IsBackButtonVisible="False" IsPaneToggleButtonVisible="True" Title="Vanara Jñāna" Subtitle="Runtime" BorderThickness="3">
+                <!--<TitleBar.Content>
+                </TitleBar.Content>-->
+                <TitleBar.RightHeader>
+                    <Button x:Name="CheckForUpdatesButton" Content="x"/>
+                </TitleBar.RightHeader>
+            </TitleBar>
+            <Border Background="#2D5A88" CornerRadius="4" Opacity="0.8" Padding="8,2">
+                <TextBlock Text="Jñāna version 1.261011"/>
+            </Border>
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <TitleBar IsBackButtonVisible="False" IsPaneToggleButtonVisible="True" Title="Clipboard" Subtitle="History">
                 <TitleBar.Content>
-                    <TextBlock Text="Vanara Jñāna"/>
+                    <TextBlock Text="Vanara Jñāna Clipboard"/>
                 </TitleBar.Content>
                 <TitleBar.RightHeader>
                     <Border Background="#2D5A88" CornerRadius="4" Opacity="0.8" Padding="8,2">
-                        <TextBlock Text="v1.261011"/>
+                        <TextBlock Text="1 Item"/>
                     </Border>
                 </TitleBar.RightHeader>
             </TitleBar>
+            <RichTextBlock x:Name="MainRtb" OverflowContentTarget="{Binding ElementName=Overflow}">
+                <Paragraph>
+                    <Run Text="Vanara Jñāna"/>
+                </Paragraph>
+            </RichTextBlock>
         </StackPanel>
     </Grid>
 </UserControl>
