@@ -19,15 +19,10 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <!-- TreeView -->
-        <Border x:Name="ShellTreeviewBorder" Grid.Column="0" Grid.Row="1" BorderBrush="Black" BorderThickness="3" CornerRadius="16" Margin="13" Visibility="Collapsed">
-            <TreeView x:Name="ShellTreeview" AllowDrop="True" CanDragItems="True">
-                <!-- Tree View Items come here: Local Packages, NuGet Packages, Desktop-Folder -->
-            </TreeView>
-        </Border>
-        <!-- Page Content Presenter -->
-        <Border x:Name="NavigationBarBorder" Grid.Column="1" Grid.Row="1" BorderBrush="Black" BorderThickness="3" CornerRadius="32" Margin="12">
-            <Grid x:Name="NavigationBar" BorderThickness="3" CornerRadius="6" Padding="8">
+        <!-- Put TreeView here, Column 0-->
+        <!-- Navigation Bar -->
+        <Border x:Name="NavigationBarBorder" Grid.Column="1" Grid.Row="0">
+            <Grid x:Name="NavigationBar" CornerRadius="6" Padding="8">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
@@ -44,16 +39,15 @@
                 <AppBarButton x:Name="NavigateUpBtn" Grid.Column="2" CornerRadius="6" Icon="Up" Label="Parent"/>
                 <BreadcrumbBar x:Name="BreadcrumbBar" Grid.Column="3" CornerRadius="6" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
                 <AppBarButton x:Name="SubmenuBtn" Grid.Column="4" CornerRadius="6" Icon="More" Label="More..."/>
-
-                <!--<controls:AttachDropShadow BlurRadius="16" ShadowOpacity="0.35" OffsetX="0" OffsetY="4"> -->
-
-                <!-- TODO: Implement navigation host -->
-                <ContentPresenter x:Name="ContentPresenter" Grid.ColumnSpan="5" Grid.Row="1"/>
             </Grid>
         </Border>
-        <!-- Page Content Sidebar -->
-        <Border Grid.Column="2" Grid.Row="1" BorderBrush="Black" BorderThickness="3" CornerRadius="32" Margin="12" MaxWidth="420">
-            <panels:AppVersionInfoPanel></panels:AppVersionInfoPanel>
+        <!-- Page Content Presenter -->
+        <Border Grid.Column="1" Grid.Row="1">
+            <ContentPresenter x:Name="ContentPresenter" Grid.Column="1" Grid.Row="1"/>
+        </Border>
+        <!-- Page Context Sidebar -->
+        <Border Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" MaxWidth="420">
+            <panels:AppVersionInfoPanel/>
         </Border>
         <!--    <Border Grid.Column="1" Background="{ThemeResource SolidBackgroundFillColorBaseBrush}"
                 BorderBrush="{ThemeResource SystemControlTransparentRevealBorderBrush}"

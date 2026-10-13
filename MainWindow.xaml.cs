@@ -19,6 +19,10 @@ public sealed partial class MainWindow : Window
     private readonly NavigationService _navigationService;
     private SystemBackdropConfiguration _configuration;
     private MicaController _micaController;
+    public string TitleText { get; set; } = "Vanara jñāna";
+    public string SubtitleText { get; set; } = "Workbench";
+    public bool IsBackButtonVisible { get; set; } = true;
+    public bool IsBackButtonEnabled { get; set; } = false;
 
     public MainWindow(MicaController micaController, SystemBackdropConfiguration configuration)
     {
@@ -35,14 +39,6 @@ public sealed partial class MainWindow : Window
         //TODO: NavigationHost<WorkbenchPage>.ShowPage(workbench);
         _navigationService.Navigate(typeof(WorkbenchPage));
     }
-
-    /// <summary>
-    ///     Public properties for the title, subtitle, and back button visibility of the main window.
-    /// </summary>
-    public string TitleText { get; set; } = "jñāna";
-    public string SubtitleText { get; set; } = "vanara jñāna";
-    public bool IsBackButtonVisible { get; set; } = true;
-    public bool IsBackButtonEnabled { get; set; } = false;
 
     private void TrySetMicaBackdrop()
     {

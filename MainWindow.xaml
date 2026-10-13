@@ -22,11 +22,10 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <TitleBar Grid.Column="1" Grid.Row="0"
-                  IsBackButtonVisible="{x:Bind IsBackButtonVisible, Mode=OneWay}"
                   IsBackButtonEnabled="{x:Bind IsBackButtonEnabled, Mode=OneWay}"
+                  IsBackButtonVisible="{x:Bind IsBackButtonVisible, Mode=OneWay}"
                   Subtitle="{x:Bind SubtitleText, Mode=OneWay}"
-                  Title="{x:Bind TitleText, Mode=OneWay}"
-                  Visibility="Collapsed">
+                  Title="{x:Bind TitleText, Mode=OneWay}">
             <TitleBar.IconSource>
                 <ImageIconSource ImageSource="/Assets/Square44x44Logo.png" />
             </TitleBar.IconSource>

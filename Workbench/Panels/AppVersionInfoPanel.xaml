@@ -13,32 +13,33 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0">
+        <StackPanel Grid.Row="0" BorderBrush="Black" BorderThickness="3" CornerRadius="6">
             <TitleBar IsBackButtonVisible="False" IsPaneToggleButtonVisible="True" Title="Vanara Jñāna" Subtitle="Runtime" BorderThickness="3">
                 <!--<TitleBar.Content>
                 </TitleBar.Content>-->
                 <TitleBar.RightHeader>
-                    <Button x:Name="CheckForUpdatesButton" Content="x"/>
+                    <Button x:Name="HideRuntimePanelBtn" Content=">"/>
                 </TitleBar.RightHeader>
             </TitleBar>
-            <Border Background="#2D5A88" CornerRadius="4" Opacity="0.8" Padding="8,2">
-                <TextBlock Text="Jñāna version 1.261011"/>
-            </Border>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Vanara Jñāna:" VerticalAlignment="Center"/>
+                <Border Background="#2D5A88" CornerRadius="4" Opacity="0.8" Padding="8,2">
+                    <TextBlock Text="v1.261011"/>
+                </Border>
+            </StackPanel>
         </StackPanel>
-        <StackPanel Grid.Row="1">
+
+        <StackPanel Grid.Row="1" BorderBrush="Black" BorderThickness="3" CornerRadius="6" >
             <TitleBar IsBackButtonVisible="False" IsPaneToggleButtonVisible="True" Title="Clipboard" Subtitle="History">
-                <TitleBar.Content>
-                    <TextBlock Text="Vanara Jñāna Clipboard"/>
-                </TitleBar.Content>
+                <!--<TitleBar.Content>
+                </TitleBar.Content>-->
                 <TitleBar.RightHeader>
-                    <Border Background="#2D5A88" CornerRadius="4" Opacity="0.8" Padding="8,2">
-                        <TextBlock Text="1 Item"/>
-                    </Border>
+                    <Button x:Name="HideClipboardPanelBtn" Content=">"/>
                 </TitleBar.RightHeader>
             </TitleBar>
             <RichTextBlock x:Name="MainRtb" OverflowContentTarget="{Binding ElementName=Overflow}">
                 <Paragraph>
-                    <Run Text="Vanara Jñāna"/>
+                    <Run Text="Insert Items here..."/>
                 </Paragraph>
             </RichTextBlock>
         </StackPanel>
