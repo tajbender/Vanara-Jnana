@@ -28,8 +28,6 @@
     <None Remove="Core\Navigation\NavigationHost.xaml" />
     <None Remove="README.md" />
     <None Remove="Vanara Jnana.csproj.Backup.tmp" />
-    <None Remove="Views\Tiles\NuGetTile.xaml" />
-    <None Remove="Views\Tiles\WorkbenchTile.xaml" />
     <None Remove="Workbench\Controls\QuickLaunchBar.xaml" />
     <None Remove="Workbench\Controls\FloatingStatusBar.xaml" />
     <None Remove="Workbench\Controls\NuGetTreeView.xaml" />
@@ -517,18 +515,11 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Views\Tiles\NuGetTile.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Update="Views\Tiles\WorkbenchTile.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
     <Page Update="Assets\Styles\LonghornTitleBar.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\" />
   </ItemGroup>
 </Project>
