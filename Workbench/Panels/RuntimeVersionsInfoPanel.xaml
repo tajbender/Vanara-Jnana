@@ -27,7 +27,7 @@
                 </Border>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Padding="13" HorizontalAlignment="Stretch">
-                <TextBlock Text="Vanara jñāna version:" VerticalAlignment="Center"/>
+                <TextBlock Text="jñāna version:" VerticalAlignment="Center"/>
                 <Border Background="#2D6466" CornerRadius="4" Opacity="0.8" Padding="8,2" HorizontalAlignment="Right">
                     <TextBlock Text="1.261011"/>
                 </Border>

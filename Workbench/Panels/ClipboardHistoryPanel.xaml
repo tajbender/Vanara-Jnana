@@ -26,10 +26,10 @@
                     <ItemsRepeater.ItemTemplate>
                         <DataTemplate x:DataType="local:ClipboardHistoryPanelItem">
                             <Border
+                                Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
                                 CornerRadius="8"
-                                Padding="12"
                                 Margin="0,0,0,4"
-                                Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                                Padding="12">
                                 <Grid RowDefinitions="Auto,Auto,Auto">
                                     <!-- Content Type -->
                                     <TextBlock FontWeight="SemiBold" Text="{x:Bind Type}"/>
@@ -41,7 +41,7 @@
                                         Margin="0,8,0,0"
                                         MaxLines="3"
                                         Text="{x:Bind GetContentPreviewText(100)}"
-                                        TextWrapping="WrapWholeWords"/>
+                                        TextWrapping="Wrap"/>
                                 </Grid>
                             </Border>
                         </DataTemplate>
