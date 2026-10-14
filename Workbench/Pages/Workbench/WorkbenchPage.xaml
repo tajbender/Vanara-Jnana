@@ -13,10 +13,9 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*" />
             <ColumnDefinition Width="3*" />
-            <ColumnDefinition Width="1*" />
         </Grid.ColumnDefinitions>
         <Grid x:Name="TreeViewSidebarContent" Grid.Column="0" Background="Transparent">
-            <TextBlock Text="Jñāna workbench sidebar coming soon" FontSize="32" FontWeight="SemiBold"
+            <TextBlock Text="jñāna workbench sidebar coming soon" FontSize="32" FontWeight="SemiBold"
                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
         </Grid>
         <!-- Workbench Content -->
@@ -28,11 +27,6 @@
                     <ctrls:VanaraReleasePanel />
                 </Border>
             </StackPanel>
-        </Grid>
-        <!-- Tool Sidebar Content -->
-        <Grid x:Name="ToolboxSidebarContent" Grid.Column="2" Background="Transparent">
-            <TextBlock Text="Jñāna workbench sidebar coming soon" FontSize="32" FontWeight="SemiBold"
-                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
         </Grid>
     </Grid>
 </Page>

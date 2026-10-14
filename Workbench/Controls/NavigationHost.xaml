@@ -21,7 +21,7 @@
         </Grid.RowDefinitions>
         <!-- Put TreeView here, Column 0-->
         <!-- Navigation Bar -->
-        <Border x:Name="NavigationBarBorder" Grid.Column="1" Grid.Row="0" Visibility="Collapsed">
+        <Border x:Name="NavigationBarBorder" Grid.Column="1" Grid.Row="0">
             <Grid x:Name="NavigationBarGrid" CornerRadius="6" Padding="8">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
