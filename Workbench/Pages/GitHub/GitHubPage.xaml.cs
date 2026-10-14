@@ -7,15 +7,15 @@ public sealed partial class GitHubPage : Page
 {
     public GitHubPage()
     {
-        InitializeComponent();
-        InitializeWebView();
+        this.InitializeComponent();
+        this.InitializeWebView();
     }
 
     private async void InitializeWebView()
     {
-        await GitHubView.EnsureCoreWebView2Async();
+        await this.GitHubView.EnsureCoreWebView2Async();
 
         // TODO: Add settings, disable context menus, inject CSS, etc.
-        GitHubView.Source = new Uri("https://github.com/dahall/vanara");
+        this.GitHubView.Source = new Uri("https://github.com/dahall/vanara");
     }
 }

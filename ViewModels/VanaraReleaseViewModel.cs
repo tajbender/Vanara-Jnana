@@ -16,7 +16,7 @@ public partial class VanaraReleaseViewModel : INotifyPropertyChanged
             /* Handle load failure */
         };
         PropertyChanged += static (s, e) => { };
-        _ = LoadAsync();
+        _ = this.LoadAsync();
     }
 
     public ObservableCollection<ReleaseInfo> Releases { get; } = [];
@@ -35,11 +35,11 @@ public partial class VanaraReleaseViewModel : INotifyPropertyChanged
         try
         {
             List<ReleaseInfo> items = await GitHubApi.GetLatestReleasesAsync();
-            Releases.Clear();
+            this.Releases.Clear();
             foreach (ReleaseInfo r in items)
-                Releases.Add(r);
+                this.Releases.Add(r);
 
-            OnPropertyChanged(nameof(Releases));
+            this.OnPropertyChanged(nameof(this.Releases));
         }
         catch
         {

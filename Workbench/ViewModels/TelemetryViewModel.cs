@@ -33,7 +33,7 @@ public class TelemetryViewModel()
         if (!Equals(field, value))
         {
             field = value;
-            PropertyChanged?.Invoke(this, new { PropertyName = propertyName });
+            this.PropertyChanged?.Invoke(this, new { PropertyName = propertyName });
         }
     }
 

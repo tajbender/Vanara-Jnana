@@ -17,7 +17,7 @@ public partial class StatusBarViewModel : ObservableObject
     public StatusBarViewModel()
     {
         //TODO:        _telemetry = App.GetService<TelemetryViewModel>();
-        _telemetry = new TelemetryViewModel(); // Temporary for testing, replace with DI in production
+        this._telemetry = new TelemetryViewModel(); // Temporary for testing, replace with DI in production
 
         // Bindings
         //CPUUsage = $"{_telemetry.CPU}%";
@@ -49,25 +49,25 @@ public partial class StatusBarViewModel : ObservableObject
 
     public string CPUUsage
     {
-        get => _cpu;
-        set => SetProperty(ref _cpu, value);
+        get => this._cpu;
+        set => this.SetProperty(ref this._cpu, value);
     }
 
     public string RAMUsage
     {
-        get => _ram;
-        set => SetProperty(ref _ram, value);
+        get => this._ram;
+        set => this.SetProperty(ref this._ram, value);
     }
 
     public string NetUsage
     {
-        get => _net;
-        set => SetProperty(ref _net, value);
+        get => this._net;
+        set => this.SetProperty(ref this._net, value);
     }
 
     public string DiskUsage
     {
-        get => _disk;
-        set => SetProperty(ref _disk, value);
+        get => this._disk;
+        set => this.SetProperty(ref this._disk, value);
     }
 }

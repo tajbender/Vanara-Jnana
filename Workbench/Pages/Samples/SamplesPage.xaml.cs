@@ -6,8 +6,8 @@ public sealed partial class SamplesPage : Page
 {
     public SamplesPage()
     {
-        InitializeComponent();
-        Initialize();
+        this.InitializeComponent();
+        this.Initialize();
     }
 
     private void Initialize()

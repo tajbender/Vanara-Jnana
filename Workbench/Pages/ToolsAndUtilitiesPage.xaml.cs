@@ -12,6 +12,6 @@ public sealed partial class ToolsAndUtilitiesPage : Page
 {
     public ToolsAndUtilitiesPage()
     {
-        InitializeComponent();
+        this.InitializeComponent();
     }
 }

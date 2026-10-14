@@ -31,7 +31,7 @@ public sealed class NuGetCatalogService : INuGetCatalogService
     private NuGetCatalogService()
     {
         var source = new PackageSource("https://api.nuget.org/v3/index.json");
-        _nuGetSourceRepository = Repository.Factory.GetCoreV3(source);
+        this._nuGetSourceRepository = Repository.Factory.GetCoreV3(source);
     }
 
     /// <summary>
@@ -46,7 +46,7 @@ public sealed class NuGetCatalogService : INuGetCatalogService
     /// <returns>A list of matching NuGet packages.</returns>
     public async Task<IReadOnlyList<NuGetPackageInfo>> SearchPackagesAsync(string query)
     {
-        PackageSearchResource? search = await _nuGetSourceRepository.GetResourceAsync<PackageSearchResource>();
+        PackageSearchResource? search = await this._nuGetSourceRepository.GetResourceAsync<PackageSearchResource>();
         Debug.Assert(search != null, nameof(search) + " != null");
         IEnumerable<IPackageSearchMetadata> results = await search.SearchAsync(query, new SearchFilter(true), 0, 50, NullLogger.Instance,
             CancellationToken.None);
@@ -65,14 +65,14 @@ public sealed class NuGetCatalogService : INuGetCatalogService
 
     public async Task<NuGetPackageInfo?> GetPackageMetadataAsync(string packageId)
     {
-        PackageMetadataResource? meta = await _nuGetSourceRepository.GetResourceAsync<PackageMetadataResource>();
+        PackageMetadataResource? meta = await this._nuGetSourceRepository.GetResourceAsync<PackageMetadataResource>();
         Debug.Assert(meta != null, nameof(meta) + " != null");
 
         IEnumerable<IPackageSearchMetadata> results = await meta.GetMetadataAsync(
             packageId,
             true,
             false,
-            _cache,
+            this._cache,
             NullLogger.Instance,
             CancellationToken.None);
 
@@ -95,7 +95,7 @@ public sealed class NuGetCatalogService : INuGetCatalogService
 
     public async Task<Stream?> DownloadPackageAsync(string packageId, string version)
     {
-        DownloadResource? download = await _nuGetSourceRepository.GetResourceAsync<DownloadResource>();
+        DownloadResource? download = await this._nuGetSourceRepository.GetResourceAsync<DownloadResource>();
         Debug.Assert(download != null, nameof(download) + " != null");
         DownloadResourceResult result = await download.GetDownloadResourceResultAsync(
             new PackageIdentity(packageId, NuGetVersion.Parse(version)),
@@ -109,7 +109,7 @@ public sealed class NuGetCatalogService : INuGetCatalogService
 
     public async Task<string?> GetReadmeMarkdownAsync(string packageId, string version)
     {
-        await using Stream? pkg = await DownloadPackageAsync(packageId, version);
+        await using Stream? pkg = await this.DownloadPackageAsync(packageId, version);
         if (pkg == null)
             return null;
 

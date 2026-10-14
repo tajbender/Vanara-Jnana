@@ -10,7 +10,7 @@ public sealed partial class NavigationHost : UserControl
 
     public NavigationHost()
     {
-        InitializeComponent();
+        this.InitializeComponent();
 
         this.BreadcrumbBar.ItemsSource = new string[] { "Workbench" };
     }

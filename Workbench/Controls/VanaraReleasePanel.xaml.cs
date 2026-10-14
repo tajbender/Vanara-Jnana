@@ -7,7 +7,7 @@ public sealed partial class VanaraReleasePanel : UserControl
 {
     public VanaraReleasePanel()
     {
-        InitializeComponent();
+        this.InitializeComponent();
     }
 
     private void Refresh_Click(object sender, RoutedEventArgs e)

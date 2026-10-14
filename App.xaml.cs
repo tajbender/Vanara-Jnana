@@ -25,13 +25,13 @@ public partial class App : Application
     /// </summary>
     public App()
     {
-        InitializeComponent();
+        this.InitializeComponent();
 
-        VerySlowTimer = new DispatcherTimer
+        this.VerySlowTimer = new DispatcherTimer
         {
             Interval = TimeSpan.FromSeconds(2.5)
         };
-        VerySlowTimer.Start();
+        this.VerySlowTimer.Start();
     }
 
     /// <summary>
@@ -45,9 +45,9 @@ public partial class App : Application
             // TODO: ServiceHost.InitializeAsync();
             // TODO: Add MicaController initialization and configuration here and pass it to MainWindow constructor
             var backdropConfiguration = new SystemBackdropConfiguration();
-            _window = new MainWindow(null, /* TODO */ backdropConfiguration);
-            if (_window != null)
-                _window.Activate();
+            this._window = new MainWindow(null, /* TODO */ backdropConfiguration);
+            if (this._window != null)
+                this._window.Activate();
             else
                 throw new InvalidOperationException("Failed to create the main window.");
         }

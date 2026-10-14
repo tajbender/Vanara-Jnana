@@ -48,7 +48,7 @@
         <!-- Page Context Sidebar -->
         <Border Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" MaxWidth="420">
             <StackPanel>
-                <panels:AppVersionInfoPanel/>
+                <panels:RuntimeVersionsInfoPanel/>
                 <panels:ClipboardHistoryPanel/>
             </StackPanel>
         </Border>

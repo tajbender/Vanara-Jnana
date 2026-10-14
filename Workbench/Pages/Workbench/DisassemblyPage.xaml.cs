@@ -6,6 +6,6 @@ public sealed partial class DisassemblyPage : Page
 {
     public DisassemblyPage()
     {
-        InitializeComponent();
+        this.InitializeComponent();
     }
 }

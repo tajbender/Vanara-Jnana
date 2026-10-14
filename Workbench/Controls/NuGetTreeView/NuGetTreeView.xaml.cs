@@ -19,8 +19,8 @@ public sealed class DependencyGraphResult
         IReadOnlyList<PackageInfo> topLevel,
         IReadOnlyList<PackageInfo> transitive)
     {
-        TopLevelPackages = topLevel;
-        TransitivePackages = transitive;
+        this.TopLevelPackages = topLevel;
+        this.TransitivePackages = transitive;
     }
 
     public IReadOnlyList<PackageInfo> TopLevelPackages { get; }
@@ -31,8 +31,8 @@ public sealed class PackageInfo
 {
     public PackageInfo(string id, string version)
     {
-        Id = id;
-        Version = version;
+        this.Id = id;
+        this.Version = version;
     }
 
     public string Id { get; }
@@ -45,15 +45,15 @@ public abstract class TreeNode
 
     protected TreeNode(string name)
     {
-        Name = name;
+        this.Name = name;
     }
 
     public string Name { get; }
-    public IReadOnlyList<TreeNode> Children => _children;
+    public IReadOnlyList<TreeNode> Children => this._children;
 
     public void AddChild(TreeNode node)
     {
-        _children.Add(node);
+        this._children.Add(node);
     }
 }
 
@@ -62,8 +62,8 @@ public sealed class PackageNode : TreeNode
     public PackageNode(string name, string version, bool isTopLevel)
         : base(name)
     {
-        Version = version;
-        IsTopLevel = isTopLevel;
+        this.Version = version;
+        this.IsTopLevel = isTopLevel;
     }
 
     public string Version { get; }
@@ -99,8 +99,8 @@ public sealed partial class NuGetTreeViewModel : ObservableObject
 
     public NuGetTreeViewModel(INuGetDependencyGraphService graphService)
     {
-        _graphService = graphService;
-        RootNodes = [];
+        this._graphService = graphService;
+        this.RootNodes = [];
     }
 
     // -----------------------------
@@ -116,19 +116,19 @@ public sealed partial class NuGetTreeViewModel : ObservableObject
     {
         try
         {
-            IsLoading = true;
-            RootNodes.Clear();
+            this.IsLoading = true;
+            this.RootNodes.Clear();
 
-            DependencyGraphResult graph = await _graphService.GetDependencyGraphAsync(projectPath);
+            DependencyGraphResult graph = await this._graphService.GetDependencyGraphAsync(projectPath);
 
             NuGetTreeRoot root = BuildTree(graph);
 
             foreach (TreeNode node in root.Children)
-                RootNodes.Add(node);
+                this.RootNodes.Add(node);
         }
         finally
         {
-            IsLoading = false;
+            this.IsLoading = false;
         }
     }
 
@@ -161,13 +161,13 @@ public sealed partial class NuGetTreeView : UserControl
 
     public NuGetTreeView()
     {
-        InitializeComponent();
+        this.InitializeComponent();
 
-        ViewModel = new NuGetTreeViewModel(_dependencyGraphService);
-        NuGetTreeViewControl.ItemsSource = ViewModel.RootNodes;
+        this.ViewModel = new NuGetTreeViewModel(this._dependencyGraphService);
+        this.NuGetTreeViewControl.ItemsSource = this.ViewModel.RootNodes;
     }
 
-    public ObservableCollection<TreeNode> RootNodes => ViewModel.RootNodes;
+    public ObservableCollection<TreeNode> RootNodes => this.ViewModel.RootNodes;
     public NuGetTreeViewModel ViewModel { get; }
 
     public static NuGetTreeRoot BuildTree(DependencyGraphResult graph)

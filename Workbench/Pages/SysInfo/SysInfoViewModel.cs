@@ -29,9 +29,9 @@ public partial class SysInfoViewModel : INotifyPropertyChanged
 
     public SysInfoViewModel()
     {
-        OSVersion = Environment.OSVersion.ToString();
-        MachineName = Environment.MachineName;
-        WinAppSdkVersion = typeof(App).Assembly.GetName().Version?.ToString() ?? "unknown";
+        this.OSVersion = Environment.OSVersion.ToString();
+        this.MachineName = Environment.MachineName;
+        this.WinAppSdkVersion = typeof(App).Assembly.GetName().Version?.ToString() ?? "unknown";
 
         // WinAppSdkVersion = Microsoft.WindowsAppSDK.Version;
         // 
@@ -50,61 +50,61 @@ public partial class SysInfoViewModel : INotifyPropertyChanged
         //        GpuName = gpu.name;
         //        GpuVram = gpu.vramGb;
 
-        _timer = new DispatcherTimer
+        this._timer = new DispatcherTimer
         {
             Interval = TimeSpan.FromSeconds(1)
         };
-        _timer.Tick += Update;
-        _timer.Start();
+        this._timer.Tick += this.Update;
+        this._timer.Start();
     }
 
     public double CpuUsage
     {
-        get => _cpuUsage;
+        get => this._cpuUsage;
         private set
         {
-            _cpuUsage = value;
-            OnPropertyChanged();
+            this._cpuUsage = value;
+            this.OnPropertyChanged();
         }
     }
 
     public double RamUsed
     {
-        get => _ramUsed;
+        get => this._ramUsed;
         private set
         {
-            _ramUsed = value;
-            OnPropertyChanged();
+            this._ramUsed = value;
+            this.OnPropertyChanged();
         }
     }
 
     public double RamTotal
     {
-        get => _ramTotal;
+        get => this._ramTotal;
         private set
         {
-            _ramTotal = value;
-            OnPropertyChanged();
+            this._ramTotal = value;
+            this.OnPropertyChanged();
         }
     }
 
     public string GpuName
     {
-        get => _gpuName;
+        get => this._gpuName;
         private set
         {
-            _gpuName = value;
-            OnPropertyChanged();
+            this._gpuName = value;
+            this.OnPropertyChanged();
         }
     }
 
     public double GpuVram
     {
-        get => _gpuVram;
+        get => this._gpuVram;
         private set
         {
-            _gpuVram = value;
-            OnPropertyChanged();
+            this._gpuVram = value;
+            this.OnPropertyChanged();
         }
     }
 

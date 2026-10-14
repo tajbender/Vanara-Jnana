@@ -9,6 +9,6 @@ public sealed partial class ShellNamespaceTreeView : UserControl
 {
     public ShellNamespaceTreeView()
     {
-        InitializeComponent();
+        this.InitializeComponent();
     }
 }

@@ -6,6 +6,6 @@ public sealed partial class ScienceLabsPage : Page
 {
     public ScienceLabsPage()
     {
-        InitializeComponent();
+        this.InitializeComponent();
     }
 }

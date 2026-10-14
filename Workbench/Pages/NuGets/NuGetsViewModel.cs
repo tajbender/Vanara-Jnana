@@ -16,7 +16,7 @@ public partial class NuGetsViewModel : ObservableObject
 
     public NuGetsViewModel(INuGetCatalogService catalogService)
     {
-        _catalogService = catalogService;
+        this._catalogService = catalogService;
     }
 
     public ObservableCollection<NuGetPackageInfo> Packages { get; } = [];
@@ -24,7 +24,7 @@ public partial class NuGetsViewModel : ObservableObject
     [RelayCommand]
     public async Task LoadAsync()
     {
-        Packages.Clear();
+        this.Packages.Clear();
         // TODO:            var results = await _catalogService.SearchAsync(searchQuery);
         // TODO:            foreach (var pkg in results)
         // TODO:                Packages.Add(pkg);
@@ -33,7 +33,7 @@ public partial class NuGetsViewModel : ObservableObject
     [RelayCommand]
     public void NavigateToPackage(NuGetPackageInfo package)
     {
-        selectedPackage = package;
+        this.selectedPackage = package;
 
         // Workbench-Morphing:
         // NavigationService.MorphTo("nuget://" + package.Id);

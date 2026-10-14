@@ -9,6 +9,6 @@ public sealed partial class ExplorerBrowser : Control
 {
     public ExplorerBrowser()
     {
-        DefaultStyleKey = typeof(ExplorerBrowser);
+        this.DefaultStyleKey = typeof(ExplorerBrowser);
     }
 }

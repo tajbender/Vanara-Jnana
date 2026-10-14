@@ -8,19 +8,36 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
+    <UserControl.Resources>
+    </UserControl.Resources>
+
     <Grid>
         <StackPanel Grid.Row="1" BorderBrush="Black" BorderThickness="3" CornerRadius="6" >
-            <TitleBar IsBackButtonVisible="False" IsPaneToggleButtonVisible="True" Title="Clipboard" Subtitle="History">
+            <TitleBar IsBackButtonVisible="False" IsPaneToggleButtonVisible="True" Subtitle="History" Title="Clipboard">
                 <!--<TitleBar.Content>
                 </TitleBar.Content>-->
                 <!--<TitleBar.RightHeader>
                 </TitleBar.RightHeader>-->
             </TitleBar>
-            <RichTextBlock x:Name="MainRtb" OverflowContentTarget="{Binding ElementName=Overflow}">
-                <Paragraph>
-                    <Run Text="Add Items here..."/>
-                </Paragraph>
-            </RichTextBlock>
+
+            <!-- The ItemsRepeater and ScrollViewer used: -->
+            <ScrollViewer HorizontalScrollMode="Auto" VerticalScrollBarVisibility="Visible">
+                <ItemsRepeater ItemsSource="{x:Bind ClipboardItems}"/>
+                <!--Layout="{StaticResource VerticalStackLayout}"
+                    ItemTemplate="{StaticResource HorizontalBarTemplate}"-->
+            </ScrollViewer>
         </StackPanel>
+
+        <!-- The Layout specifications used: -->
+        <!--<StackLayout x:Name="VerticalStackLayout" Orientation="Vertical" Spacing="8"/> -->
+
+        <!-- The DataTemplate used: HorizontalBarTemplate-->
+        <!--<DataTemplate x:Key="HorizontalBarTemplate" x:DataType="l:Bar">
+                <Border Background="{ThemeResource SystemChromeLowColor}" Width="{x:Bind MaxLength}" >
+                    <Rectangle Fill="{ThemeResource SystemAccentColor}" Width="{x:Bind Length}" 
+                   Height="24" HorizontalAlignment="Left"/>
+                </Border>
+            </DataTemplate>-->
+
     </Grid>
 </UserControl>

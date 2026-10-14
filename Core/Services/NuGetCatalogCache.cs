@@ -18,41 +18,41 @@ public sealed class NuGetCatalogCache : INuGetCatalogService
 
     public NuGetCatalogCache(INuGetCatalogService inner)
     {
-        _inner = inner;
+        this._inner = inner;
     }
 
     public Task<IReadOnlyList<NuGetPackageInfo>> SearchPackagesAsync(string query)
     {
-        return Task.FromResult(GetOrAdd($"search:{query}", () => _inner.SearchPackagesAsync(query))!);
+        return Task.FromResult(this.GetOrAdd($"search:{query}", () => this._inner.SearchPackagesAsync(query))!);
     }
 
     public Task<NuGetPackageInfo?> GetPackageMetadataAsync(string packageId)
     {
-        return Task.FromResult(GetOrAdd($"meta:{packageId}", () => _inner.GetPackageMetadataAsync(packageId)));
+        return Task.FromResult(this.GetOrAdd($"meta:{packageId}", () => this._inner.GetPackageMetadataAsync(packageId)));
     }
 
     public Task<Stream?> DownloadPackageAsync(string packageId, string version)
     {
-        return _inner.DownloadPackageAsync(packageId, version);
+        return this._inner.DownloadPackageAsync(packageId, version);
         // kein Cache für Streams
     }
 
     public Task<string?> GetReadmeMarkdownAsync(string packageId, string version)
     {
-        return Task.FromResult(GetOrAdd($"readme:{packageId}:{version}",
-            () => _inner.GetReadmeMarkdownAsync(packageId, version)));
+        return Task.FromResult(this.GetOrAdd($"readme:{packageId}:{version}",
+            () => this._inner.GetReadmeMarkdownAsync(packageId, version)));
     }
 
     private T? GetOrAdd<T>(string key, Func<Task<T?>> factory)
     {
-        if (_cache.TryGetValue(key, out T? value))
+        if (this._cache.TryGetValue(key, out T? value))
             return value;
 
         T? result = factory().Result;
         if (result != null)
-            _cache.Set(key, result, new MemoryCacheEntryOptions
+            this._cache.Set(key, result, new MemoryCacheEntryOptions
             {
-                AbsoluteExpirationRelativeToNow = _ttl,
+                AbsoluteExpirationRelativeToNow = this._ttl,
                 Size = 1
             });
 

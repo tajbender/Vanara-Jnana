@@ -23,8 +23,8 @@ public sealed partial class QuickLaunchBar : UserControl
     /// </summary>
     public string GitHubNetworkStatus
     {
-        get => (string)GetValue(GitHubNetworkStatusProperty);
-        set => SetValue(GitHubNetworkStatusProperty, value);
+        get => (string)this.GetValue(GitHubNetworkStatusProperty);
+        set => this.SetValue(GitHubNetworkStatusProperty, value);
     }
 
     /// <summary>
@@ -32,14 +32,14 @@ public sealed partial class QuickLaunchBar : UserControl
     /// </summary>
     public string NetworkStatus
     {
-        get => (string)GetValue(NetworkStatusDependencyProperty);
-        set => SetValue(NetworkStatusDependencyProperty, value);
+        get => (string)this.GetValue(NetworkStatusDependencyProperty);
+        set => this.SetValue(NetworkStatusDependencyProperty, value);
     }
 
     public string Orientation
     {
-        get => (string)GetValue(OrientationDependencyProperty);
-        set => SetValue(OrientationDependencyProperty, value);
+        get => (string)this.GetValue(OrientationDependencyProperty);
+        set => this.SetValue(OrientationDependencyProperty, value);
     }
 
 
@@ -48,8 +48,8 @@ public sealed partial class QuickLaunchBar : UserControl
     /// </summary>
     public string UserAvatarImageUri
     {
-        get => (string)GetValue(UserAvatarImageUriProperty);
-        set => SetValue(UserAvatarImageUriProperty, value);
+        get => (string)this.GetValue(UserAvatarImageUriProperty);
+        set => this.SetValue(UserAvatarImageUriProperty, value);
     }
 
     /// <summary>
@@ -57,8 +57,8 @@ public sealed partial class QuickLaunchBar : UserControl
     /// </summary>
     public string UserDisplayName
     {
-        get => (string)GetValue(UserDisplayNameProperty);
-        set => SetValue(UserDisplayNameProperty, value);
+        get => (string)this.GetValue(UserDisplayNameProperty);
+        set => this.SetValue(UserDisplayNameProperty, value);
     }
 
 
@@ -75,10 +75,10 @@ public sealed partial class QuickLaunchBar : UserControl
     /// </summary>
     public QuickLaunchBar()
     {
-        InitializeComponent();
+        this.InitializeComponent();
 
         // Start the asynchronous initialization of status information
-        _ = InitializeStatusAsync();
+        _ = this.InitializeStatusAsync();
     }
 
     //private string GitHubNetworkStatus
@@ -133,19 +133,19 @@ public sealed partial class QuickLaunchBar : UserControl
     /// <returns></returns>
     private async Task InitializeStatusAsync()
     {
-        UserDisplayName = $"Local user: `{Environment.UserName}`";
-        NetworkStatus = "Network status pending...";
-        GitHubNetworkStatus = "GitHub status pending...";
+        this.UserDisplayName = $"Local user: `{Environment.UserName}`";
+        this.NetworkStatus = "Network status pending...";
+        this.GitHubNetworkStatus = "GitHub status pending...";
 
         // Network status
         var networkOk = await CheckNetworkAsync();
-        NetworkStatus = networkOk ? "Network status: Online" : "Network status: Offline";
+        this.NetworkStatus = networkOk ? "Network status: Online" : "Network status: Offline";
 
         // GitHub status
         if (networkOk)
         {
             var githubOk = await CheckGitHubAsync();
-            GitHubNetworkStatus = githubOk ? "GitHub status: Online" : "GitHub status: Unreachable";
+            this.GitHubNetworkStatus = githubOk ? "GitHub status: Online" : "GitHub status: Unreachable";
         }
     }
 
@@ -187,7 +187,7 @@ public sealed partial class QuickLaunchBar : UserControl
     /// <param name="e"></param>
     private void OnGitHubBrowserClick(object sender, RoutedEventArgs e)
     {
-        RaisePageRequested(sender, typeof(GitHubPage), e);
+        this.RaisePageRequested(sender, typeof(GitHubPage), e);
     }
 
     /// <summary>
@@ -197,7 +197,7 @@ public sealed partial class QuickLaunchBar : UserControl
     /// <param name="e"></param>
     private void OnNuGetsClick(object sender, RoutedEventArgs e)
     {
-        RaisePageRequested(sender, typeof(NuGetsPage), e);
+        this.RaisePageRequested(sender, typeof(NuGetsPage), e);
     }
 
     /// <summary>
@@ -207,7 +207,7 @@ public sealed partial class QuickLaunchBar : UserControl
     /// <param name="e"></param>
     private void OnSamplesClick(object sender, RoutedEventArgs e)
     {
-        RaisePageRequested(sender, typeof(SamplesPage), e);
+        this.RaisePageRequested(sender, typeof(SamplesPage), e);
     }
 
     /// <summary>
@@ -217,7 +217,7 @@ public sealed partial class QuickLaunchBar : UserControl
     /// <param name="e"></param>
     private void OnScienceLabsClick(object sender, RoutedEventArgs e)
     {
-        RaisePageRequested(sender, typeof(ScienceLabsPage), e);
+        this.RaisePageRequested(sender, typeof(ScienceLabsPage), e);
     }
 
     /// <summary>
@@ -227,7 +227,7 @@ public sealed partial class QuickLaunchBar : UserControl
     /// <param name="e"></param>
     private void OnToolsAndUtilitiesClick(object sender, RoutedEventArgs e)
     {
-        RaisePageRequested(sender, typeof(ToolsAndUtilitiesPage), e);
+        this.RaisePageRequested(sender, typeof(ToolsAndUtilitiesPage), e);
     }
 
     /// <summary>
@@ -237,7 +237,7 @@ public sealed partial class QuickLaunchBar : UserControl
     /// <param name="e"></param>
     private void OnWorkbenchClick(object sender, RoutedEventArgs e)
     {
-        RaisePageRequested(sender, typeof(WorkbenchPage), e);
+        this.RaisePageRequested(sender, typeof(WorkbenchPage), e);
     }
 
     /// <summary>
@@ -247,7 +247,7 @@ public sealed partial class QuickLaunchBar : UserControl
     /// <param name="e"></param>
     private void OnSettingsClick(object sender, RoutedEventArgs e)
     {
-        RaisePageRequested(sender, typeof(SettingsPage), e);
+        this.RaisePageRequested(sender, typeof(SettingsPage), e);
     }
 
     /// <summary>

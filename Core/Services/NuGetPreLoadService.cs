@@ -9,11 +9,11 @@ public sealed class NuGetPreLoadService : INuGetPreLoadService
 
     public NuGetPreLoadService(NuGetTreeViewModel treeViewModel)
     {
-        _treeViewModel = treeViewModel;
+        this._treeViewModel = treeViewModel;
     }
 
     public async Task PreLoadAsync(string projectPath)
     {
-        await _treeViewModel.LoadAsync(projectPath);
+        await this._treeViewModel.LoadAsync(projectPath);
     }
 }
