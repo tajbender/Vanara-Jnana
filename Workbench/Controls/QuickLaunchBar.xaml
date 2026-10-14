@@ -25,13 +25,7 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <Button Grid.Row="0" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center">
-                    <Image Grid.Row="1" MaxHeight="64" Opacity="0.66" Source="/Assets/StoreLogo.png" VerticalAlignment="Stretch">
-                        <Image.OpacityTransition>
-                            <ScalarTransition Duration="3:4:5"/>
-                        </Image.OpacityTransition>
-                    </Image>
-                </Button>
+                <Image Grid.Row="0" MaxHeight="84" Source="/Assets/StoreLogo.png" VerticalAlignment="Stretch"/>
                 <Button Grid.Row="1" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center">
                     <StackPanel>
                         <TextBlock FontSize="32" HorizontalAlignment="Center" Text="🧠"/>
@@ -46,19 +40,19 @@
                     </StackPanel>
                 </Button>
                 <Border Grid.Row="4" Height="16"/>
-                <Button Grid.Row="5" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center">
+                <Button Grid.Row="5" CornerRadius="6,6,0,0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center">
                     <StackPanel>
                         <TextBlock FontSize="32" HorizontalAlignment="Center" Text="🌿"/>
                         <TextBlock HorizontalAlignment="Center" Text="GitHub"/>
                     </StackPanel>
                 </Button>
-                <Button Grid.Row="6" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center">
+                <Button Grid.Row="6" CornerRadius="0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center">
                     <StackPanel>
                         <TextBlock FontSize="32" HorizontalAlignment="Center" Text="🐞"/>
                         <TextBlock HorizontalAlignment="Center" Text="Issues"/>
                     </StackPanel>
                 </Button>
-                <Button Grid.Row="7" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center">
+                <Button Grid.Row="7" CornerRadius="0,0,6,6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center">
                     <StackPanel>
                         <TextBlock FontSize="32" HorizontalAlignment="Center" Text="💬"/>
                         <TextBlock HorizontalAlignment="Center" Text="Discussions"/>
@@ -75,7 +69,7 @@
                 <Button Grid.Row="11" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center">
                     <StackPanel>
                         <TextBlock FontSize="32" HorizontalAlignment="Center" Text="🧪"/>
-                        <TextBlock HorizontalAlignment="Center" Text="Jñāna Science Lab"/>
+                        <TextBlock HorizontalAlignment="Center" Text="jñāna Science Lab"/>
                     </StackPanel>
                 </Button>
             </Grid>

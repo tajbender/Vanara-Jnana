@@ -9,6 +9,18 @@
     mc:Ignorable="d">
 
     <Grid>
-
+        <StackPanel Grid.Row="1" BorderBrush="Black" BorderThickness="3" CornerRadius="6" >
+            <TitleBar IsBackButtonVisible="False" IsPaneToggleButtonVisible="True" Title="Clipboard" Subtitle="History">
+                <!--<TitleBar.Content>
+                </TitleBar.Content>-->
+                <!--<TitleBar.RightHeader>
+                </TitleBar.RightHeader>-->
+            </TitleBar>
+            <RichTextBlock x:Name="MainRtb" OverflowContentTarget="{Binding ElementName=Overflow}">
+                <Paragraph>
+                    <Run Text="Add Items here..."/>
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
     </Grid>
 </UserControl>

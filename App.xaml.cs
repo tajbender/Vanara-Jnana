@@ -12,6 +12,12 @@ namespace Jnana;
 public partial class App : Application
 {
     private Window? _window;
+    public DispatcherTimer VerySlowTimer { get; }
+
+    /// <summary>
+    ///     Gets the singleton instance of the AppServiceHost for the application.
+    /// </summary>
+    public static AppServiceHost ServiceHost { get; private set; } = new();
 
     /// <summary>
     ///     Initializes the singleton application object.  This is the first line of authored code
@@ -28,13 +34,6 @@ public partial class App : Application
         VerySlowTimer.Start();
     }
 
-    public DispatcherTimer VerySlowTimer { get; }
-
-    /// <summary>
-    ///     Gets the singleton instance of the AppServiceHost for the application.
-    /// </summary>
-    public static AppServiceHost ServiceHost { get; private set; } = new();
-
     /// <summary>
     ///     Invoked when the application is launched.
     /// </summary>
@@ -44,6 +43,7 @@ public partial class App : Application
         try
         {
             // TODO: ServiceHost.InitializeAsync();
+            // TODO: Add MicaController initialization and configuration here and pass it to MainWindow constructor
             var backdropConfiguration = new SystemBackdropConfiguration();
             _window = new MainWindow(null, /* TODO */ backdropConfiguration);
             if (_window != null)
@@ -56,6 +56,7 @@ public partial class App : Application
             var msgText = $"App.OnLaunched(): Exception while launching the application: {e.Message}";
             Console.WriteLine(msgText);
             Debug.Write(msgText);
+            throw;
         }
     }
 }

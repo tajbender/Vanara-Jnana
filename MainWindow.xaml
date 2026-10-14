@@ -8,7 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ctrls="using:Jnana.Workbench.Controls"
     mc:Ignorable="d"
-    Title="Vanara Jñāna">
+    Title="Vanara jñāna">
     <Window.SystemBackdrop>
         <MicaBackdrop />
     </Window.SystemBackdrop>
@@ -27,7 +27,7 @@
                   Subtitle="{x:Bind SubtitleText, Mode=OneWay}"
                   Title="{x:Bind TitleText, Mode=OneWay}">
             <TitleBar.IconSource>
-                <ImageIconSource ImageSource="/Assets/Square44x44Logo.png" />
+                <ImageIconSource ImageSource="/Assets/Icons/vanara-Jnana.ico" />
             </TitleBar.IconSource>
         </TitleBar>
 
@@ -36,5 +36,15 @@
 
         <!-- Navigation Host -->
         <ctrls:NavigationHost x:Name="NavigationHost" Grid.Column="1" Grid.Row="1" VerticalAlignment="Stretch" />
+
+        <Border x:Name="EasterEggLayer" Grid.ColumnSpan="2" Grid.RowSpan="2" Background="#CC000000" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20">
+                <TextBlock FontFamily="Cascadia Mono" Foreground="Lime" Text="Congratulations! You found the Easter Egg."/>
+                <AppBarSeparator Margin="0,10,0,10"/>
+                <TextBlock FontFamily="Cascadia Mono" Foreground="Lime" Text="You weren't supposed to be here, you know?" Margin="0,10,0,0"/>
+                <AppBarSeparator Margin="0,10,0,10"/>
+                <TextBlock FontFamily="Cascadia Mono" Foreground="Lime" Text="However, glad to see you here, Mr. Falken." Margin="0,10,0,0"/>
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>

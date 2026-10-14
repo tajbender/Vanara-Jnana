@@ -21,8 +21,8 @@
         </Grid.RowDefinitions>
         <!-- Put TreeView here, Column 0-->
         <!-- Navigation Bar -->
-        <Border x:Name="NavigationBarBorder" Grid.Column="1" Grid.Row="0">
-            <Grid x:Name="NavigationBar" CornerRadius="6" Padding="8">
+        <Border x:Name="NavigationBarBorder" Grid.Column="1" Grid.Row="0" Visibility="Collapsed">
+            <Grid x:Name="NavigationBarGrid" CornerRadius="6" Padding="8">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
@@ -47,7 +47,10 @@
         </Border>
         <!-- Page Context Sidebar -->
         <Border Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" MaxWidth="420">
-            <panels:AppVersionInfoPanel/>
+            <StackPanel>
+                <panels:AppVersionInfoPanel/>
+                <panels:ClipboardHistoryPanel/>
+            </StackPanel>
         </Border>
         <!--    <Border Grid.Column="1" Background="{ThemeResource SolidBackgroundFillColorBaseBrush}"
                 BorderBrush="{ThemeResource SystemControlTransparentRevealBorderBrush}"
