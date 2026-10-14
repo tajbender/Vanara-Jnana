@@ -51,6 +51,4 @@ Jñāna is currently in active development, with the Workbench transformation, M
 
 ----
 
-(c) 2024 Vanara Jñāna and its contributors. Licensed under the MIT License.
-
-See LICENSE for details. - _last update:_ 2024‑09‑10
+Licensed under the MIT License. See LICENSE for details.
