@@ -14,12 +14,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" BorderBrush="Black" BorderThickness="3" CornerRadius="6">
-            <TitleBar IsBackButtonVisible="False" IsPaneToggleButtonVisible="True" Title="Runtime Information" BorderThickness="3">
-                <!--<TitleBar.Content>
-                </TitleBar.Content>-->
-                <!--<TitleBar.RightHeader>
-                </TitleBar.RightHeader>-->
-            </TitleBar>
+            <TextBlock Grid.Row="1" FontSize="23" Opacity="0.7" Text="Runtime Versions"/>
             <StackPanel Orientation="Horizontal" Padding="13" HorizontalAlignment="Stretch">
                 <TextBlock Text="Vanara version:" VerticalAlignment="Center"/>
                 <Border Background="#0589D7" CornerRadius="4" Opacity="0.8" Padding="8,2" HorizontalAlignment="Right">

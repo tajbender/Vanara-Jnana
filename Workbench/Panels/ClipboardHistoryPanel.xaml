@@ -10,13 +10,7 @@
 
     <Grid>
         <StackPanel Grid.Row="1" BorderBrush="Black" BorderThickness="3" CornerRadius="6" >
-            <TitleBar IsBackButtonVisible="False" IsPaneToggleButtonVisible="True" Subtitle="History" Title="Clipboard">
-                <!--<TitleBar.Content>
-                </TitleBar.Content>-->
-                <!--<TitleBar.RightHeader>
-                </TitleBar.RightHeader>-->
-            </TitleBar>
-
+            <TextBlock Grid.Row="1" FontSize="23" Opacity="0.7" Text="Clipboard History"/>
             <!-- The ItemsRepeater and ScrollViewer used: -->
             <ScrollViewer>
                 <ItemsRepeater ItemsSource="{x:Bind ClipboardItems}">

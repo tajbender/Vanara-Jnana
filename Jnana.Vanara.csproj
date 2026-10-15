@@ -38,7 +38,6 @@
     <None Remove="Workbench\Pages\Samples\SamplesPage.xaml" />
     <None Remove="Workbench\Pages\SysInfo\SysInfoPage.xaml" />
     <None Remove="Workbench\Pages\ToolsAndUtilitiesPage.xaml" />
-    <None Remove="Workbench\Pages\VoidPage.xaml" />
     <None Remove="Workbench\Pages\WorkbenchPage.xaml" />
     <None Remove="Workbench\Pages\Workbench\DisassemblyPage.xaml" />
     <None Remove="Workbench\Pages\Workbench\SettingsPage.xaml" />
@@ -77,8 +76,8 @@
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
     <PackageReference Include="CommunityToolkit.WinUI.UI.Controls.Markdown" Version="7.1.2" />
     <PackageReference Include="fuselibs-desktop-fonts" Version="1.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="11.0.0-rc.1.26425.128" />
-    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="11.0.0-rc.1.26425.128" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="11.0.0-rc.2.26504.105" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="11.0.0-rc.2.26504.105" />
     <PackageReference Include="Microsoft.Identity.Client" Version="4.91.0" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.29648.1000-preview" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="2.5.4-experimental" />
@@ -118,11 +117,6 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="Workbench\Pages\GitHub\GitHubPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Update="Workbench\Pages\VoidPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
