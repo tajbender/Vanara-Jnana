@@ -8,52 +8,50 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid>
-        <StackPanel Grid.Row="1" BorderBrush="Black" BorderThickness="3" CornerRadius="6" >
-            <TextBlock Grid.Row="1" FontSize="23" Opacity="0.7" Text="Clipboard History"/>
-            <!-- The ItemsRepeater and ScrollViewer used: -->
-            <ScrollViewer>
-                <ItemsRepeater ItemsSource="{x:Bind ClipboardItems}">
-                    <ItemsRepeater.Layout>
-                        <StackLayout Spacing="8" />
-                    </ItemsRepeater.Layout>
-                    <ItemsRepeater.ItemTemplate>
-                        <DataTemplate x:DataType="local:ClipboardHistoryPanelItem">
-                            <Border
+    <StackPanel Grid.Row="1" BorderBrush="Black" BorderThickness="3" CornerRadius="6" >
+        <TextBlock Grid.Row="1" FontSize="23" Opacity="0.7" Text="Clipboard History"/>
+        <!-- The ItemsRepeater and ScrollViewer used: -->
+        <ScrollViewer>
+            <ItemsRepeater ItemsSource="{x:Bind ClipboardItems}">
+                <ItemsRepeater.Layout>
+                    <StackLayout Spacing="8" />
+                </ItemsRepeater.Layout>
+                <ItemsRepeater.ItemTemplate>
+                    <DataTemplate x:DataType="local:ClipboardHistoryPanelItem">
+                        <Border
                                 Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
                                 CornerRadius="8"
                                 Margin="0,0,0,4"
                                 Padding="12">
-                                <Grid RowDefinitions="Auto,Auto,Auto">
-                                    <!-- Content Type -->
-                                    <TextBlock FontWeight="SemiBold" Text="{x:Bind Type}"/>
-                                    <!-- Source Application -->
-                                    <TextBlock Grid.Row="1" FontSize="12" Opacity="0.7" Text="{x:Bind Source}"/>
-                                    <!-- Preview -->
-                                    <TextBlock
+                            <Grid RowDefinitions="Auto,Auto,Auto">
+                                <!-- Content Type -->
+                                <TextBlock FontWeight="SemiBold" Text="{x:Bind Type}"/>
+                                <!-- Source Application -->
+                                <TextBlock Grid.Row="1" FontSize="12" Opacity="0.7" Text="{x:Bind Source}"/>
+                                <!-- Preview -->
+                                <TextBlock
                                         Grid.Row="2"
                                         Margin="0,8,0,0"
                                         MaxLines="3"
                                         Text="{x:Bind GetContentPreviewText(100)}"
                                         TextWrapping="Wrap"/>
-                                </Grid>
-                            </Border>
-                        </DataTemplate>
-                    </ItemsRepeater.ItemTemplate>
-                </ItemsRepeater>
-            </ScrollViewer>
-        </StackPanel>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ItemsRepeater.ItemTemplate>
+            </ItemsRepeater>
+        </ScrollViewer>
+    </StackPanel>
 
-        <!-- The Layout specifications used: -->
-        <!--<StackLayout x:Name="VerticalStackLayout" Orientation="Vertical" Spacing="8"/> -->
+    <!-- The Layout specifications used: -->
+    <!--<StackLayout x:Name="VerticalStackLayout" Orientation="Vertical" Spacing="8"/> -->
 
-        <!-- The DataTemplate used: HorizontalBarTemplate-->
-        <!--<DataTemplate x:Key="HorizontalBarTemplate" x:DataType="l:Bar">
+    <!-- The DataTemplate used: HorizontalBarTemplate-->
+    <!--<DataTemplate x:Key="HorizontalBarTemplate" x:DataType="l:Bar">
                 <Border Background="{ThemeResource SystemChromeLowColor}" Width="{x:Bind MaxLength}" >
                     <Rectangle Fill="{ThemeResource SystemAccentColor}" Width="{x:Bind Length}" 
                    Height="24" HorizontalAlignment="Left"/>
                 </Border>
             </DataTemplate>-->
 
-    </Grid>
 </UserControl>

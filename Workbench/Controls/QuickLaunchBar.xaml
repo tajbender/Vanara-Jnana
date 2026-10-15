@@ -10,7 +10,7 @@
 
     <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
         <Border Grid.Column="0" BorderBrush="{ThemeResource SystemControlTransparentRevealBorderBrush}" BorderThickness="3" CornerRadius="32">
-            <Grid x:Name="HeaderLogoGrid" CornerRadius="6" Opacity=".76">
+            <Grid x:Name="HeaderLogoGrid" CornerRadius="6">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
@@ -50,14 +50,14 @@
                     </StackPanel>
                 </Button>
                 <Button Grid.Row="6" CornerRadius="0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"
-                        IsEnabled="False">
+                        IsEnabled="False" Opacity="0.5">
                     <StackPanel>
                         <TextBlock FontSize="32" HorizontalAlignment="Center" Text="🐞"/>
                         <TextBlock HorizontalAlignment="Center" Text="Issues"/>
                     </StackPanel>
                 </Button>
                 <Button Grid.Row="7" CornerRadius="0,0,6,6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"
-                        IsEnabled="False">
+                        IsEnabled="False" Opacity="0.5">
                     <StackPanel>
                         <TextBlock FontSize="32" HorizontalAlignment="Center" Text="💬"/>
                         <TextBlock HorizontalAlignment="Center" Text="Discussions"/>
@@ -65,7 +65,7 @@
                 </Button>
                 <Border Grid.Row="8" Height="16"/>
                 <Button Grid.Row="9" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"
-                        IsEnabled="False">
+                        IsEnabled="False" Opacity="0.5">
                     <StackPanel>
                         <TextBlock FontSize="32" HorizontalAlignment="Center" Text="📚"/>
                         <TextBlock HorizontalAlignment="Center" Text="Samples"/>
@@ -73,7 +73,7 @@
                 </Button>
                 <Border Grid.Row="10" Height="16"/>
                 <Button Grid.Row="11" CornerRadius="6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"
-                        IsEnabled="False">
+                        IsEnabled="False" Opacity="0.5">
                     <StackPanel>
                         <TextBlock FontSize="32" HorizontalAlignment="Center" Text="🧪"/>
                         <TextBlock HorizontalAlignment="Center" Text="jñāna Science Lab"/>

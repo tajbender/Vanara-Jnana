@@ -1,6 +1,7 @@
 using Jnana.Core.Navigation;
 using Jnana.Workbench.Pages.Workbench;
 using Microsoft.UI.Composition.SystemBackdrops;
+using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
 
 namespace Jnana;
@@ -31,6 +32,10 @@ public sealed partial class MainWindow : Window
         this.InitializeComponent();
         this.TrySetMicaBackdrop();
 
+        // TODO: Set correct title bar colors based on the current theme and set drag area
+        this.ExtendsContentIntoTitleBar = true;
+        this.SetTitleBar(this.AppTitleBar);
+
         this._navigationService = new NavigationService();
         // TODO: Restore Navigation handling when NavigationService is implemented
         //_navigationService.OnPageNavigated += (sender, e) => NavigationHost.ShowPage(e.PageInstance);
@@ -53,4 +58,35 @@ public sealed partial class MainWindow : Window
         //   _micaController.AddSystemBackdropTarget(this.As<Microsoft.UI.Composition.ICompositionSupportsSystemBackdrop>());
 //        this._micaController.SetSystemBackdropConfiguration(this._configuration);
     }
+
+    private void MinimizeButton_Click(object sender, RoutedEventArgs e)
+    {
+        // TODO: Minimize window using AppWindow API
+    }
+
+    /// <summary>
+    /// Toggle the hosting window between full-screen and default presentation modes.
+    /// </summary>
+    /// <remarks>Obtains the native window handle, retrieves the AppWindow for the window, and switches its
+    /// Presenter between FullScreen and Default.</remarks>
+    /// <param name="sender">The source of the click event.</param>
+    /// <param name="e">Event arguments for the routed click event.</param>
+    private void MaximizeButton_Click(object sender, RoutedEventArgs e)
+    {
+        var hwnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
+        var windowId = Microsoft.UI.Win32Interop.GetWindowIdFromWindow(hwnd);
+        var appWindow = AppWindow.GetFromWindowId(windowId);
+
+        if (appWindow.Presenter.Kind == AppWindowPresenterKind.FullScreen)
+            appWindow.SetPresenter(AppWindowPresenterKind.Default);
+        else
+            appWindow.SetPresenter(AppWindowPresenterKind.FullScreen);
+    }
+
+    /// <summary>
+    /// Closes the window.
+    /// </summary>
+    /// <param name="sender">The source of the event.</param>
+    /// <param name="e">The routed event data.</param>
+    private void CloseButton_Click(object sender, RoutedEventArgs e) => this.Close();
 }

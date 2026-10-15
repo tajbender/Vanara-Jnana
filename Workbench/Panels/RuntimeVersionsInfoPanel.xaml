@@ -8,25 +8,19 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid RowSpacing="4">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" BorderBrush="Black" BorderThickness="3" CornerRadius="6">
-            <TextBlock Grid.Row="1" FontSize="23" Opacity="0.7" Text="Runtime Versions"/>
-            <StackPanel Orientation="Horizontal" Padding="13" HorizontalAlignment="Stretch">
-                <TextBlock Text="Vanara version:" VerticalAlignment="Center"/>
-                <Border Background="#0589D7" CornerRadius="4" Opacity="0.8" Padding="8,2" HorizontalAlignment="Right">
-                    <TextBlock Text="5.0.7"/>
-                </Border>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Padding="13" HorizontalAlignment="Stretch">
-                <TextBlock Text="jñāna version:" VerticalAlignment="Center"/>
-                <Border Background="#2D6466" CornerRadius="4" Opacity="0.8" Padding="8,2" HorizontalAlignment="Right">
-                    <TextBlock Text="1.261011"/>
-                </Border>
-            </StackPanel>
+    <StackPanel BorderBrush="Black" BorderThickness="3" CornerRadius="6">
+        <TextBlock FontSize="23" Opacity="0.7" Text="Runtime Versions"/>
+        <StackPanel Orientation="Horizontal" Padding="13" HorizontalAlignment="Stretch">
+            <TextBlock Text="Vanara version:" VerticalAlignment="Center"/>
+            <Border Background="#0589D7" CornerRadius="4" Opacity="0.8" Padding="8,2" HorizontalAlignment="Right">
+                <TextBlock Text="5.0.7"/>
+            </Border>
         </StackPanel>
-    </Grid>
+        <StackPanel Orientation="Horizontal" Padding="13" HorizontalAlignment="Stretch">
+            <TextBlock Text="jñāna version:" VerticalAlignment="Center"/>
+            <Border Background="#2D6466" CornerRadius="4" Opacity="0.8" Padding="8,2" HorizontalAlignment="Right">
+                <TextBlock Text="1.261011"/>
+            </Border>
+        </StackPanel>
+    </StackPanel>
 </UserControl>
