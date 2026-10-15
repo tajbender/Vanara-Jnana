@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Jnana.Core.Navigation.Providers;
+using System.Collections.Generic;
 using System.Linq;
-using Jnana.Core.Navigation.Providers;
 using static Jnana.Core.Navigation.NamespaceUri;
 
 namespace Jnana.Core.Navigation;

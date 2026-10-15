@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Microsoft.Identity.Client;
+using System;
 using System.Collections.Generic;
-using Microsoft.Identity.Client;
 
 namespace Jnana.ViewModels;
 

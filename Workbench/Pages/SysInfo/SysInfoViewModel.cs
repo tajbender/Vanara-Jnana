@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Microsoft.UI.Xaml;
+using Microsoft.WindowsAppSDK;
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using Microsoft.UI.Xaml;
-using Microsoft.WindowsAppSDK;
 using Version = Microsoft.WindowsAppSDK.Runtime.Version;
 
 namespace Jnana.Workbench.Pages.SysInfo;

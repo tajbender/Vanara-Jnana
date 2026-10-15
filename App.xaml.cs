@@ -1,8 +1,8 @@
-﻿using System;
-using System.Diagnostics;
-using Jnana.Core.Services;
+﻿using Jnana.Core.Services;
 using Microsoft.UI.Composition.SystemBackdrops;
 using Microsoft.UI.Xaml;
+using System;
+using System.Diagnostics;
 
 namespace Jnana;
 
