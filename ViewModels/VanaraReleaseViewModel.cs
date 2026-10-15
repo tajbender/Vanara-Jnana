@@ -7,8 +7,20 @@ using Jnana.Core.Services;
 
 namespace Jnana.ViewModels;
 
+public class ReleaseInfo
+{
+    public string Name { get; set; }
+    public string Body { get; set; }
+    public DateTime PublishedAt { get; set; }
+}
+
 public partial class VanaraReleaseViewModel : INotifyPropertyChanged
 {
+    public ObservableCollection<ReleaseInfo> Releases { get; } = [];
+    public event PropertyChangedEventHandler PropertyChanged;
+
+    public event EventHandler LoadFailed;
+
     public VanaraReleaseViewModel()
     {
         LoadFailed += (s, e) =>
@@ -19,16 +31,10 @@ public partial class VanaraReleaseViewModel : INotifyPropertyChanged
         _ = this.LoadAsync();
     }
 
-    public ObservableCollection<ReleaseInfo> Releases { get; } = [];
-    public event PropertyChangedEventHandler PropertyChanged;
-
-    public event EventHandler LoadFailed;
-
     protected void OnPropertyChanged(string name)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
     }
-
 
     public async Task LoadAsync()
     {
@@ -46,11 +52,4 @@ public partial class VanaraReleaseViewModel : INotifyPropertyChanged
             LoadFailed?.Invoke(this, EventArgs.Empty);
         }
     }
-}
-
-public class ReleaseInfo
-{
-    public string Name { get; set; }
-    public string Body { get; set; }
-    public DateTime PublishedAt { get; set; }
 }

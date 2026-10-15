@@ -61,11 +61,11 @@ public sealed partial class QuickLaunchBar : UserControl
         set => this.SetValue(UserDisplayNameProperty, value);
     }
 
-
     /// <summary>
     ///   Event raised when a page is requested to be displayed. The event provides the sender, the type of the requested
     /// </summary>
     public event Action<object, Type, RoutedEventArgs>? PageRequested;
+
     /// <summary>
     ///   Initializes a new instance of the <see cref="QuickLaunchBar" /> class.
     ///
@@ -169,9 +169,15 @@ public sealed partial class QuickLaunchBar : UserControl
         try
         {
             using var client = new HttpClient();
-            //client.Timeout = TimeSpan.FromSeconds(3);
-            HttpResponseMessage response = await client.GetAsync("https://api.github.com/");
-            return response.IsSuccessStatusCode;
+
+            string responseBody = await client.GetStringAsync("https://www.github.com/");
+
+            return true;
+        }
+        catch (HttpRequestException e)
+        {
+            Debug.Fail("Failed to check GitHub connectivity: {0}", e.Message);
+            return false;
         }
         catch
         {
@@ -185,7 +191,7 @@ public sealed partial class QuickLaunchBar : UserControl
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e"></param>
-    private void OnGitHubBrowserClick(object sender, RoutedEventArgs e)
+    private void OnGitHubClick(object sender, RoutedEventArgs e)
     {
         this.RaisePageRequested(sender, typeof(GitHubPage), e);
     }

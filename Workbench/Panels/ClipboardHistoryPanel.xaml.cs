@@ -27,7 +27,7 @@ public struct ClipboardHistoryPanelItem
             Timestamp = DateTime.Now, // TODO: Get timestamp from item
             Source = "Clipboard", // TODO: Get source from item
             Type = ClipboardHistoryPanelItemType.Text, // TODO: Determine type from item
-            Format = "Plain Text", // TODO: Get format from item
+            Format = "Text", // TODO: Get format from item
             Metadata = "Metadata from clipboard", // TODO: Get metadata from item
             AdditionalInfo = "Additional info from clipboard", // TODO: Get additional info from item
             User = Environment.UserName, // TODO: Get user from item
