@@ -10,7 +10,7 @@
 
     <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
         <Border Grid.Column="0" BorderBrush="{ThemeResource SystemControlTransparentRevealBorderBrush}" BorderThickness="3" CornerRadius="32">
-            <Grid x:Name="HeaderLogoGrid" CornerRadius="6">
+            <Grid CornerRadius="6">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>

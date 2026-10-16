@@ -11,17 +11,15 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <!-- Put TreeView here, Column 0-->
         <!-- Navigation Bar -->
-        <Border x:Name="NavigationBarBorder" Grid.Column="1" Grid.Row="0">
+        <Border x:Name="NavigationBarBorder" Grid.Column="0" Grid.Row="0">
             <Grid x:Name="NavigationBarGrid" CornerRadius="6" Padding="8">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -42,16 +40,18 @@
             </Grid>
         </Border>
         <!-- Page Content Presenter -->
-        <Border Grid.Column="1" Grid.Row="1">
-            <ContentPresenter x:Name="ContentPresenter" Grid.Column="1" Grid.Row="1"/>
+        <Border Grid.Column="0" Grid.Row="1">
+            <ContentPresenter x:Name="ContentPresenter"/>
         </Border>
         <!-- Page Context Sidebar -->
-        <Border Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" MaxWidth="420">
-            <StackPanel>
-                <panels:RuntimeVersionsInfoPanel/>
-                <panels:ClipboardHistoryPanel/>
-            </StackPanel>
-        </Border>
+        <Grid Grid.Column="1" Grid.Row="0" Grid.RowSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <panels:RuntimeVersionsInfoPanel/>
+            <panels:ClipboardHistoryPanel Grid.Row="1"/>
+        </Grid>
         <!--    <Border Grid.Column="1" Background="{ThemeResource SolidBackgroundFillColorBaseBrush}"
                 BorderBrush="{ThemeResource SystemControlTransparentRevealBorderBrush}"
                 BorderThickness="3" CornerRadius="32" Margin="12" > -->

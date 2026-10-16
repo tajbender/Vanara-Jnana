@@ -18,22 +18,16 @@ public sealed partial class QuickLaunchBar : UserControl
     private const string DefaultAvatarImageUri = "ms-appx:///Assets/Images/DefaultAvatar.png";
     private readonly string[] GitHubBrowserItemSource = ["dummy entry", "another entry"];
 
-    /// <summary>
-    ///     Gets or sets the GitHub user status.
-    /// </summary>
     public string GitHubNetworkStatus
     {
         get => (string)this.GetValue(GitHubNetworkStatusProperty);
-        set => this.SetValue(GitHubNetworkStatusProperty, value);
+        private set => this.SetValue(GitHubNetworkStatusProperty, value);
     }
 
-    /// <summary>
-    ///     Gets or sets the network status.
-    /// </summary>
     public string NetworkStatus
     {
         get => (string)this.GetValue(NetworkStatusDependencyProperty);
-        set => this.SetValue(NetworkStatusDependencyProperty, value);
+        private set => this.SetValue(NetworkStatusDependencyProperty, value);
     }
 
     public string Orientation
@@ -41,7 +35,6 @@ public sealed partial class QuickLaunchBar : UserControl
         get => (string)this.GetValue(OrientationDependencyProperty);
         set => this.SetValue(OrientationDependencyProperty, value);
     }
-
 
     /// <summary>
     ///     Gets or sets the URI of the user's avatar image.
@@ -166,13 +159,17 @@ public sealed partial class QuickLaunchBar : UserControl
 
     private static async Task<bool> CheckGitHubAsync()
     {
+        // TODO: Use a more robust method to check GitHub connectivity,
+        // possibly using the GitHub API or a specific endpoint.
         try
         {
             using var client = new HttpClient();
 
-            string responseBody = await client.GetStringAsync("https://www.github.com/");
+            using var request = new HttpRequestMessage(HttpMethod.Head, "https://github.com/");
 
-            return true;
+            using var response = await client.SendAsync(request);
+
+            return response.IsSuccessStatusCode;
         }
         catch (HttpRequestException e)
         {
@@ -265,12 +262,5 @@ public sealed partial class QuickLaunchBar : UserControl
     private void RaisePageRequested(object sender, Type pageType, RoutedEventArgs args)
     {
         PageRequested?.Invoke(sender, pageType, args);
-    }
-
-    private void StackPanel_HorizontalSnapPointsChanged(object sender, object e)
-    {
-        // TODO: React to Layout Updates or new SnapPoints
-        Debug.WriteLine("Horizontal snap points recalculated: {0}: {1}", sender, e);
-        //(sender as StackPanel)?.HorizontalSnapPoints.Count ?? 0);
     }
 }

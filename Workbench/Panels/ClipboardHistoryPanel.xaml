@@ -3,55 +3,45 @@
     x:Class="Jnana.Workbench.Panels.ClipboardHistoryPanel"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Jnana.Workbench.Panels"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:panels="using:Jnana.Workbench.Panels"
     mc:Ignorable="d">
 
-    <StackPanel Grid.Row="1" BorderBrush="Black" BorderThickness="3" CornerRadius="6" >
-        <TextBlock Grid.Row="1" FontSize="23" Opacity="0.7" Text="Clipboard History"/>
-        <!-- The ItemsRepeater and ScrollViewer used: -->
-        <ScrollViewer>
-            <ItemsRepeater ItemsSource="{x:Bind ClipboardItems}">
-                <ItemsRepeater.Layout>
-                    <StackLayout Spacing="8" />
-                </ItemsRepeater.Layout>
-                <ItemsRepeater.ItemTemplate>
-                    <DataTemplate x:DataType="local:ClipboardHistoryPanelItem">
-                        <Border
-                                Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock FontSize="23" Opacity="0.7" Padding="8" Text="Clipboard History"/>
+        <ScrollViewer Grid.Row="1">
+            <StackPanel BorderBrush="Black" BorderThickness="3" CornerRadius="6" >
+                <ScrollViewer>
+                    <ItemsRepeater ItemsSource="{x:Bind ClipboardItems}">
+                        <ItemsRepeater.Layout>
+                            <StackLayout Spacing="8" />
+                        </ItemsRepeater.Layout>
+                        <ItemsRepeater.ItemTemplate>
+                            <DataTemplate x:DataType="panels:ClipboardHistoryPanelItem">
+                                <Border Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
                                 CornerRadius="8"
                                 Margin="0,0,0,4"
                                 Padding="12">
-                            <Grid RowDefinitions="Auto,Auto,Auto">
-                                <!-- Content Type -->
-                                <TextBlock FontWeight="SemiBold" Text="{x:Bind Type}"/>
-                                <!-- Source Application -->
-                                <TextBlock Grid.Row="1" FontSize="12" Opacity="0.7" Text="{x:Bind Source}"/>
-                                <!-- Preview -->
-                                <TextBlock
-                                        Grid.Row="2"
-                                        Margin="0,8,0,0"
-                                        MaxLines="3"
-                                        Text="{x:Bind GetContentPreviewText(100)}"
-                                        TextWrapping="Wrap"/>
-                            </Grid>
-                        </Border>
-                    </DataTemplate>
-                </ItemsRepeater.ItemTemplate>
-            </ItemsRepeater>
+                                    <Grid RowDefinitions="Auto,Auto,Auto">
+                                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{x:Bind Type}"/>
+                                        <TextBlock Grid.Row="1" FontSize="12" Opacity="0.7" Text="{x:Bind Source}"/>
+                                        <TextBlock Grid.Row="2"
+                                           Margin="0,8,0,0"
+                                           MaxLines="3"
+                                           Text="{x:Bind PreviewText}"
+                                           TextWrapping="Wrap"/>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsRepeater.ItemTemplate>
+                    </ItemsRepeater>
+                </ScrollViewer>
+            </StackPanel>
         </ScrollViewer>
-    </StackPanel>
-
-    <!-- The Layout specifications used: -->
-    <!--<StackLayout x:Name="VerticalStackLayout" Orientation="Vertical" Spacing="8"/> -->
-
-    <!-- The DataTemplate used: HorizontalBarTemplate-->
-    <!--<DataTemplate x:Key="HorizontalBarTemplate" x:DataType="l:Bar">
-                <Border Background="{ThemeResource SystemChromeLowColor}" Width="{x:Bind MaxLength}" >
-                    <Rectangle Fill="{ThemeResource SystemAccentColor}" Width="{x:Bind Length}" 
-                   Height="24" HorizontalAlignment="Left"/>
-                </Border>
-            </DataTemplate>-->
-
+    </Grid>
 </UserControl>

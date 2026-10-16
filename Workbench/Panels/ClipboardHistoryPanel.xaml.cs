@@ -19,11 +19,13 @@ public struct ClipboardHistoryPanelItem
     public string User { get; set; }
     public string Application { get; set; }
 
+    public string PreviewText { get; set; }
+
     public static ClipboardHistoryPanelItem FromClipboardHistoryItem(ClipboardHistoryItem item)
     {
         return new ClipboardHistoryPanelItem
         {
-            Content = item.Content , // TODO: Get content from item
+            Content = item.Content, // TODO: Get content from item
             Timestamp = DateTime.Now, // TODO: Get timestamp from item
             Source = "Clipboard", // TODO: Get source from item
             Type = ClipboardHistoryPanelItemType.Text, // TODO: Determine type from item
@@ -31,27 +33,9 @@ public struct ClipboardHistoryPanelItem
             Metadata = "Metadata from clipboard", // TODO: Get metadata from item
             AdditionalInfo = "Additional info from clipboard", // TODO: Get additional info from item
             User = Environment.UserName, // TODO: Get user from item
-            Application = "Clipboard" // TODO: Get application from item
+            Application = "Clipboard", // TODO: Get application from item
+            PreviewText = "Dummy preview text", // TODO: Implement preview text generation based on content and format
         };
-    }
-
-    public string GetContentPreviewText(int maxPreviewLength = 100)
-    {
-        // TODO: See https://learn.microsoft.com/en-us/uwp/api/windows.applicationmodel.datatransfer.datapackageview?view=winrt-28000
-        //        if(this.Format == "Plain Text" && this.Content != null)
-        //        {
-        //            var text = this.Content.GetTextAsync().AsTask().Result;
-        //            if (text.Length > maxPreviewLength)
-        //            {
-        //                return text[..maxPreviewLength] + "...";
-        //            }
-        //            else
-        //            {
-        //                return text;
-        //            }
-        //        }
-
-        return this.Content?.ToString() ?? string.Empty;
     }
 }
 
@@ -64,6 +48,11 @@ public enum ClipboardHistoryPanelItemType // TODO: Use Vanara ClipboardHistoryIt
     Html
 }
 
+/// <summary>
+/// See https://github.com/Microsoft/Windows-universal-samples/tree/main/Samples/Clipboard for full example.
+/// 
+/// TODO: Don't clear the whole list on every change, instead add/remove items based on the change event.
+/// </summary>
 public sealed partial class ClipboardHistoryPanel : UserControl
 {
     private ObservableCollection<ClipboardHistoryPanelItem> clipboardItems = [];
@@ -81,6 +70,9 @@ public sealed partial class ClipboardHistoryPanel : UserControl
             // Load initial clipboard items on panel loading
             await this.LoadItemsFromClipboardHistory();
         };
+
+        // TODO: Implement clipboard content changed event handling
+        //Clipboard.ContentChanged += this.Clipboard_ContentChanged;
 
         Clipboard.HistoryChanged += async (_, _) =>
         {
@@ -117,9 +109,9 @@ public sealed partial class ClipboardHistoryPanel : UserControl
         });
     }
 
-//    public void ClearSystemClipboardHistory()
-//    {
-//        Clipboard.ClearHistory();
-//        ClipboardItems.Clear();
-//    }
+    //    public void ClearSystemClipboardHistory()
+    //    {
+    //        Clipboard.ClearHistory();
+    //        ClipboardItems.Clear();
+    //    }
 }

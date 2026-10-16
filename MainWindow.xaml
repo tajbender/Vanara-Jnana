@@ -12,7 +12,7 @@
     <Window.SystemBackdrop>
         <MicaBackdrop/>
     </Window.SystemBackdrop>
-    <Grid Padding="16">
+    <Grid Padding="16,0,16,8">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="176"/>
             <ColumnDefinition Width="*"/>
@@ -35,7 +35,7 @@
                 <ImageIconSource ImageSource="/Assets/Icons/vanara-Jnana.ico"/>
             </TitleBar.IconSource>
             <TitleBar.RightHeader>
-                <AutoSuggestBox PlaceholderText="Search..." QueryIcon="Find" VerticalAlignment="Center"/>
+                <AutoSuggestBox IsEnabled="False" PlaceholderText="Search..." QueryIcon="Find" VerticalAlignment="Center"/>
             </TitleBar.RightHeader>
             <!--<TitleBar.RightHeader>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="8">
