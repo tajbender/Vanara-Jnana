@@ -13,7 +13,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock FontSize="23" Opacity="0.7" Text="System Status"/>
+        <TextBlock FontSize="23" Opacity="0.7" Padding="8" Text="System Status"/>
         <StackPanel Grid.Row="1" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" CornerRadius="8">
             <StackPanel Orientation="Horizontal" Padding="13" HorizontalAlignment="Stretch">
                 <TextBlock Text="Vanara version:" VerticalAlignment="Center"/>

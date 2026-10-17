@@ -13,7 +13,7 @@
         <vm:StatusBarViewModel />
     </UserControl.DataContext>
 
-    <Grid Background="{ThemeResource JnanaStatusBarBackground}">
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
@@ -28,9 +28,8 @@
             <!-- Chevron -->
         </StackPanel>
 
-
         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="12,0">
-            <FontIcon FontSize="18" Glyph="&#xE80F;" Foreground="{ThemeResource JnanaAccentBrush}" Margin="0,0,8,0" />
+            <FontIcon FontSize="18" Glyph="&#xE80F;" Margin="0,0,8,0" />
         </StackPanel>
 
         <!-- CENTER: READY. PROMPT -->
@@ -42,14 +41,12 @@
             <TextBlock Text="READY"
                        FontFamily="Consolas"
                        FontSize="14"
-                       Foreground="{ThemeResource JnanaStatusTextBrush}"
                        Margin="0,0,2,0" />
 
-            <!-- Blinking Dot -->
-            <TextBlock Text="."
+            <!-- TODO: Blinking Dot -->
+            <!--<TextBlock Text="."
                        FontFamily="Consolas"
-                       FontSize="14"
-                       Foreground="{ThemeResource JnanaStatusTextBrush}">
+                       FontSize="14">
                 <TextBlock.Triggers>
                     <EventTrigger RoutedEvent="Loaded">
                         <BeginStoryboard>
@@ -62,7 +59,7 @@
                         </BeginStoryboard>
                     </EventTrigger>
                 </TextBlock.Triggers>
-            </TextBlock>
+            </TextBlock>-->
         </StackPanel>
 
         <!-- RIGHT: SYSTEM INDICATORS -->
@@ -101,4 +98,24 @@
         </StackPanel>
     </Grid>
 
+    <!-- TODO: Move this to a separate control and make it a status bar that can be used in other places
+        <Grid x:Name="BottomStatusGrid" Grid.Row="1" CornerRadius="8" HorizontalAlignment="Stretch" Opacity="0.76" Padding="42,23" VerticalAlignment="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <FontIcon Grid.Column="0" Grid.Row="1" Glyph="&#xE7F8;"/>
+            <FontIcon Grid.Column="1" Grid.Row="1" Glyph="&#xE7F8;"/>
+            <FontIcon Grid.Column="2" Grid.Row="1" Glyph="&#xE7F8;"/>
+            <AppBarSeparator Grid.ColumnSpan="3" Grid.Row="2" Height="23" MinWidth="128"/>
+            <FontIcon Grid.Column="0" Grid.Row="3" Glyph="&#xE7F8;"/>
+            <FontIcon Grid.Column="1" Grid.Row="3" Glyph="&#xE7F8;"/>
+            <FontIcon Grid.Column="2" Grid.Row="3" Glyph="&#xE7F8;"/>
+        </Grid>-->
 </UserControl>
