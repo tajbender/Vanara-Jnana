@@ -459,7 +459,7 @@
     <Page Update="Workbench\Panels\ClipboardHistoryPanel.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Update="Workbench\Panels\RuntimeVersionsInfoPanel.xaml">
+    <Page Update="Workbench\Panels\SystemStatusInfoPanel.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Update="Workbench\Pages\Workbench\ScienceLabsPage.xaml">

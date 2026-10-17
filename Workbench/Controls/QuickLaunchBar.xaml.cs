@@ -167,11 +167,6 @@ public sealed partial class QuickLaunchBar : UserControl
         }
     }
 
-    /// <summary>
-    ///     Handles the click event for the GitHub button.
-    /// </summary>
-    /// <param name="sender"></param>
-    /// <param name="e"></param>
     private void OnGitHubClick(object sender, RoutedEventArgs e)
     {
         this.RaisePageRequested(sender, typeof(GitHubPage), e);
@@ -187,72 +182,36 @@ public sealed partial class QuickLaunchBar : UserControl
         this.RaisePageRequested(sender, typeof(GitHubPage), e);
     }
 
-    /// <summary>
-    ///     Handles the click event for the NuGets button.
-    /// </summary>
-    /// <param name="sender"></param>
-    /// <param name="e"></param>
     private void OnNuGetsClick(object sender, RoutedEventArgs e)
     {
         this.RaisePageRequested(sender, typeof(NuGetsPage), e);
     }
 
-    /// <summary>
-    ///     Handles the click event for the Samples button.
-    /// </summary>
-    /// <param name="sender"></param>
-    /// <param name="e"></param>
     private void OnSamplesClick(object sender, RoutedEventArgs e)
     {
         this.RaisePageRequested(sender, typeof(SamplesPage), e);
     }
 
-    /// <summary>
-    ///     Handles the click event for the Science Labs button.
-    /// </summary>
-    /// <param name="sender"></param>
-    /// <param name="e"></param>
     private void OnScienceLabsClick(object sender, RoutedEventArgs e)
     {
         this.RaisePageRequested(sender, typeof(ScienceLabsPage), e);
     }
 
-    /// <summary>
-    ///     Handles the click event for the Tools and Utilities button.
-    /// </summary>
-    /// <param name="sender"></param>
-    /// <param name="e"></param>
     private void OnToolsAndUtilitiesClick(object sender, RoutedEventArgs e)
     {
         this.RaisePageRequested(sender, typeof(ToolsAndUtilitiesPage), e);
     }
 
-    /// <summary>
-    ///     Handles the click event for the Workbench button.
-    /// </summary>
-    /// <param name="sender"></param>
-    /// <param name="e"></param>
     private void OnWorkbenchClick(object sender, RoutedEventArgs e)
     {
         this.RaisePageRequested(sender, typeof(WorkbenchPage), e);
     }
 
-    /// <summary>
-    ///     Handles the click event for the Settings button.
-    /// </summary>
-    /// <param name="sender"></param>
-    /// <param name="e"></param>
     private void OnSettingsClick(object sender, RoutedEventArgs e)
     {
         this.RaisePageRequested(sender, typeof(SettingsPage), e);
     }
 
-    /// <summary>
-    ///     Raises the PageRequested event with the specified page type.
-    /// </summary>
-    /// <param name="sender"></param>
-    /// <param name="pageType"></param>
-    /// <param name="args"></param>
     private void RaisePageRequested(object sender, Type pageType, RoutedEventArgs args)
     {
         PageRequested?.Invoke(sender, pageType, args);

@@ -1,31 +1,30 @@
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System;
-using System.Reflection;
 using Windows.ApplicationModel;
 
 namespace Jnana.Workbench.Panels;
 
-public sealed partial class RuntimeVersionsInfoPanel : UserControl
+public sealed partial class SystemStatusInfoPanel : UserControl
 {
-    public static readonly DependencyProperty AppVersionInfoProperty =
+    public static readonly DependencyProperty AppPackageVersionInfoProperty =
         DependencyProperty.Register(
-            nameof(AppVersionInfo),
+            nameof(AppPackageVersionInfo),
             typeof(string),
-            typeof(RuntimeVersionsInfoPanel),
+            typeof(SystemStatusInfoPanel),
             new PropertyMetadata(string.Empty));
 
-    private string AppVersionInfo
+    private string AppPackageVersionInfo
     {
-        get => (string)GetValue(AppVersionInfoProperty);
-        set => SetValue(AppVersionInfoProperty, value);
+        get => (string)GetValue(AppPackageVersionInfoProperty);
+        set => SetValue(AppPackageVersionInfoProperty, value);
     }
 
     public static readonly DependencyProperty VanaraCoreVersionInfoProperty =
         DependencyProperty.Register(
             nameof(VanaraCoreVersionInfo),
             typeof(string),
-            typeof(RuntimeVersionsInfoPanel),
+            typeof(SystemStatusInfoPanel),
             new PropertyMetadata(string.Empty));
 
     private string VanaraCoreVersionInfo
@@ -34,11 +33,11 @@ public sealed partial class RuntimeVersionsInfoPanel : UserControl
         set => SetValue(VanaraCoreVersionInfoProperty, value);
     }
 
-    public RuntimeVersionsInfoPanel()
+    public SystemStatusInfoPanel()
     {
         this.InitializeComponent();
 
-        this.AppVersionInfo = GetAppVersion();
+        this.AppPackageVersionInfo = GetAppPackageVersion();
         this.VanaraCoreVersionInfo = GetVanaraCoreVersion();
     }
 
@@ -48,7 +47,7 @@ public sealed partial class RuntimeVersionsInfoPanel : UserControl
     /// <remarks>Values are taken from Windows.ApplicationModel.Package.Current.Id.Version and concatenated with
     /// dots.</remarks>
     /// <returns>A string containing the package version formatted as 'Major.Minor.Build.Revision'.</returns>
-    public static string GetAppVersion()
+    public static string GetAppPackageVersion()
     {
         PackageVersion version = Package.Current.Id.Version;
 
