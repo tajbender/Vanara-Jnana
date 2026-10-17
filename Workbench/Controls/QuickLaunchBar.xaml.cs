@@ -15,9 +15,6 @@ namespace Jnana.Workbench.Controls;
 
 public sealed partial class QuickLaunchBar : UserControl
 {
-    private const string DefaultAvatarImageUri = "ms-appx:///Assets/Images/DefaultAvatar.png";
-    private readonly string[] GitHubBrowserItemSource = ["dummy entry", "another entry"];
-
     public string GitHubNetworkStatus
     {
         get => (string)this.GetValue(GitHubNetworkStatusProperty);
@@ -55,17 +52,12 @@ public sealed partial class QuickLaunchBar : UserControl
     }
 
     /// <summary>
-    ///   Event raised when a page is requested to be displayed. The event provides the sender, the type of the requested
+    ///   Event raised when a page is requested to be displayed.
+    ///   The event provides the sender, and <see cref="Type"/> of the requested page, 
+    ///   and the <see cref="RoutedEventArgs"/> associated with the event.
     /// </summary>
     public event Action<object, Type, RoutedEventArgs>? PageRequested;
 
-    /// <summary>
-    ///   Initializes a new instance of the <see cref="QuickLaunchBar" /> class.
-    ///
-    ///   This is the `Vanara Jñāna Workbench` `Quick Launch Bar control`,
-    ///   which provides quick access to various pages and displays user
-    ///   and network status information.
-    /// </summary>
     public QuickLaunchBar()
     {
         this.InitializeComponent();
@@ -116,14 +108,6 @@ public sealed partial class QuickLaunchBar : UserControl
 
     #endregion Dependency Properties
 
-
-
-
-    /// <summary>
-    ///     Asynchronously initializes the status information for the QuickLaunchBar, including user display name, network
-    ///     status, and GitHub status.
-    /// </summary>
-    /// <returns></returns>
     private async Task InitializeStatusAsync()
     {
         this.UserDisplayName = $"Local user: `{Environment.UserName}`";
@@ -189,6 +173,16 @@ public sealed partial class QuickLaunchBar : UserControl
     /// <param name="sender"></param>
     /// <param name="e"></param>
     private void OnGitHubClick(object sender, RoutedEventArgs e)
+    {
+        this.RaisePageRequested(sender, typeof(GitHubPage), e);
+    }
+
+    private void OnGitHubIssuesClick(object sender, RoutedEventArgs e)
+    {
+        this.RaisePageRequested(sender, typeof(GitHubPage), e);
+    }
+
+    private void OnGitHubDiscussionsClick(object sender, RoutedEventArgs e)
     {
         this.RaisePageRequested(sender, typeof(GitHubPage), e);
     }

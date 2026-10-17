@@ -41,7 +41,7 @@
         </Border>
         <!-- Page Content Presenter -->
         <Border Grid.Column="0" Grid.Row="1">
-            <ContentPresenter x:Name="ContentPresenter"/>
+            <ContentPresenter x:Name="PageContentPresenter"/>
         </Border>
         <!-- Page Context Sidebar -->
         <Grid Grid.Column="1" Grid.Row="0" Grid.RowSpan="2">

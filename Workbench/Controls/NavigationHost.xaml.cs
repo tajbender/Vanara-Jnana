@@ -15,8 +15,11 @@ public sealed partial class NavigationHost : UserControl
         this.BreadcrumbBar.ItemsSource = new string[] { "Workbench" };
     }
 
-    public static void ShowPage<TPage>(TPage pageInstance) where TPage : class, INavigationAware
+    public void ShowPage<TPage>(TPage pageInstance) where TPage : class, INavigationAware
     {
+        this.PageContentPresenter.Content = pageInstance;
+
+        //        this.ShowPage(typeof(TPage), pageInstance);
         // TODO: this.Presenter.Content = pageInstance;
     }
 }

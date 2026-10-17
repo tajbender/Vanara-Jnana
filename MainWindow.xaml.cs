@@ -3,6 +3,8 @@ using Jnana.Workbench.Pages.Workbench;
 using Microsoft.UI.Composition.SystemBackdrops;
 using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
+using System;
+using System.Diagnostics;
 
 namespace Jnana;
 
@@ -44,6 +46,11 @@ public sealed partial class MainWindow : Window
         //TODO: NavigationHost<WorkbenchPage>.ShowPage(workbench);
         this._navigationService.Navigate(typeof(WorkbenchPage));
     }
+    
+    private void QuickLaunchBar_PageRequested(object arg1, Type arg2, RoutedEventArgs arg3)
+    {
+        Debug.WriteLine($"QuickLaunchBar_PageRequested: {arg2.Name}");
+    }
 
     private void TrySetMicaBackdrop()
     {
@@ -53,10 +60,10 @@ public sealed partial class MainWindow : Window
             Theme = SystemBackdropTheme.Default
         };
 
-//        this._micaController = new MicaController();
+        //        this._micaController = new MicaController();
         // Todo: this fails:
         //   _micaController.AddSystemBackdropTarget(this.As<Microsoft.UI.Composition.ICompositionSupportsSystemBackdrop>());
-//        this._micaController.SetSystemBackdropConfiguration(this._configuration);
+        //        this._micaController.SetSystemBackdropConfiguration(this._configuration);
     }
 
     private void MinimizeButton_Click(object sender, RoutedEventArgs e)

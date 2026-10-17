@@ -50,14 +50,14 @@
                     </StackPanel>
                 </Button>
                 <Button Grid.Row="6" CornerRadius="0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"
-                        IsEnabled="False" Opacity="0.5">
+                        Click="OnGitHubIssuesClick">
                     <StackPanel>
                         <TextBlock FontSize="32" HorizontalAlignment="Center" Text="🐞"/>
                         <TextBlock HorizontalAlignment="Center" Text="Issues"/>
                     </StackPanel>
                 </Button>
                 <Button Grid.Row="7" CornerRadius="0,0,6,6" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"
-                        IsEnabled="False" Opacity="0.5">
+                        Click="OnGitHubDiscussionsClick">
                     <StackPanel>
                         <TextBlock FontSize="32" HorizontalAlignment="Center" Text="💬"/>
                         <TextBlock HorizontalAlignment="Center" Text="Discussions"/>
