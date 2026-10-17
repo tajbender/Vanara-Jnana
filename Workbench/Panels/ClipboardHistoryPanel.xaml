@@ -15,33 +15,29 @@
         </Grid.RowDefinitions>
         <TextBlock FontSize="23" Opacity="0.7" Padding="8" Text="Clipboard History"/>
         <ScrollViewer Grid.Row="1">
-            <StackPanel BorderBrush="Black" BorderThickness="3" CornerRadius="6" >
-                <ScrollViewer>
-                    <ItemsRepeater ItemsSource="{x:Bind ClipboardItems}">
-                        <ItemsRepeater.Layout>
-                            <StackLayout Spacing="8" />
-                        </ItemsRepeater.Layout>
-                        <ItemsRepeater.ItemTemplate>
-                            <DataTemplate x:DataType="panels:ClipboardHistoryPanelItem">
-                                <Border Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+            <ItemsRepeater ItemsSource="{x:Bind ClipboardItems}">
+                <ItemsRepeater.Layout>
+                    <StackLayout Spacing="8" />
+                </ItemsRepeater.Layout>
+                <ItemsRepeater.ItemTemplate>
+                    <DataTemplate x:DataType="panels:ClipboardHistoryPanelItem">
+                        <Border Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
                                 CornerRadius="8"
                                 Margin="0,0,0,4"
                                 Padding="12">
-                                    <Grid RowDefinitions="Auto,Auto,Auto">
-                                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{x:Bind Type}"/>
-                                        <TextBlock Grid.Row="1" FontSize="12" Opacity="0.7" Text="{x:Bind Source}"/>
-                                        <TextBlock Grid.Row="2"
+                            <Grid RowDefinitions="Auto,Auto,Auto">
+                                <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{x:Bind Type}"/>
+                                <TextBlock Grid.Row="1" FontSize="12" Opacity="0.7" Text="{x:Bind Source}"/>
+                                <TextBlock Grid.Row="2"
                                            Margin="0,8,0,0"
                                            MaxLines="3"
                                            Text="{x:Bind PreviewText}"
                                            TextWrapping="Wrap"/>
-                                    </Grid>
-                                </Border>
-                            </DataTemplate>
-                        </ItemsRepeater.ItemTemplate>
-                    </ItemsRepeater>
-                </ScrollViewer>
-            </StackPanel>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ItemsRepeater.ItemTemplate>
+            </ItemsRepeater>
         </ScrollViewer>
     </Grid>
 </UserControl>
